@@ -1,0 +1,160 @@
+* {
+  font-family: "Roboto", sans-serif !important;
+}
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
+$color-danger: rgb(228, 30, 64);
+$color-danger-dark: darken($color-danger, 10%);
+$color-warning: #feaa00;
+$color-light: #ffffff;
+
+$color-disabled: #e8e8e7;
+
+$color-green-main: #0c7142;
+$color-green-secondary: #40c145;
+$color-gray: #c4c3c8;
+$color-dark: #212121;
+$color-blue: #009cff;
+$color-magenta: #d90378;
+$color-secondary: #787690;
+
+$color-green-gradient-start: $color-green-secondary;
+$color-green-gradient-end: $color-green-main;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+@import "./Button/Button.scss";
+@import "./Badge/Badge.scss";
+@import "./Card/Card.scss";

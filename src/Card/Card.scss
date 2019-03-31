@@ -1,0 +1,49 @@
+.cb-card {
+  background-color: $color-light;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-disabled;
+  position: relative;
+  min-width: 0;
+  word-wrap: break-word;
+  &-body {
+    padding: 10px;
+    flex-grow: 1;
+  }
+  &-header {
+    display: flex;
+    align-items: center;
+    &-title {
+      font-size: 14px;
+      font-weight: $font-weight-bold;
+      color: $color-dark;
+    }
+    min-height: 20px;
+    padding: 5px 10px;
+    border-bottom: 2px solid $color-green-secondary;
+  }
+  &-footer {
+    padding: 5px 10px;
+    border-top: 2px solid $color-disabled;
+    background-color: lighten($color-disabled, 5%);
+    font-size: 12px;
+    color: $color-gray;
+  }
+  &-inner {
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+  }
+  &-image {
+    width: 100%;
+    &-top {
+      flex-direction: column;
+    }
+    &-left {
+      flex-direction: row;
+    }
+  }
+}
