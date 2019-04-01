@@ -1,5 +1,5 @@
 @import "./Toggle.mixin.scss";
-.cb-toggle-container {
+.cb-toggle {
   position: relative;
   display: inline-block;
   width: 35px;
@@ -19,7 +19,6 @@
       transform: translateX(16px);
     }
   }
-
   .cb-toggle-button {
     position: absolute;
     cursor: pointer;

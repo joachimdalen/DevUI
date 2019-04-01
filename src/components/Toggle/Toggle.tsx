@@ -27,7 +27,7 @@ export class Toggle extends React.Component<Props> {
     return (
       <label
         className={cx(
-          "cb-toggle-container",
+          "cb-toggle",
           { [`cb-toggle-rounded`]: rounded },
           { [`cb-toggle-${variant}`]: variant !== "default" },
           { [`cb-toggle-${size}`]: size !== "normal" },
