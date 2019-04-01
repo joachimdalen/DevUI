@@ -1,5 +1,3 @@
-@function create-buttons($normal, $outlined, $dashed) {
-}
 @mixin button-variant($parent, $background) {
   &#{$parent} {
     background-color: $background;
