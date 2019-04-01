@@ -10,7 +10,8 @@ const variants = [
   "light",
   "danger",
   "warning",
-  "blue"
+  "blue",
+  "magenta"
 ];
 storiesOf("Components/Button", module)
   .add("Basic Button", () => (
