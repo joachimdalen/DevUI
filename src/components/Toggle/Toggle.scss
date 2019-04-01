@@ -1,0 +1,74 @@
+@import "./Toggle.mixin.scss";
+.cb-toggle-container {
+  position: relative;
+  display: inline-block;
+  width: 35px;
+  height: 17px;
+  margin: 3px;
+  input {
+    display: none;
+    &:checked + .cb-toggle-button {
+      background-color: $color-green-main;
+    }
+
+    &:focus + .cb-toggle-button {
+      box-shadow: 0 0 1px $color-green-main;
+    }
+
+    &:checked + .cb-toggle-button:before {
+      transform: translateX(16px);
+    }
+  }
+
+  .cb-toggle-button {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color-disabled;
+    transition: 0.4s;
+  }
+
+  .cb-toggle-button:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 13px;
+    left: 2px;
+    bottom: 2px;
+    background-color: $color-light;
+    transition: 0.4s;
+  }
+  &.cb-toggle-large {
+    width: 45px;
+    height: 25px;
+    input {
+      &:checked + .cb-toggle-button:before {
+        transform: translateX(20px);
+      }
+    }
+    .cb-toggle-button:before {
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+    }
+  }
+  .cb-toggle-label {
+    display: inline-block;
+  }
+
+  &.cb-toggle-rounded {
+    .cb-toggle-button {
+      border-radius: 34px;
+    }
+    .cb-toggle-button:before {
+      border-radius: 50%;
+    }
+  }
+  @each $color, $value in $theme-colors {
+    @include toggle-variant(".cb-toggle-#{$color}", $value);
+  }
+}
