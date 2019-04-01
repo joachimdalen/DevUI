@@ -1,3 +1,4 @@
+@import "./Badge.mixin.scss";
 .cb-badge {
   padding: 1px 7px;
   border: 1px solid;
@@ -9,9 +10,16 @@
   border-radius: 4px;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   margin-right: 8px;
-}
-.cb-badge-primary {
-  color: #28da28;
-  border-color: lighten(#28da28, 5%);
-  background-color: lighten(#28da28, 45%);
+
+  color: $color-dark;
+  background-color: $color-disabled;
+  border-color: transparent;
+
+  box-sizing: border-box;
+  @each $color, $value in $theme-colors {
+    @include badge-variant("-#{$color}", $value);
+  }
+  @each $color, $value in $theme-colors {
+    @include badge-neon-variant("-neon-#{$color}", $value);
+  }
 }
