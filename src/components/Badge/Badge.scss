@@ -1,0 +1,17 @@
+.cb-badge {
+  padding: 1px 7px;
+  border: 1px solid;
+  font-weight: $font-weight-regular;
+  font-size: 12px;
+  line-height: 20px;
+  white-space: normal;
+  display: inline-block;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  margin-right: 8px;
+}
+.cb-badge-primary {
+  color: #28da28;
+  border-color: lighten(#28da28, 5%);
+  background-color: lighten(#28da28, 45%);
+}

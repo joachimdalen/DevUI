@@ -1,0 +1,45 @@
+@import "./reset";
+@import "./functions";
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
+$color-danger: rgb(228, 30, 64);
+$color-danger-dark: darken($color-danger, 10%);
+$color-warning: #feaa00;
+$color-light: #ffffff;
+
+$color-disabled: #e8e8e7;
+
+$color-green-main: #0c7142;
+$color-green-secondary: #40c145;
+$color-gray: #dcdee7;
+$color-dark: #212121;
+$color-blue: #009cff;
+$color-magenta: #d90378;
+$color-secondary: #787690;
+
+$color-green-gradient-start: $color-green-secondary;
+$color-green-gradient-end: $color-green-main;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$theme-colors: () !default;
+
+$theme-colors: map-merge(
+  (
+    "primary": $color-green-main,
+    "secondary": $color-green-secondary,
+    "dark": $color-dark,
+    "light": $color-light,
+    "danger": $color-magenta,
+    "warning": $color-warning,
+    "blue": $color-blue
+  ),
+  $theme-colors
+);
+@import "../components/Button/Button.scss";
+@import "../components/Badge/Badge.scss";
+@import "../components/Card/Card.scss";
+@import "../components/List/List.scss";

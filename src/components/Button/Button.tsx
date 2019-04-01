@@ -7,6 +7,7 @@ export interface Props {
   variant: string;
   format: "default" | "block";
   outlined: boolean;
+  dashed: boolean;
 }
 
 export class Button extends React.Component<Props> {
@@ -17,7 +18,8 @@ export class Button extends React.Component<Props> {
       format = "default",
       disabled = false,
       variant = "default",
-      outlined = false
+      outlined = false,
+      dashed = false
     } = this.props;
     return (
       <button
@@ -26,7 +28,8 @@ export class Button extends React.Component<Props> {
           { disabled: disabled },
           { [`cb-button-${variant}`]: variant !== "default" && !outlined },
           { [`cb-button-${format}`]: format !== "default" },
-          { [`cb-button-outlined-${variant}`]: outlined }
+          { [`cb-button-outlined-${variant}`]: outlined },
+          { [`cb-button-dashed`]: dashed }
         )}
         disabled={disabled}
         onClick={onClick}

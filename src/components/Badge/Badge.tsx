@@ -8,6 +8,6 @@ export interface Props {
 export class Badge extends React.Component<Props> {
   public render() {
     const { label } = this.props;
-    return <span className={cx("cb-badge")}>{label}</span>;
+    return <span className={cx("cb-badge", "cb-badge-primary")}>{label}</span>;
   }
 }

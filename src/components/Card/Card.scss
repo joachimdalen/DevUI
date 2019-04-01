@@ -9,9 +9,12 @@
   position: relative;
   min-width: 0;
   word-wrap: break-word;
+  width: 100%;
   &-body {
-    padding: 10px;
+    padding: 8px 16px;
     flex-grow: 1;
+    font-size: 12px;
+    font-weight: $font-weight-regular;
   }
   &-header {
     display: flex;
@@ -19,14 +22,14 @@
     &-title {
       font-size: 14px;
       font-weight: $font-weight-bold;
-      color: $color-dark;
+      color: $color-dark;      
     }
     min-height: 20px;
-    padding: 5px 10px;
+    padding: 8px 16px;
     border-bottom: 2px solid $color-green-secondary;
   }
   &-footer {
-    padding: 5px 10px;
+    padding: 4px 16px;
     border-top: 2px solid $color-disabled;
     background-color: lighten($color-disabled, 5%);
     font-size: 12px;
@@ -38,12 +41,29 @@
     width: 100%;
   }
   &-image {
-    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
     &-top {
       flex-direction: column;
+      .cb-card-image {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
     }
     &-left {
       flex-direction: row;
+      .cb-card-image {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+    }
+    &-right {
+      flex-direction: row;
+      .cb-card-image {
+        order: 2;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
     }
   }
 }

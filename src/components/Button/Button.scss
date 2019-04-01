@@ -1,0 +1,57 @@
+@import "./Button.mixin.scss";
+%outlined {
+  background-image: none !important;
+  background-color: $color-light;
+}
+.cb-button {
+  margin: auto;
+  font-size: 14px;
+  text-align: center;
+  text-transform: capitalize;
+  border-radius: 4px;
+  padding: 4px 16px;
+  box-shadow: 0 0 20px #eee;
+  color: $color-light;
+  border: 2px solid;
+  font-weight: $font-weight-regular;
+  margin: 2px;
+  &.disabled {
+    background-color: $color-disabled;
+    border-color: transparent;
+    background-image: none;
+    color: $color-light;
+    cursor: not-allowed;
+  }
+  &:hover:not(.disabled) {
+    cursor: pointer;
+    background-image: none;
+    background-color: $color-green-secondary;
+  }
+  background-image: linear-gradient(
+    to left,
+    $color-green-gradient-start 0%,
+    $color-green-gradient-end 100%
+  );
+
+  &-block {
+    border-radius: 0;
+    display: block;
+    width: 100%;
+  }
+ 
+  &-outlined {
+    @each $color, $value in $theme-colors {
+      @include button-outlined("-#{$color}", $value);
+    }
+  }
+  @each $color, $value in $theme-colors {
+    @include button-variant("-#{$color}", $value);
+  }
+  &-dashed {
+    border: 2px dashed;
+    background-image: none;
+    &:hover:not(.disabled) {
+      border: 2px solid;
+    }
+  }
+}

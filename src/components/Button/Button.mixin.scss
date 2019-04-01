@@ -1,0 +1,27 @@
+@function create-buttons($normal, $outlined, $dashed) {
+}
+@mixin button-variant($parent, $background) {
+  &#{$parent} {
+    background-color: $background;
+    color: colorFromBackground($background);
+    background-image: none;
+    &:hover:not(.disabled) {
+      background-color: darken($background, 10%);
+    }
+  }
+}
+@mixin button-outlined($parent, $color) {
+  &#{$parent} {
+    background-image: none !important;
+    background-color: $color-light;
+    color: $color;
+    border-radius: 0;
+    &:hover:not(.disabled) {
+      background-color: $color;
+      color: $color-light;
+    }
+  }
+}
+@mixin button-dashed {
+    
+}

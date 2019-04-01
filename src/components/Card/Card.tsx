@@ -3,7 +3,7 @@ import cx from "classnames";
 import { CardImage } from "./CardImage";
 export interface Props {
   image: string;
-  imagePlacement: "top" | "left";
+  imagePlacement: "top" | "left" | "right";
   width: number;
 }
 
