@@ -2,14 +2,14 @@
   &#{$parent} {
     input {
       &:checked + .cb-toggle-button {
-        background-color: $background !important;
+        background-color: $background;
       }
       &:focus + .cb-toggle-button {
-        box-shadow: 0 0 0.0625rem $background !important;
+        box-shadow: 0 0 0.0625rem $background;
       }
     }
     .cb-toggle-button:before {
-      background-color: colorFromBackground($background) !important;
+      background-color: colorFromBackground($background);
     }
   }
 }
