@@ -91,6 +91,84 @@ storiesOf("Components/List", module)
         )}
         icon="ABC"
       />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Item subtitle",
+          "While this is a long item subtitle",
+          "List Items"
+        )}
+        icon="ABC"
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Item subtitle",
+          "While this is a long item subtitle",
+          "List Items"
+        )}
+      />
+      <ListActionItem
+        title={text("Action Title", "Load more...", "List Actions")}
+        onClick={() => console.log("h")}
+      />
+    </List>
+  ))
+  .add("Icon placement", () => (
+    <List
+      title={text("Title", "List title", "List")}
+      bordered={boolean("Bordered", true, "Styling")}
+    >
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Item subtitle",
+          "While this is a long item subtitle",
+          "List Items"
+        )}
+        icon={
+          <img src="https://www.ntbinfo.no/data/images/00163/604fce71-7704-4ba9-8808-95c92a479aa2-w_960_h_960.png" />
+        }
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Item subtitle",
+          "While this is a long item subtitle",
+          "List Items"
+        )}
+        icon={
+          <img src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/github-square-512.png" />
+        }
+        iconPlacement="right"
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Item subtitle",
+          "While this is a long item subtitle",
+          "List Items"
+        )}
+        icon={"LA"}
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Item subtitle",
+          "While this is a long item subtitle",
+          "List Items"
+        )}
+        icon={"LA"}
+        iconPlacement="right"
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Long Subtitle",
+          "While this is a long item subtitle that could also be even longer than the short subtitles above",
+          "List Items"
+        )}
+      />
       <ListActionItem
         title={text("Action Title", "Load more...", "List Actions")}
         onClick={() => console.log("h")}

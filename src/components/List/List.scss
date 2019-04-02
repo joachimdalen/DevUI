@@ -14,12 +14,23 @@
       padding: 5px 10px;
       display: flex;
       flex-direction: row;
-      align-content: center;
+      align-items: center;
       &-icon {
+        display: flex;
         align-self: center;
+        justify-content: center;
+        width: 40px;
+        i,
+        img {
+          max-height: 40px;
+        }
+        &-right {
+          order: 1;
+        }
       }
       &-content {
         padding: 5px 10px;
+        width: 100%;
         .cui-list-item-title,
         &-title {
           font-size: 12px;

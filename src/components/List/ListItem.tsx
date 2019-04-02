@@ -5,11 +5,12 @@ export interface Props {
   title: string;
   subtitle?: string;
   icon?: string;
+  iconPlacement?: "left" | "right";
 }
 
 export class ListItem extends React.Component<Props> {
   public render() {
-    const { title, subtitle, icon } = this.props;
+    const { title, subtitle, icon, iconPlacement = "left" } = this.props;
     if (isNull(icon)) {
       return (
         <ul className={cx("cui-list-item")}>
@@ -19,7 +20,15 @@ export class ListItem extends React.Component<Props> {
     }
     return (
       <ul className={cx("cui-list-item")}>
-        {icon && <span className="cui-list-item-icon">{icon}</span>}
+        {icon && (
+          <span
+            className={cx("cui-list-item-icon", {
+              [`cui-list-item-icon-right`]: iconPlacement === "right"
+            })}
+          >
+            {icon}
+          </span>
+        )}
         <div className="cui-list-item-content">
           <p className={cx("cui-list-item-content-title")}>{title}</p>
           {subtitle && (
