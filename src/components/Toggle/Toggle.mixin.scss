@@ -11,5 +11,10 @@
     .cb-toggle-button:before {
       background-color: colorFromBackground($background);
     }
+    &.cb-toggle-labels {
+      .cb-toggle-button:before {
+        color: $background;
+      }
+    }
   }
 }

@@ -24,8 +24,16 @@ storiesOf("Components/Toggle", module)
   .add("Large Toggle", () => (
     <Toggle
       toggled={boolean("Toggled", true)}
-      rounded={boolean("Rounded", true)}
+      rounded={boolean("Rounded", false)}
       size={text("Size", "large")}
+    />
+  ))
+  .add("With labels", () => (
+    <Toggle
+      toggled={boolean("Toggled", true)}
+      rounded={boolean("Rounded", false)}
+      size={text("Size", "large")}
+      showLabels={boolean("Show labels", true)}
     />
   ))
   .add("Variants", () => (
@@ -37,6 +45,7 @@ storiesOf("Components/Toggle", module)
               key={`normal-block-${variant}`}
               variant={variant}
               toggled={boolean("Toggled", true)}
+              showLabels={boolean("Show Labels", false)}
             />
           );
         })}
@@ -49,6 +58,7 @@ storiesOf("Components/Toggle", module)
               variant={variant}
               rounded={true}
               toggled={boolean("Toggled", true)}
+              showLabels={boolean("Show Labels", false)}
             />
           );
         })}
@@ -61,6 +71,7 @@ storiesOf("Components/Toggle", module)
               variant={variant}
               toggled={boolean("Toggled", true)}
               size="large"
+              showLabels={boolean("Show Labels", false)}
             />
           );
         })}
@@ -74,6 +85,7 @@ storiesOf("Components/Toggle", module)
               toggled={boolean("Toggled", true)}
               size="large"
               rounded={true}
+              showLabels={boolean("Show Labels", false)}
             />
           );
         })}

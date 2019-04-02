@@ -21,6 +21,7 @@ export class Toggle extends React.Component<Props> {
       rounded = false,
       variant = "default",
       size = "normal",
+      showLabels = false,
       onToggle
     } = this.props;
 
@@ -31,6 +32,7 @@ export class Toggle extends React.Component<Props> {
           { [`cb-toggle-rounded`]: rounded },
           { [`cb-toggle-${variant}`]: variant !== "default" },
           { [`cb-toggle-${size}`]: size !== "normal" },
+          { [`cb-toggle-labels`]: showLabels },
           className
         )}
       >
