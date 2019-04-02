@@ -12,18 +12,18 @@ export class ListItem extends React.Component<Props> {
     const { title, subtitle, icon } = this.props;
     if (isNull(icon)) {
       return (
-        <ul className={cx("cb-list-item")}>
-          <p className={cx("cb-list-item-title")}>{title}</p>
+        <ul className={cx("cui-list-item")}>
+          <p className={cx("cui-list-item-title")}>{title}</p>
         </ul>
       );
     }
     return (
-      <ul className={cx("cb-list-item")}>
-        {icon && <span className="cb-list-item-icon">{icon}</span>}
-        <div className="cb-list-item-content">
-          <p className={cx("cb-list-item-content-title")}>{title}</p>
+      <ul className={cx("cui-list-item")}>
+        {icon && <span className="cui-list-item-icon">{icon}</span>}
+        <div className="cui-list-item-content">
+          <p className={cx("cui-list-item-content-title")}>{title}</p>
           {subtitle && (
-            <p className={cx("cb-list-item-content-subtitle")}>{subtitle}</p>
+            <p className={cx("cui-list-item-content-subtitle")}>{subtitle}</p>
           )}
         </div>
       </ul>

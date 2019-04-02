@@ -1,4 +1,4 @@
-.cb-card {
+.cui-card {
   background-color: $color-light;
   box-shadow: 0 0 20px #eee;
   border-radius: 5px;
@@ -45,21 +45,21 @@
     max-height: 100%;
     &-top {
       flex-direction: column;
-      .cb-card-image {
+      .cui-card-image {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
       }
     }
     &-left {
       flex-direction: row;
-      .cb-card-image {
+      .cui-card-image {
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
       }
     }
     &-right {
       flex-direction: row;
-      .cb-card-image {
+      .cui-card-image {
         order: 2;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;

@@ -12,12 +12,12 @@ export class Badge extends React.Component<Props> {
     return (
       <span
         className={cx(
-          "cb-badge",
+          "cui-badge",
           {
-            [`cb-badge-${variant}`]: variant !== "default" && !neonMode
+            [`cui-badge-${variant}`]: variant !== "default" && !neonMode
           },
           {
-            [`cb-badge-neon-${variant}`]: variant !== "default" && neonMode
+            [`cui-badge-neon-${variant}`]: variant !== "default" && neonMode
           }
         )}
       >

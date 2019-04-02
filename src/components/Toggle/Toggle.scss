@@ -1,5 +1,5 @@
 @import "./Toggle.mixin.scss";
-.cb-toggle {
+.cui-toggle {
   position: relative;
   display: inline-block;
   width: 35px;
@@ -7,19 +7,19 @@
   margin: 3px;
   input {
     display: none;
-    &:checked + .cb-toggle-button {
+    &:checked + .cui-toggle-button {
       background-color: $color-green-main;
     }
 
-    &:focus + .cb-toggle-button {
+    &:focus + .cui-toggle-button {
       box-shadow: 0 0 1px $color-green-main;
     }
 
-    &:checked + .cb-toggle-button:before {
+    &:checked + .cui-toggle-button:before {
       transform: translateX(16px);
     }
   }
-  .cb-toggle-button {
+  .cui-toggle-button {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -30,7 +30,7 @@
     transition: 0.4s;
   }
 
-  .cb-toggle-button:before {
+  .cui-toggle-button:before {
     position: absolute;
     content: "";
     height: 13px;
@@ -41,45 +41,45 @@
     transition: 0.4s;
     color: $color-green-main;
   }
-  &.cb-toggle-large {
+  &.cui-toggle-large {
     width: 45px;
     height: 25px;
     input {
-      &:checked + .cb-toggle-button:before {
+      &:checked + .cui-toggle-button:before {
         transform: translateX(20px);
       }
     }
-    .cb-toggle-button:before {
+    .cui-toggle-button:before {
       height: 20px;
       width: 20px;
       left: 3px;
       bottom: 3px;
     }
   }
-  .cb-toggle-label {
+  .cui-toggle-label {
     display: inline-block;
   }
 
-  &.cb-toggle-rounded {
-    .cb-toggle-button {
+  &.cui-toggle-rounded {
+    .cui-toggle-button {
       border-radius: 34px;
     }
-    .cb-toggle-button:before {
+    .cui-toggle-button:before {
       border-radius: 50%;
     }
   }
   @each $color, $value in $theme-colors {
-    @include toggle-variant(".cb-toggle-#{$color}", $value);
+    @include toggle-variant(".cui-toggle-#{$color}", $value);
   }
 
-  &.cb-toggle-labels {
-    &.cb-toggle-large {
+  &.cui-toggle-labels {
+    &.cui-toggle-large {
       input {
-        &:checked + .cb-toggle-button:before {
+        &:checked + .cui-toggle-button:before {
           content: "ON";
         }
       }
-      .cb-toggle-button:before {
+      .cui-toggle-button:before {
         display: flex;
         content: "OFF";
         justify-content: center;

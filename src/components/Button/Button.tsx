@@ -24,12 +24,12 @@ export class Button extends React.Component<Props> {
     return (
       <button
         className={cx(
-          "cb-button",
+          "cui-button",
           { disabled: disabled },
-          { [`cb-button-${variant}`]: variant !== "default" && !outlined },
-          { [`cb-button-${format}`]: format !== "default" },
-          { [`cb-button-outlined-${variant}`]: outlined },
-          { [`cb-button-dashed`]: dashed }
+          { [`cui-button-${variant}`]: variant !== "default" && !outlined },
+          { [`cui-button-${format}`]: format !== "default" },
+          { [`cui-button-outlined-${variant}`]: outlined },
+          { [`cui-button-dashed`]: dashed }
         )}
         disabled={disabled}
         onClick={onClick}

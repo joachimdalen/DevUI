@@ -10,9 +10,9 @@ export class List extends React.Component<Props> {
   public render() {
     const { children, title, bordered = false } = this.props;
     return (
-      <div className={cx("cb-list-container")}>
-        <p className={cx("cb-list-title")}>{title}</p>
-        <li className={cx("cb-list", { [`cb-list-bordered`]: bordered })}>
+      <div className={cx("cui-list-container")}>
+        <p className={cx("cui-list-title")}>{title}</p>
+        <li className={cx("cui-list", { [`cui-list-bordered`]: bordered })}>
           {children}
         </li>
       </div>

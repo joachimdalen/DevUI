@@ -1,18 +1,18 @@
 @mixin toggle-variant($parent, $background) {
   &#{$parent} {
     input {
-      &:checked + .cb-toggle-button {
+      &:checked + .cui-toggle-button {
         background-color: $background;
       }
-      &:focus + .cb-toggle-button {
+      &:focus + .cui-toggle-button {
         box-shadow: 0 0 0.0625rem $background;
       }
     }
-    .cb-toggle-button:before {
+    .cui-toggle-button:before {
       background-color: colorFromBackground($background);
     }
-    &.cb-toggle-labels {
-      .cb-toggle-button:before {
+    &.cui-toggle-labels {
+      .cui-toggle-button:before {
         color: $background;
       }
     }

@@ -1,6 +1,6 @@
-.cb-list-container {
+.cui-list-container {
   background-color: $color-light;
-  .cb-list-title {
+  .cui-list-title {
     font-weight: $font-weight-bold;
     color: $color-gray;
     padding: 10px 5px;
@@ -8,7 +8,7 @@
     font-size: 12px;
     border-bottom: 1px solid $color-disabled;
   }
-  .cb-list {
+  .cui-list {
     list-style: none;
     &-item {
       padding: 5px 10px;
@@ -20,7 +20,7 @@
       }
       &-content {
         padding: 5px 10px;
-        .cb-list-item-title,
+        .cui-list-item-title,
         &-title {
           font-size: 12px;
           font-weight: $font-weight-regular;
@@ -34,11 +34,11 @@
       }
     }
     &-bordered {
-      .cb-list-item {
+      .cui-list-item {
         border-bottom: 1px solid $color-disabled;
       }
     }
-    .cb-list-more {
+    .cui-list-more {
       color: $color-green-secondary;
       font-size: 12px;
       align-self: center;
@@ -47,7 +47,7 @@
         cursor: pointer;
       }
     }
-    .cb-list-center {
+    .cui-list-center {
       justify-content: center;
     }
   }

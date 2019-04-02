@@ -8,8 +8,8 @@ export class CardHeader extends React.Component<Props> {
   public render() {
     const { title } = this.props;
     return (
-      <div className={cx("cb-card-header")}>
-        <h3 className="cb-card-header-title">{title}</h3>
+      <div className={cx("cui-card-header")}>
+        <h3 className="cui-card-header-title">{title}</h3>
       </div>
     );
   }
