@@ -11,7 +11,8 @@ $color-disabled: #e8e8e7;
 
 $color-green-main: #0c7142;
 $color-green-secondary: #40c145;
-$color-gray: #dcdee7;
+//$color-gray: #dcdee7;
+$color-gray: #DEE5ED;
 $color-dark: #212121;
 $color-blue: #009cff;
 $color-magenta: #d90378;
@@ -45,3 +46,4 @@ $theme-colors: map-merge(
 @import "../components/Card/Card.scss";
 @import "../components/List/List.scss";
 @import "../components//Toggle/Toggle.scss";
+@import "../components/CheckBox/CheckBox.scss";

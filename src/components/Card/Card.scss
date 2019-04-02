@@ -31,9 +31,9 @@
   &-footer {
     padding: 4px 16px;
     border-top: 2px solid $color-disabled;
-    background-color: lighten($color-disabled, 5%);
+    background-color: $color-gray;
     font-size: 12px;
-    color: $color-gray;
+    color: $color-dark;
   }
   &-inner {
     flex-direction: column;
