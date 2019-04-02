@@ -4,6 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { Badge } from "./Badge";
 import { text, boolean } from "@storybook/addon-knobs/react";
 const variants = [
+  "default",
   "primary",
   "secondary",
   "dark",
