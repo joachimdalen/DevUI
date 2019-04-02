@@ -1,0 +1,10 @@
+@mixin checkbox-variant($parent, $background) {
+  &#{$parent} {
+    input:checked ~ .cui-checkmark {
+      background-color: $background;
+    }
+    .cui-checkmark:after {
+      border-color: colorFromBackground($background);
+    }
+  }
+}
