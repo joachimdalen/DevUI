@@ -1,15 +1,17 @@
 .cui-card {
   background-color: $color-light;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 5px;
+  border-radius: 2px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  border: 1px solid $color-disabled;
   position: relative;
   min-width: 0;
   word-wrap: break-word;
   width: 100%;
+
+  border: 1px solid $color-gray;
+  box-shadow: $box-shadow;
+
   &-body {
     padding: 8px 16px;
     flex-grow: 1;
@@ -22,16 +24,15 @@
     &-title {
       font-size: 14px;
       font-weight: $font-weight-bold;
-      color: $color-dark;      
+      color: $color-dark;
     }
     min-height: 20px;
     padding: 8px 16px;
-    border-bottom: 2px solid $color-green-secondary;
+    border-bottom: 1px solid $color-gray;
   }
   &-footer {
     padding: 4px 16px;
-    border-top: 2px solid $color-disabled;
-    background-color: $color-gray;
+    border-top: 1px solid $color-disabled;
     font-size: 12px;
     color: $color-dark;
   }
