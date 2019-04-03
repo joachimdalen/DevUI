@@ -29,7 +29,7 @@ export class Button extends React.Component<Props> {
           { [`cui-button-${variant}`]: variant !== "default" && !outlined },
           { [`cui-button-${format}`]: format !== "default" },
           { [`cui-button-outlined-${variant}`]: outlined },
-          { [`cui-button-dashed`]: dashed }
+          { [`cui-button-dashed`]: dashed && outlined }
         )}
         disabled={disabled}
         onClick={onClick}

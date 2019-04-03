@@ -83,20 +83,6 @@ storiesOf("Components/Button", module)
         {variants.map(variant => {
           return (
             <Button
-              key={`dashed-${variant}`}
-              label={variant}
-              disabled={boolean("disabled", false)}
-              dashed={true}
-              variant={variant}
-              onClick={() => alert("hello there")}
-            />
-          );
-        })}
-      </div>
-      <div style={{ marginTop: "10px" }}>
-        {variants.map(variant => {
-          return (
-            <Button
               key={`dashed-outlined-${variant}`}
               label={variant}
               disabled={boolean("disabled", false)}
