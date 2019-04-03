@@ -6,5 +6,10 @@
     .cui-checkmark:after {
       border-color: colorFromBackground($background);
     }
+    &:hover:not(.disabled) {
+      .cui-checkmark {
+        background-color: darken($background, 20%);
+      }
+    }
   }
 }

@@ -32,7 +32,7 @@
   }
 
   input:checked ~ .cui-checkmark {
-    background-color: $color-green-main;
+    background-color: $color-disabled;
   }
 
   .cui-checkmark:after {
@@ -52,7 +52,7 @@
     top: 0.125rem;
     width: 0.25rem;
     height: 0.4375rem;
-    border: solid $color-light;
+    border: solid $color-dark;
     border-width: 0 0.125rem 0.125rem 0;
     transform: rotate(45deg);
     box-sizing: initial;

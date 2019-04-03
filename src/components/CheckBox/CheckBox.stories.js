@@ -5,6 +5,7 @@ import { CheckBox } from "./CheckBox";
 import { text, boolean } from "@storybook/addon-knobs/react";
 import { bool } from "prop-types";
 const variants = [
+  "default",
   "primary",
   "secondary",
   "dark",
