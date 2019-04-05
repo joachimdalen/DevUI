@@ -4,15 +4,15 @@ export interface Props {
   label: string;
   checked: boolean;
   onCheckChange: (state: boolean) => void;
-  disabled: boolean;
-  variant: string;
+  disabled?: boolean;
+  variant?: string;
 }
 
 export class CheckBox extends React.Component<Props> {
   public render() {
     const {
       label,
-      checked = false,
+      checked,
       disabled = false,
       variant = "default",
       onCheckChange
