@@ -50,6 +50,14 @@ storiesOf("Components/Button", module)
       onClick={() => alert("hello there")}
     />
   ))
+  .add("Disabled Button", () => (
+    <Button
+      label={text("label", "Delete")}
+      disabled={boolean("disabled", true)}
+      variant={text("variant", "danger")}
+      onClick={() => alert("hello there")}
+    />
+  ))
   .add("Variants", () => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
