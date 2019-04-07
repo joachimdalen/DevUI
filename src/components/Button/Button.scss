@@ -21,7 +21,6 @@
     border-color: transparent;
     background-image: none;
     color: $color-light;
-    cursor: not-allowed;
   }
   &:hover:not(.disabled):not(.cui-button-loading) {
     cursor: pointer;
@@ -60,7 +59,6 @@
     border-color: transparent;
     background-image: none;
     color: $color-light;
-    cursor: progress;
   }
   &-icon-only {
     padding: 5px;
