@@ -1,6 +1,5 @@
 @import "./reset";
 @import "./functions";
-
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
 $color-danger: rgb(228, 30, 64);
 $color-danger-dark: darken($color-danger, 10%);
@@ -12,7 +11,7 @@ $color-disabled: #e8e8e7;
 $color-green-main: #0c7142;
 $color-green-secondary: #40c145;
 //$color-gray: #dcdee7;
-$color-gray: #DEE5ED;
+$color-gray: #dee5ed;
 $color-dark: #212121;
 $color-blue: #009cff;
 $color-magenta: #d90378;
@@ -48,3 +47,6 @@ $box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem;
 @import "../components/List/List.scss";
 @import "../components//Toggle/Toggle.scss";
 @import "../components/CheckBox/CheckBox.scss";
+@import "../components/CheckBoxList/CheckBoxList.scss";
+@import "../components/Accordion/Accordion.scss";
+@import "../components/FontAwesomeIcon/FontAwesomeIcon.scss";

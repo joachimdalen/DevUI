@@ -54,4 +54,11 @@
       border: 2px solid;
     }
   }
+  &-loading{
+    background-color: darken($color-disabled, 10%);
+    border-color: transparent;
+    background-image: none;
+    color: $color-light;
+    cursor: progress;
+  }
 }

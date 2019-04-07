@@ -1,0 +1,34 @@
+.cui-accordion {
+  min-width: 200px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid $color-gray;
+  background-color: $color-light;
+  box-shadow: $box-shadow;
+  &-header {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    &-title {
+      color: $color-dark;
+      font-weight: $font-weight-bold;
+      flex-grow: 1;
+      margin-bottom: 2px;
+    }
+    &-toggle {
+      right: 10px;
+      font-size: 10px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  &-content {
+    border-top: 1px solid $color-gray;
+    padding: 5px 10px;
+    min-height: 50px;
+    //display: none;
+  }
+}

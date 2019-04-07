@@ -1,0 +1,28 @@
+.cui-checkbox-list {
+  border: 1px solid $color-gray;
+  background-color: $color-light;
+  &-header {
+    padding: 5px;
+    border-bottom: 1px solid $color-gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    span {
+      font-size: 12px;
+    }
+    &-counter {
+      margin-left: 10px;
+      font-size: 10px;
+    }
+  }
+  &-items {
+    padding: 5px;
+    list-style: none;
+    ul {
+      padding: 1px 0;
+    }
+    .cui-checkbox {
+      color: lighten($color-dark, 50%);
+    }
+  }
+}
