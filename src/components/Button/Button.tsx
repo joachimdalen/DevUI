@@ -7,6 +7,7 @@ export interface Props {
   disabled?: boolean;
   variant: string;
   format: "default" | "block";
+  size?: "slim" | "medium" | "large";
   outlined: boolean;
   dashed: boolean;
   loading: boolean;
@@ -23,6 +24,7 @@ export class Button extends React.Component<Props> {
       format = "default",
       disabled = false,
       variant = "default",
+      size = "medium",
       outlined = false,
       dashed = false,
       loading = false,
@@ -41,6 +43,12 @@ export class Button extends React.Component<Props> {
       label === null ||
       label === ""
     );
+    const isDefaultSize = size === "medium";
+    const buttonSizeClass = isDefaultSize
+      ? ""
+      : size === "slim"
+      ? "slim"
+      : "large";
     return (
       <button
         className={cx(
@@ -51,7 +59,8 @@ export class Button extends React.Component<Props> {
           { [`${baseButtonClass}-outlined-${variant}`]: outlined },
           { [`${baseButtonClass}-dashed`]: dashed && outlined },
           { [`${baseButtonClass}-loading`]: loading },
-          { [`${baseButtonClass}-icon-only`]: hasButtonText === false }
+          { [`${baseButtonClass}-icon-only`]: hasButtonText === false },
+          { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize }
         )}
         disabled={disabled}
         onClick={onClick}

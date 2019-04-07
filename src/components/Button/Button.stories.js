@@ -127,4 +127,30 @@ storiesOf("Components/Button", module)
         })}
       </div>
     </div>
+  ))
+  .add("Sizes", () => (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div>
+        <Button
+          label="slim"
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello there")}
+          size="slim"
+          variant="secondary"
+        />
+        <Button
+          label="Medium"
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello there")}
+          variant="secondary"
+        />
+        <Button
+          label="Large"
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello there")}
+          size="large"
+          variant="secondary"
+        />
+      </div>
+    </div>
   ));
