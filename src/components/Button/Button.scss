@@ -22,7 +22,7 @@
     color: $color-light;
     cursor: not-allowed;
   }
-  &:hover:not(.disabled) {
+  &:hover:not(.disabled):not(.cui-button-loading) {
     cursor: pointer;
     background-image: none;
     background-color: $color-green-secondary;
@@ -38,7 +38,7 @@
     display: block;
     width: 100%;
   }
- 
+
   &-outlined {
     @each $color, $value in $theme-colors {
       @include button-outlined("-#{$color}", $value);
@@ -54,11 +54,14 @@
       border: 2px solid;
     }
   }
-  &-loading{
+  &-loading {
     background-color: darken($color-disabled, 10%);
     border-color: transparent;
     background-image: none;
     color: $color-light;
     cursor: progress;
+  }
+  &-icon-only {
+    padding: 5px;
   }
 }

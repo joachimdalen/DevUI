@@ -3,7 +3,7 @@
     background-color: $background;
     color: colorFromBackground($background);
     background-image: none;
-    &:hover:not(.disabled) {
+    &:hover:not(.disabled):not(.cui-button-loading) {
       background-color: darken($background, 10%);
     }
   }
@@ -14,7 +14,7 @@
     background-color: $color-light;
     color: $color;
     border-radius: 0;
-    &:hover:not(.disabled) {
+    &:hover:not(.disabled):not(.cui-button-loading) {
       background-color: $color;
       color: $color-light;
     }

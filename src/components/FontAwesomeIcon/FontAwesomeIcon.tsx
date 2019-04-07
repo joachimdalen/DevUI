@@ -2,16 +2,14 @@ import * as React from "react";
 import cx from "classnames";
 export interface Props {
   icon: string;
-  iconType: "fas" | "far" | "fab";
-  margin: boolean;
-  marginDirection: "left" | "right";
-  animate: boolean;
-  animationType: "spin" | "pulse";
+  margin?: boolean;
+  marginDirection?: "left" | "right";
+  animate?: boolean;
+  animationType?: "spin" | "pulse";
 }
 
 const FontAwesomeIcon = ({
   icon,
-  iconType,
   margin = false,
   marginDirection,
   animate = false,
@@ -24,7 +22,6 @@ const FontAwesomeIcon = ({
     <i
       className={cx(
         "cui-icon",
-        iconType,
         icon,
         { [animationClass]: animate },
         { [marginClass]: margin }

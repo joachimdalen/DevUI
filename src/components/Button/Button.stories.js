@@ -67,6 +67,21 @@ storiesOf("Components/Button", module)
       loading={true}
     />
   ))
+  .add("Icon Button", () => (
+    <Button
+      variant={text("variant", "secondary")}
+      onClick={() => alert("hello there")}
+      icon="fas fa-check"
+      label="Approve"
+    />
+  ))
+  .add("Icon Only Button", () => (
+    <Button
+      variant={text("variant", "secondary")}
+      onClick={() => alert("hello there")}
+      icon="fas fa-check"
+    />
+  ))
   .add("Variants", () => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
