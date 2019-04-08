@@ -64,7 +64,9 @@ storiesOf("Components/Button", module)
       disabled={boolean("disabled", true)}
       variant={text("variant", "danger")}
       onClick={() => alert("hello there")}
-      loading={true}
+      loadingIcon={text("Loading Icon", "fas fa-spinner")}
+      loadingText={text("Loading Text", "Loading")}
+      loading={boolean("Loading", true)}
     />
   ))
   .add("Icon Button", () => (
