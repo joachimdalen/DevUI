@@ -3,7 +3,7 @@
   background-image: none !important;
   background-color: $color-light;
 }
-.cui-button {
+.#{$provider-prefix}-button {
   margin: auto;
   font-size: 14px;
   text-align: center;
@@ -22,7 +22,7 @@
     background-image: none;
     color: $color-light;
   }
-  &:hover:not(.disabled):not(.cui-button-loading) {
+  &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
     cursor: pointer;
     background-image: none;
     background-color: $color-green-secondary;

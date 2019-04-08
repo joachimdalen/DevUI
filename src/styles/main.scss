@@ -1,6 +1,8 @@
 @import "./reset";
 @import "./functions";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
+$provider-prefix: 'cui';
+
 $color-danger: rgb(228, 30, 64);
 $color-danger-dark: darken($color-danger, 10%);
 $color-warning: #feaa00;
