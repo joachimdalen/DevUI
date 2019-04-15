@@ -6,6 +6,7 @@ export interface Props {
   marginDirection?: "left" | "right";
   animate?: boolean;
   animationType?: "spin" | "pulse";
+  size?: "normal" | "large" | "xlarge";
 }
 
 const FontAwesomeIcon = ({
@@ -13,16 +14,20 @@ const FontAwesomeIcon = ({
   margin = false,
   marginDirection,
   animate = false,
-  animationType
+  animationType,
+  size = "normal"
 }: Props) => {
   const animationClass = animationType === "spin" ? "fa-spin" : "fa-pulse";
   const marginClass =
     marginDirection === "left" ? "cui-icon-ml" : "cui-icon-mr";
+  const isDefaultSize = size === "normal";
+  const sizeClass = isDefaultSize ? "" : size === "large" ? "fa-2x" : "fa-3x";
   return (
     <i
       className={cx(
         "cui-icon",
         icon,
+        sizeClass,
         { [animationClass]: animate },
         { [marginClass]: margin }
       )}

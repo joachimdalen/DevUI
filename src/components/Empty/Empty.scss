@@ -1,0 +1,17 @@
+.#{$provider-prefix}-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-light;
+
+  &-preset {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    color: darken($color-disabled, 30%);
+    align-items: center;
+    &-description {
+      margin-top: 10px;
+    }
+  }
+}
