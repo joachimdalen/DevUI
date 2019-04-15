@@ -3,8 +3,10 @@
     background-color: $background;
     color: colorFromBackground($background);
     background-image: none;
+    border-color: $background;
     &:hover:not(.disabled):not(.cui-button-loading) {
       background-color: darken($background, 10%);
+      border-color: darken($background, 10%);
     }
   }
 }
