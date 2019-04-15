@@ -6,6 +6,7 @@ export interface Props {
   onCheckChange: (state: boolean) => void;
   disabled?: boolean;
   variant?: string;
+  className?: string;
 }
 
 export class CheckBox extends React.Component<Props> {
@@ -15,14 +16,16 @@ export class CheckBox extends React.Component<Props> {
       checked,
       disabled = false,
       variant = "default",
-      onCheckChange
+      onCheckChange,
+      className
     } = this.props;
     return (
       <label
         className={cx(
           "cui-checkbox",
           { ["disabled"]: disabled },
-          { [`cui-checkbox-${variant}`]: variant !== "default" }
+          { [`cui-checkbox-${variant}`]: variant !== "default" },
+          className
         )}
       >
         <span>{label}</span>

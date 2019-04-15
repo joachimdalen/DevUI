@@ -15,20 +15,36 @@ const variants = [
   "blue",
   "magenta"
 ];
-storiesOf("Components/CheckBoxList", module).add("Basic CheckBox", () => (
-  <CheckBoxList
-    label={text("label", "Delete")}
-    data={[
-      {
-        label: "One",
-        key: "one",
-        checked: false
-      },
-      {
-        label: "Two",
-        key: "two",
-        checked: true
-      }
-    ]}
-  />
-));
+storiesOf("Components/CheckBoxList", module)
+  .add("Basic CheckBox", () => (
+    <CheckBoxList
+      label={text("label", "Delete")}
+      items={[
+        {
+          label: "One",
+          key: "one",
+          checked: false
+        },
+        {
+          label: "Two",
+          key: "two",
+          checked: true
+        },
+        {
+          label: "Three",
+          key: "three",
+          checked: false
+        }
+      ]}
+      showCheckAll={boolean("Show Check All", true)}
+      showCheckCount={boolean("Show Check Count", true)}
+    />
+  ))
+  .add("Empty", () => (
+    <CheckBoxList
+      label={text("label", "Delete")}
+      items={[]}
+      showCheckAll={boolean("Show Check All", true)}
+      showCheckCount={boolean("Show Check Count", true)}
+    />
+  ));

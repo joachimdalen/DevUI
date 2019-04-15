@@ -1,43 +1,65 @@
 import * as React from "react";
 import cx from "classnames";
 import { CheckBox } from "../CheckBox/CheckBox";
+import { Empty } from "../Empty/Empty";
 export interface Props {
-  data: ILB[];
+  items: ILB[];
+  showCheckCount: boolean;
+  showCheckAll: boolean;
+  onCheckChange: (checked: ILB[]) => any;
 }
 export interface ILB {
   label: string;
   key: string;
   checked: boolean;
 }
-export class CheckBoxList extends React.Component<Props> {
+interface State {}
+export class CheckBoxList extends React.Component<Props, State> {
   public render() {
-    const { data } = this.props;
+    const { items, showCheckAll = true, showCheckCount = true } = this.props;
     return (
       <div className={cx("cui-checkbox-list")}>
-        <div className="cui-checkbox-list-header">
-          <CheckBox
-            label="Check all"
-            checked={false}
-            onCheckChange={() => console.log("hello")}
-          />
-          <span className="cui-checkbox-list-header-counter">(0/3)</span>
-        </div>
-        <li className="cui-checkbox-list-items">
-          {data &&
-            data.map((data: ILB) => {
-              return (
-                <ul>
-                  <CheckBox
-                    key={data.label}
-                    label={data.label}
-                    checked={data.checked}
-                    onCheckChange={() => console.log("hello")}
-                  />
-                </ul>
-              );
-            })}
-        </li>
+        {(showCheckCount || showCheckAll) && (
+          <div className="cui-checkbox-list-header">
+            {showCheckAll && (
+              <CheckBox
+                label="Check all"
+                checked={false}
+                onCheckChange={() => this.toggleAll()}
+                className="cui-checkbox-list-header-check-all"
+              />
+            )}
+            {showCheckCount && (
+              <span className="cui-checkbox-list-header-counter">(0/3)</span>
+            )}
+          </div>
+        )}
+        {items.length ? (
+          <li className="cui-checkbox-list-items">
+            {items &&
+              items.map((item: ILB) => {
+                return (
+                  <ul className="cui-checkbox-list-item" key={item.label}>
+                    <CheckBox
+                      label={item.label}
+                      checked={item.checked}
+                      onCheckChange={() => this.toggleItem(item)}
+                    />
+                  </ul>
+                );
+              })}
+          </li>
+        ) : (
+          <Empty icon="fas fa-minus" description="No items" />
+        )}
       </div>
     );
+  }
+
+  private toggleItem(item: ILB) {
+    console.log(item.label);
+  }
+  private toggleAll() {
+    console.log("toggle all");
   }
 }
