@@ -7,7 +7,7 @@ export interface Props {
   disabled?: boolean;
   variant: string;
   format: "default" | "block";
-  size?: "slim" | "medium" | "large";
+  size?: "small" | "medium" | "large";
   outlined: boolean;
   dashed: boolean;
   loading: boolean;
@@ -46,7 +46,7 @@ export class Button extends React.Component<Props> {
     const isDefaultSize = size === "medium";
     const buttonSizeClass = isDefaultSize
       ? ""
-      : size === "slim"
+      : size === "small"
       ? "slim"
       : "large";
     return (
