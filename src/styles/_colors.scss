@@ -1,4 +1,4 @@
-// ----------------
+/* // ----------------
 $dark-1: #364658;
 
 $gray-1: #7b8fa5;
@@ -7,27 +7,24 @@ $gray-3: #dee5ed;
 
 // $red-1: #7b8fa5;
 $blue-1: #37a0f6;
-$blue-2: #387ee9;
+$blue-2: #387ee9; */
 
-// ----------------
+$color-success: #40c145;
+$color-danger: rgb(228, 30, 64);
+$color-danger-dark: darken($color-danger, 10%);
+$color-warning: #feaa00;
+$color-light: #ffffff;
 
+$color-disabled: #e8e8e7;
 
+$color-primary: #e84eef;
+//$color-gray: #dcdee7;
+$color-gray: #dee5ed;
+$color-dark: #212121;
+$color-blue: #009cff;
+$color-magenta: #d90378;
+$color-secondary: #787690;
 
-
-
-
-// ----------------
-
-
-
-
-
-
-// ----------------
-
-
-
-
-
-
-// ----------------
+$color-border: #ccc;
+$color-text-gray: #333;
+$color-placeholder: #aaa;

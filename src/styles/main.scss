@@ -1,29 +1,11 @@
 @import "./reset";
+$provider-prefix: "cui";
 @import "./functions";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
-$provider-prefix: "cui";
 
-$color-success: #40c145;
-$color-danger: rgb(228, 30, 64);
-$color-danger-dark: darken($color-danger, 10%);
-$color-warning: #feaa00;
-$color-light: #ffffff;
+@import "./colors";
 
-$color-disabled: #e8e8e7;
-
-$color-primary: #e84eef;
-//$color-gray: #dcdee7;
-$color-gray: #dee5ed;
-$color-dark: #212121;
-$color-blue: #009cff;
-$color-magenta: #d90378;
-$color-secondary: #787690;
-
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-bold: 700;
-$font-weight-black: 900;
-
+// THEMEING
 $theme-colors: () !default;
 
 $theme-colors: map-merge(
@@ -40,15 +22,28 @@ $theme-colors: map-merge(
   ),
   $theme-colors
 );
+
+// FONT
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// GENERIC
+$border-raidus: 4px;
 $box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem;
-@import "../components/Button/Button.scss";
-@import "../components/Badge/Badge.scss";
-@import "../components/Card/Card.scss";
-@import "../components/List/List.scss";
-@import "../components//Toggle/Toggle.scss";
-@import "../components/CheckBox/CheckBox.scss";
-@import "../components/CheckBoxList/CheckBoxList.scss";
-@import "../components/Accordion/Accordion.scss";
-@import "../components/FontAwesomeIcon/FontAwesomeIcon.scss";
-@import "../components/Empty/Empty.scss";
-@import "../components/TextInput/TextInput.scss";
+
+// INPUT
+$input-height-small: 24px;
+$input-height-normal: 32px;
+$input-height-large: 40px;
+
+$input-padding-small: 1px 7px;
+$input-padding-normal: 4px 11px;
+$input-padding-large: 6px 11px;
+
+$input-font-size-small: 14px;
+$input-font-size-normal: 14px;
+$input-font-size-large: 16px;
+
+@import "./components";
