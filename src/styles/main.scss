@@ -1,8 +1,9 @@
 @import "./reset";
 @import "./functions";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
-$provider-prefix: 'cui';
+$provider-prefix: "cui";
 
+$color-success: #40c145;
 $color-danger: rgb(228, 30, 64);
 $color-danger-dark: darken($color-danger, 10%);
 $color-warning: #feaa00;
@@ -10,17 +11,13 @@ $color-light: #ffffff;
 
 $color-disabled: #e8e8e7;
 
-$color-green-main: #0c7142;
-$color-green-secondary: #40c145;
+$color-primary: #e84eef;
 //$color-gray: #dcdee7;
 $color-gray: #dee5ed;
 $color-dark: #212121;
 $color-blue: #009cff;
 $color-magenta: #d90378;
 $color-secondary: #787690;
-
-$color-green-gradient-start: $color-green-secondary;
-$color-green-gradient-end: $color-green-main;
 
 $font-weight-light: 300;
 $font-weight-regular: 400;
@@ -31,10 +28,11 @@ $theme-colors: () !default;
 
 $theme-colors: map-merge(
   (
-    "primary": $color-green-main,
-    "secondary": $color-green-secondary,
+    "primary": $color-primary,
+    "secondary": $color-secondary,
     "dark": $color-dark,
     "light": $color-light,
+    "success": $color-success,
     "danger": $color-danger,
     "magenta": $color-magenta,
     "warning": $color-warning,
@@ -53,3 +51,4 @@ $box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem;
 @import "../components/Accordion/Accordion.scss";
 @import "../components/FontAwesomeIcon/FontAwesomeIcon.scss";
 @import "../components/Empty/Empty.scss";
+@import "../components/TextInput/TextInput.scss";

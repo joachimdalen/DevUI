@@ -2,7 +2,6 @@
   &#{$parent} {
     background-color: $background;
     color: colorFromBackground($background);
-    background-image: none;
     border-color: $background;
     &:hover:not(.disabled):not(.cui-button-loading) {
       background-color: darken($background, 10%);
@@ -12,7 +11,6 @@
 }
 @mixin button-outlined($parent, $color) {
   &#{$parent} {
-    background-image: none !important;
     background-color: $color-light;
     color: $color;
     border-radius: 0;

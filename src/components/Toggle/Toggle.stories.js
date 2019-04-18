@@ -5,16 +5,8 @@ import { Toggle } from "./Toggle";
 import { text, boolean } from "@storybook/addon-knobs/react";
 import { List } from "../List/List";
 import { ListItem } from "../List/ListItem";
-const variants = [
-  "primary",
-  "secondary",
-  "dark",
-  "light",
-  "danger",
-  "warning",
-  "blue",
-  "magenta"
-];
+import variants from "../../storyUtil/variants";
+
 storiesOf("Components/Toggle", module)
   .add("Basic Toggle", () => <Toggle toggled={boolean("Toggled", true)} />)
   .add("Rounded Toggle", () => (

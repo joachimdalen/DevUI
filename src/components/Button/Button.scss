@@ -1,6 +1,5 @@
 @import "./Button.mixin.scss";
 %outlined {
-  background-image: none !important;
   background-color: $color-light;
 }
 .#{$provider-prefix}-button {
@@ -10,7 +9,7 @@
   text-transform: capitalize;
   border-radius: 4px;
   padding: 4px 16px;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: $box-shadow;
   color: $color-light;
   border: 2px solid;
   font-weight: $font-weight-regular;
@@ -19,19 +18,13 @@
   &.disabled {
     background-color: $color-disabled;
     border-color: transparent;
-    background-image: none;
     color: $color-light;
   }
   &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
     cursor: pointer;
-    background-image: none;
-    background-color: $color-green-secondary;
+    background-color: $color-primary;
   }
-  background-image: linear-gradient(
-    to left,
-    $color-green-gradient-start 0%,
-    $color-green-gradient-end 100%
-  );
+  background-color: $color-primary;
 
   &-block {
     border-radius: 0;
@@ -49,7 +42,6 @@
   }
   &-dashed {
     border: 2px dashed;
-    background-image: none;
     &:hover:not(.disabled) {
       border: 2px solid;
     }
@@ -57,7 +49,6 @@
   &-loading {
     background-color: darken($color-disabled, 10%);
     border-color: transparent;
-    background-image: none;
     color: $color-light;
   }
   &-icon-only {

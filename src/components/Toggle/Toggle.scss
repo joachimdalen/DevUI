@@ -8,11 +8,11 @@
   input {
     display: none;
     &:checked + .cui-toggle-button {
-      background-color: $color-green-main;
+      background-color: $color-success;
     }
 
     &:focus + .cui-toggle-button {
-      box-shadow: 0 0 1px $color-green-main;
+      box-shadow: 0 0 1px $color-success;
     }
 
     &:checked + .cui-toggle-button:before {
@@ -39,7 +39,7 @@
     bottom: 2px;
     background-color: $color-light;
     transition: 0.4s;
-    color: $color-green-main;
+    color: $color-success;
   }
   &.cui-toggle-large {
     width: 45px;

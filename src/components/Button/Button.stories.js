@@ -3,16 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Button } from "./Button";
 import { text, boolean } from "@storybook/addon-knobs/react";
-const variants = [
-  "primary",
-  "secondary",
-  "dark",
-  "light",
-  "danger",
-  "warning",
-  "blue",
-  "magenta"
-];
+import variants from "../../storyUtil/variants";
 storiesOf("Components/Button", module)
   .add("Basic Button", () => (
     <Button
