@@ -1,7 +1,7 @@
 import React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { text, boolean } from "@storybook/addon-knobs/react";
+import { text } from "@storybook/addon-knobs/react";
 import { Empty } from "./Empty";
 import { Button } from "../Button/Button";
 storiesOf("Components/Empty", module)
@@ -23,7 +23,7 @@ storiesOf("Components/Empty", module)
       <Button
         label="Create New"
         variant="blue"
-        size="slim"
+        size="small"
         icon="fas fa-plus"
       />
     </Empty>
