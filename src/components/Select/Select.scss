@@ -1,0 +1,56 @@
+.#{$provider-prefix}-select {
+  color: $color-text-gray;
+  border-radius: $border-raidus;
+  display: block;
+  width: 100%;
+  font-size: $input-font-size-normal;
+  height: $input-height-normal;
+  background-color: $color-light;
+  background-clip: padding-box;
+  border: 1px solid $color-border;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  line-height: 1.5;
+  min-width: 50px;
+  position: relative;
+  &.disabled {
+    background-color: $color-disabled;
+    color: lighten($color-text-gray, 40%);
+  }
+  &:hover:not(.disabled) {
+    cursor: pointer;
+  }
+  &-info {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding: $input-padding-normal;
+    padding-right: 20px;
+  }
+  &-caret-container {
+    position: absolute;
+    right: 4px;
+  }
+  &-options {
+    border: 1px solid $color-border;
+    background-color: $color-light;
+    width: 100%;
+    position: absolute;
+    right: -1px; // WHY??
+    top: $input-height-normal - 6px;
+    display: none;
+    max-height: 150px;
+    overflow-y: auto;
+    overflow-x: visible;
+    &.visible {
+      display: block;
+    }
+  }
+  &-option {
+    padding: 2px 5px;
+    &:hover {
+      background-color: lighten($color-blue, 45%);
+      cursor: pointer;
+    }
+  }
+}
