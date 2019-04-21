@@ -13,10 +13,11 @@
   &#{$parent} {
     background-color: $color-light;
     color: $color;
-    border-radius: 0;
+    border-color: $color;
     &:hover:not(.disabled):not(.cui-button-loading) {
       background-color: $color;
       color: $color-light;
+      border-color: $color;
     }
   }
 }

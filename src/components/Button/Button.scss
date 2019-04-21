@@ -14,7 +14,8 @@
   border: 2px solid;
   font-weight: $font-weight-regular;
   margin: 2px;
-
+  background-color: $color-primary;
+  border-color: $color-primary;
   &.disabled {
     background-color: $color-disabled;
     border-color: transparent;
@@ -22,9 +23,9 @@
   }
   &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
     cursor: pointer;
-    background-color: $color-primary;
+    background-color: darken($color-primary, 10%);
+    border-color: darken($color-primary, 10%);
   }
-  background-color: $color-primary;
 
   &-block {
     border-radius: 0;
@@ -40,6 +41,7 @@
   @each $color, $value in $theme-colors {
     @include button-variant("-#{$color}", $value);
   }
+
   &-dashed {
     border: 2px dashed;
     &:hover:not(.disabled) {
