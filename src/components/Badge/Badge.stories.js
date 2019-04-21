@@ -39,10 +39,5 @@ storiesOf("Components/Badge", module)
           return <Badge label={variant} variant={variant} />;
         })}
       </div>
-      <div style={{ marginTop: "10px" }}>
-        {variants.map(variant => {
-          return <Badge label={variant} variant={variant} neonMode={true} />;
-        })}
-      </div>
     </div>
   ));
