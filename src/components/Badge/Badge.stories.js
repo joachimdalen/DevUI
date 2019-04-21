@@ -3,6 +3,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Badge } from "./Badge";
 import { text, boolean } from "@storybook/addon-knobs/react";
+import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 const variants = [
   "default",
   "primary",
@@ -16,11 +17,19 @@ const variants = [
 ];
 storiesOf("Components/Badge", module)
   .add("Default Badge", () => <Badge label={text("label", "Active")} />)
-  .add("Neon Badge", () => (
+  .add("Dismissible", () => (
     <Badge
       label={text("label", "Active")}
-      neonMode={boolean("Neon Mode", true)}
-      variant={text("Variant", "blue")}
+      dismissible={boolean("Dismissible", true)}
+      onDismiss={() => alert("Dismissed")}
+    />
+  ))
+  .add("Custom Dismiss Icon", () => (
+    <Badge
+      label={text("label", "Active")}
+      dismissible={boolean("Dismissible", true)}
+      onDismiss={() => alert("Dismissed")}
+      dismissText={<FontAwesomeIcon icon="fas fa-trash" />}
     />
   ))
   .add("Variants", () => (

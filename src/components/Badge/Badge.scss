@@ -1,21 +1,56 @@
 @import "./Badge.mixin.scss";
-.cui-badge {
-  padding: 1px 7px;
-  border: 1px solid;
-  font-weight: $font-weight-regular;
-  font-size: 12px;
-  line-height: 20px;
-  white-space: normal;
-  display: inline-block;
-  border-radius: 4px;
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  margin-right: 8px;
 
-  color: $color-dark;
-  background-color: $color-disabled;
-  border-color: transparent;
-
+%badge-base {
+  background-color: $color-badge-primary;
+  border-radius: 2px;
+  display: inline-flex;
+  margin: 2px;
   box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cui-badge-wrapper {
+  @extend %badge-base;
+  .cui-badge-dismissible {
+    align-items: center;
+    border-radius: 2px;
+    display: flex;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-sizing: border-box;
+    font-size: 12px;
+    &:hover {
+      background-color: lighten($color-danger, 30%);
+      cursor: pointer;
+    }
+  }
+  .cui-badge {
+    border-radius: 2px;
+    font-size: 12px;
+    overflow: hidden;
+    padding: 6px 6px 6px 8px;
+    margin: 0;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.cui-badge {
+  @extend %badge-base;
+  padding: 6px;
+  border: 1px solid;
+  border-color: transparent;
+  font-weight: $font-weight-regular;
+  border-radius: 4px;
+  color: $color-dark;
+  margin: 2px;
+  display: inline-flex;
+  box-sizing: border-box;
+  font-size: 12px;
+  overflow: hidden;
+  padding: 3px 6px;
   @each $color, $value in $theme-colors {
     @include badge-variant("-#{$color}", $value);
   }
