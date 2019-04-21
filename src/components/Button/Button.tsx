@@ -47,7 +47,7 @@ export class Button extends React.Component<Props> {
     const buttonSizeClass = isDefaultSize
       ? ""
       : size === "small"
-      ? "slim"
+      ? "small"
       : "large";
     return (
       <button

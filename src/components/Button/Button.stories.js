@@ -125,10 +125,10 @@ storiesOf("Components/Button", module)
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
         <Button
-          label="slim"
+          label="small"
           disabled={boolean("disabled", false)}
           onClick={() => alert("hello there")}
-          size="slim"
+          size="small"
           variant="secondary"
         />
         <Button
