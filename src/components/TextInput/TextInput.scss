@@ -9,17 +9,15 @@
   background-color: $color-light;
   background-clip: padding-box;
   border: 1px solid $color-border;
-  transition: all 0.3s;
+  transition: border-color 0.15s ease-in-out;
   box-sizing: border-box;
   margin: 1px;
   line-height: 1.5;
-  &:hover {
+  &:hover:not(:focus) {
     border-color: $color-blue;
   }
   &:focus {
-    border-width: 1px;
-    box-shadow: 0 0 0 1px $color-blue;
-    border-color: $color-blue;
+    box-shadow: $shadow-focus;
   }
   &-small {
     height: $input-height-small;
@@ -105,8 +103,7 @@
   }
   &:focus {
     border-width: 1px;
-    box-shadow: 0 0 0 1px $color-blue;
-    border-color: $color-blue;
+    //border-color: $color-blue;
   }
   .#{$provider-prefix}-input {
     border: none;
@@ -126,6 +123,9 @@
     }
     &-suffix {
       right: 5px;
+    }
+    &:focus {
+      box-shadow: $shadow-focus;
     }
   }
 }
