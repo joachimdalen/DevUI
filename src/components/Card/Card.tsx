@@ -10,6 +10,7 @@ export interface Props {
 export class Card extends React.Component<Props> {
   public render() {
     const { children, image, imagePlacement, width } = this.props;
+
     return (
       <div
         className={cx("cui-card", {
@@ -19,7 +20,7 @@ export class Card extends React.Component<Props> {
           width: `${width}px`
         }}
       >
-        {image && <CardImage image={image} alt={"image"} />}
+        {image && <CardImage image={image} />}
         {image === null ? (
           children
         ) : (

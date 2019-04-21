@@ -1,12 +1,14 @@
 import * as React from "react";
 export interface Props {
   image: string;
-  alt: string;
 }
 
 export class CardImage extends React.Component<Props> {
   public render() {
-    const { image, alt } = this.props;
-    return <img src={image} alt={alt || "Image"} className="cui-card-image" />;
+    const { image } = this.props;
+    const style: React.CSSProperties = {
+      backgroundImage: "url(" + image + ")"
+    };
+    return <header style={style} className="cui-card-image-header" />;
   }
 }

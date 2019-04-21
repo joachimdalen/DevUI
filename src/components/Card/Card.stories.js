@@ -54,7 +54,7 @@ storiesOf("Components/Card", module)
       <CardHeader
         title={text(
           "title",
-          "LA’s Last Remaining Hamburger Hamlet Location Closes, For Now"
+          "Hamburger Hamlet Location"
         )}
       />
       <CardBody>
