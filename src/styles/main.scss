@@ -23,6 +23,8 @@ $theme-colors: map-merge(
   $theme-colors
 );
 
+
+$shadow-focus: inset 0 0 2px rgba($color-dark, 0.14), inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14);
 // FONT
 $font-weight-light: 300;
 $font-weight-regular: 400;
