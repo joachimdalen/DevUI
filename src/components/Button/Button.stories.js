@@ -4,13 +4,14 @@ import { storiesOf } from "@storybook/react";
 import { Button } from "./Button";
 import { text, boolean } from "@storybook/addon-knobs/react";
 import variants from "../../storyUtil/variants";
+import { action } from "@storybook/addon-actions";
 storiesOf("Components/Button", module)
   .add("Basic Button", () => (
     <Button
       label={text("label", "Delete")}
       disabled={boolean("disabled", false)}
       variant={text("variant", "default")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
     />
   ))
   .add("Block Button", () => (
@@ -18,7 +19,7 @@ storiesOf("Components/Button", module)
       label={text("label", "Button")}
       disabled={boolean("disabled", false)}
       variant={text("variant", "default")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
       format={text("format", "block")}
     />
   ))
@@ -28,7 +29,7 @@ storiesOf("Components/Button", module)
       disabled={boolean("disabled", false)}
       outlined={boolean("outlined", true)}
       variant={text("variant", "danger")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
     />
   ))
   .add("Dashed Button", () => (
@@ -38,7 +39,7 @@ storiesOf("Components/Button", module)
       outlined={boolean("outlined", true)}
       dashed={boolean("dashed", true)}
       variant={text("variant", "danger")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
     />
   ))
   .add("Disabled Button", () => (
@@ -46,7 +47,7 @@ storiesOf("Components/Button", module)
       label={text("label", "Delete")}
       disabled={boolean("disabled", true)}
       variant={text("variant", "danger")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
     />
   ))
   .add("Loading Button", () => (
@@ -54,7 +55,7 @@ storiesOf("Components/Button", module)
       label={text("label", "Delete")}
       disabled={boolean("disabled", true)}
       variant={text("variant", "danger")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
       loadingIcon={text("Loading Icon", "fas fa-spinner")}
       loadingText={text("Loading Text", "Loading")}
       loading={boolean("Loading", true)}
@@ -63,7 +64,7 @@ storiesOf("Components/Button", module)
   .add("Icon Button", () => (
     <Button
       variant={text("variant", "secondary")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
       icon="fas fa-check"
       label="Approve"
     />
@@ -71,7 +72,7 @@ storiesOf("Components/Button", module)
   .add("Icon Only Button", () => (
     <Button
       variant={text("variant", "secondary")}
-      onClick={() => alert("hello there")}
+      onClick={action("button-clicked")}
       icon="fas fa-check"
     />
   ))
@@ -85,7 +86,7 @@ storiesOf("Components/Button", module)
               label={variant}
               disabled={boolean("disabled", false)}
               variant={variant}
-              onClick={() => alert("hello there")}
+              onClick={action("button-clicked-" + variant)}
             />
           );
         })}
@@ -99,7 +100,7 @@ storiesOf("Components/Button", module)
               disabled={boolean("disabled", false)}
               outlined={boolean("outlined", true)}
               variant={variant}
-              onClick={() => alert("hello there")}
+              onClick={action("button-outlined-clicked-" + variant)}
             />
           );
         })}
@@ -114,7 +115,7 @@ storiesOf("Components/Button", module)
               dashed={true}
               outlined={true}
               variant={variant}
-              onClick={() => alert("hello there")}
+              onClick={action("button-dashed-clicked-" + variant)}
             />
           );
         })}
@@ -127,20 +128,20 @@ storiesOf("Components/Button", module)
         <Button
           label="small"
           disabled={boolean("disabled", false)}
-          onClick={() => alert("hello there")}
+          onClick={action("button-small-clicked")}
           size="small"
           variant="secondary"
         />
         <Button
           label="Medium"
           disabled={boolean("disabled", false)}
-          onClick={() => alert("hello there")}
+          onClick={action("button-medium-clicked")}
           variant="secondary"
         />
         <Button
           label="Large"
           disabled={boolean("disabled", false)}
-          onClick={() => alert("hello there")}
+          onClick={action("button-large-clicked")}
           size="large"
           variant="secondary"
         />

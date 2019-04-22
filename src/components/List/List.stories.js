@@ -6,7 +6,7 @@ import { ListItem } from "./ListItem";
 import { ListActionItem } from "./ListActionItem";
 import { text } from "@storybook/addon-knobs/dist/deprecated";
 import { boolean } from "@storybook/addon-knobs";
-
+import { action } from "@storybook/addon-actions";
 storiesOf("Components/List", module)
   .add("Basic List", () => (
     <List title={text("List title", "List title", "List")}>
@@ -110,7 +110,7 @@ storiesOf("Components/List", module)
       />
       <ListActionItem
         title={text("Action Title", "Load more...", "List Actions")}
-        onClick={() => console.log("h")}
+        onClick={action("list-item-clicked")}
       />
     </List>
   ))
@@ -171,7 +171,7 @@ storiesOf("Components/List", module)
       />
       <ListActionItem
         title={text("Action Title", "Load more...", "List Actions")}
-        onClick={() => console.log("h")}
+        onClick={action("list-item-clicked")}
       />
     </List>
   ));

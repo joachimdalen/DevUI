@@ -6,6 +6,7 @@ import { text, boolean } from "@storybook/addon-knobs/react";
 import { List } from "../List/List";
 import { ListItem } from "../List/ListItem";
 import variants from "../../storyUtil/variants";
+import { action } from "@storybook/addon-actions";
 
 storiesOf("Components/Toggle", module)
   .add("Basic Toggle", () => <Toggle toggled={boolean("Toggled", true)} />)
@@ -13,6 +14,7 @@ storiesOf("Components/Toggle", module)
     <Toggle
       toggled={boolean("Toggled", true)}
       rounded={boolean("Rounded", true)}
+      onToggle={action("toggled")}
     />
   ))
   .add("Large Toggle", () => (
@@ -20,6 +22,7 @@ storiesOf("Components/Toggle", module)
       toggled={boolean("Toggled", true)}
       rounded={boolean("Rounded", false)}
       size={text("Size", "large")}
+      onToggle={action("toggled")}
     />
   ))
   .add("With labels", () => (
@@ -28,6 +31,7 @@ storiesOf("Components/Toggle", module)
       rounded={boolean("Rounded", false)}
       size={text("Size", "large")}
       showLabels={boolean("Show labels", true)}
+      onToggle={action("toggled")}
     />
   ))
   .add("With context", () => (
@@ -47,6 +51,7 @@ storiesOf("Components/Toggle", module)
             toggled={boolean("Toggled", true)}
             rounded={boolean("Rounded", false)}
             showLabels={boolean("Show labels", true)}
+            onToggle={action("toggled")}
           />
         }
         iconPlacement="right"
@@ -63,6 +68,7 @@ storiesOf("Components/Toggle", module)
               variant={variant}
               toggled={boolean("Toggled", true)}
               showLabels={boolean("Show Labels", false)}
+              onToggle={action("toggled")}
             />
           );
         })}
@@ -76,6 +82,7 @@ storiesOf("Components/Toggle", module)
               rounded={true}
               toggled={boolean("Toggled", true)}
               showLabels={boolean("Show Labels", false)}
+              onToggle={action("toggled")}
             />
           );
         })}
@@ -89,6 +96,7 @@ storiesOf("Components/Toggle", module)
               toggled={boolean("Toggled", true)}
               size="large"
               showLabels={boolean("Show Labels", false)}
+              onToggle={action("toggled")}
             />
           );
         })}
@@ -103,6 +111,7 @@ storiesOf("Components/Toggle", module)
               size="large"
               rounded={true}
               showLabels={boolean("Show Labels", false)}
+              onToggle={action("toggled")}
             />
           );
         })}
