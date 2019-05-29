@@ -10,7 +10,6 @@
   background-clip: padding-box;
   border: 1px solid $color-border;
   transition: border-color 0.15s ease-in-out;
-  box-sizing: border-box;
   margin: 1px;
   line-height: 1.5;
   &:hover:not(:focus) {
@@ -70,7 +69,6 @@
       padding: 0 5px;
       color: $color-text-gray;
       border: 1px solid $color-border;
-      box-sizing: border-box;
       background-color: lighten($color-disabled, 5%);
     }
     &-before {
@@ -94,7 +92,6 @@
   background-color: $color-light;
   border: 1px solid $color-border;
   border-radius: $border-raidus;
-  box-sizing: border-box;
   width: auto;
   position: relative;
   margin: 1px;

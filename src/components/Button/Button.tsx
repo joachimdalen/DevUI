@@ -49,35 +49,35 @@ export class Button extends React.Component<Props> {
       : size === "small"
       ? "small"
       : "large";
+    const buttonClass = cx(
+      baseButtonClass,
+      { disabled: disabled && !loading },
+      { [`${baseButtonClass}-${variant}`]: !isDefaultVariant && !outlined },
+      { [`${baseButtonClass}-${format}`]: isDefaultFormat },
+      { [`${baseButtonClass}-outlined-${variant}`]: outlined },
+      { [`${baseButtonClass}-dashed`]: dashed && outlined },
+      { [`${baseButtonClass}-loading`]: loading },
+      { [`${baseButtonClass}-icon-only`]: hasButtonText === false },
+      { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize }
+    );
+
+    const loadingIconComp = (
+      <FontAwesomeIcon
+        animate={true}
+        animationType="spin"
+        margin={true}
+        marginDirection="right"
+        icon={loadingIconClass}
+      />
+    );
+
     return (
-      <button
-        className={cx(
-          baseButtonClass,
-          { disabled: disabled && !loading },
-          { [`${baseButtonClass}-${variant}`]: !isDefaultVariant && !outlined },
-          { [`${baseButtonClass}-${format}`]: isDefaultFormat },
-          { [`${baseButtonClass}-outlined-${variant}`]: outlined },
-          { [`${baseButtonClass}-dashed`]: dashed && outlined },
-          { [`${baseButtonClass}-loading`]: loading },
-          { [`${baseButtonClass}-icon-only`]: hasButtonText === false },
-          { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize }
-        )}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        {loading && (
-          <FontAwesomeIcon
-            animate={true}
-            animationType="spin"
-            margin={true}
-            marginDirection="right"
-            icon={loadingIconClass}
-          />
-        )}
+      <button className={buttonClass} disabled={disabled} onClick={onClick}>
+        {loading && loadingIconComp}
         {!loading && icon && (
           <FontAwesomeIcon icon={icon} margin={hasButtonText} />
         )}
-        {buttonText}
+        {hasButtonText && buttonText}
       </button>
     );
   }
