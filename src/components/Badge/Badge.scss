@@ -43,11 +43,9 @@
   font-weight: $font-weight-regular;
   border-radius: 4px;
   color: $color-dark;
-  margin: 2px;
-  display: inline-flex;
-  font-size: 12px;
-  overflow: hidden;
-  padding: 3px 6px;
+  font-size: 75%;
+  padding: 4px 6px;
+
   @each $color, $value in $theme-colors {
     @include badge-variant("-#{$color}", $value);
   }
