@@ -2,13 +2,13 @@
 .cui-checkbox {
   display: block;
   position: relative;
-  padding-left: 1.5625rem;
-  margin-bottom: 0.1875rem;
+  padding-left: 25px;
+  margin-bottom: 3px;
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 14px;
   user-select: none;
   line-height: 1;
-  margin: 0.1875rem;
+  margin: 3px;
   input {
     position: absolute;
     opacity: 0;
@@ -18,8 +18,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 0.9375rem;
-    width: 0.9375rem;
+    height: 15px;
+    width: 15px;
     box-sizing: border-box;
     border-radius: 2px;
     background-color: $color-disabled;
@@ -34,7 +34,16 @@
   input:checked ~ .cui-checkmark {
     background-color: $color-disabled;
   }
-
+  input:indeterminate ~ .cui-checkmark:before {
+    top: 6px;
+    bottom: 6px;
+    content: " ";
+    position: absolute;
+    right: 2px;
+    left: 2px;
+    transition: all 0.1s;
+    background: $color-dark;
+  }
   .cui-checkmark:after {
     content: "";
     position: absolute;
