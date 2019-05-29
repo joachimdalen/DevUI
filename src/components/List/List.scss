@@ -1,6 +1,6 @@
-.cui-list-container {
+.#{$provider-prefix}-list-container {
   background-color: $color-light;
-  .cui-list-title {
+  .#{$provider-prefix}-list-title {
     font-weight: $font-weight-bold;
     color: $color-dark;
     padding: 10px 5px;
@@ -8,7 +8,7 @@
     font-size: 12px;
     border-bottom: 1px solid $color-disabled;
   }
-  .cui-list {
+  .#{$provider-prefix}-list {
     list-style: none;
     &-item {
       padding: 5px 10px;
@@ -31,7 +31,7 @@
       &-content {
         padding: 5px 10px;
         width: 100%;
-        .cui-list-item-title,
+        .#{$provider-prefix}-list-item-title,
         &-title {
           font-size: 12px;
         }
@@ -43,11 +43,11 @@
       }
     }
     &-bordered {
-      .cui-list-item {
+      .#{$provider-prefix}-list-item {
         border-bottom: 1px solid $color-disabled;
       }
     }
-    .cui-list-more {
+    .#{$provider-prefix}-list-more {
       color: $color-primary;
       font-size: 12px;
       align-self: center;
@@ -56,7 +56,7 @@
         cursor: pointer;
       }
     }
-    .cui-list-center {
+    .#{$provider-prefix}-list-center {
       justify-content: center;
     }
   }

@@ -50,13 +50,12 @@ export class Select extends React.Component<Props, State> {
   public render() {
     const { expanded } = this.state;
     const { disabled } = this.props;
-    const containerClass = cx("cui-select", { disabled: disabled });
-    const infoClass = cx("cui-select-info");
-    const previewClass = cx("cui-select-preview");
-    const caretContainerClass = cx("cui-select-caret-container");
-    const optionsClass = cx("cui-select-options", {
-      visible: expanded && !disabled
-    });
+    const containerClass = cx("dui-select", { disabled: disabled });
+    const infoClass = cx("dui-select-info");
+    const previewClass = cx("dui-select-preview");
+    const caretContainerClass = cx("dui-select-caret-container");
+    const optionsClass = cx("dui-select-options");
+    const optionsListClass = cx("dui-select-options-list");
     const caretIcon = expanded ? "fas fa-caret-up" : "fas fa-caret-down";
     return (
       <div
@@ -70,7 +69,12 @@ export class Select extends React.Component<Props, State> {
             <FontAwesomeIcon icon={caretIcon} />
           </span>
         </div>
-        <div className={optionsClass}>{this._renderOptions()}</div>
+         
+        {expanded && (
+          <div className={optionsClass}>
+            <div className={optionsListClass}>{this._renderOptions()}</div>
+          </div>
+        )}
       </div>
     );
   }
@@ -106,7 +110,7 @@ export class Select extends React.Component<Props, State> {
     return options.map((option: Option) => {
       return (
         <div
-          className={cx("cui-select-option")}
+          className={cx("dui-select-option")}
           key={option.value}
           onClick={() => this._selectOption(option)}
         >

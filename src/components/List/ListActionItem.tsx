@@ -9,8 +9,8 @@ export class ListActionItem extends React.Component<Props> {
   public render() {
     const { title, onClick } = this.props;
     return (
-      <ul className="cui-list-item cui-list-center">
-        <a className="cui-list-more" onClick={onClick}>
+      <ul className="dui-list-item dui-list-center">
+        <a className="dui-list-more" onClick={onClick}>
           {title}
         </a>
       </ul>

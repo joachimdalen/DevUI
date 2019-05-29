@@ -1,4 +1,4 @@
-.cui-checkbox-list {
+.#{$provider-prefix}-checkbox-list {
   border: 1px solid $color-gray;
   background-color: $color-light;
   &-header {
@@ -24,7 +24,7 @@
   &-items {
     padding: 5px;
     list-style: none;
-    .cui-checkbox {
+    .#{$provider-prefix}-checkbox {
       color: lighten($color-dark, 50%);
     }
   }

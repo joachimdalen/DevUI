@@ -13,26 +13,26 @@ export class ListItem extends React.Component<Props> {
     const { title, subtitle, icon, iconPlacement = "left" } = this.props;
     if (isNull(icon)) {
       return (
-        <ul className={cx("cui-list-item")}>
-          <p className={cx("cui-list-item-title")}>{title}</p>
+        <ul className={cx("dui-list-item")}>
+          <p className={cx("dui-list-item-title")}>{title}</p>
         </ul>
       );
     }
     return (
-      <ul className={cx("cui-list-item")}>
+      <ul className={cx("dui-list-item")}>
         {icon && (
           <span
-            className={cx("cui-list-item-icon", {
-              [`cui-list-item-icon-right`]: iconPlacement === "right"
+            className={cx("dui-list-item-icon", {
+              [`dui-list-item-icon-right`]: iconPlacement === "right"
             })}
           >
             {icon}
           </span>
         )}
-        <div className="cui-list-item-content">
-          <p className={cx("cui-list-item-content-title")}>{title}</p>
+        <div className="dui-list-item-content">
+          <p className={cx("dui-list-item-content-title")}>{title}</p>
           {subtitle && (
-            <p className={cx("cui-list-item-content-subtitle")}>{subtitle}</p>
+            <p className={cx("dui-list-item-content-subtitle")}>{subtitle}</p>
           )}
         </div>
       </ul>

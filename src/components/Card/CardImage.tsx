@@ -9,6 +9,6 @@ export class CardImage extends React.Component<Props> {
     const style: React.CSSProperties = {
       backgroundImage: "url(" + image + ")"
     };
-    return <header style={style} className="cui-card-image-header" />;
+    return <header style={style} className="dui-card-image-header" />;
   }
 }

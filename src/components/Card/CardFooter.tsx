@@ -5,6 +5,6 @@ export interface Props {}
 export class CardFooter extends React.Component<Props> {
   public render() {
     const { children } = this.props;
-    return <div className={cx("cui-card-footer")}>{children}</div>;
+    return <div className={cx("dui-card-footer")}>{children}</div>;
   }
 }

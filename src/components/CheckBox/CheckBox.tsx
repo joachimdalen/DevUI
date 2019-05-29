@@ -39,15 +39,15 @@ export class CheckBox extends React.Component<Props> {
     return (
       <label
         className={cx(
-          "cui-checkbox",
+          "dui-checkbox",
           { ["disabled"]: disabled },
-          { [`cui-checkbox-${variant}`]: variant !== "default" },
+          { [`dui-checkbox-${variant}`]: variant !== "default" },
           className
         )}
       >
         <span>{label}</span>
         <input
-          className="cui-checkbox-input"
+          className="dui-checkbox-input"
           type="checkbox"
           checked={checked}
           onChange={() => onCheckChange(!checked)}
@@ -55,7 +55,7 @@ export class CheckBox extends React.Component<Props> {
           ref={node => (this._inputRef = node)}
           name={name}
         />
-        <span className="cui-checkmark" />
+        <span className="dui-checkmark" />
       </label>
     );
   }

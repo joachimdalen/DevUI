@@ -10,9 +10,9 @@
   white-space: nowrap;
 }
 
-.cui-badge-wrapper {
+.#{$provider-prefix}-badge-wrapper {
   @extend %badge-base;
-  .cui-badge-dismissible {
+  .#{$provider-prefix}-badge-dismissible {
     align-items: center;
     border-radius: 2px;
     display: flex;
@@ -25,7 +25,7 @@
       cursor: pointer;
     }
   }
-  .cui-badge {
+  .#{$provider-prefix}-badge {
     border-radius: 2px;
     font-size: 12px;
     overflow: hidden;
@@ -37,7 +37,7 @@
   }
 }
 
-.cui-badge {
+.#{$provider-prefix}-badge {
   @extend %badge-base;
   padding: 6px;
   border: 1px solid;

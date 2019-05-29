@@ -1,5 +1,5 @@
 @import "./Toggle.mixin.scss";
-.cui-toggle {
+.#{$provider-prefix}-toggle {
   position: relative;
   display: inline-block;
   width: 36px;
@@ -7,19 +7,19 @@
   margin: 3px;
   input {
     display: none;
-    &:checked + .cui-toggle-button {
+    &:checked + .#{$provider-prefix}-toggle-button {
       background-color: $color-success;
     }
 
-    &:focus + .cui-toggle-button {
+    &:focus + .#{$provider-prefix}-toggle-button {
       box-shadow: 0 0 1px $color-success;
     }
 
-    &:checked + .cui-toggle-button:before {
+    &:checked + .#{$provider-prefix}-toggle-button:before {
       transform: translateX(16px);
     }
   }
-  .cui-toggle-button {
+  .#{$provider-prefix}-toggle-button {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -30,7 +30,7 @@
     transition: 0.4s;
   }
 
-  .cui-toggle-button:before {
+  .#{$provider-prefix}-toggle-button:before {
     position: absolute;
     content: "";
     height: 14px;
@@ -41,39 +41,39 @@
     transition: 0.4s;
     color: $color-success;
   }
-  &.cui-toggle-large {
+  &.#{$provider-prefix}-toggle-large {
     width: 45px;
     height: 20px;
     input {
-      &:checked + .cui-toggle-button:before {
+      &:checked + .#{$provider-prefix}-toggle-button:before {
         transform: translateX(24px);
       }
     }
-    .cui-toggle-button:before {
+    .#{$provider-prefix}-toggle-button:before {
       height: 16px;
       width: 16px;
       left: 2px;
       bottom: 2px;
     }
   }
-  .cui-toggle-label {
+  .#{$provider-prefix}-toggle-label {
     display: inline-block;
   }
 
-  &.cui-toggle-rounded {
-    .cui-toggle-button {
+  &.#{$provider-prefix}-toggle-rounded {
+    .#{$provider-prefix}-toggle-button {
       border-radius: 32px;
     }
-    .cui-toggle-button:before {
+    .#{$provider-prefix}-toggle-button:before {
       border-radius: 50%;
     }
   }
   @each $color, $value in $theme-colors {
-    @include toggle-variant(".cui-toggle-#{$color}", $value);
+    @include toggle-variant(".#{$provider-prefix}-toggle-#{$color}", $value);
   }
 
-  &.cui-toggle-labels {
-    .cui-toggle-button::after {
+  &.#{$provider-prefix}-toggle-labels {
+    .#{$provider-prefix}-toggle-button::after {
       display: flex;
       content: "OFF";
       align-items: center;
@@ -82,7 +82,7 @@
       height: 100%;
     }
     input {
-      &:checked + .cui-toggle-button::after {
+      &:checked + .#{$provider-prefix}-toggle-button::after {
         content: "ON";
         justify-content: left;
         color: $color-light;
@@ -90,21 +90,21 @@
       }
     }
 
-    .cui-toggle-button::after {
+    .#{$provider-prefix}-toggle-button::after {
       padding-right: 2px;
       color: black;
       font-size: 9px;
     }
-    &.cui-toggle-large {
+    &.#{$provider-prefix}-toggle-large {
       input {
-        &:checked + .cui-toggle-button::after {
+        &:checked + .#{$provider-prefix}-toggle-button::after {
           content: "ON";
           justify-content: left;
           color: colorFromBackground(black);
           padding-left: 5px;
         }
       }
-      .cui-toggle-button::after {
+      .#{$provider-prefix}-toggle-button::after {
         padding-right: 5px;
         color: black;
         font-size: 10px;

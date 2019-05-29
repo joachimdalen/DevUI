@@ -10,12 +10,12 @@ export class Accordion extends React.Component<Props> {
   public render() {
     const { children } = this.props;
     return (
-      <div className={cx("cui-accordion")}>
-        <div className="cui-accordion-header">
-          <p className="cui-accordion-header-title">Hello</p>
-          <span className="cui-accordion-header-toggle">_</span>
+      <div className={cx("dui-accordion")}>
+        <div className="dui-accordion-header">
+          <p className="dui-accordion-header-title">Hello</p>
+          <span className="dui-accordion-header-toggle">_</span>
         </div>
-        <div className="cui-accordion-content">{children}</div>
+        <div className="dui-accordion-content">{children}</div>
       </div>
     );
   }

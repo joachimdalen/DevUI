@@ -28,21 +28,21 @@ export class Toggle extends React.Component<Props> {
     return (
       <label
         className={cx(
-          "cui-toggle",
-          { [`cui-toggle-rounded`]: rounded },
-          { [`cui-toggle-${variant}`]: variant !== "default" },
-          { [`cui-toggle-${size}`]: size !== "normal" },
-          { [`cui-toggle-labels`]: showLabels },
+          "dui-toggle",
+          { [`dui-toggle-rounded`]: rounded },
+          { [`dui-toggle-${variant}`]: variant !== "default" },
+          { [`dui-toggle-${size}`]: size !== "normal" },
+          { [`dui-toggle-labels`]: showLabels },
           className
         )}
       >
         <input
           type="checkbox"
-          className={cx("cui-toggle")}
+          className={cx("dui-toggle")}
           checked={toggled}
           onChange={() => onToggle()}
         />
-        <span className={cx("cui-toggle-button")} />
+        <span className={cx("dui-toggle-button")} />
       </label>
     );
   }

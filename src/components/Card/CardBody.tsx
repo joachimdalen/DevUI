@@ -5,6 +5,6 @@ export interface Props {}
 export class CardBody extends React.Component<Props> {
   public render() {
     const { children } = this.props;
-    return <div className={cx("cui-card-body")}>{children}</div>;
+    return <div className={cx("dui-card-body")}>{children}</div>;
   }
 }

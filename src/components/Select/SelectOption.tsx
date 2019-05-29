@@ -9,7 +9,7 @@ export class SelectOption extends React.PureComponent<Props> {
   render() {
     const { children } = this.props;
     return (
-      <div className="cui-select-option" role="option" onClick={this.context.onItemClick}>
+      <div className="dui-select-option" role="option" onClick={this.context.onItemClick}>
         {children}
       </div>
     );

@@ -1,13 +1,13 @@
 @mixin checkbox-variant($parent, $background) {
   &#{$parent} {
-    input:checked ~ .cui-checkmark {
+    input:checked ~ .#{$provider-prefix}-checkmark {
       background-color: $background;
     }
-    .cui-checkmark:after {
+    .#{$provider-prefix}-checkmark:after {
       border-color: colorFromBackground($background);
     }
     &:hover:not(.disabled) {
-      .cui-checkmark {
+      .#{$provider-prefix}-checkmark {
         background-color: darken($background, 20%);
       }
     }

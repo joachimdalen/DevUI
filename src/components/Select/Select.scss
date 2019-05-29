@@ -1,7 +1,6 @@
 .#{$provider-prefix}-select {
   color: $color-text-gray;
   border-radius: $border-raidus;
-  display: block;
   width: 100%;
   font-size: $input-font-size-normal;
   height: $input-height-normal;
@@ -35,19 +34,24 @@
     border: 1px solid $color-border;
     background-color: $color-light;
     width: 100%;
+    z-index: 1;
     position: absolute;
     right: -1px; // WHY??
-    top: $input-height-normal - 6px;
-    display: none;
-    max-height: 150px;
-    overflow-y: auto;
-    overflow-x: visible;
+    //top: $input-height-normal - 6px;
+    top: 100%;
+
     &.visible {
       display: block;
+    }
+    &-list {
+      max-height: 150px;
+      overflow-y: auto;
+      position: relative;
     }
   }
   &-option {
     padding: 2px 5px;
+    white-space: nowrap;
     &:hover {
       background-color: lighten($color-blue, 45%);
       cursor: pointer;

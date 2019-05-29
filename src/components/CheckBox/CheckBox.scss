@@ -1,5 +1,5 @@
 @import "./CheckBox.mixin.scss";
-.cui-checkbox {
+.#{$provider-prefix}-checkbox {
   display: block;
   position: relative;
   padding-left: 25px;
@@ -14,7 +14,7 @@
     opacity: 0;
     cursor: pointer;
   }
-  .cui-checkmark {
+  .#{$provider-prefix}-checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,15 +26,15 @@
   }
 
   &:hover:not(.disabled) {
-    .cui-checkmark {
+    .#{$provider-prefix}-checkmark {
       background-color: darken($color-disabled, 20%);
     }
   }
 
-  input:checked ~ .cui-checkmark {
+  input:checked ~ .#{$provider-prefix}-checkmark {
     background-color: $color-disabled;
   }
-  input:indeterminate ~ .cui-checkmark:before {
+  input:indeterminate ~ .#{$provider-prefix}-checkmark:before {
     top: 6px;
     bottom: 6px;
     content: " ";
@@ -44,19 +44,19 @@
     transition: all 0.1s;
     background: $color-dark;
   }
-  .cui-checkmark:after {
+  .#{$provider-prefix}-checkmark:after {
     content: "";
     position: absolute;
     display: none;
     box-sizing: initial;
   }
 
-  input:checked ~ .cui-checkmark:after {
+  input:checked ~ .#{$provider-prefix}-checkmark:after {
     display: block;
     box-sizing: initial;
   }
 
-  .cui-checkmark:after {
+  .#{$provider-prefix}-checkmark:after {
     left: 0.25rem;
     top: 0.125rem;
     width: 0.25rem;
@@ -71,7 +71,7 @@
   }
   &.disabled {
     color: $color-disabled;
-    input:checked ~ .cui-checkmark {
+    input:checked ~ .#{$provider-prefix}-checkmark {
       background-color: $color-disabled;
     }
   }

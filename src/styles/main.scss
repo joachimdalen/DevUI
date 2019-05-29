@@ -1,10 +1,12 @@
 @import "./reset";
-$provider-prefix: "cui";
+$provider-prefix: "dui";
 @import "./functions";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
 
 @import "./colors";
-
+* {
+  box-sizing: border-box;
+}
 // THEMEING
 $theme-colors: () !default;
 
@@ -23,8 +25,8 @@ $theme-colors: map-merge(
   $theme-colors
 );
 
-
-$shadow-focus: inset 0 0 2px rgba($color-dark, 0.14), inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14);
+$shadow-focus: inset 0 0 2px rgba($color-dark, 0.14),
+  inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14);
 // FONT
 $font-weight-light: 300;
 $font-weight-regular: 400;

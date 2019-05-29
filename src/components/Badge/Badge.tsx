@@ -16,12 +16,12 @@ export class Badge extends React.Component<Props> {
     const { label, variant, dismissible, onDismiss, dismissText } = this.props;
     console.log(this.props);
     const badgeClass = cx(
-      "cui-badge",
-      { [`cui-badge-${variant}`]: variant !== "default" },
-      { [`cui-badge-dismiss`]: dismissible }
+      "dui-badge",
+      { [`dui-badge-${variant}`]: variant !== "default" },
+      { [`dui-badge-dismiss`]: dismissible }
     );
-    const dismissibleClass = cx("cui-badge-dismissible");
-    const wrapperClass = cx("cui-badge-wrapper");
+    const dismissibleClass = cx("dui-badge-dismissible");
+    const wrapperClass = cx("dui-badge-wrapper");
     const isDismissible = !isUndefined(onDismiss) && dismissible;
     const badgeComponent = <span className={badgeClass}>{label}</span>;
     const dismissIcon = <FontAwesomeIcon icon="fas fa-times" />;

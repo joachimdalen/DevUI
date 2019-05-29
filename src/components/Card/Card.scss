@@ -1,4 +1,4 @@
-.cui-card {
+.#{$provider-prefix}-card {
   background-color: $color-light;
   border-radius: 2px;
   box-sizing: border-box;
@@ -53,14 +53,14 @@
   &-image {
     &-left {
       flex-direction: row;
-      .cui-card-image-header {
+      .#{$provider-prefix}-card-image-header {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }
     }
     &-right {
       flex-direction: row;
-      .cui-card-image-header {
+      .#{$provider-prefix}-card-image-header {
         order: 2;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;

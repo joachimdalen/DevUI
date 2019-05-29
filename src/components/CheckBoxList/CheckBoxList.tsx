@@ -35,33 +35,33 @@ export class CheckBoxList extends React.Component<Props, State> {
     const isAllChecked = items.length !== 0 && items.length === checked.length;
     console.log(isIndeterminate, isAllChecked);
     return (
-      <div className={cx("cui-checkbox-list")}>
+      <div className={cx("dui-checkbox-list")}>
         {(showCheckCount || showCheckAll) && (
-          <div className="cui-checkbox-list-header">
+          <div className="dui-checkbox-list-header">
             {showCheckAll && (
               <CheckBox
                 label="Check all"
                 checked={isAllChecked}
                 onCheckChange={() => this._toggleAll()}
-                className="cui-checkbox-list-header-check-all"
+                className="dui-checkbox-list-header-check-all"
                 disabled={!items.length}
                 indeterminate={isIndeterminate}
                 name="check_all"
               />
             )}
             {showCheckCount && (
-              <span className="cui-checkbox-list-header-counter">{`(${
+              <span className="dui-checkbox-list-header-counter">{`(${
                 checked.length
               }/${items.length})`}</span>
             )}
           </div>
         )}
         {items.length ? (
-          <li className="cui-checkbox-list-items">
+          <li className="dui-checkbox-list-items">
             {items &&
               items.map((item: ILB) => {
                 return (
-                  <ul className="cui-checkbox-list-item" key={item.label}>
+                  <ul className="dui-checkbox-list-item" key={item.label}>
                     <CheckBox
                       label={item.label}
                       checked={checked.indexOf(item) !== -1}

@@ -13,8 +13,8 @@ export class Card extends React.Component<Props> {
 
     return (
       <div
-        className={cx("cui-card", {
-          [`cui-card-image-${imagePlacement}`]: image !== undefined
+        className={cx("dui-card", {
+          [`dui-card-image-${imagePlacement}`]: image !== undefined
         })}
         style={{
           width: `${width}px`
@@ -24,7 +24,7 @@ export class Card extends React.Component<Props> {
         {image === null ? (
           children
         ) : (
-          <div className="cui-card-inner">{children}</div>
+          <div className="dui-card-inner">{children}</div>
         )}
       </div>
     );

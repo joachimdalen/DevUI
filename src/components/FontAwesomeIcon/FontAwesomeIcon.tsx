@@ -19,13 +19,13 @@ const FontAwesomeIcon = ({
 }: Props) => {
   const animationClass = animationType === "spin" ? "fa-spin" : "fa-pulse";
   const marginClass =
-    marginDirection === "left" ? "cui-icon-ml" : "cui-icon-mr";
+    marginDirection === "left" ? "dui-icon-ml" : "dui-icon-mr";
   const isDefaultSize = size === "normal";
   const sizeClass = isDefaultSize ? "" : size === "large" ? "fa-2x" : "fa-3x";
   return (
     <i
       className={cx(
-        "cui-icon",
+        "dui-icon",
         icon,
         sizeClass,
         { [animationClass]: animate },

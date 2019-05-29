@@ -50,21 +50,21 @@ export class TextInput extends React.Component<Props> {
     const sizeClass = isDefaultSize
       ? ""
       : size === "small"
-      ? "cui-input-small"
-      : "cui-input-large";
+      ? "dui-input-small"
+      : "dui-input-large";
     const shouldWrapAddons = hasAddonBefore || hasAddonAfter;
     const shouldWrapFix = hasPrefix || hasSuffix;
     const addonWrapperClass = cx(
-      "cui-input-wrapper",
-      { ["cui-input-addon-before"]: hasAddonBefore },
-      { ["cui-input-addon-after"]: hasAddonAfter }
+      "dui-input-wrapper",
+      { ["dui-input-addon-before"]: hasAddonBefore },
+      { ["dui-input-addon-after"]: hasAddonAfter }
     );
-    const fixWrapperClass = cx("cui-input-fix-wrapper");
+    const fixWrapperClass = cx("dui-input-fix-wrapper");
 
     const inputComponent = (
       <input
         type={typeValue}
-        className={cx("cui-input", sizeClass)}
+        className={cx("dui-input", sizeClass)}
         autoComplete={autoCompleteValue}
         autoFocus={autoFocus}
         name={name}
@@ -84,9 +84,9 @@ export class TextInput extends React.Component<Props> {
     if (shouldWrapFix) {
       return (
         <div className={fixWrapperClass}>
-          {prefix && <span className={cx("cui-input-prefix")}>{prefix}</span>}
+          {prefix && <span className={cx("dui-input-prefix")}>{prefix}</span>}
           {inputComponent}
-          {suffix && <span className={cx("cui-input-suffix")}>{suffix}</span>}
+          {suffix && <span className={cx("dui-input-suffix")}>{suffix}</span>}
         </div>
       );
     }
@@ -94,11 +94,11 @@ export class TextInput extends React.Component<Props> {
     return (
       <div className={addonWrapperClass}>
         {addonBefore && (
-          <span className={cx("cui-input-addon-before")}>{addonBefore}</span>
+          <span className={cx("dui-input-addon-before")}>{addonBefore}</span>
         )}
         {inputComponent}
         {addonAfter && (
-          <span className={cx("cui-input-addon-after")}>{addonAfter}</span>
+          <span className={cx("dui-input-addon-after")}>{addonAfter}</span>
         )}
       </div>
     );

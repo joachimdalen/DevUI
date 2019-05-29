@@ -37,7 +37,7 @@ export class Button extends React.Component<Props> {
     const isDefaultVariant = variant === "default";
     const isDefaultFormat = format === "default";
     const loadingIconClass = loadingIcon ? loadingIcon : "fas fa-spinner";
-    const baseButtonClass = "cui-button";
+    const baseButtonClass = "dui-button";
     const hasButtonText = !(
       label === undefined ||
       label === null ||

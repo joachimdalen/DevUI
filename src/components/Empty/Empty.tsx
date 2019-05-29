@@ -19,14 +19,14 @@ export class Empty extends React.Component<Props> {
       isCustomIcon && !isUndefined(icon) ? icon : "fas fa-inbox";
     const descriptionItem = isCustomDescription ? description : "No Data";
     return (
-      <div className={cx("cui-empty")}>
-        <div className="cui-empty-preset">
+      <div className={cx("dui-empty")}>
+        <div className="dui-empty-preset">
           {isCustomImage ? (
             image
           ) : (
             <FontAwesomeIcon icon={iconClass} size="large" />
           )}
-          <p className="cui-empty-preset-description">{descriptionItem}</p>
+          <p className="dui-empty-preset-description">{descriptionItem}</p>
         </div>
         {children}
       </div>
