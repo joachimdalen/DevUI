@@ -25,6 +25,7 @@
     cursor: pointer;
     background-color: darken($color-primary, 10%);
     border-color: darken($color-primary, 10%);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
   }
 
   &-block {
