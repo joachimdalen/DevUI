@@ -1,7 +1,7 @@
 import cx from "classnames";
 import * as React from "react";
 export interface Props {
-  label: string;
+  label?: string;
   checked: boolean;
   onCheckChange: (state: boolean) => void;
   disabled?: boolean;
@@ -45,7 +45,7 @@ export class CheckBox extends React.Component<Props> {
           className
         )}
       >
-        <span>{label}</span>
+        {label && <span>{label}</span>}
         <input
           className="dui-checkbox-input"
           type="checkbox"

@@ -1,0 +1,69 @@
+.#{$provider-prefix}-table {
+  display: table;
+  border: 1px solid $color-border;
+  background-color: $color-light;
+  color: $color-text-gray;
+  &-bordered {
+    .#{$provider-prefix}-table-row,
+    .#{$provider-prefix}-table-cell {
+      border: 1px solid $color-border;
+    }
+  }
+  &-striped {
+    .#{$provider-prefix}-table-row:nth-child(odd) {
+      background-color: $color-primary;
+    }
+  }
+  &-hoverable {
+    .#{$provider-prefix}-table-row {
+      &:hover {
+        background-color: #e6e9eb;
+        cursor: pointer;
+      }
+    }
+  }
+  &-row {
+    display: table-row;
+    border-width: 1px 0 0 0;
+    border-color: $color-border;
+    border-style: solid;
+    padding: 8px;
+
+    &-bordered {
+      .#{$provider-prefix}-table-cell {
+        border: 1px solid $color-border;
+      }
+    }
+  }
+  &-cell {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 8px;
+    &-header {
+      text-align: left;
+      background-color: #eff2f4;
+      line-height: 1.5;
+      height: 40px;
+    }
+    &-checkable {
+      /*  display: flex;
+      justify-content: center;
+      align-items: center; */
+      text-align: center;
+      vertical-align: middle;
+      .#{$provider-prefix}-checkbox {
+        padding-left: 0;
+        display: inline;
+        & > span {
+          color: transparent;
+        }
+      }
+    }
+  }
+  caption {
+    display: table-caption;
+    font-weight: $font-weight-regular;
+    font-size: $input-font-size-small;
+    margin: 5px 0;
+  }
+}
