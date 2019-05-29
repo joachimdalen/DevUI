@@ -22,22 +22,11 @@ const columnHeaders = [
   { key: "age", label: "Age" }
 ];
 const values = [
-  {
-    name: {
-      prefix: "Mr",
-      first_name: "John",
-      last_name: "Doe"
-    },
-    age: 22
-  },
-  {
-    name: {
-      prefix: "Mrs",
-      first_name: "Jane",
-      last_name: "Doe"
-    },
-    age: 55
-  }
+  { name: { prefix: "Mr", first_name: "John", last_name: "Doe" }, age: 22 },
+  { name: { prefix: "Mrs", first_name: "Jane", last_name: "Doe" }, age: 55 },
+  { name: { prefix: "Mrs", first_name: "Jane", last_name: "Doe" }, age: 55 },
+  { name: { prefix: "Mrs", first_name: "Jane", last_name: "Doe" }, age: 55 },
+  { name: { prefix: "Mrs", first_name: "Jane", last_name: "Doe" }, age: 55 }
 ];
 
 storiesOf("Components/Table", module)
@@ -89,5 +78,6 @@ storiesOf("Components/Table", module)
       bordered={boolean("bordered", false)}
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
+      multiSelect={boolean("multi-select", true)}
     />
   ));

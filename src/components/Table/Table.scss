@@ -6,33 +6,37 @@
   &-bordered {
     .#{$provider-prefix}-table-row,
     .#{$provider-prefix}-table-cell {
-      border: 1px solid $color-border;
+      border-bottom: 1px solid $color-border;
     }
   }
   &-striped {
-    .#{$provider-prefix}-table-row:nth-child(odd) {
-      background-color: $color-primary;
+    .#{$provider-prefix}-table-row:nth-child(2n) {
+      background-color: $color-gray;
     }
   }
   &-hoverable {
     .#{$provider-prefix}-table-row {
       &:hover {
-        background-color: #e6e9eb;
+        background-color: $color-disabled;
         cursor: pointer;
       }
     }
   }
+  &-head {
+    color: $color-text-gray;
+   /*  &-fixed{
+
+    } */
+  }
   &-row {
     display: table-row;
-    border-width: 1px 0 0 0;
-    border-color: $color-border;
-    border-style: solid;
-    padding: 8px;
-
     &-bordered {
       .#{$provider-prefix}-table-cell {
-        border: 1px solid $color-border;
+        border-bottom: 3px solid $color-border;
       }
+    }
+    &-checked {
+      background-color: $color-blue;
     }
   }
   &-cell {
@@ -41,21 +45,22 @@
     padding: 8px;
     &-header {
       text-align: left;
-      background-color: #eff2f4;
       line-height: 1.5;
       height: 40px;
     }
     &-checkable {
-      /*  display: flex;
-      justify-content: center;
-      align-items: center; */
       text-align: center;
       vertical-align: middle;
+      width: 30px;
       .#{$provider-prefix}-checkbox {
         padding-left: 0;
         display: inline;
         & > span {
           color: transparent;
+        }
+        .#{$provider-prefix}-checkmark {
+          background-color: $color-light;
+          border: 1px solid $color-border;
         }
       }
     }
