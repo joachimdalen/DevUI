@@ -1,0 +1,42 @@
+// THEMEING
+$theme-colors: () !default;
+
+$theme-colors: map-merge(
+  (
+    "primary": $color-primary,
+    "secondary": $color-secondary,
+    "dark": $color-dark,
+    "light": $color-light,
+    "success": $color-success,
+    "danger": $color-danger,
+    "magenta": $color-magenta,
+    "warning": $color-warning,
+    "blue": $color-blue
+  ),
+  $theme-colors
+);
+
+$shadow-focus: inset 0 0 2px rgba($color-dark, 0.14),
+  inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14);
+// FONT
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// GENERIC
+$border-raidus: 4px;
+$box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem;
+
+// INPUT
+$input-height-small: 24px;
+$input-height-normal: 32px;
+$input-height-large: 40px;
+
+$input-padding-small: 1px 7px;
+$input-padding-normal: 4px 11px;
+$input-padding-large: 6px 11px;
+
+$input-font-size-small: 14px;
+$input-font-size-normal: 14px;
+$input-font-size-large: 16px;
