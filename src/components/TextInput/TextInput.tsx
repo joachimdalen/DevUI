@@ -13,10 +13,10 @@ export interface Props {
   disabled?: boolean;
   size?: "small" | "large";
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
-  addonBefore: string | React.ReactNode;
-  addonAfter: string | React.ReactNode;
-  prefix: string | React.ReactNode;
-  suffix: string | React.ReactNode;
+  addonBefore?: string | React.ReactNode;
+  addonAfter?: string | React.ReactNode;
+  prefix?: string | React.ReactNode;
+  suffix?: string | React.ReactNode;
 }
 
 export class TextInput extends React.Component<Props> {
