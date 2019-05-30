@@ -7,12 +7,15 @@ import cx from "classnames";
 import * as React from "react";
 import { TablePaginator } from "./TablePaginator";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { TextInput } from "../TextInput/TextInput";
 
 export interface Column {
   key: string;
   label: string;
   sortable?: boolean;
+  searchable?: boolean;
   accessor?: (item: any) => string;
+  renderer?: (item: any) => React.ReactNode;
   onSort?: (a: TableRow, b: TableRow) => void;
 }
 
@@ -22,19 +25,27 @@ export interface Props {
   keyField: string;
   multiSelect?: boolean;
 }
+
+export interface SearchEntry {
+  key: string;
+  value: string;
+}
+
 export interface State {
   checked: TableRow[];
   sortBy?: Column;
   sortDirection: string;
+  search: SearchEntry[];
 }
 
 export type AllProps = TableProps & Props;
 
 export class DataTable extends React.Component<AllProps, State> {
   state = {
-    checked: [],
+    checked: [] as any[],
     sortBy: {} as Column,
-    sortDirection: "asc"
+    sortDirection: "asc",
+    search: [] as SearchEntry[]
   };
 
   public render() {
@@ -57,27 +68,65 @@ export class DataTable extends React.Component<AllProps, State> {
       </TableHeader>
     );
   }
+  _handleSearch(key: string, value: string) {
+    const { search } = this.state;
+
+    let index = search.findIndex((e: SearchEntry) => e.key === key);
+    let data: SearchEntry = {
+      key: key,
+      value: value
+    };
+    if (index === -1) {
+      let newItems = [...search, data];
+      this.setState({ search: newItems });
+    } else {
+      let newItems = [...search];
+      newItems[index] = data;
+      this.setState({ search: newItems });
+    }
+  }
+  _sort(col: Column) {
+    const { sortDirection } = this.state;
+    this.setState({
+      sortBy: col,
+      sortDirection: sortDirection === "desc" ? "asc" : "desc"
+    });
+  }
+
   _getHeaders() {
-    const { columns, multiSelect } = this.props;
+    const { columns, rows, multiSelect } = this.props;
+    const { search, checked } = this.state;
+    //  const hasSearch = columns.find((e: Column) => e.searchable === true);
     let rowHeaders: TableCell[] = columns.map((col: Column) => {
+      let searchIndex = this.state.search.findIndex(
+        (e: SearchEntry) => e.key === col.key
+      );
       if (col.sortable) {
         return (
-          <TableCell
-            onClick={() =>
-              this.setState({
-                sortBy: col,
-                sortDirection:
-                  this.state.sortDirection === "desc" ? "asc" : "desc"
-              })
-            }
-            className="dui-table-cell-sortable"
-          >
-            {col.label}
-            <FontAwesomeIcon icon="fas fa-sort" />
+          <TableCell className="dui-table-cell-sortable" key={col.key}>
+            <div onClick={() => this._sort(col)}>
+              <span>{col.label}</span>
+              <FontAwesomeIcon icon="fas fa-sort" />
+            </div>
+            {col.searchable && (
+              <div>
+                <TextInput
+                  name="filter"
+                  size="small"
+                  onChange={e => this._handleSearch(col.key, e.target.value)}
+                  value={
+                    searchIndex === -1
+                      ? ""
+                      : search[searchIndex] && search[searchIndex]["value"]
+                  }
+                  placeholder="Search..."
+                />
+              </div>
+            )}
           </TableCell>
         );
       }
-      return <TableCell>{col.label}</TableCell>;
+      return <TableCell key={col.key}>{col.label}</TableCell>;
     }) as any;
 
     if (multiSelect) {
@@ -86,7 +135,10 @@ export class DataTable extends React.Component<AllProps, State> {
         <TableCell className={checkCellClass}>
           <CheckBox
             label="xx"
-            checked={true}
+            checked={false}
+            indeterminate={
+              checked.length !== 0 && checked.length !== rows.length
+            }
             onCheckChange={() => console.log("1")}
           />
         </TableCell>
@@ -101,40 +153,42 @@ export class DataTable extends React.Component<AllProps, State> {
 
   _getRows() {
     const { columns, rows, multiSelect } = this.props;
-    const { sortBy, sortDirection } = this.state;
+    const { sortBy, sortDirection, search } = this.state;
     const checkCellClass = cx("dui-table-cell-checkable");
 
-    let rowItems: any[] = [];
+    let rowItems: Column[] = rows;
+
+    if (search.length) {
+      search.forEach((e: SearchEntry) => {
+        rowItems = rowItems.filter(item => item[e.key].indexOf(e.value) !== -1);
+      });
+    }
     if (sortBy) {
       if (sortBy.accessor) {
         rowItems =
           sortDirection === "asc"
-            ? rows.sort(
-                (a: Column, b: Column) =>
-                  sortBy.accessor!(a) < sortBy.accessor!(b)
+            ? rowItems.sort((a: Column, b: Column) =>
+                sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
               )
-            : rows.sort(
-                (a: Column, b: Column) =>
-                  sortBy.accessor!(a) > sortBy.accessor!(b)
+            : rowItems.sort((a: Column, b: Column) =>
+                sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
               );
       } else {
         let sortKey = sortBy.key;
         rowItems =
           sortDirection === "asc"
-            ? rows.sort((a: Column, b: Column) => {
-                return a[sortKey] < b[sortKey];
-              })
-            : rows.sort((a: Column, b: Column) => {
-                return a[sortKey] > b[sortKey];
-              });
+            ? rowItems.sort((a: Column, b: Column) =>
+                a[sortKey] < b[sortKey] ? 0 : 1
+              )
+            : rowItems.sort((a: Column, b: Column) =>
+                a[sortKey] > b[sortKey] ? 0 : 1
+              );
       }
-    } else {
-      rowItems = rows;
     }
 
     let renderedRows = rowItems.map((row: any) => {
       return (
-        <TableRow>
+        <TableRow key={row["key"]}>
           {multiSelect && (
             <TableCell className={checkCellClass}>
               <CheckBox
@@ -146,12 +200,18 @@ export class DataTable extends React.Component<AllProps, State> {
           )}
           {
             columns.map((col: Column) => {
-              const isCustomAccessor = col.accessor;
-              if (isCustomAccessor)
+              const isCustomRenderer = col.renderer;
+              if (isCustomRenderer)
                 return (
-                  <TableCell>{col.accessor && col.accessor(row)}</TableCell>
+                  <TableCell key={row[col.key]}>
+                    {col.renderer && col.renderer(row)}
+                  </TableCell>
                 );
-              return <TableCell>{row[col.key]}</TableCell>;
+              return (
+                <TableCell key={row[col.key]}>
+                  {row[col.key] || (col.accessor && col.accessor(row))}
+                </TableCell>
+              );
             }) as any
           }
         </TableRow>

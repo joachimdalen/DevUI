@@ -1,0 +1,67 @@
+[
+  {
+    "id": "INV-0001",
+    "customer": {
+      "prefix": "Mr",
+      "first_name": "Adam",
+      "last_name": "Doe",
+      "company": {
+        "name": "Company A",
+        "id": "COMA"
+      }
+    },
+    "created": "Nov 12, 2019",
+    "status": "Outstanding",
+    "due": "Dec 23, 2019",
+    "service": "UI Design",
+    "amount": 200000
+  },
+  {
+    "id": "INV-0002",
+    "customer": {
+      "prefix": "Mr",
+      "first_name": "Brace",
+      "last_name": "Smith",
+      "company": {
+        "name": "Company A",
+        "id": "COMA"
+      }
+    },
+    "created": "Nov 13, 2019",
+    "status": "Outstanding",
+    "due": "Dec 24, 2019",
+    "service": "Development",
+    "amount": 1000
+  },
+  {
+    "id": "INV-0003",
+    "customer": {
+      "prefix": "Mrs",
+      "first_name": "Liz",
+      "last_name": "Duh",
+      "company": {
+        "name": "Company C",
+        "id": "COMC"
+      }
+    },
+    "created": "Dec 1, 2019",
+    "status": "Paid",
+    "due": "Dec 30, 2019",
+    "service": "UI Design",
+    "amount": 2000
+  },
+  {
+    "id": "INV-0004",
+    "customer": {
+      "prefix": "Mr",
+      "first_name": "Jeremy",
+      "last_name": "Dull",
+      "company": null
+    },
+    "created": "Jan 1, 2019",
+    "status": "Pending",
+    "due": "Feb 28, 2019",
+    "service": "Consulting",
+    "amount": 2500
+  }
+]

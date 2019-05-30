@@ -8,75 +8,65 @@ import { DataTable, Column } from "./DataTable";
 import { boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-
+const values = require("../../../data/invoices.json");
 const columnHeaders = [
   {
-    key: "avatar",
-    label: "",
-    accessor: item => (
-      <img
-        style={{ borderRadius: "50%" }}
-        src={`https://api.adorable.io/avatars/10/${item.first_name}.png`}
-      />
-    )
+    key: "id",
+    label: "Invoice #",
+    sortable: true,
+    searchable: true
+  },
+  {
+    key: "created",
+    label: "Created",
+    sortable: true,
+    searchable: true
+  },
+  {
+    key: "status",
+    label: "Status",
+    sortable: true,
+    searchable: true
   },
   {
     key: "first_name",
     label: "First Name",
-    accessor: item => item.name.first_name,
-    sortable: true
+    accessor: item => item.customer.first_name,
+    sortable: true,
+    searchable: true
   },
   {
     key: "last_name",
     label: "Last Name",
-    accessor: item => item.name.last_name
+    accessor: item => item.customer.last_name
   },
-  { key: "age", label: "Age", sortable: true },
-  { key: "degree", label: "Degree", sortable: true },
   {
-    key: "income",
-    label: "Income",
-    accessor: item => (
+    key: "company",
+    label: "Company",
+    accessor: item => item.customer.company,
+    renderer: item =>
+      item.customer.company ? (
+        <span>
+          {item.customer.company.name} ({item.customer.company.id})
+        </span>
+      ) : (
+        "-"
+      )
+  },
+  { key: "service", label: "Service" },
+  {
+    key: "amount",
+    label: "Amount",
+    sortable: true,
+    renderer: item => (
       <span>
         <FontAwesomeIcon
           icon="fas fa-dollar-sign"
           className="dui-color-success"
         />{" "}
-        {item.income}
+        {item.amount}
       </span>
     )
-  }
-];
-const values = [
-  {
-    name: { prefix: "Mr", first_name: "Adam", last_name: "Doe" },
-    age: 22,
-    income: "200,000",
-    degree: "A"
-  },
-  {
-    name: { prefix: "Mrs", first_name: "Bever", last_name: "Doe" },
-    age: 23,
-    income: "200,000",
-    degree: "D"
-  },
-  {
-    name: { prefix: "Mrs", first_name: "Jane", last_name: "Doe" },
-    age: 15,
-    income: "200,000",
-    degree: "C"
-  },
-  {
-    name: { prefix: "Mrs", first_name: "Charlie", last_name: "Doe" },
-    age: 59,
-    income: "200,000",
-    degree: "B"
-  },
-  {
-    name: { prefix: "Mrs", first_name: "Zorro", last_name: "Doe" },
-    age: 5,
-    income: "200,000",
-    degree: "F"
   }
 ];
 
