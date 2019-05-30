@@ -7,4 +7,8 @@ $provider-prefix: "dui";
 @import "./functions";
 @import "./colors";
 @import "./variables";
+@each $color, $value in $theme-colors {
+  @include text-color(".#{$provider-prefix}-color-#{$color}", $value);
+}
+
 @import "./components";

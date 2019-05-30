@@ -31,3 +31,9 @@ $color-text-gray: #333;
 $color-placeholder: #aaa;
 
 $color-badge-primary: #e6e6e6;
+
+@mixin text-color($parent, $color) {
+  &#{$parent} {
+    color: $color;
+  }
+}
