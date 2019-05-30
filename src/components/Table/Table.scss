@@ -11,7 +11,7 @@
   }
   &-striped {
     .#{$provider-prefix}-table-row:nth-child(2n) {
-      background-color: $color-gray;
+      background-color: $color-blue-light;
     }
   }
   &-hoverable {

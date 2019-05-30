@@ -49,6 +49,7 @@ export class DataTable extends React.Component<AllProps, State> {
       </div>
     );
   }
+
   _getTableHeader() {
     return (
       <TableHeader>
