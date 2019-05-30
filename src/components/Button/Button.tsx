@@ -5,12 +5,12 @@ export interface Props {
   label?: string;
   onClick: () => void;
   disabled?: boolean;
-  variant: string;
-  format: "default" | "block";
+  variant?: string;
+  format?: "default" | "block";
   size?: "small" | "medium" | "large";
-  outlined: boolean;
-  dashed: boolean;
-  loading: boolean;
+  outlined?: boolean;
+  dashed?: boolean;
+  loading?: boolean;
   loadingIcon?: string;
   loadingText?: string;
   icon?: string;
@@ -53,7 +53,7 @@ export class Button extends React.Component<Props> {
       baseButtonClass,
       { disabled: disabled && !loading },
       { [`${baseButtonClass}-${variant}`]: !isDefaultVariant && !outlined },
-      { [`${baseButtonClass}-${format}`]: isDefaultFormat },
+      { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
       { [`${baseButtonClass}-outlined-${variant}`]: outlined },
       { [`${baseButtonClass}-dashed`]: dashed && outlined },
       { [`${baseButtonClass}-loading`]: loading },
