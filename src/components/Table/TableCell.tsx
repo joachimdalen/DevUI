@@ -1,21 +1,17 @@
 import * as React from "react";
 import cx from "classnames";
-export interface Props extends React.HTMLAttributes<HTMLTableCellElement>{
-  isHeader?: boolean;
+export interface Props {
   className?: string;
+  onClick?: () => void;
 }
 export class TableCell extends React.Component<Props> {
   public render() {
-    const { children, className, isHeader } = this.props;
-    const cellClass = cx(
-      "dui-table-cell",
-      {
-        "dui-table-cell-header": isHeader
-      },
-      className
+    const { children, className, ...rest } = this.props;
+    const cellClass = cx("dui-table-cell", className);
+    return (
+      <div className={cellClass} {...rest}>
+        {children}
+      </div>
     );
-
-    if (isHeader) return <th className={cellClass}>{children}</th>;
-    return <td className={cellClass}>{children}</td>;
   }
 }

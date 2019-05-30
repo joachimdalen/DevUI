@@ -27,11 +27,11 @@ export class Table extends React.Component<Props> {
     );
 
     return (
-      <table className={tableClass}>
+      <div className={tableClass}>
         {caption && captionLocation === "top" && this._getCaption()}
         {children}
         {caption && captionLocation === "bottom" && this._getCaption()}
-      </table>
+      </div>
     );
   }
   _getCaption() {
