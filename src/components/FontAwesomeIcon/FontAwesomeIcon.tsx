@@ -7,6 +7,7 @@ export interface Props {
   animate?: boolean;
   animationType?: "spin" | "pulse";
   size?: "normal" | "large" | "xlarge";
+  className?: string;
 }
 
 const FontAwesomeIcon = ({
@@ -15,7 +16,8 @@ const FontAwesomeIcon = ({
   marginDirection,
   animate = false,
   animationType,
-  size = "normal"
+  size = "normal",
+  className = ""
 }: Props) => {
   const animationClass = animationType === "spin" ? "fa-spin" : "fa-pulse";
   const marginClass =
@@ -26,6 +28,7 @@ const FontAwesomeIcon = ({
     <i
       className={cx(
         "dui-icon",
+        className,
         icon,
         sizeClass,
         { [animationClass]: animate },
