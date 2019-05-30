@@ -22,6 +22,11 @@
       }
     }
   }
+  &-search {
+    .#{$provider-prefix}-table-cell {
+      vertical-align: top;
+    }
+  }
   &-header {
     border: 1px solid $color-border;
     background-color: $color-light;
@@ -74,6 +79,7 @@
     padding: 8px;
     > div {
       display: flex;
+      align-items: center;
     }
 
     &-checkable {

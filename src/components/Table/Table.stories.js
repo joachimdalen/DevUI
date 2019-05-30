@@ -13,7 +13,7 @@ const columnHeaders = [
   {
     key: "id",
     label: "Invoice #",
-    sortable: true,
+    sortable: false,
     searchable: true
   },
   {
@@ -26,7 +26,14 @@ const columnHeaders = [
     key: "status",
     label: "Status",
     sortable: true,
-    searchable: true
+    searchable: true,
+    renderer: item => {
+      if (item.status === "Paid")
+        return <span className="dui-color-success">{item.status}</span>;
+      else if (item.status === "Pending")
+        return <span className="dui-color-warning">{item.status}</span>;
+      else return <span className="dui-color-danger">{item.status}</span>;
+    }
   },
   {
     key: "first_name",
@@ -64,12 +71,12 @@ const columnHeaders = [
           icon="fas fa-dollar-sign"
           className="dui-color-success"
         />{" "}
-        {item.amount}
+        {item.amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
       </span>
     )
   }
 ];
-
+console.log(values);
 storiesOf("Components/Table", module)
   .add("With Children", () => (
     <Table

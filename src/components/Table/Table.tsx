@@ -8,6 +8,7 @@ export interface Props extends React.HTMLAttributes<HTMLTableElement> {
   hoverable?: boolean;
   caption?: string;
   captionLocation?: "bottom" | "top";
+  className?: string;
 }
 export class Table extends React.Component<Props> {
   public render() {
@@ -17,10 +18,12 @@ export class Table extends React.Component<Props> {
       captionLocation,
       bordered = false,
       striped = false,
-      hoverable = false
+      hoverable = false,
+      className = ""
     } = this.props;
     const tableClass = cx(
       "dui-table",
+      className,
       { "dui-table-bordered": bordered },
       { "dui-table-striped": striped },
       { "dui-table-hoverable": hoverable }

@@ -16,7 +16,7 @@ export interface Column {
   searchable?: boolean;
   accessor?: (item: any) => string;
   renderer?: (item: any) => React.ReactNode;
-  onSort?: (a: TableRow, b: TableRow) => void;
+  onSort?: (a: TableRow, b: TableRow) => number;
 }
 
 export interface Props {
@@ -24,6 +24,7 @@ export interface Props {
   columns: Column[];
   keyField: string;
   multiSelect?: boolean;
+  onCheck?: (checked: any) => void;
 }
 
 export interface SearchEntry {
@@ -32,7 +33,7 @@ export interface SearchEntry {
 }
 
 export interface State {
-  checked: TableRow[];
+  checked: any[];
   sortBy?: Column;
   sortDirection: string;
   search: SearchEntry[];
@@ -49,11 +50,12 @@ export class DataTable extends React.Component<AllProps, State> {
   };
 
   public render() {
-    const { ...rest } = this.props;
+    const { columns, ...rest } = this.props;
+    const hasSearch = columns.find((e: Column) => e.searchable === true);
     return (
       <div>
         {this._getTableHeader() as any}
-        <Table {...rest}>
+        <Table {...rest} className={cx({ "dui-table-search": hasSearch })}>
           {this._getHeaders() as any}
           {this._getRows() as any}
         </Table>
@@ -68,6 +70,7 @@ export class DataTable extends React.Component<AllProps, State> {
       </TableHeader>
     );
   }
+
   _handleSearch(key: string, value: string) {
     const { search } = this.state;
 
@@ -92,22 +95,63 @@ export class DataTable extends React.Component<AllProps, State> {
       sortDirection: sortDirection === "desc" ? "asc" : "desc"
     });
   }
+  _checkedChange() {
+    const { checked } = this.state;
+    const { onCheck } = this.props;
+    onCheck && onCheck(checked);
+  }
+
+  _toggleItem(item: any) {
+    const { onCheck } = this.props;
+    const { checked } = this.state;
+    const checkIndex = checked.indexOf(item);
+    var arrCpy = [...checked];
+    if (checkIndex !== -1) {
+      arrCpy.splice(checkIndex, 1);
+      this.setState({ checked: arrCpy }, () => {
+        onCheck && onCheck(checked);
+      });
+    } else {
+      const newItems = [...checked, item];
+      this.setState({ checked: newItems }, () => {
+        onCheck && onCheck(newItems);
+      });
+    }
+  }
+
+  _toggleAll(): void {
+    const { rows } = this.props;
+    const { checked } = this.state;
+    if (rows.length !== checked.length) {
+      this.setState({ checked: rows });
+    } else {
+      this.setState({ checked: [] });
+    }
+  }
 
   _getHeaders() {
     const { columns, rows, multiSelect } = this.props;
     const { search, checked } = this.state;
-    //  const hasSearch = columns.find((e: Column) => e.searchable === true);
+
     let rowHeaders: TableCell[] = columns.map((col: Column) => {
       let searchIndex = this.state.search.findIndex(
         (e: SearchEntry) => e.key === col.key
       );
-      if (col.sortable) {
+      if (col.sortable || col.searchable) {
+        const cellClass = cx({ "dui-table-cell-sortable": col.sortable });
+
         return (
-          <TableCell className="dui-table-cell-sortable" key={col.key}>
-            <div onClick={() => this._sort(col)}>
-              <span>{col.label}</span>
-              <FontAwesomeIcon icon="fas fa-sort" />
-            </div>
+          <TableCell key={col.key}>
+            {col.sortable ? (
+              <div onClick={() => this._sort(col)} className={cellClass}>
+                <span>{col.label}</span>
+                <FontAwesomeIcon icon="fas fa-sort" />
+              </div>
+            ) : (
+              <div>
+                <span>{col.label}</span>
+              </div>
+            )}
             {col.searchable && (
               <div>
                 <TextInput
@@ -131,15 +175,15 @@ export class DataTable extends React.Component<AllProps, State> {
 
     if (multiSelect) {
       const checkCellClass = cx("dui-table-cell-checkable");
+      const isChecked = checked.length === rows.length;
+      const isIndeterminate = checked.length !== 0 && !isChecked;
       rowHeaders.unshift((
         <TableCell className={checkCellClass}>
           <CheckBox
             label="xx"
-            checked={false}
-            indeterminate={
-              checked.length !== 0 && checked.length !== rows.length
-            }
-            onCheckChange={() => console.log("1")}
+            checked={isChecked}
+            indeterminate={isIndeterminate}
+            onCheckChange={() => this._toggleAll()}
           />
         </TableCell>
       ) as any);
@@ -153,7 +197,7 @@ export class DataTable extends React.Component<AllProps, State> {
 
   _getRows() {
     const { columns, rows, multiSelect } = this.props;
-    const { sortBy, sortDirection, search } = this.state;
+    const { sortBy, sortDirection, search, checked } = this.state;
     const checkCellClass = cx("dui-table-cell-checkable");
 
     let rowItems: Column[] = rows;
@@ -163,7 +207,7 @@ export class DataTable extends React.Component<AllProps, State> {
         rowItems = rowItems.filter(item => item[e.key].indexOf(e.value) !== -1);
       });
     }
-    if (sortBy) {
+    if (sortBy.key) {
       if (sortBy.accessor) {
         rowItems =
           sortDirection === "asc"
@@ -193,8 +237,8 @@ export class DataTable extends React.Component<AllProps, State> {
             <TableCell className={checkCellClass}>
               <CheckBox
                 label="xx"
-                checked={false}
-                onCheckChange={() => console.log("1")}
+                checked={checked && checked.indexOf(row) !== -1}
+                onCheckChange={() => this._toggleItem(row)}
               />
             </TableCell>
           )}
