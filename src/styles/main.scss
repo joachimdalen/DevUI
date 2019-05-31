@@ -4,6 +4,9 @@
 }
 $provider-prefix: "dui";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
+%background-ease {
+  transition: background-color 0.3s ease;
+}
 @import "./functions";
 @import "./colors";
 @import "./variables";

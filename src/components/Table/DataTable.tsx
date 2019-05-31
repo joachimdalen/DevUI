@@ -1,15 +1,15 @@
 import { Props as TableProps, Table } from "./Table";
 import { TableCell } from "./TableCell";
+import { TableColumnPicker } from "./TableColumnPicker";
 import { TableHeader } from "./TableHeader";
-import { TableRow } from "./TableRow";
-import { CheckBox } from "../CheckBox/CheckBox";
-import cx from "classnames";
-import * as React from "react";
 import { TablePaginator } from "./TablePaginator";
+import { TableRow } from "./TableRow";
+import { Column, SearchEntry } from "./TableTypes";
+import { CheckBox } from "../CheckBox/CheckBox";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { TextInput } from "../TextInput/TextInput";
-import { Column, SearchEntry } from "./TableTypes";
-import { TableColumnPicker } from "./TableColumnPicker";
+import cx from "classnames";
+import * as React from "react";
 
 export interface Props {
   rows: any;
@@ -212,7 +212,6 @@ export class DataTable extends React.Component<AllProps, State> {
     } = this.state;
     const checkCellClass = cx("dui-table-cell-checkable");
 
-    //let rowItems: Column[] = rows.filter((i: Column) => this.state.visibleColumns.indexOf(i.key) !== -1);
     let rowItems: Column[] = rows;
     if (search.length) {
       search.forEach((e: SearchEntry) => {
@@ -243,13 +242,14 @@ export class DataTable extends React.Component<AllProps, State> {
     }
 
     let renderedRows = rowItems.map((row: any) => {
+      const isRowChecked = checked && checked.indexOf(row) !== -1;
       return (
-        <TableRow key={row["key"]}>
+        <TableRow key={row["key"]} checked={isRowChecked}>
           {multiSelect && visibleColumns.length !== 0 && (
             <TableCell className={checkCellClass}>
               <CheckBox
                 label="xx"
-                checked={checked && checked.indexOf(row) !== -1}
+                checked={isRowChecked}
                 onCheckChange={() => this._toggleItem(row)}
               />
             </TableCell>

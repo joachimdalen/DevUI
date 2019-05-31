@@ -19,6 +19,7 @@
       &:hover {
         background-color: $color-disabled;
         cursor: pointer;
+        @extend %background-ease;
       }
     }
   }
@@ -97,7 +98,8 @@
       }
     }
     &-checked {
-      background-color: $color-blue;
+      background-color: darken($color-blue-light, 10%) !important;
+      @extend %background-ease;
     }
     &-header {
       text-align: left;
@@ -132,6 +134,7 @@
         }
         .#{$provider-prefix}-checkmark {
           background-color: $color-light;
+          @extend %background-ease;
           border: 1px solid $color-border;
         }
       }
