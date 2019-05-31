@@ -27,6 +27,44 @@
       vertical-align: top;
     }
   }
+  &-column-picker {
+    position: relative;
+    .#{$provider-prefix}-button {
+      box-shadow: none !important;
+      border: 1px solid $color-border;
+    }
+    &-content {
+      min-width: 150px;
+      .#{$provider-prefix}-checkbox-list {
+        border: none;
+      }
+      .#{$provider-prefix}-checkbox {
+        color: $color-dark;
+      }
+      .#{$provider-prefix}-button {
+        margin: 0;
+      }
+      position: absolute;
+      z-index: 1;
+      display: none;
+      border: 1px solid $color-gray;
+      background-color: $color-light;
+      flex-direction: column;
+      justify-content: center;
+      &-header {
+        border-bottom: 1px solid $color-gray;
+        padding: 5px 10px;
+        font-size: 13px;
+        text-transform: uppercase;
+        text-align: center;
+        color: $color-text-gray;
+        font-weight: 600;
+      }
+      &.visible {
+        display: flex;
+      }
+    }
+  }
   &-header {
     border: 1px solid $color-border;
     background-color: $color-light;
