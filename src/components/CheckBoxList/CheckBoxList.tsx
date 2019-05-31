@@ -33,7 +33,6 @@ export class CheckBoxList extends React.Component<Props, State> {
     const isIndeterminate =
       checked.length !== 0 && !(items.length === checked.length);
     const isAllChecked = items.length !== 0 && items.length === checked.length;
-    console.log(isIndeterminate, isAllChecked);
     return (
       <div className={cx("dui-checkbox-list")}>
         {(showCheckCount || showCheckAll) && (
@@ -57,21 +56,21 @@ export class CheckBoxList extends React.Component<Props, State> {
           </div>
         )}
         {items.length ? (
-          <li className="dui-checkbox-list-items">
+          <ul className="dui-checkbox-list-items">
             {items &&
               items.map((item: ILB) => {
                 return (
-                  <ul className="dui-checkbox-list-item" key={item.label}>
+                  <li className="dui-checkbox-list-item" key={item.label}>
                     <CheckBox
                       label={item.label}
                       checked={checked.indexOf(item) !== -1}
                       onCheckChange={() => this._toggleItem(item)}
                       name={item.key}
                     />
-                  </ul>
+                  </li>
                 );
               })}
-          </li>
+          </ul>
         ) : (
           <Empty icon="fas fa-minus" description="No items" />
         )}
@@ -91,24 +90,23 @@ export class CheckBoxList extends React.Component<Props, State> {
       });
     } else {
       const newItems = [...this.state.checked, item];
-      this.setState(
-        {
-          checked: newItems
-        },
-        () => {
-          onCheckChange && onCheckChange(newItems);
-        }
-      );
+      this.setState({ checked: newItems }, () => {
+        onCheckChange && onCheckChange(newItems);
+      });
     }
   }
 
   _toggleAll(): void {
-    const { items } = this.props;
+    const { items, onCheckChange } = this.props;
     const { checked } = this.state;
     if (items.length !== checked.length) {
-      this.setState({ checked: items });
+      this.setState({ checked: items }, () => {
+        onCheckChange && onCheckChange(this.state.checked);
+      });
     } else {
-      this.setState({ checked: [] });
+      this.setState({ checked: [] }, () => {
+        onCheckChange && onCheckChange(this.state.checked);
+      });
     }
   }
   _setDefaultItems(): void {
