@@ -215,7 +215,22 @@ export class DataTable extends React.Component<AllProps, State> {
     let rowItems: Column[] = rows;
     if (search.length) {
       search.forEach((e: SearchEntry) => {
-        rowItems = rowItems.filter(item => item[e.key].indexOf(e.value) !== -1);
+        rowItems = rowItems.filter(item => {
+          const col = columns.find(i => i.key === e.key);
+          if (!col) return false;
+          if (col.accessor) {
+            return (
+              col
+                .accessor(item)
+                .toLowerCase()
+                .indexOf(e.value.toLowerCase()) !== -1
+            );
+          } else {
+            return (
+              item[e.key].toLowerCase().indexOf(e.value.toLowerCase()) !== -1
+            );
+          }
+        });
       });
     }
     if (sortBy.key) {
@@ -244,7 +259,7 @@ export class DataTable extends React.Component<AllProps, State> {
     let renderedRows = rowItems.map((row: any) => {
       const isRowChecked = checked && checked.indexOf(row) !== -1;
       return (
-        <TableRow key={row["key"]} checked={isRowChecked}>
+        <TableRow key={row["key"]} checked={isRowChecked && multiSelect}>
           {multiSelect && visibleColumns.length !== 0 && (
             <TableCell className={checkCellClass}>
               <CheckBox
