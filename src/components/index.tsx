@@ -8,3 +8,4 @@ export { CardImage } from "./Card/CardImage";
 export { List } from "./List/List";
 export { ListItem } from "./List/ListItem";
 export { ListActionItem } from "./List/ListActionItem";
+export { Toast } from "./Toast/Toast";

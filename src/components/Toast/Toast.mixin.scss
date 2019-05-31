@@ -1,0 +1,9 @@
+@mixin toast-variant($parent, $color) {
+  #{$parent} {
+    border-color: $color !important;
+    svg:first-of-type,
+    i:first-of-type {
+      color: $color;
+    }
+  }
+}
