@@ -51,16 +51,25 @@ storiesOf("Components/Card", module)
       imagePlacement="top"
       width={number("card width", 200)}
     >
-      <CardHeader
-        title={text(
-          "title",
-          "Hamburger Hamlet Location"
-        )}
-      />
+      <CardHeader title={text("title", "Hamburger Hamlet Location")} />
       <CardBody>
         <label htmlFor="">{text("content", "Hello")}</label>
       </CardBody>
       <CardFooter>H</CardFooter>
+    </Card>
+  ))
+  .add("Top image 2", () => (
+    <Card
+      image={text(
+        "image",
+        "https://brdv.coffee/storage/uploads/3/sccc.s1nTQQq8KMWakWcgAwH.png"
+      )}
+      imagePlacement="top"
+      width={number("card width", 200)}
+    >
+      <CardBody>
+        <label htmlFor="">{text("content", "Hello")}</label>
+      </CardBody>
     </Card>
   ))
   .add("Left image", () => (
@@ -83,7 +92,8 @@ storiesOf("Components/Card", module)
       </CardBody>
       <CardFooter>H</CardFooter>
     </Card>
-  )).add("Right image", () => (
+  ))
+  .add("Right image", () => (
     <Card
       image={text(
         "image",
