@@ -1,6 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 import { isUndefined } from "util";
+
 export interface Props {
   autoComplete?: boolean;
   autoFocus?: boolean;
@@ -18,8 +19,8 @@ export interface Props {
   prefix?: string | React.ReactNode;
   suffix?: string | React.ReactNode;
 }
-
-export class TextInput extends React.Component<Props> {
+type AllProps = Props & React.HTMLAttributes<HTMLInputElement>;
+export class TextInput extends React.Component<AllProps> {
   public render() {
     const {
       autoComplete = false,
@@ -36,7 +37,8 @@ export class TextInput extends React.Component<Props> {
       addonAfter,
       addonBefore,
       prefix,
-      suffix
+      suffix,
+      ...rest
     } = this.props;
 
     const autoCompleteValue = autoComplete ? "on" : "off";
@@ -74,6 +76,7 @@ export class TextInput extends React.Component<Props> {
         onChange={onChange}
         value={value}
         disabled={disabled}
+        {...rest}
       />
     );
 
