@@ -163,7 +163,9 @@ export class DataTable extends React.Component<AllProps, State> {
                   <TextInput
                     name="filter"
                     size="small"
-                    onChange={e => this._handleSearch(col.key, e.target.value)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      this._handleSearch(col.key, e.target.value)
+                    }
                     value={
                       searchIndex === -1
                         ? ""
