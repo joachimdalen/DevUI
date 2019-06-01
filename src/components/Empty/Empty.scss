@@ -8,11 +8,14 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
-    color: darken($color-disabled, 30%);
+    color: darken($color-disabled, 20%);
     align-items: center;
     text-align: center;
     &-description {
       margin-top: 10px;
+    }
+    .#{$provider-prefix}-icon {
+      color: $color-blue;
     }
   }
 }
