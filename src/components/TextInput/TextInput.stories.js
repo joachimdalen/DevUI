@@ -4,8 +4,14 @@ import { storiesOf } from "@storybook/react";
 import { TextInput } from "./TextInput";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
+import { boolean } from "@storybook/addon-knobs";
 storiesOf("Components/Inputs/TextInput", module)
-  .add("Basic Input", () => <TextInput onChange={action("input-changed")} />)
+  .add("Basic Input", () => (
+    <TextInput
+      onChange={action("input-changed")}
+      disabled={boolean("Disabled", false)}
+    />
+  ))
   .add("with Addon", () => (
     <TextInput
       addonBefore="@"

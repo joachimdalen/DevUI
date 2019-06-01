@@ -12,7 +12,7 @@
   transition: border-color 0.15s ease-in-out;
   margin: 1px;
   line-height: 1.5;
-  &:hover:not(:focus) {
+  &:hover:not(:focus):not(&.#{$provider-prefix}-input-diabled) {
     border-color: $color-blue;
   }
   &:focus {
@@ -38,6 +38,9 @@
         height: $input-height-large;
       }
     }
+  }
+  &-disabled {
+    background-color: $color-disabled;
   }
 }
 .#{$provider-prefix}-input-wrapper {

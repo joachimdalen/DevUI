@@ -62,11 +62,15 @@ export class TextInput extends React.Component<AllProps> {
       { ["dui-input-addon-after"]: hasAddonAfter }
     );
     const fixWrapperClass = cx("dui-input-fix-wrapper");
-
+    const inputComponentClass = cx(
+      "dui-input",
+      { "dui-input-disabled": disabled },
+      sizeClass
+    );
     const inputComponent = (
       <input
         type={typeValue}
-        className={cx("dui-input", sizeClass)}
+        className={inputComponentClass}
         autoComplete={autoCompleteValue}
         autoFocus={autoFocus}
         name={name}
