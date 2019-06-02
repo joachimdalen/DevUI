@@ -8,6 +8,7 @@ import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 storiesOf("Components/SideBar", module).add("SideBar", () => (
   <SideBar
     compact={boolean("Compact", false)}
+    animate={boolean("Animate", false)}
     showCompactLabels={boolean("Show compact labels", false)}
   >
     <SideBarMenuItem label="General" isHeader={true} />
