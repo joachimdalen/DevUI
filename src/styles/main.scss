@@ -7,6 +7,22 @@ $provider-prefix: "dui";
 %background-ease {
   transition: background-color 0.3s ease;
 }
+.#{$provider-prefix}-show {
+  animation: slide-down 0.3s ease-in;
+}
+.#{$provider-prefix}-hide {
+  display: none;
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @import "./functions";
 @import "./colors";
 @import "./variables";
