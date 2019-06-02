@@ -15,6 +15,26 @@ $theme-colors: map-merge(
   ),
   $theme-colors
 );
+$brand-colors: () !default;
+
+$brand-colors: map-merge(
+  (
+    "discord": #7289da,
+    "youtube": #ff0000,
+    "twitter": #1da1f2,
+    "twitch": #6441a5,
+    "github": #333,
+    "instagram": #e1306c,
+    "steam": #000000,
+    "paypal": #003087,
+    "spotify": #1db954,
+    "reddit": #ff4500,
+    "snapchat": #fffc00,
+    "bitbucket": #205081,
+    "dropbox": #007ee5
+  ),
+  $brand-colors
+);
 
 $shadow-focus: inset 0 0 2px rgba($color-dark, 0.14),
   inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14);

@@ -1,0 +1,36 @@
+@import "./SocialButton.mixin";
+.#{$provider-prefix}-social-button {
+  margin: auto;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: $box-shadow;
+  margin: 2px;
+  color: $color-light;
+  display: inline-flex;
+  align-items: center;
+  padding: 0px;
+  border-radius: $border-raidus;
+  &:hover {
+    cursor: pointer;
+  }
+  &-icon {
+    padding: 5px;
+    font-size: 16px;
+  }
+  &-border-light {
+    border: 1px solid $color-light;
+  }
+  &-border-dark {
+    border: 1px solid $color-text-gray;
+  }
+  &-text-dark {
+    color: $color-text-gray;
+  }
+  > span {
+    padding: 4px 10px;
+    font-weight: $font-weight-bold;
+  }
+  @each $brand, $value in $brand-colors {
+    @include social-button-variant("-#{$brand}", $value);
+  }
+}
