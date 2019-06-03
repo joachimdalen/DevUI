@@ -3,6 +3,7 @@ import cx from "classnames";
 import { isUndefined } from "util";
 
 export interface Props {
+  className?: string;
   autoComplete?: boolean;
   autoFocus?: boolean;
   name: string;
@@ -38,6 +39,7 @@ export class TextInput extends React.Component<AllProps> {
       addonBefore,
       prefix,
       suffix,
+      className = "",
       ...rest
     } = this.props;
 
@@ -65,7 +67,8 @@ export class TextInput extends React.Component<AllProps> {
     const inputComponentClass = cx(
       "dui-input",
       { "dui-input-disabled": disabled },
-      sizeClass
+      sizeClass,
+      className
     );
     const inputComponent = (
       <input
