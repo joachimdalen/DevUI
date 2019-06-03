@@ -1,0 +1,23 @@
+.#{$provider-prefix}-tag-input {
+  display: inline-flex;
+  align-items: center;
+  @extend %input-base;
+  height: auto;
+  padding-left: 2px;
+
+  .#{$provider-prefix}-badge {
+    padding: 2px 5px;
+  }
+
+  &-type {
+    margin-left: 10px;
+  }
+  &-tags {
+  }
+  &-control {
+    border: none;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
