@@ -13,7 +13,13 @@ export interface Props {
 
 export class Badge extends React.Component<Props> {
   public render() {
-    const { label, variant, dismissible, onDismiss, dismissText } = this.props;
+    const {
+      label,
+      variant = "default",
+      dismissible = false,
+      onDismiss,
+      dismissText
+    } = this.props;
     const badgeClass = cx(
       "dui-badge",
       { [`dui-badge-${variant}`]: variant !== "default" },
