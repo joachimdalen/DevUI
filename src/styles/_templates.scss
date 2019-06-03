@@ -1,0 +1,26 @@
+%background-ease {
+  transition: background-color 0.3s ease;
+}
+%badge-base {
+  background-color: $color-badge-primary;
+  border-radius: 2px;
+  display: inline-flex;
+  margin: 2px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+%input-base {
+  color: $color-text-gray;
+  border-radius: $border-raidus;
+  display: block;
+  width: 100%;
+  padding: $input-padding-normal;
+  font-size: $input-font-size-normal;
+  height: $input-height-normal;
+  background-color: $color-light;
+  background-clip: padding-box;
+  border: 1px solid $color-border;
+  transition: border-color 0.15s ease-in-out;
+  margin: 1px;
+  line-height: 1.5;
+}

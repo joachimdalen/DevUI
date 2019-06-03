@@ -1,14 +1,5 @@
 @import "./Badge.mixin.scss";
 
-%badge-base {
-  background-color: $color-badge-primary;
-  border-radius: 2px;
-  display: inline-flex;
-  margin: 2px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .#{$provider-prefix}-badge-wrapper {
   @extend %badge-base;
   .#{$provider-prefix}-badge-dismissible {

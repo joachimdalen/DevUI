@@ -4,28 +4,19 @@
 }
 $provider-prefix: "dui";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
-%background-ease {
-  transition: background-color 0.3s ease;
-}
+@import "./functions";
+@import "./colors";
+@import "./variables";
+@import "./templates";
+@import "./animations";
 .#{$provider-prefix}-show {
   animation: slide-down 0.3s ease-in;
 }
 .#{$provider-prefix}-hide {
   display: none;
 }
-@keyframes slide-down {
-  0% {
-    opacity: 0;
-    transform: translateY(5%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@import "./functions";
-@import "./colors";
-@import "./variables";
+
+
 @each $color, $value in $theme-colors {
   @include text-color(".#{$provider-prefix}-color-#{$color}", $value);
 }
