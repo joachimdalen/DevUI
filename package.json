@@ -6,15 +6,9 @@
   "types": "build/lib/index.d.ts",
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook",
-    "build": "npm run build-lib && build-storybook",
-    "build-lib": "tsc && npm run copy-css-to-lib",
-    "build-storybook": "build-storybook",
-    "copy-css-to-lib": "cpx \"./src/**/*.css\" ./build/lib"
+    "build": "tsc"
   },
   "keywords": [],
-  "files": [
-    "build/lib"
-  ],
   "author": "Joachim Dalen <joachim@dalenapps.no> (https://joachimdalen.no)",
   "license": "ISC",
   "devDependencies": {
@@ -30,7 +24,6 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "classnames": "^2.2.6",
-    "cpx": "^1.5.0",
     "jest": "^24.5.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
