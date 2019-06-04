@@ -3,6 +3,7 @@ import cx from "classnames";
 import { SideBarMenu } from "./SideBarMenu";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { isString } from "util";
+
 interface IState {
   subMenuVisible: boolean;
 }
@@ -10,6 +11,8 @@ interface IProps {
   isHeader?: boolean;
   active?: boolean;
   icon?: string | React.ReactElement;
+  expandIcon?: string | React.ReactElement;
+  collapseIcon?: string | React.ReactElement;
   label: string | React.ReactElement;
   hasSubmenu?: boolean;
   className?: string;
@@ -25,6 +28,8 @@ export class SideBarMenuItem extends React.Component<IProps, IState> {
       isHeader = false,
       active = false,
       icon,
+      expandIcon,
+      collapseIcon,
       label,
       hasSubmenu = false,
       className = ""
@@ -47,6 +52,25 @@ export class SideBarMenuItem extends React.Component<IProps, IState> {
       : isString(icon) && (
           <FontAwesomeIcon margin marginDirection="right" icon={icon} />
         );
+    const expandComp = React.isValidElement(expandIcon) ? (
+      expandIcon
+    ) : (
+      <FontAwesomeIcon
+        icon="fas fa-arrow-circle-up"
+        margin={true}
+        marginDirection="right"
+      />
+    );
+    const collapseComp = React.isValidElement(collapseIcon) ? (
+      collapseIcon
+    ) : (
+      <FontAwesomeIcon
+        icon="fas fa-arrow-circle-down"
+        margin={true}
+        marginDirection="right"
+      />
+    );
+
     if (isHeader) {
       return (
         <div className={menuClass}>
@@ -54,6 +78,7 @@ export class SideBarMenuItem extends React.Component<IProps, IState> {
         </div>
       );
     }
+
     if (!hasSubmenu) {
       return (
         <div className={menuClass}>
@@ -71,19 +96,7 @@ export class SideBarMenuItem extends React.Component<IProps, IState> {
           <span className="dui-sidebar-menu-item-icon">{iconComp}</span>
           <span className="dui-sidebar-menu-item-label">{label}</span>
           <span className="dui-sidebar-menu-item-caret">
-            {subMenuVisible ? (
-              <FontAwesomeIcon
-                icon="fas fa-arrow-circle-up"
-                margin={true}
-                marginDirection="right"
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon="fas fa-arrow-circle-down"
-                margin={true}
-                marginDirection="right"
-              />
-            )}
+            {subMenuVisible ? expandComp : collapseComp}
           </span>
         </div>
         <SideBarMenu className={subMenuClass}>{children}</SideBarMenu>

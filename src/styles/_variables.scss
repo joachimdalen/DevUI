@@ -37,26 +37,48 @@ $brand-colors: map-merge(
 );
 
 $shadow-focus: inset 0 0 2px rgba($color-dark, 0.14),
-  inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14);
+  inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14) !default;
 // FONT
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-bold: 700;
-$font-weight-black: 900;
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-black: 900 !default;
 
 // GENERIC
-$border-raidus: 4px;
-$box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem;
+$border-raidus: 4px !default;
+$box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem !default;
 
 // INPUT
-$input-height-small: 24px;
-$input-height-normal: 32px;
-$input-height-large: 40px;
+$input-height-small: 24px !default;
+$input-height-normal: 32px !default;
+$input-height-large: 40px !default;
 
-$input-padding-small: 1px 7px;
-$input-padding-normal: 4px 11px;
-$input-padding-large: 6px 11px;
+$input-padding-small: 1px 7px !default;
+$input-padding-normal: 4px 11px !default;
+$input-padding-large: 6px 11px !default;
 
-$input-font-size-small: 14px;
-$input-font-size-normal: 14px;
-$input-font-size-large: 16px;
+$input-font-size-small: 14px !default;
+$input-font-size-normal: 14px !default;
+$input-font-size-large: 16px !default;
+
+/* SIDEBAR */
+// Color of text in the sidebar
+$sidebar-color: $color-text-gray !default;
+// Background color of the sidebar
+$sidebar-background: $color-light !default;
+// Background when a sidebar item is hovered
+$sidebar-item-hover-background: $color-blue-light !default;
+// Color of the sidebar headers
+$sidebar-item-header-color: $color-secondary !default;
+// Background color of a submenu
+$sidebar-submenu-background: #e3e3e3 !default;
+// Color of the icons in the sidebar menu
+//$sidebar-icon-color: $color-light-1 !default;
+// Background color of active item in sidebar menu
+$sidebar-item-active-background: $color-blue !default;
+// Width of the sidebar in expanded mode
+$sidebar-full-width: 250px !default;
+// Width of the sidebar in compact mode with labels visible
+$sidebar-compact-label-width: 80px !default;
+// Width of the sidebar in compact mode with labels hidden
+$sidebar-compact-width: 62px !default;
