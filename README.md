@@ -1,0 +1,6 @@
+# DevUI
+
+DevUI is an improvement of an existing library I created called [Dizzy](https://github.com/dalenapps/dizzy). This library is not meant to be the next UI library for React, it is only a collection of components I find myself reusing in the applications I make.
+
+## Contributing
+Any contributions are more than welcome, I do not know everything, and someone else out there might see a better way to do things. Try to look at naming and how things are done, and try to stick to it.
