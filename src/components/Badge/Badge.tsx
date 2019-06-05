@@ -12,6 +12,11 @@ export interface Props {
 }
 
 export class Badge extends React.Component<Props> {
+  static defaultProps: Partial<Props> = {
+    variant: "default",
+    dismissible: false,
+    dismissText: ""
+  };
 
   _handleClick = () => {
     const { onDismiss } = this.props;
@@ -21,8 +26,8 @@ export class Badge extends React.Component<Props> {
   public render() {
     const {
       label,
-      variant = "default",
-      dismissible = false,
+      variant,
+      dismissible,
       onDismiss,
       dismissText
     } = this.props;
