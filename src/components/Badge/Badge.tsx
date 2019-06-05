@@ -12,6 +12,12 @@ export interface Props {
 }
 
 export class Badge extends React.Component<Props> {
+
+  _handleClick = () => {
+    const { onDismiss } = this.props;
+    onDismiss && onDismiss()
+  }
+
   public render() {
     const {
       label,
@@ -38,10 +44,7 @@ export class Badge extends React.Component<Props> {
       return (
         <div className={wrapperClass}>
           {badgeComponent}
-          <span
-            className={dismissibleClass}
-            onClick={() => onDismiss && onDismiss()}
-          >
+          <span className={dismissibleClass} onClick={this._handleClick}>
             {dismissTextComponent}
           </span>
         </div>
