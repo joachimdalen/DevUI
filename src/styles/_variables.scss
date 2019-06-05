@@ -44,6 +44,10 @@ $font-weight-regular: 400 !default;
 $font-weight-bold: 700 !default;
 $font-weight-black: 900 !default;
 
+$font-size-small: 12px !default;
+$font-size-normal: 14px !default;
+$font-size-large: 16px !default;
+
 // GENERIC
 $border-raidus: 4px !default;
 $box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem !default;
@@ -57,9 +61,9 @@ $input-padding-small: 1px 7px !default;
 $input-padding-normal: 4px 11px !default;
 $input-padding-large: 6px 11px !default;
 
-$input-font-size-small: 14px !default;
-$input-font-size-normal: 14px !default;
-$input-font-size-large: 16px !default;
+$input-font-size-small: $font-size-normal !default;
+$input-font-size-normal: $font-size-normal !default;
+$input-font-size-large: $font-size-large !default;
 
 /* SIDEBAR */
 // Color of text in the sidebar
@@ -87,9 +91,9 @@ $sidebar-compact-width: 62px !default;
 $button-outlined-background: $color-light !default;
 $button-border-radius: $border-raidus !default;
 
-$button-font-size: 14px !default;
-$button-large-font-size: 16px !default;
-$button-small-font-size: 12px !default;
+$button-font-size: $font-size-normal !default;
+$button-large-font-size: $font-size-large !default;
+$button-small-font-size: $font-size-small !default;
 
 $button-padding-y: 4px !default;
 $button-padding-x: 16px !default;
