@@ -82,3 +82,36 @@ $sidebar-full-width: 250px !default;
 $sidebar-compact-label-width: 80px !default;
 // Width of the sidebar in compact mode with labels hidden
 $sidebar-compact-width: 62px !default;
+
+/* BUTTON */
+$button-outlined-background: $color-light !default;
+$button-border-radius: $border-raidus !default;
+
+$button-font-size: 14px !default;
+$button-large-font-size: 16px !default;
+$button-small-font-size: 12px !default;
+
+$button-padding-y: 4px !default;
+$button-padding-x: 16px !default;
+$button-padding: $button-padding-y $button-padding-x !default;
+
+$button-large-padding-y: 8px !default;
+$button-large-padding-x: 32px !default;
+$button-large-padding: $button-large-padding-y $button-large-padding-x !default;
+
+$button-small-padding-y: 2px !default;
+$button-small-padding-x: 10px !default;
+$button-small-padding: $button-small-padding-y $button-small-padding-x !default;
+
+$button-default-color: $color-light !default;
+$button-default-background: $color-primary !default;
+$button-default-border-color: $color-primary !default;
+$button-default-hover-background: darken($color-primary, 10%) !default;
+$button-default-hover-border-color: darken($color-primary, 10%) !default;
+
+$button-disabled-background: $color-disabled !default;
+$button-disabled-color: $color-light !default;
+
+$button-loading-background: darken($color-disabled, 10%) !default;
+$button-loading-border-color:transparent !default;
+$button-loading-color: $color-light !default;
