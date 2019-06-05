@@ -16,11 +16,9 @@ export type SocialProviders =
   | "twitter"
   | "youtube";
 
-export type ColorType = "light" | "dark";
 
 export interface Props {
   provider: SocialProviders;
-  borderStyle?: ColorType;
   darkText?: boolean;
   iconOnly?: boolean;
   text?: string;
@@ -33,7 +31,6 @@ export class SocialButton extends React.Component<Props> {
   render() {
     const {
       provider,
-      borderStyle = "light",
       className = "",
       iconOnly = false,
       icon,
@@ -44,7 +41,6 @@ export class SocialButton extends React.Component<Props> {
     const buttonClass = cx(
       "dui-social-button",
       [`dui-social-button-${provider}`],
-      [`dui-social-button-border-${borderStyle}`],
       { "dui-social-button-text-dark": darkText },
       className
     );
@@ -56,7 +52,7 @@ export class SocialButton extends React.Component<Props> {
           {hasCustomIcon ? (
             icon
           ) : (
-            <FontAwesomeIcon icon={`fab fa-${provider}`} />
+            <FontAwesomeIcon icon={`fa-fw fab fa-${provider}`} />
           )}
         </div>
         {!iconOnly && <span>{text}</span>}
