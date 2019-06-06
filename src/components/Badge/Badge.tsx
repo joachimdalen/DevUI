@@ -5,7 +5,6 @@ import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 export interface Props {
   label: string;
   variant?: string;
-  neonMode?: boolean;
   dismissible?: boolean;
   dismissText?: string | React.ReactNode;
   onDismiss?: () => any;
@@ -14,8 +13,7 @@ export interface Props {
 export class Badge extends React.Component<Props> {
   static defaultProps: Partial<Props> = {
     variant: "default",
-    dismissible: false,
-    dismissText: ""
+    dismissible: false
   };
 
   _handleClick = () => {

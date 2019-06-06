@@ -5,10 +5,3 @@
     border: none;
   }
 }
-@mixin badge-neon-variant($parent, $background) {
-  &#{$parent} {
-    color: colorFromBackground(lighten($background, 40%));
-    border-color: lighten($background, 5%);
-    background-color: lighten($background, 40%);
-  }
-}

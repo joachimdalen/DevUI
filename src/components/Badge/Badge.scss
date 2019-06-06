@@ -36,7 +36,4 @@
   @each $color, $value in $theme-colors {
     @include badge-variant("-#{$color}", $value);
   }
-  @each $color, $value in $theme-colors {
-    @include badge-neon-variant("-neon-#{$color}", $value);
-  }
 }

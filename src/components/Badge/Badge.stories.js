@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { Badge } from "./Badge";
 import { text, boolean } from "@storybook/addon-knobs/react";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-import {action} from '@storybook/addon-actions';
+import { action } from "@storybook/addon-actions";
 const variants = [
   "default",
   "primary",
@@ -22,14 +22,14 @@ storiesOf("Components/Badge", module)
     <Badge
       label={text("label", "Active")}
       dismissible={boolean("Dismissible", true)}
-      onDismiss={action('badge-dismissed')}
+      onDismiss={action("badge-dismissed")}
     />
   ))
   .add("Custom Dismiss Icon", () => (
     <Badge
       label={text("label", "Active")}
       dismissible={boolean("Dismissible", true)}
-      onDismiss={action('badge-dismissed')}
+      onDismiss={action("badge-dismissed")}
       dismissText={<FontAwesomeIcon icon="fas fa-egg" />}
     />
   ))
