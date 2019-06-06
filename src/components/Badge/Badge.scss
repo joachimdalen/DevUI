@@ -4,22 +4,18 @@
   @extend %badge-base;
   .#{$provider-prefix}-badge-dismissible {
     align-items: center;
-    border-radius: 2px;
+    border-radius: $badge-dismiss-border-radius;
     display: flex;
-    padding-left: 4px;
-    padding-right: 4px;
-    font-size: 12px;
+    padding: $badge-dismiss-padding;
+    font-size: $badge-font-size;
     &:hover {
-      background-color: lighten($color-danger, 30%);
+      background-color: $badge-dismiss-hover-background;
       @extend %background-ease;
       cursor: pointer;
     }
   }
   .#{$provider-prefix}-badge {
-    border-radius: 2px;
-    font-size: 12px;
     overflow: hidden;
-    padding: 6px 6px 6px 8px;
     margin: 0;
     border: none;
     border-top-right-radius: 0;
@@ -29,14 +25,13 @@
 
 .#{$provider-prefix}-badge {
   @extend %badge-base;
-  padding: 6px;
+  padding: $badge-padding;
   border: 1px solid;
   border-color: transparent;
-  font-weight: $font-weight-regular;
-  border-radius: 4px;
+  font-weight: $badge-font-weight;
+  border-radius: $badge-border-radius;
   color: $color-dark;
-  font-size: 75%;
-  padding: 4px 6px;
+  font-size: $badge-font-size;
 
   @each $color, $value in $theme-colors {
     @include badge-variant("-#{$color}", $value);

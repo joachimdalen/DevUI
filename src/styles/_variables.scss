@@ -87,6 +87,21 @@ $sidebar-compact-label-width: 80px !default;
 // Width of the sidebar in compact mode with labels hidden
 $sidebar-compact-width: 62px !default;
 
+/* BADGE */
+$badge-border-radius: 2px !default;
+$badge-margin: 2px !default;
+$badge-default-background: $color-badge-primary !default;
+$badge-padding-y: 4px !default;
+$badge-padding-x: 6px !default;
+$badge-padding: $badge-padding-y $badge-padding-x !default;
+$badge-font-weight: $font-weight-regular !default;
+$badge-font-size: $font-size-small !default;
+$badge-dismiss-border-radius: 2px !default;
+$badge-dismiss-padding-y: 0px !default;
+$badge-dismiss-padding-x: 4px !default;
+$badge-dismiss-padding: $badge-dismiss-padding-y $badge-dismiss-padding-x !default;
+$badge-dismiss-hover-background: lighten($color-danger, 30%) !default;
+
 /* BUTTON */
 $button-outlined-background: $color-light !default;
 $button-border-radius: $border-raidus !default;
@@ -117,5 +132,5 @@ $button-disabled-background: $color-disabled !default;
 $button-disabled-color: $color-light !default;
 
 $button-loading-background: darken($color-disabled, 10%) !default;
-$button-loading-border-color:transparent !default;
+$button-loading-border-color: transparent !default;
 $button-loading-color: $color-light !default;

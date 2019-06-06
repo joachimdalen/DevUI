@@ -4,9 +4,10 @@
 }
 $provider-prefix: "dui";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
-@import "./functions";
 @import "./colors";
 @import "./variables";
+@import "./functions";
+
 @import "./templates";
 @import "./animations";
 .#{$provider-prefix}-show {
