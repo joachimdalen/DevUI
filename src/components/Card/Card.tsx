@@ -1,24 +1,26 @@
 import * as React from "react";
 import cx from "classnames";
 import { CardImage } from "./CardImage";
+import { isNumber } from "util";
 export interface Props {
-  image: string;
-  imagePlacement: "top" | "left" | "right";
-  width: number;
+  image?: string;
+  imagePlacement?: "top" | "left" | "right";
+  width: number | string;
+  className?: string;
 }
 
 export class Card extends React.Component<Props> {
   public render() {
-    const { children, image, imagePlacement, width } = this.props;
-
+    const { children, image, imagePlacement, width, className } = this.props;
+    const cardWidth = isNumber(width) ? `${width}px` : width;
     return (
       <div
-        className={cx("dui-card", {
-          [`dui-card-image-${imagePlacement}`]: image !== undefined
-        })}
-        style={{
-          width: `${width}px`
-        }}
+        className={cx(
+          "dui-card",
+          { [`dui-card-image-${imagePlacement}`]: image !== undefined },
+          className
+        )}
+        style={{ width: cardWidth }}
       >
         {image && <CardImage image={image} />}
         {image === null ? (
