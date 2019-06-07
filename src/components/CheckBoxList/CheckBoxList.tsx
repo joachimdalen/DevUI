@@ -59,11 +59,13 @@ export class CheckBoxList extends React.Component<Props, State> {
           <ul className="dui-checkbox-list-items">
             {items &&
               items.map((item: ILB) => {
+                const isChecked =
+                  checked.findIndex(i => i.key === item.key) !== -1;
                 return (
                   <li className="dui-checkbox-list-item" key={item.label}>
                     <CheckBox
                       label={item.label}
-                      checked={checked.indexOf(item) !== -1}
+                      checked={isChecked}
                       onCheckChange={() => this._toggleItem(item)}
                       name={item.key}
                     />
