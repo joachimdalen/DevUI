@@ -4,13 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { Avatar } from "./Avatar";
 
 storiesOf("Components/Avatar", module)
-  .add("Avatar", () => (
-    <Avatar
-      img={
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-      }
-    />
-  ))
+  .add("Avatar", () => <Avatar img={"//placehold.it/400x400"} />)
   .add("Formats", () => (
     <div
       style={{
@@ -19,23 +13,9 @@ storiesOf("Components/Avatar", module)
         gridColumnGap: "10px"
       }}
     >
-      <Avatar
-        img={
-          "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-        }
-      />
-      <Avatar
-        img={
-          "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-        }
-        format="rounded"
-      />
-      <Avatar
-        img={
-          "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-        }
-        format="circle"
-      />
+      <Avatar img={"//placehold.it/400x400"} />
+      <Avatar img={"//placehold.it/400x400"} format="rounded" />
+      <Avatar img={"//placehold.it/400x400"} format="circle" />
     </div>
   ))
   .add("Sizes", () => (
@@ -46,30 +26,14 @@ storiesOf("Components/Avatar", module)
         gridColumnGap: "10px"
       }}
     >
-      <Avatar
-        img={
-          "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-        }
-        size="small"
-      />
-      <Avatar
-        img={
-          "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-        }
-      />
-      <Avatar
-        img={
-          "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-        }
-        size="large"
-      />
+      <Avatar img={"//placehold.it/400x400"} size="small" />
+      <Avatar img={"//placehold.it/400x400"} />
+      <Avatar img={"//placehold.it/400x400"} size="large" />
     </div>
   ))
   .add("Custom Size", () => (
     <Avatar
-      img={
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/brahemic-profile_image-8bb8af35b7da3313-70x70.jpeg"
-      }
+      img={"//placehold.it/400x400"}
       width={150}
       height={150}
       size="large"
