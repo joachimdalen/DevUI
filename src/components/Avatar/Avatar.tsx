@@ -7,6 +7,7 @@ export interface Props {
   format?: "square" | "rounded" | "circle";
   width?: number;
   height?: number;
+  className?: string;
 }
 
 export class Avatar extends React.Component<Props> {
@@ -16,14 +17,15 @@ export class Avatar extends React.Component<Props> {
   };
 
   render() {
-    const { img, size, format, width, height } = this.props;
+    const { img, size, format, width, height, className } = this.props;
 
     const isDefaultFormat = format === "square";
     const hasCustomSize = (width || height) !== undefined;
     const baseClass = cx(
       "dui-avatar",
       { [`dui-avatar-${size}`]: !hasCustomSize },
-      { [`dui-avatar-${format}`]: !isDefaultFormat }
+      { [`dui-avatar-${format}`]: !isDefaultFormat },
+      className
     );
     if (hasCustomSize) {
       return (
