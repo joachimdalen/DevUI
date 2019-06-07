@@ -14,7 +14,6 @@ import * as React from "react";
 export interface Props {
   rows: any;
   columns: Column[];
-  keyField: string;
   multiSelect?: boolean;
   onCheck?: (checked: any) => void;
 }
@@ -26,8 +25,8 @@ export interface State {
   search: SearchEntry[];
   visibleColumns: string[];
 }
-
-export type AllProps = TableProps & Props;
+type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+export type AllProps = Omit<TableProps, "children"> & Props;
 
 export class DataTable extends React.Component<AllProps, State> {
   state = {
