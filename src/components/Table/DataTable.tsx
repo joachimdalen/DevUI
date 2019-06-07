@@ -177,7 +177,7 @@ export class DataTable extends React.Component<AllProps, State> {
             </TableCell>
           );
         }
-        return <TableCell key={col.key}>{col.label}</TableCell>;
+        return <TableCell>{col.label}</TableCell>;
       }) as any;
 
     if (multiSelect && visibleColumns.length !== 0) {
@@ -260,7 +260,7 @@ export class DataTable extends React.Component<AllProps, State> {
     let renderedRows = rowItems.map((row: any) => {
       const isRowChecked = checked && checked.indexOf(row) !== -1;
       return (
-        <TableRow key={row["key"]} checked={isRowChecked && multiSelect}>
+        <TableRow checked={isRowChecked && multiSelect}>
           {multiSelect && visibleColumns.length !== 0 && (
             <TableCell className={checkCellClass}>
               <CheckBox
@@ -277,12 +277,12 @@ export class DataTable extends React.Component<AllProps, State> {
                 const isCustomRenderer = col.renderer;
                 if (isCustomRenderer)
                   return (
-                    <TableCell key={row[col.key]}>
+                    <TableCell className={cx(col.className)}>
                       {col.renderer && col.renderer(row)}
                     </TableCell>
                   );
                 return (
-                  <TableCell key={row[col.key]}>
+                  <TableCell>
                     {row[col.key] || (col.accessor && col.accessor(row))}
                   </TableCell>
                 );

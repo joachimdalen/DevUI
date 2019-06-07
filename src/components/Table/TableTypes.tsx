@@ -8,6 +8,7 @@ export interface Column {
   accessor?: (item: any) => string;
   renderer?: (item: any) => React.ReactNode;
   onSort?: (a: TableRow, b: TableRow) => number;
+  className?: string;
 }
 export interface SearchEntry {
   key: string;
