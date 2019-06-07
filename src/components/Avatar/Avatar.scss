@@ -1,0 +1,20 @@
+.#{$provider-prefix}-avatar {
+  &-normal {
+    height: $avatar-normal-size;
+    width: $avatar-normal-size;
+  }
+  &-small {
+    width: $avatar-small-size;
+    height: $avatar-small-size;
+  }
+  &-large {
+    height: $avatar-large-size;
+    width: $avatar-large-size;
+  }
+  &-rounded {
+    border-radius: $avatar-rounded-radius;
+  }
+  &-circle {
+    border-radius: $avatar-circle-radius;
+  }
+}
