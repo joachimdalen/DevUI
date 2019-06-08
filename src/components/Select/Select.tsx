@@ -16,14 +16,14 @@ export interface Props {
   children?: SelectOption[];
   iconOpen?: string | React.ReactNode;
   iconClose?: string | React.ReactNode;
-  keepOpenOnLostFocus: boolean; // Keep open when focus is lost
+  keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
   renderer?: (option: Option) => SelectOption;
   onChange: (value: Option) => any;
   ungroupedTitle?: string;
-  defaultValue: Option;
+  defaultValue?: Option;
   disabled?: boolean;
-  showEmptyPlaceholder: boolean;
-  emptyPlaceholder: Empty;
+  showEmptyPlaceholder?: boolean;
+  emptyPlaceholder?: Empty;
 }
 export interface State {
   expanded: boolean;
