@@ -14,6 +14,7 @@ export interface Props {
   loadingIcon?: string;
   loadingText?: string;
   icon?: string;
+  className?: string;
 }
 
 export class Button extends React.Component<Props> {
@@ -30,7 +31,8 @@ export class Button extends React.Component<Props> {
       loading = false,
       loadingIcon,
       loadingText,
-      icon
+      icon,
+      className
     } = this.props;
 
     const buttonText = loading ? loadingText || "Loading" : label;
@@ -58,7 +60,8 @@ export class Button extends React.Component<Props> {
       { [`${baseButtonClass}-dashed`]: dashed && outlined },
       { [`${baseButtonClass}-loading`]: loading },
       { [`${baseButtonClass}-icon-only`]: hasButtonText === false },
-      { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize }
+      { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
+      className
     );
 
     const loadingIconComp = (
