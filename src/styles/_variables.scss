@@ -229,3 +229,24 @@ $checkbox-list-item-padding-y: 1px !default;
 $checkbox-list-item-padding: $checkbox-list-item-padding-y
   $checkbox-list-item-padding-x !default;
 $checkbox-list-checkbox-color: lighten($color-dark, 50%) !default;
+
+/* SELECT */
+$select-color: $color-text-gray !default;
+$select-border-radius: $border-raidus !default;
+$select-font-size: $font-size-normal !default;
+$select-height: 32px !default;
+$select-background: $color-light !default;
+$select-border-width: 1px !default;
+$select-border-color: $color-border !default;
+$select-min-width: 50px !default;
+$select-disabled-background: $color-disabled !default;
+$select-disabled-color: lighten($color-text-gray, 40%) !default;
+$select-info-padding-x: 11px !default;
+$select-info-padding-y: 4px !default;
+$select-info-padding: $select-info-padding-y $select-info-padding-x !default;
+$select-options-max-height: 150px !default;
+$select-option-padding-x: 5px !default;
+$select-option-padding-y: 2px !default;
+$select-option-padding: $select-option-padding-y $select-option-padding-x !default;
+$select-option-hover-background: lighten($color-blue, 45%) !default;
+$select-option-hover-color: $color-dark !default;
