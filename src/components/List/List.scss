@@ -1,17 +1,18 @@
 .#{$provider-prefix}-list-container {
-  background-color: $color-light;
+  background-color: $list-background;
+  border: $list-border-width solid $list-border-color;
   .#{$provider-prefix}-list-title {
-    font-weight: $font-weight-bold;
-    color: $color-dark;
-    padding: 10px 5px;
+    font-weight: $list-title-font-weight;
+    color: $list-title-color;
+    padding: $list-title-padding;
     text-transform: uppercase;
-    font-size: 12px;
-    border-bottom: 1px solid $color-disabled;
+    font-size: $list-title-font-size;
+    border-bottom: $list-title-border-width solid $list-title-border-color;
   }
   .#{$provider-prefix}-list {
     list-style: none;
     &-item {
-      padding: 5px 10px;
+      padding: $list-item-padding;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -19,40 +20,41 @@
         display: flex;
         align-self: center;
         justify-content: center;
-        width: 40px;
+        width: $list-item-icon-width;
         i,
         img {
-          max-height: 40px;
+          max-height: $list-item-icon-max-height;
         }
         &-right {
           order: 1;
         }
       }
       &-content {
-        padding: 5px 10px;
+        padding: $list-item-content-padding;
         width: 100%;
         .#{$provider-prefix}-list-item-title,
         &-title {
-          font-size: 12px;
+          font-size: $list-item-content-title-font-size;
         }
         &-subtitle {
-          margin-top: 5px;
-          font-size: 10px;
-          color: lighten($color: $color-dark, $amount: 20%);
+          margin-top: $list-item-content-subtitle-margin-top;
+          font-size: $list-item-content-subtitle-font-size;
+          color: $list-item-content-subtitle-color;
         }
       }
     }
     &-bordered {
       .#{$provider-prefix}-list-item {
-        border-bottom: 1px solid $color-disabled;
+        border-bottom: $list-item-bordered-border-width solid
+          $list-item-bordered-border-color;
       }
     }
     .#{$provider-prefix}-list-more {
-      color: $color-primary;
-      font-size: 12px;
+      color: $list-item-action-color;
+      font-size: $list-item-action-font-size;
       align-self: center;
       &:hover {
-        color: $color-blue;
+        color: $list-item-action-hover-color;
         cursor: pointer;
       }
     }

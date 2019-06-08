@@ -277,3 +277,39 @@ $text-input-large-padding: $text-input-large-padding-y $text-input-padding-x !de
 $text-input-large-font-size: $font-size-large !default;
 $text-input-diabled-background: $color-disabled !default;
 $text-input-diabled-color: inherit !default;
+
+$list-background: $color-light !default;
+$list-border-color: $color-light !default;
+$list-border-width: 1px !default;
+$list-title-font-weight: $font-weight-bold !default;
+$list-title-color: $color-dark !default;
+$list-title-padding-x: 5px !default;
+$list-title-padding-y: 10px !default;
+$list-title-padding: $list-title-padding-y $list-title-padding-x !default;
+$list-title-font-size: $font-size-small !default;
+$list-title-border-width: 1px !default;
+$list-title-border-color: $color-disabled !default;
+
+$list-item-padding-x: 10px !default;
+$list-item-padding-y: 5px !default;
+$list-item-padding: $list-item-padding-y $list-item-padding-x !default;
+
+$list-item-icon-width: 40px !default;
+$list-item-icon-max-height: 40px !default;
+
+$list-item-content-padding-x: 5px !default;
+$list-item-content-padding-y: 10px !default;
+$list-item-content-padding: $list-item-content-padding-y
+  $list-item-content-padding-x !default;
+
+$list-item-content-title-font-size: $font-size-small !default;
+$list-item-content-subtitle-font-size: 10px !default;
+$list-item-content-subtitle-margin-top: 5px !default;
+$list-item-content-subtitle-color: lighten($color-dark, 20%) !default;
+
+$list-item-action-color: $color-primary !default;
+$list-item-action-font-size: 12px !default;
+$list-item-action-hover-color: $color-blue !default;
+
+$list-item-bordered-border-width: 1px !default;
+$list-item-bordered-border-color: $color-disabled !default;
