@@ -36,8 +36,10 @@
     }
     &-content {
       min-width: 150px;
+      color: $table-color;
       .#{$provider-prefix}-checkbox-list {
         border: none;
+        background-color: $table-cp-content-background;
       }
       .#{$provider-prefix}-checkbox {
         color: $table-cp-checkbox-color;
