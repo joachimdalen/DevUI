@@ -207,3 +207,25 @@ $table-row-header-color: $color-text-secondary !default;
 $table-cell-padding-x: 8px !default;
 $table-cell-padding-y: 8px !default;
 $table-cell-padding: $table-cell-padding-y $table-cell-padding-x !default;
+
+/* CHECKBOX LIST */
+
+$checkbox-list-border-width: 1px !default;
+$checkbox-list-border-color: $color-gray !default;
+$checkbox-list-background: $color-light !default;
+$checkbox-list-header-padding-x: 5px !default;
+$checkbox-list-header-padding-y: 5px !default;
+$checkbox-list-header-padding: $checkbox-list-header-padding-y
+  $checkbox-list-header-padding-x !default;
+$checkbox-list-header-font-size: $font-size-small !default;
+$checkbox-list-header-counter-font-size: 10px !default;
+
+$checkbox-list-items-padding-x: 5px !default;
+$checkbox-list-items-padding-y: 5px !default;
+$checkbox-list-items-padding: $checkbox-list-items-padding-y
+  $checkbox-list-items-padding-x !default;
+$checkbox-list-item-padding-x: 0 !default;
+$checkbox-list-item-padding-y: 1px !default;
+$checkbox-list-item-padding: $checkbox-list-item-padding-y
+  $checkbox-list-item-padding-x !default;
+$checkbox-list-checkbox-color: lighten($color-dark, 50%) !default;

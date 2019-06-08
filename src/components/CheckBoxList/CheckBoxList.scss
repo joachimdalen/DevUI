@@ -1,34 +1,34 @@
 .#{$provider-prefix}-checkbox-list {
-  border: 1px solid $color-gray;
-  background-color: $color-light;
+  border: $checkbox-list-border-width solid $checkbox-list-border-color;
+  background-color: $checkbox-list-background;
   &-header {
-    padding: 5px;
-    border-bottom: 1px solid $color-gray;
+    padding: $checkbox-list-header-padding;
+    border-bottom: $checkbox-list-border-width solid $checkbox-list-border-color;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
     &-check-all,
     &-counter {
-      font-size: 12px;
+      font-size: $checkbox-list-header-font-size;
     }
     &-check-all {
       justify-self: flex-start;
       margin-right: 10px;
     }
     &-counter {
-      font-size: 10px;
+      font-size: $checkbox-list-header-counter-font-size;
       justify-self: flex-end;
     }
   }
   &-items {
-    padding: 5px;
+    padding: $checkbox-list-items-padding;
     list-style: none;
     .#{$provider-prefix}-checkbox {
-      color: lighten($color-dark, 50%);
+      color: $checkbox-list-checkbox-color;
     }
   }
   &-item {
-    padding: 1px 0;
+    padding: $checkbox-list-item-padding;
   }
 }
