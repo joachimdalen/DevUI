@@ -162,3 +162,47 @@ $avatar-normal-size: 50px !default;
 $avatar-large-size: 75px !default;
 $avatar-rounded-radius: 10px !default;
 $avatar-circle-radius: 50% !default;
+
+/* TABLE */
+$table-border-width: 1px !default;
+$table-border-color: $color-border !default;
+$table-background: $color-light !default;
+$table-color: $color-text-gray !default;
+$table-striped-background: $color-blue-light !default;
+$table-hover-background: $color-disabled !default;
+
+$table-cp-button-border-width: 1px !default;
+$table-cp-button-border-color: $color-border !default;
+$table-cp-checkbox-color: $color-dark !default;
+$table-cp-content-border-width: 1px !default;
+$table-cp-content-border-color: $color-gray !default;
+$table-cp-content-background: $color-light !default;
+$table-cp-header-border-width: 1px !default;
+$table-cp-header-border-color: $color-gray !default;
+$table-cp-header-padding-x: 10px !default;
+$table-cp-header-padding-y: 5px !default;
+$table-cp-header-padding: $table-cp-header-padding-y $table-cp-header-padding-x !default;
+$table-cp-header-font-size: $font-size-small !default;
+$table-cp-header-font-weight: $font-weight-bold !default;
+$table-cp-header-color: $color-text-gray !default;
+
+$table-header-background: $color-light !default;
+$table-header-color: $color-text-gray !default;
+$table-header-padding-x: 10px !default;
+$table-header-padding-y: 5px !default;
+$table-header-padding: $table-header-padding-y $table-header-padding-x !default;
+
+$table-pg-font-size: $font-size-small !default;
+$table-pg-font-weight: $font-weight-bold !default;
+$table-pg-button-border-width: 1px !default;
+$table-pg-button-border-color: $color-border !default;
+
+$table-row-checked-background: darken($color-blue-light, 10%) !default;
+$table-row-header-height: 40px !default;
+$table-row-header-font-size: $font-size-normal !default;
+$table-row-header-font-weight: $font-weight-bold !default;
+$table-row-header-color: $color-text-secondary !default;
+
+$table-cell-padding-x: 8px !default;
+$table-cell-padding-y: 8px !default;
+$table-cell-padding: $table-cell-padding-y $table-cell-padding-x !default;
