@@ -6,16 +6,12 @@ export interface Props extends React.HTMLAttributes<HTMLTableElement> {
   striped?: boolean;
   bordered?: boolean;
   hoverable?: boolean;
-  caption?: string;
-  captionLocation?: "bottom" | "top";
   className?: string;
 }
 export class Table extends React.Component<Props> {
   public render() {
     const {
       children,
-      caption,
-      captionLocation,
       bordered = false,
       striped = false,
       hoverable = false,
@@ -29,16 +25,6 @@ export class Table extends React.Component<Props> {
       { "dui-table-hoverable": hoverable }
     );
 
-    return (
-      <div className={tableClass}>
-        {caption && captionLocation === "top" && this._getCaption()}
-        {children}
-        {caption && captionLocation === "bottom" && this._getCaption()}
-      </div>
-    );
-  }
-  _getCaption() {
-    const { caption } = this.props;
-    return <caption>{caption}</caption>;
+    return <div className={tableClass}>{children}</div>;
   }
 }
