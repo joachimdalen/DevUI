@@ -3,7 +3,7 @@ import cx from "classnames";
 
 export interface Props {
   title: string;
-  bordered: string;
+  bordered: boolean;
 }
 
 export class List extends React.Component<Props> {
