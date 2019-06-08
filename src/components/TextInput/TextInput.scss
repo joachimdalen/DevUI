@@ -1,15 +1,15 @@
 .#{$provider-prefix}-input {
-  color: $color-text-gray;
-  border-radius: $border-raidus;
+  color: $text-input-color;
+  border-radius: $text-input-border-radius;
   display: block;
-  padding: $input-padding-normal;
-  font-size: $input-font-size-normal;
-  height: $input-height-normal;
-  background-color: $color-light;
+  padding: $text-input-padding;
+  font-size: $text-input-font-size;
+  height: $text-input-height;
+  background-color: $text-input-background;
   background-clip: padding-box;
-  border: 1px solid $color-border;
+  border: $text-input-border-width solid $text-input-border-color;
   transition: border-color 0.15s ease-in-out;
-  margin: 1px;
+  margin: $text-input-margin;
   line-height: 1.5;
   &:hover:not(:focus):not(&.#{$provider-prefix}-input-diabled) {
     border-color: $color-blue;
@@ -18,28 +18,30 @@
     box-shadow: $shadow-focus;
   }
   &-small {
-    height: $input-height-small;
-    padding: $input-padding-small;
+    height: $text-input-small-height;
+    padding: $text-input-small-padding;
+    font-size: $text-input-small-font-size;
     #{$provider-prefix}-input-addon {
       &-before,
       &-after {
-        height: $input-height-small;
+        height: $text-input-small-height;
       }
     }
   }
   &-large {
-    height: $input-height-large;
-    padding: $input-padding-large;
-    font-size: $input-font-size-large;
+    height: $text-input-large-height;
+    padding: $text-input-large-padding;
+    font-size: $text-input-large-font-size;
     #{$provider-prefix}-input-addon {
       &-before,
       &-after {
-        height: $input-height-large;
+        height: $text-input-large-padding;
       }
     }
   }
   &-disabled {
-    background-color: $color-disabled;
+    background-color: $text-input-diabled-background;
+    color: $text-input-diabled-color;
   }
 }
 .#{$provider-prefix}-input-wrapper {
@@ -76,14 +78,14 @@
     &-before {
       border-right: none;
       margin-left: 1px;
-      border-top-left-radius: $border-raidus;
-      border-bottom-left-radius: $border-raidus;
+      border-top-left-radius: $text-input-border-radius;
+      border-bottom-left-radius: $text-input-border-radius;
     }
     &-after {
       border-left: none;
       margin-right: 1px;
-      border-top-right-radius: $border-raidus;
-      border-bottom-right-radius: $border-raidus;
+      border-top-right-radius: $text-input-border-radius;
+      border-bottom-right-radius: $text-input-border-radius;
     }
   }
 }
@@ -93,7 +95,7 @@
   align-items: center;
   background-color: $color-light;
   border: 1px solid $color-border;
-  border-radius: $border-raidus;
+  border-radius: $text-input-border-radius;
   width: auto;
   position: relative;
   margin: 1px;
