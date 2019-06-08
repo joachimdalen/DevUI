@@ -282,7 +282,7 @@ export class DataTable extends React.Component<AllProps, State> {
                     </TableCell>
                   );
                 return (
-                  <TableCell>
+                  <TableCell className={cx(col.className)}>
                     {row[col.key] || (col.accessor && col.accessor(row))}
                   </TableCell>
                 );
