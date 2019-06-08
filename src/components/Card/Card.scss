@@ -10,6 +10,7 @@
   border: $card-border-width solid  $card-border-color;
   box-shadow: $box-shadow;
   font-size: $card-font-size;
+  color: $card-color;
   &-body {
     padding: $card-body-padding;
     flex-grow: 1;
