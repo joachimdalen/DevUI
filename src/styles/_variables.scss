@@ -313,3 +313,12 @@ $list-item-action-hover-color: $color-blue !default;
 
 $list-item-bordered-border-width: 1px !default;
 $list-item-bordered-border-color: $color-disabled !default;
+
+/*  EMPTY */
+$empty-background: $color-light !default;
+$empty-padding-x: 15px !default;
+$empty-padding-y: 15px !default;
+$empty-padding: $empty-padding-y $empty-padding-x !default;
+$empty-color: darken($color-disabled, 20%) !default;
+$empty-description-margin-top: 10px !default;
+$empty-icon-color: $color-blue !default;
