@@ -6,7 +6,7 @@ import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
 import { DataTable, Column } from "./DataTable";
 import { TableColumnPicker } from "./TableColumnPicker";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, number } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 const values = require("../../../data/invoices.json");
@@ -15,7 +15,7 @@ const columnHeaders = [
     key: "id",
     label: "Invoice",
     sortable: false,
-    searchable: true,
+    searchable: true
   },
   {
     key: "created",
@@ -126,6 +126,19 @@ storiesOf("Components/Table", module)
       bordered={boolean("bordered", false)}
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
+      multiSelect={boolean("multi-select", true)}
+    />
+  ))
+  .add("DataTable Pagination", () => (
+    <DataTable
+      rows={values}
+      columns={columnHeaders}
+      multiSelect={true}
+      bordered={boolean("bordered", false)}
+      striped={boolean("striped", false)}
+      hoverable={boolean("hoverable", true)}
+      paginationEnabled={boolean("Paginate", true)}
+      paginationPageSize={number("PageSize", 3)}
       multiSelect={boolean("multi-select", true)}
     />
   ))

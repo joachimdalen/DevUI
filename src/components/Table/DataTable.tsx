@@ -15,6 +15,8 @@ export interface Props {
   rows: any;
   columns: Column[];
   multiSelect?: boolean;
+  paginationEnabled?: boolean;
+  paginationPageSize?: number;
   onCheck?: (checked: any) => void;
 }
 
@@ -24,6 +26,8 @@ export interface State {
   sortDirection: string;
   search: SearchEntry[];
   visibleColumns: string[];
+  from: number;
+  to: number;
 }
 type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 export type AllProps = Omit<TableProps, "children"> & Props;
@@ -34,7 +38,9 @@ export class DataTable extends React.Component<AllProps, State> {
     sortBy: {} as Column,
     sortDirection: "asc",
     search: [] as SearchEntry[],
-    visibleColumns: [] as string[]
+    visibleColumns: [] as string[],
+    from: 1, 
+    to: this.props.paginationPageSize || 15
   };
 
   componentDidMount() {
@@ -60,6 +66,12 @@ export class DataTable extends React.Component<AllProps, State> {
   }
 
   _getTableHeader() {
+    const {
+      paginationEnabled = false,
+      paginationPageSize = 15,
+      rows
+    } = this.props;
+    const { from, to } = this.state;
     return (
       <TableHeader>
         <TableColumnPicker
@@ -69,10 +81,23 @@ export class DataTable extends React.Component<AllProps, State> {
             this.setState({ visibleColumns: cols })
           }
         />
-        <TablePaginator />
+        {paginationEnabled &&
+          ((
+            <TablePaginator
+              from={from}
+              to={to}
+              totalItems={rows.length}
+              pageLimit={paginationPageSize}
+              onPageChange={this._onPaginatorPageChange}
+            />
+          ) as any)}
       </TableHeader>
     );
   }
+  _onPaginatorPageChange = (from: number, to: number) => {
+    console.log(from, to);
+    this.setState({ from, to });
+  };
 
   _handleSearch(key: string, value: string) {
     const { search } = this.state;
@@ -203,13 +228,20 @@ export class DataTable extends React.Component<AllProps, State> {
   }
 
   _getRows() {
-    const { columns, rows, multiSelect } = this.props;
+    const {
+      columns,
+      rows,
+      multiSelect,
+      paginationEnabled = false
+    } = this.props;
     const {
       sortBy,
       sortDirection,
       search,
       checked,
-      visibleColumns
+      visibleColumns,
+      from,
+      to
     } = this.state;
     const checkCellClass = cx("dui-table-cell-checkable");
 
@@ -255,6 +287,10 @@ export class DataTable extends React.Component<AllProps, State> {
                 a[sortKey] > b[sortKey] ? 0 : 1
               );
       }
+    }
+
+    if (paginationEnabled) {
+      rowItems = rowItems.slice(from -1, to);
     }
 
     let renderedRows = rowItems.map((row: any) => {
