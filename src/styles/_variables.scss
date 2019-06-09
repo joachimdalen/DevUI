@@ -270,7 +270,7 @@ $text-input-small-padding-x: 7px !default;
 $text-input-small-padding-y: 1px !default;
 $text-input-small-padding: $text-input-small-padding-y $text-input-padding-x !default;
 $text-input-small-font-size: $font-size-small !default;
-$text-input-large-height: 0px !default;
+$text-input-large-height: $input-height-large !default;
 $text-input-large-padding-x: 11px !default;
 $text-input-large-padding-y: 6px !default;
 $text-input-large-padding: $text-input-large-padding-y $text-input-padding-x !default;
