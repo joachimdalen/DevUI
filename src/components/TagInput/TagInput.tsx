@@ -56,7 +56,11 @@ export class TagInput extends React.Component<Props, State> {
 
   _handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.charCode !== 44) return;
-    if (this.state.value !== "") this._addTag();
+    if (this.state.value !== "") {
+      this._addTag();
+      return false;
+    }
+    return true;
   }
   _handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ value: e.target.value });

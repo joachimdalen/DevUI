@@ -2,7 +2,6 @@
   display: inline-flex;
   align-items: center;
   @extend %input-base;
-  height: auto;
   padding-left: 2px;
 
   .#{$provider-prefix}-badge {
@@ -13,11 +12,20 @@
     margin-left: 10px;
   }
   &-tags {
+    display: flex;
+    align-items: center;
   }
   &-control {
     border: none;
     &:focus {
       box-shadow: none;
     }
+    background-color: $tag-input-control-background;
+    color: $tag-input-control-color;
   }
+  .#{$provider-prefix}-badge-wrapper,
+  .#{$provider-prefix}-badge {
+    min-height: $tag-input-badge-min-height;
+  }
+
 }

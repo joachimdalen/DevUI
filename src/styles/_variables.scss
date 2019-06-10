@@ -342,3 +342,8 @@ $tab-control-pane-padding-x: 20px !default;
 $tab-control-pane-padding-y: 20px !default;
 $tab-control-pane-padding: $tab-control-pane-padding-y
   $tab-control-pane-padding-x !default;
+
+/* TAG INPUT */
+$tag-input-control-background: $text-input-background !default;
+$tag-input-control-color: $text-input-color !default;
+$tag-input-badge-min-height: 24px !default;
