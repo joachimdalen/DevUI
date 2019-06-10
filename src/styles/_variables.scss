@@ -322,3 +322,23 @@ $empty-padding: $empty-padding-y $empty-padding-x !default;
 $empty-color: darken($color-disabled, 20%) !default;
 $empty-description-margin-top: 10px !default;
 $empty-icon-color: $color-blue !default;
+
+/* TAB CONTROL */
+$tab-control-background: $color-light !default;
+$tab-control-border-radius: 1px !default;
+$tab-control-border-color: $color-border !default;
+$tab-control-border-radius: $border-raidus !default;
+$tab-control-item-padding-x: 20px !default;
+$tab-control-item-padding-y: 11px !default;
+$tab-control-item-padding: $tab-control-item-padding-y
+  $tab-control-item-padding-x !default;
+$tab-control-item-color: #9c9c9c !default;
+$tab-control-item-font-size: $font-size-small !default;
+$tab-control-item-active-background: $color-light !default;
+$tab-control-item-active-color: $color-text-gray !default;
+$tab-control-item-disabled-background: #fafafa !default;
+$tab-control-item-disabled-color: #9c9c9c !default;
+$tab-control-pane-padding-x: 20px !default;
+$tab-control-pane-padding-y: 20px !default;
+$tab-control-pane-padding: $tab-control-pane-padding-y
+  $tab-control-pane-padding-x !default;

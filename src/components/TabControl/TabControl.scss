@@ -1,40 +1,39 @@
 .#{$provider-prefix}-tab-control {
-  background-color: $color-light;
-  border: 1px solid $color-border;
-  border-radius: $border-raidus;
+  background-color: $tab-control-background;
+  border: $tab-control-border-radius solid $tab-control-border-color;
+  border-radius: $tab-control-border-radius;
   width: 100%;
   &-nav {
     width: 100%;
     display: inline-flex;
 
     li:first-child {
-      border-top-left-radius: $border-raidus;
+      border-top-left-radius: $tab-control-border-radius;
     }
     li:last-child {
-      border-top-right-radius: $border-raidus;
+      border-top-right-radius: $tab-control-border-radius;
     }
 
     &-item {
       width: 100%;
-      padding: 10px 20px;
-      border-bottom: 1px solid $color-border;
+      padding: $tab-control-item-padding;
+      border: $tab-control-border-radius solid $tab-control-border-color;
       white-space: nowrap;
       transition: background-color 0.3s ease, color 0.3s ease;
       &:not(:first-child) {
-        border-left: 1px solid $color-border;
+        border: $tab-control-border-radius solid $tab-control-border-color;
       }
-      color: #9c9c9c;
-      font-size: 14px;
+      color: $tab-control-item-color;
+      font-size: $tab-control-item-font-size;
       &.active {
-        background-color: $color-light;
+        background-color: $tab-control-item-active-background;
         border-bottom: none;
-        color: $color-text-gray;
-       
+        color: $tab-control-item-active-color;
       }
       &-disabled {
         cursor: not-allowed;
-        background-color: #fafafa;
-        color: #9c9c9c;
+        background-color: $tab-control-item-disabled-background;
+        color: $tab-control-item-disabled-color;
       }
       &:hover:not(.#{$provider-prefix}-tab-control-nav-item-disabled) {
         cursor: pointer;
@@ -44,7 +43,7 @@
       }
     }
   }
-  div {
-    padding: 20px;
+  &-pane {
+    padding: $tab-control-pane-padding;
   }
 }
