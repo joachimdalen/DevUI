@@ -17,6 +17,7 @@ export interface Props {
   multiSelect?: boolean;
   paginationEnabled?: boolean;
   paginationPageSize?: number;
+  showColumnPicker?: boolean;
   onCheck?: (checked: any) => void;
 }
 
@@ -39,7 +40,7 @@ export class DataTable extends React.Component<AllProps, State> {
     sortDirection: "asc",
     search: [] as SearchEntry[],
     visibleColumns: [] as string[],
-    from: 1, 
+    from: 1,
     to: this.props.paginationPageSize || 15
   };
 
@@ -69,18 +70,24 @@ export class DataTable extends React.Component<AllProps, State> {
     const {
       paginationEnabled = false,
       paginationPageSize = 15,
+      showColumnPicker = false,
       rows
     } = this.props;
     const { from, to } = this.state;
+    const shouldShowHeader = paginationEnabled || showColumnPicker;
+    if (!shouldShowHeader) return null;
     return (
       <TableHeader>
-        <TableColumnPicker
-          columns={this.props.columns}
-          visibleColumns={this.state.visibleColumns}
-          onColumnUpdate={(cols: string[]) =>
-            this.setState({ visibleColumns: cols })
-          }
-        />
+        {showColumnPicker &&
+          ((
+            <TableColumnPicker
+              columns={this.props.columns}
+              visibleColumns={this.state.visibleColumns}
+              onColumnUpdate={(cols: string[]) =>
+                this.setState({ visibleColumns: cols })
+              }
+            />
+          ) as any)}
         {paginationEnabled &&
           ((
             <TablePaginator
@@ -290,7 +297,7 @@ export class DataTable extends React.Component<AllProps, State> {
     }
 
     if (paginationEnabled) {
-      rowItems = rowItems.slice(from -1, to);
+      rowItems = rowItems.slice(from - 1, to);
     }
 
     let renderedRows = rowItems.map((row: any) => {
