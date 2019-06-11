@@ -12,7 +12,9 @@
   font-size: $card-font-size;
   color: $card-color;
   &-body {
-    padding: $card-body-padding;
+    &:not(.#{$provider-prefix}-card-body-np) {
+      padding: $card-body-padding;
+    }
     flex-grow: 1;
     font-weight: $card-body-font-weight;
   }
