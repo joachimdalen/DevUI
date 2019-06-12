@@ -11,7 +11,7 @@ import { TextInput } from "../TextInput/TextInput";
 import cx from "classnames";
 import * as React from "react";
 
-export interface Props {
+export interface DataTableProps {
   rows: any;
   columns: Column[];
   multiSelect?: boolean;
@@ -21,7 +21,7 @@ export interface Props {
   onCheck?: (checked: any) => void;
 }
 
-export interface State {
+export interface DataTableState {
   checked: any[];
   sortBy?: Column;
   sortDirection: string;
@@ -31,9 +31,9 @@ export interface State {
   to: number;
 }
 type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
-export type AllProps = Omit<TableProps, "children"> & Props;
+export type AllProps = Omit<TableProps, "children"> & DataTableProps;
 
-export class DataTable extends React.Component<AllProps, State> {
+export class DataTable extends React.Component<AllProps, DataTableState> {
   state = {
     checked: [] as any[],
     sortBy: {} as Column,
@@ -52,12 +52,12 @@ export class DataTable extends React.Component<AllProps, State> {
     });
   }
 
-  public render() {
+  render() {
     const { columns, ...rest } = this.props;
     const hasSearch = columns.find((e: Column) => e.searchable === true);
     return (
       <div>
-        {this._getTableHeader() as any}
+        {this._getTableHeader()}
         <Table {...rest} className={cx({ "dui-table-search": hasSearch })}>
           {this._getHeaders() as any}
           {this._getRows() as any}
@@ -65,6 +65,10 @@ export class DataTable extends React.Component<AllProps, State> {
       </div>
     );
   }
+
+  _setVisibleColumns = (cols: string[]) => {
+    this.setState({ visibleColumns: cols });
+  };
 
   _getTableHeader() {
     const {
@@ -83,9 +87,7 @@ export class DataTable extends React.Component<AllProps, State> {
             <TableColumnPicker
               columns={this.props.columns}
               visibleColumns={this.state.visibleColumns}
-              onColumnUpdate={(cols: string[]) =>
-                this.setState({ visibleColumns: cols })
-              }
+              onColumnUpdate={this._setVisibleColumns}
             />
           ) as any)}
         {paginationEnabled &&
@@ -317,16 +319,12 @@ export class DataTable extends React.Component<AllProps, State> {
             columns
               .filter((i: Column) => visibleColumns.indexOf(i.key) !== -1)
               .map((col: Column) => {
-                const isCustomRenderer = col.renderer;
-                if (isCustomRenderer)
-                  return (
-                    <TableCell className={cx(col.className)}>
-                      {col.renderer && col.renderer(row)}
-                    </TableCell>
-                  );
+                const cellValue = col.renderer
+                  ? col.renderer(row)
+                  : row[col.key];
                 return (
                   <TableCell className={cx(col.className)}>
-                    {row[col.key] || (col.accessor && col.accessor(row))}
+                    {cellValue}
                   </TableCell>
                 );
               }) as any
