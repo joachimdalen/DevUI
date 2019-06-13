@@ -2,13 +2,12 @@
 .#{$provider-prefix}-checkbox {
   display: block;
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 3px;
+  padding-left: $checkbox-padding-left;
   cursor: pointer;
-  font-size: 14px;
+  font-size: $checkbox-font-size;
   user-select: none;
   line-height: 1;
-  margin: 3px;
+  margin: $checkbox-margin;
   input {
     position: absolute;
     opacity: 0;
@@ -18,20 +17,20 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 15px;
-    width: 15px;
-    border-radius: 2px;
-    background-color: $color-disabled;
+    height: $checkbox-checkmark-height;
+    width: $checkbox-checkmark-width;
+    border-radius: $checkbox-checkmark-border-radius;
+    background-color: $checkbox-checkmark-background;
   }
 
   &:hover:not(.disabled) {
     .#{$provider-prefix}-checkmark {
-      background-color: darken($color-disabled, 20%);
+      background-color: $checkbox-checkmark-hover-background;
     }
   }
 
   input:checked ~ .#{$provider-prefix}-checkmark {
-    background-color: $color-disabled;
+    background-color: $checkbox-checked-background;
   }
   input:indeterminate ~ .#{$provider-prefix}-checkmark:before {
     top: 6px;
@@ -41,7 +40,7 @@
     right: 2px;
     left: 2px;
     transition: all 0.1s;
-    background: $color-dark;
+    background: $checkbox-checked-checkmark-background;
   }
   .#{$provider-prefix}-checkmark:after {
     content: "";
@@ -56,12 +55,12 @@
   }
 
   .#{$provider-prefix}-checkmark:after {
-    left: 0.25rem;
-    top: 0.125rem;
-    width: 0.25rem;
-    height: 0.4375rem;
-    border: solid $color-dark;
-    border-width: 0 0.125rem 0.125rem 0;
+    left: 4px;
+    top: 2px;
+    width: 4px;
+    height: 7px;
+    border: solid $checkbox-mark-color;
+    border-width: 0 2px 2px 0;
     transform: rotate(45deg);
     box-sizing: initial;
   }
@@ -69,9 +68,9 @@
     @include checkbox-variant("-#{$color}", $value);
   }
   &.disabled {
-    color: $color-disabled;
+    color: $checkbox-disabled-color;
     input:checked ~ .#{$provider-prefix}-checkmark {
-      background-color: $color-disabled;
+      background-color: $checkbox-disabled-background;
     }
   }
 }

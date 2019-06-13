@@ -208,6 +208,23 @@ $table-cell-padding-x: 8px !default;
 $table-cell-padding-y: 8px !default;
 $table-cell-padding: $table-cell-padding-y $table-cell-padding-x !default;
 
+/* CHECKBOX */
+$checkbox-padding-left: 25px !default;
+$checkbox-margin-x: 3px !default;
+$checkbox-margin-y: 3px !default;
+$checkbox-margin: $checkbox-margin-y $checkbox-margin-x !default;
+$checkbox-font-size: $font-size-normal !default;
+$checkbox-checkmark-height: 15px !default;
+$checkbox-checkmark-width: 15px !default;
+$checkbox-checkmark-border-radius: 2px !default;
+$checkbox-checkmark-background: $color-disabled !default;
+$checkbox-checkmark-hover-background: darken($color-disabled, 20%) !default;
+$checkbox-checked-background: $color-disabled !default;
+$checkbox-checked-checkmark-background: $color-dark !default;
+$checkbox-disabled-background: $color-disabled !default;
+$checkbox-disabled-color: darken($color-disabled, 40%) !default;
+$checkbox-mark-color: $color-dark !default;
+
 /* CHECKBOX LIST */
 
 $checkbox-list-border-width: 1px !default;
