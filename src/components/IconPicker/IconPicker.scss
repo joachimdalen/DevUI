@@ -1,0 +1,14 @@
+.#{$provider-prefix}-icon-picker{
+
+
+    &-icons{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 25px);
+        grid-template-rows: auto;
+        grid-gap: 5px;
+    }
+    &-icon{
+        padding: 5px;
+        border: 1px solid $color-border;
+    }
+}
