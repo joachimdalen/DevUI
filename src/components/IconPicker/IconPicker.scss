@@ -1,11 +1,17 @@
 .#{$provider-prefix}-icon-picker{
-
-
+    .fa, .far, .fas {
+        font-family: "Font Awesome 5 Free" !important;
+    };
     &-icons{
         display: grid;
         grid-template-columns: repeat(auto-fill, 25px);
         grid-template-rows: auto;
         grid-gap: 5px;
+
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid $color-border;
+        padding: 5px;
     }
     &-icon{
         padding: 5px;

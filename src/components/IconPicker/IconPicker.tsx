@@ -1,6 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
-import { TextInput } from 'components/TextInput/TextInput';
+import { TextInput } from '../TextInput/TextInput';
 
 export interface IconPickerState {
     query: string;
@@ -20,6 +20,10 @@ const icons: Icon[] =
     [{
         prefix: "fas",
         icon: "fa-check"
+    },
+    {
+        prefix: "fas",
+        icon: "fa-trash"
     }];
 
 export class IconPicker extends React.Component<Props>{
@@ -28,10 +32,10 @@ export class IconPicker extends React.Component<Props>{
             <div className="dui-icon-picker-selector">d</div>
             <div className="dui-icon-picker-container">
                 <div className="dui-icon-picker-search">
-                    <TextInput name="search" value="" placeholder="Search" onChange={() => console.log(1)}></TextInput>
+                    <TextInput name="search" value="" placeholder="Search" size="small" onChange={() => console.log(1)}></TextInput>
                 </div>
                 <div className="dui-icon-picker-icons">
-                    {icons.filter(this._isHidden).map((i: Icon) => {
+                    {icons.filter(() => this._isHidden).map((i: Icon) => {
                         return <span className="dui-icon-picker-icon" onClick={() => this._selectIcon(i)}>
                             <i className={`${i.prefix} ${i.icon}`}></i>
                         </span>
