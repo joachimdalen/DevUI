@@ -1,0 +1,71 @@
+.#{$provider-prefix}-modal {
+  &-backdrop {
+    background-color: $modal-backdrop-background;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: $modal-backdrop-zindex;
+  }
+  &-item {
+    width: $modal-normal-width;
+    height: $modal-normal-height;
+    background-color: $color-light;
+    border-radius: $modal-border-radius;
+    border: $modal-border-width solid $modal-border-color;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .#{$provider-prefix}-modal-icon {
+      position: absolute;
+      top: 8px;
+      right: 5px;
+      color: $modal-icon-color;
+      &:hover {
+        cursor: pointer;
+        color: $modal-icon-hover-color;
+      }
+    }
+    &-small {
+      width: $modal-small-width;
+      height: $modal-small-height;
+    }
+
+    &-large {
+      width: $modal-large-width;
+      height: $modal-large-height;
+    }
+  }
+
+  &-header,
+  &-footer {
+    .#{$provider-prefix}-button {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+
+  &-header {
+    border-bottom: $modal-border-width solid $modal-border-color;
+    padding: $modal-header-padding;
+    min-height: $modal-header-min-height;
+    display: flex;
+    align-items: center;
+    &-title {
+      font-weight: bold;
+      font-size: $font-size-normal;
+      margin-right: 5px;
+    }
+  }
+  &-body {
+    border-bottom: $modal-border-width solid $modal-border-color;
+    flex-grow: 1;
+    padding: $modal-body-padding;
+    overflow-y: auto;
+  }
+  &-footer {
+    min-height: $modal-footer-min-height;
+    padding: $modal-footer-padding;
+  }
+}
