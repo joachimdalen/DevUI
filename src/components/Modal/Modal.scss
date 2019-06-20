@@ -7,6 +7,7 @@
     left: 0;
     bottom: 0;
     z-index: $modal-backdrop-zindex;
+    display: flex;
   }
   &-item {
     width: $modal-normal-width;
@@ -17,6 +18,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    margin: $modal-top-margin auto;
+    &-center {
+      margin: auto;
+    }
+
     .#{$provider-prefix}-modal-icon {
       position: absolute;
       top: 8px;

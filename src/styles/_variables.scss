@@ -372,13 +372,13 @@ $fontawesome-icon-margin-left: 5px !default;
 /* MODAL */
 
 $modal-backdrop-background: rgba(0, 0, 0, 0.5) !default;
-$modal-backdrop-zindex: -1 !default;
+$modal-backdrop-zindex: 1 !default;
 $modal-small-width: 300px !default;
-$modal-small-height: 300px !default;
+$modal-small-height: 200px !default;
 $modal-normal-width: 400px !default;
-$modal-normal-height: 400px !default;
+$modal-normal-height: 300px !default;
 $modal-large-width: 600px !default;
-$modal-large-height: 600px !default;
+$modal-large-height: 500px !default;
 $modal-border-radius: $border-raidus !default;
 $modal-border-color: $color-border !default;
 $modal-border-width: 1px !default;
@@ -395,3 +395,4 @@ $modal-footer-padding: $modal-footer-padding-y $modal-footer-padding-x !default;
 $modal-body-padding-x: 5px !default;
 $modal-body-padding-y: 10px !default;
 $modal-body-padding: $modal-body-padding-y $modal-body-padding-x !default;
+$modal-top-margin: 25px !default;

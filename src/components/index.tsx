@@ -39,3 +39,7 @@ export { Toast } from "./Toast/Toast";
 export { Toggle } from "./Toggle/Toggle";
 export * from "./TabControl/TabControlTypes";
 export * from "./Table/TableTypes";
+export { Modal } from "./Modal/Modal";
+export { ModalBody } from "./Modal/ModalBody";
+export { ModalFooter } from "./Modal/ModalFooter";
+export { ModalHeader } from "./Modal/ModalHeader";
