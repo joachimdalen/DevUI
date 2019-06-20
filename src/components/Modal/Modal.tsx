@@ -15,6 +15,7 @@ export interface Props {
   backdropClassName?: string;
 }
 export class Modal extends React.Component<Props> {
+  wrapperRef = React.createRef<HTMLDivElement>();
   static defaultProps: Partial<Props> = {
     closeOnBackdropClick: false,
     visible: false,
@@ -23,7 +24,19 @@ export class Modal extends React.Component<Props> {
     className: "",
     backdropClassName: ""
   };
+  componentDidMount() {
+    const { onBackdropClick } = this.props;
+    if (onBackdropClick) {
+      document.addEventListener("mousedown", this._onBackdropClick);
+    }
+  }
 
+  componentWillUnmount() {
+    const { onBackdropClick } = this.props;
+    if (onBackdropClick) {
+      document.removeEventListener("mousedown", this._onBackdropClick);
+    }
+  }
   render() {
     const {
       size,
@@ -45,24 +58,28 @@ export class Modal extends React.Component<Props> {
       className
     );
     return (
-      <React.Fragment>
-        <div className={backdropClass} onClick={this._onBackdropClick}>
-          <div className={itemClass}>
-            <span onClick={this._closeModal} className="dui-modal-icon">
-              <FontAwesomeIcon icon="fas fa-times" />
-            </span>
-            {this.props.children}
-          </div>
+      <div className={backdropClass} onClick={this._onBackdropClick}>
+        <div className={itemClass} ref={this.wrapperRef}>
+          <span onClick={this._closeModal} className="dui-modal-icon">
+            <FontAwesomeIcon icon="fas fa-times" />
+          </span>
+          {this.props.children}
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 
-  _onBackdropClick = () => {
+  _onBackdropClick = (event: any) => {
     const { onBackdropClick, closeOnBackdropClick } = this.props;
-    onBackdropClick && onBackdropClick();
-    if (closeOnBackdropClick) {
-      this._closeModal();
+    if (
+      this.wrapperRef &&
+      this.wrapperRef.current &&
+      !this.wrapperRef.current.contains(event.target)
+    ) {
+      onBackdropClick && onBackdropClick();
+      if (closeOnBackdropClick) {
+        this._closeModal();
+      }
     }
   };
 
