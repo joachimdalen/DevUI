@@ -104,7 +104,6 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
     );
   }
   _onPaginatorPageChange = (from: number, to: number) => {
-    console.log(from, to);
     this.setState({ from, to });
   };
 

@@ -60,7 +60,6 @@ export class CheckBox extends React.Component<Props> {
     );
   }
   _setIndeterminate(value: Boolean) {
-    //console.log("Setting indent (" + this.props.name + ")", value);
     this._inputRef.indeterminate = value;
   }
 }
