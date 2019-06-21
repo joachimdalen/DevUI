@@ -79,7 +79,7 @@ export class SideBarMenuItem extends React.Component<IProps, IState> {
       );
     }
 
-    if (!hasSubmenu) {
+    if (!hasSubmenu || React.Children.count(children) === 0) {
       return (
         <div className={menuClass}>
           <span className="dui-sidebar-menu-item-icon">{iconComp}</span>
