@@ -11,6 +11,9 @@
   line-height: 1.5;
   min-width: $select-min-width;
   position: relative;
+  &-preview {
+    white-space: nowrap;
+  }
   &.disabled {
     background-color: $select-disabled-background;
     color: $select-disabled-color;
