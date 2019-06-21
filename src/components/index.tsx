@@ -21,6 +21,7 @@ export { SelectOption } from "./Select/SelectOption";
 export { SideBar } from "./SideBar/SideBar";
 export { SideBarMenu } from "./SideBar/SideBarMenu";
 export { SideBarMenuItem } from "./SideBar/SideBarMenuItem";
+export { SideBarAddon } from "./SideBar/SideBarAddon";
 export { SocialButton, SocialProviders } from "./SocialButton/SocialButton";
 export { TabControl } from "./TabControl/TabControl";
 export { Table } from "./Table/Table";
