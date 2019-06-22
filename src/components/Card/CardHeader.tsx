@@ -6,10 +6,11 @@ export interface Props {
 
 export class CardHeader extends React.Component<Props> {
   public render() {
-    const { title } = this.props;
+    const { title, children } = this.props;
     return (
       <div className={cx("dui-card-header")}>
         <h3 className="dui-card-header-title">{title}</h3>
+        {children}
       </div>
     );
   }
