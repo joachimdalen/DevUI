@@ -1,17 +1,33 @@
 import * as React from "react";
+import { SelectConsumer, SelectContextType } from "./SelectTypes";
 export interface Props {
   label: string;
-  group?: string;
   value: string;
+  meta?: any;
   onClick?: (value: any) => any;
 }
 export class SelectOption extends React.PureComponent<Props> {
   render() {
-    const { children } = this.props;
+    const { children, label, value, meta } = this.props;
     return (
-      <div className="dui-select-option" role="option" onClick={this.context.onItemClick}>
-        {children}
-      </div>
+      <SelectConsumer>
+        {({ onSelect }: SelectContextType) => (
+          <div
+            className="dui-select-option"
+            role="option"
+            onClick={() => {
+              onSelect &&
+                onSelect({
+                  value: value,
+                  label: label,
+                  meta: meta
+                });
+            }}
+          >
+            {children}
+          </div>
+        )}
+      </SelectConsumer>
     );
   }
 }

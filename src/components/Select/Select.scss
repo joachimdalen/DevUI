@@ -58,6 +58,7 @@
       background-color: $select-option-hover-background;
       color: $select-option-hover-color;
       cursor: pointer;
+      @extend %background-ease;
     }
   }
 }

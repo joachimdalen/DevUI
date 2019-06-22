@@ -4,26 +4,23 @@ import cx from "classnames";
 import * as React from "react";
 import { isUndefined } from "util";
 import { Empty } from "../Empty/Empty";
+import { Option, SelectProvider, SelectContextType } from "./SelectTypes";
 
-export interface Option {
-  label: string;
-  value: string;
-  group?: string;
-}
 export interface Props {
   label: string;
   options?: Option[];
-  children?: SelectOption[];
+  children?:
+    | React.ReactElement<SelectOption>
+    | React.ReactElement<SelectOption>[];
   iconOpen?: string | React.ReactNode;
   iconClose?: string | React.ReactNode;
   keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
-  renderer?: (option: Option) => SelectOption;
-  onChange: (value: Option) => any;
-  ungroupedTitle?: string;
+  renderer?: (option: Option) => React.ReactElement<SelectOption>;
+  onChange: (value: Option) => void;
   defaultValue?: Option;
   disabled?: boolean;
   showEmptyPlaceholder?: boolean;
-  emptyPlaceholder?: Empty;
+  emptyPlaceholder?: React.ReactElement<Empty>;
 }
 export interface State {
   expanded: boolean;
@@ -57,25 +54,33 @@ export class Select extends React.Component<Props, State> {
     const optionsClass = cx("dui-select-options");
     const optionsListClass = cx("dui-select-options-list");
     const caretIcon = expanded ? "fas fa-caret-up" : "fas fa-caret-down";
+    const contextValue: SelectContextType = {
+      options: this.props.options,
+      onSelect: (item: Option) => {
+        this._selectOption(item);
+      }
+    };
     return (
-      <div
-        className={containerClass}
-        role="select"
-        ref={node => (this._wrapperRef = node)}
-      >
-        <div className={infoClass} onClick={() => this._toggle()}>
-          <div className={previewClass}>{this._getPreviewLabel()}</div>
-          <span className={caretContainerClass}>
-            <FontAwesomeIcon icon={caretIcon} />
-          </span>
-        </div>
-         
-        {expanded && (
-          <div className={optionsClass}>
-            <div className={optionsListClass}>{this._renderOptions()}</div>
+      <SelectProvider value={contextValue}>
+        <div
+          className={containerClass}
+          role="select"
+          ref={node => (this._wrapperRef = node)}
+        >
+          <div className={infoClass} onClick={() => this._toggle()}>
+            <div className={previewClass}>{this._getPreviewLabel()}</div>
+            <span className={caretContainerClass}>
+              <FontAwesomeIcon icon={caretIcon} />
+            </span>
           </div>
-        )}
-      </div>
+           
+          {expanded && (
+            <div className={optionsClass}>
+              <div className={optionsListClass}>{this._renderOptions()}</div>
+            </div>
+          )}
+        </div>
+      </SelectProvider>
     );
   }
 
@@ -121,21 +126,7 @@ export class Select extends React.Component<Props, State> {
   }
   _renderChildOptions() {
     const { children } = this.props;
-    const childrenWithProps = React.Children.map(
-      children,
-      (child: SelectOption) => {
-        const updatedChild = React.cloneElement(child as any, {
-          onClick: this._selectOption.bind(this, {
-            label: child.props.label,
-            value: child.props.value,
-            group: child.props.group
-          })
-        });
-        return updatedChild;
-      }
-    );
-
-    return childrenWithProps;
+    return children;
   }
   _handleClickOutside(event: MouseEvent) {
     const { keepOpenOnLostFocus } = this.props;
