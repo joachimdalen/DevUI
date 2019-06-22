@@ -10,14 +10,17 @@ import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { TextInput } from "../TextInput/TextInput";
 import cx from "classnames";
 import * as React from "react";
+import { Empty } from "../Empty/Empty";
 
 export interface DataTableProps {
-  rows: any;
+  rows: any[];
   columns: Column[];
   multiSelect?: boolean;
   paginationEnabled?: boolean;
   paginationPageSize?: number;
   showColumnPicker?: boolean;
+  showEmpty?: boolean;
+  emptyComp?: React.ReactElement<Empty>;
   onCheck?: (checked: any) => void;
 }
 
@@ -44,6 +47,12 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
     to: this.props.paginationPageSize || 15
   };
 
+  span = this.props.columns.length;
+  static defaultProps: Partial<DataTableProps> = {
+    showEmpty: false,
+    emptyComp: <Empty description="No data" />
+  };
+
   componentDidMount() {
     this.setState({
       visibleColumns: this.props.columns.map(i => {
@@ -53,15 +62,18 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
   }
 
   render() {
-    const { columns, ...rest } = this.props;
+    const { columns, rows, emptyComp, showEmpty, ...rest } = this.props;
     const hasSearch = columns.find((e: Column) => e.searchable === true);
+    const hasRows = rows && rows.length !== 0;
+    const emptyItem = showEmpty ? emptyComp : null;
     return (
-      <div>
+      <div className="dui-table-wrapper">
         {this._getTableHeader()}
         <Table {...rest} className={cx({ "dui-table-search": hasSearch })}>
           {this._getHeaders() as any}
-          {this._getRows() as any}
+          {hasRows && (this._getRows() as any)}
         </Table>
+        {!hasRows && emptyItem}
       </div>
     );
   }

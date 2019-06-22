@@ -1,152 +1,159 @@
-.#{$provider-prefix}-table {
-  display: table;
-  border: $table-border-width solid $table-border-color;
-  background-color: $table-background;
-  color: $table-color;
-  &-bordered {
-    .#{$provider-prefix}-table-row,
-    .#{$provider-prefix}-table-cell {
-      border-bottom: $table-border-width solid $table-border-color;
-    }
-  }
-  &-striped {
-    .#{$provider-prefix}-table-row:nth-child(2n) {
-      background-color: $table-striped-background;
-    }
-  }
-  &-hoverable {
-    .#{$provider-prefix}-table-row:not(.dui-table-row-header) {
-      &:hover {
-        background-color: $table-hover-background;
-        cursor: pointer;
-        @extend %background-ease;
-      }
-    }
-  }
-  &-search {
-    .#{$provider-prefix}-table-cell {
-      vertical-align: top;
-    }
-  }
-  &-column-picker {
-    position: relative;
-    .#{$provider-prefix}-button {
-      box-shadow: none !important;
-      border: $table-cp-button-border-width solid $table-cp-button-border-color;
-    }
-    &-content {
-      min-width: 150px;
-      color: $table-color;
-      .#{$provider-prefix}-checkbox-list {
-        border: none;
-        background-color: $table-cp-content-background;
-      }
-      .#{$provider-prefix}-checkbox {
-        color: $table-cp-checkbox-color;
-      }
-      .#{$provider-prefix}-button {
-        margin: 0;
-      }
-      position: absolute;
-      z-index: 1;
-      display: none;
-      border: $table-cp-content-border-width solid
-        $table-cp-content-border-color;
-      background-color: $table-cp-content-background;
-      flex-direction: column;
-      justify-content: center;
-      &-header {
-        border-bottom: $table-cp-header-border-width solid
-          $table-cp-header-border-color;
-        padding: $table-cp-header-padding;
-        font-size: $table-cp-header-font-size;
-        text-transform: uppercase;
-        text-align: center;
-        color: $table-cp-header-color;
-        font-weight: $table-cp-header-font-weight;
-      }
-      &.visible {
-        display: flex;
-      }
-    }
-  }
-  &-header {
+.#{$provider-prefix}-table-wrapper {
+  .#{$provider-prefix}-table {
+    display: table;
     border: $table-border-width solid $table-border-color;
-    background-color: $table-header-background;
-    color: $table-header-color;
-    padding: $table-header-padding;
-    width: 100%;
-    display: flex;
-    .#{$provider-prefix}-table-paginator {
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-      &-count {
-        font-size: $table-pg-font-size;
-        margin-right: 5px;
-        > span {
-          font-weight: bold;
+    background-color: $table-background;
+    color: $table-color;
+    &-bordered {
+      .#{$provider-prefix}-table-row,
+      .#{$provider-prefix}-table-cell {
+        border-bottom: $table-border-width solid $table-border-color;
+      }
+    }
+    &-striped {
+      .#{$provider-prefix}-table-row:nth-child(2n) {
+        background-color: $table-striped-background;
+      }
+    }
+    &-hoverable {
+      .#{$provider-prefix}-table-row:not(.dui-table-row-header) {
+        &:hover {
+          background-color: $table-hover-background;
+          cursor: pointer;
+          @extend %background-ease;
         }
       }
+    }
+    &-search {
+      .#{$provider-prefix}-table-cell {
+        vertical-align: top;
+      }
+    }
+    &-column-picker {
+      position: relative;
       .#{$provider-prefix}-button {
         box-shadow: none !important;
-        border: $table-pg-button-border-width solid
-          $table-pg-button-border-color;
+        border: $table-cp-button-border-width solid
+          $table-cp-button-border-color;
       }
-    }
-  }
-  &-row {
-    display: table-row;
-    &-bordered {
-      .#{$provider-prefix}-table-cell {
-        border-bottom: 3px solid $table-border-color;
+      &-content {
+        min-width: 150px;
+        color: $table-color;
+        .#{$provider-prefix}-checkbox-list {
+          border: none;
+          background-color: $table-cp-content-background;
+        }
+        .#{$provider-prefix}-checkbox {
+          color: $table-cp-checkbox-color;
+        }
+        .#{$provider-prefix}-button {
+          margin: 0;
+        }
+        position: absolute;
+        z-index: 1;
+        display: none;
+        border: $table-cp-content-border-width solid
+          $table-cp-content-border-color;
+        background-color: $table-cp-content-background;
+        flex-direction: column;
+        justify-content: center;
+        &-header {
+          border-bottom: $table-cp-header-border-width solid
+            $table-cp-header-border-color;
+          padding: $table-cp-header-padding;
+          font-size: $table-cp-header-font-size;
+          text-transform: uppercase;
+          text-align: center;
+          color: $table-cp-header-color;
+          font-weight: $table-cp-header-font-weight;
+        }
+        &.visible {
+          display: flex;
+        }
       }
-    }
-    &-checked {
-      background-color: $table-row-checked-background !important ;
-      @extend %background-ease;
     }
     &-header {
-      text-align: left;
-      line-height: 1.5;
-      height: $table-row-header-height;
-      font-size: $table-row-header-font-size;
-      font-weight: $table-row-header-font-weight;
-      color: $table-row-header-color;
-      .dui-icon {
+      border: $table-border-width solid $table-border-color;
+      background-color: $table-header-background;
+      color: $table-header-color;
+      padding: $table-header-padding;
+      width: 100%;
+      display: flex;
+      .#{$provider-prefix}-table-paginator {
+        display: flex;
+        align-items: center;
         margin-left: auto;
-        margin-right: 5px;
+        &-count {
+          font-size: $table-pg-font-size;
+          margin-right: 5px;
+          > span {
+            font-weight: bold;
+          }
+        }
+        .#{$provider-prefix}-button {
+          box-shadow: none !important;
+          border: $table-pg-button-border-width solid
+            $table-pg-button-border-color;
+        }
+      }
+    }
+    &-row {
+      display: table-row;
+      &-bordered {
+        .#{$provider-prefix}-table-cell {
+          border-bottom: 3px solid $table-border-color;
+        }
+      }
+      &-checked {
+        background-color: $table-row-checked-background !important ;
+        @extend %background-ease;
+      }
+      &-header {
+        text-align: left;
+        line-height: 1.5;
+        height: $table-row-header-height;
+        font-size: $table-row-header-font-size;
+        font-weight: $table-row-header-font-weight;
+        color: $table-row-header-color;
+        .dui-icon {
+          margin-left: auto;
+          margin-right: 5px;
+        }
+      }
+    }
+    &-cell {
+      display: table-cell;
+      vertical-align: middle;
+      padding: $table-cell-padding;
+      > div {
+        display: flex;
+        align-items: center;
+      }
+
+      &-checkable {
+        text-align: center;
+        vertical-align: middle;
+        width: 30px;
+        .#{$provider-prefix}-checkbox {
+          padding-left: 0;
+          display: inline;
+          & > span {
+            color: transparent;
+          }
+          .#{$provider-prefix}-checkmark {
+            background-color: $color-light;
+            @extend %background-ease;
+            border: 1px solid $table-border-color;
+          }
+        }
+      }
+      &-sortable:hover {
+        cursor: pointer;
       }
     }
   }
-  &-cell {
-    display: table-cell;
-    vertical-align: middle;
-    padding: $table-cell-padding;
-    > div {
-      display: flex;
-      align-items: center;
-    }
-
-    &-checkable {
-      text-align: center;
-      vertical-align: middle;
-      width: 30px;
-      .#{$provider-prefix}-checkbox {
-        padding-left: 0;
-        display: inline;
-        & > span {
-          color: transparent;
-        }
-        .#{$provider-prefix}-checkmark {
-          background-color: $color-light;
-          @extend %background-ease;
-          border: 1px solid $table-border-color;
-        }
-      }
-    }
-    &-sortable:hover {
-      cursor: pointer;
-    }
+  .#{$provider-prefix}-empty {
+    background-color: $table-background;
+    padding-bottom: 10px;
   }
 }
