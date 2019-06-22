@@ -2,7 +2,7 @@ import * as React from "react";
 import { TableRow } from "./TableRow";
 import cx from "classnames";
 export interface Props extends React.HTMLAttributes<HTMLTableElement> {
-  children: TableRow[];
+  children: React.ReactElement<TableRow> | React.ReactElement<TableRow>[];
   striped?: boolean;
   bordered?: boolean;
   hoverable?: boolean;

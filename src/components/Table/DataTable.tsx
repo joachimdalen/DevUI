@@ -230,7 +230,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
     }
     return (
       <TableRow isHeader={true} bordered={true}>
-        {rowHeaders}
+        {rowHeaders as any}
       </TableRow>
     );
   }

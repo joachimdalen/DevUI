@@ -6,7 +6,7 @@ export interface Props {
   className?: string;
   autoComplete?: boolean;
   autoFocus?: boolean;
-  name: string;
+  name?: string;
   maxLength?: number;
   placeholder?: string;
   password?: boolean;
@@ -15,10 +15,10 @@ export interface Props {
   disabled?: boolean;
   size?: "small" | "large";
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
-  addonBefore?: string | React.ReactNode;
-  addonAfter?: string | React.ReactNode;
-  prefix?: string | React.ReactNode;
-  suffix?: string | React.ReactNode;
+  addonBefore?: string | React.ReactElement;
+  addonAfter?: string | React.ReactElement;
+  suffix?: string | any;
+  prefix?: string | any;
 }
 type AllProps = Props & React.HTMLAttributes<HTMLInputElement>;
 export class TextInput extends React.Component<AllProps> {
@@ -76,7 +76,7 @@ export class TextInput extends React.Component<AllProps> {
         className={inputComponentClass}
         autoComplete={autoCompleteValue}
         autoFocus={autoFocus}
-        name={name}
+        name={name || ""}
         maxLength={maxLength}
         placeholder={placeholder}
         id={id}

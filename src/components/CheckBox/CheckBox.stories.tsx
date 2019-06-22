@@ -1,20 +1,10 @@
-import React from "react";
+import * as React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { CheckBox } from "./CheckBox";
 import { text, boolean } from "@storybook/addon-knobs/react";
+import variants from "../../storyUtil/variants";
 
-const variants = [
-  "default",
-  "primary",
-  "secondary",
-  "dark",
-  "light",
-  "danger",
-  "warning",
-  "blue",
-  "magenta"
-];
 storiesOf("Components/CheckBox", module)
   .add("Basic CheckBox", () => (
     <CheckBox
@@ -38,7 +28,7 @@ storiesOf("Components/CheckBox", module)
   .add("Variants", () => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
-        {variants.map(variant => {
+        {variants.map((variant: string) => {
           return (
             <CheckBox
               key={`normal-${variant}`}

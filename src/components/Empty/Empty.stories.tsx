@@ -1,9 +1,10 @@
-import React from "react";
-
-import { storiesOf } from "@storybook/react";
-import { text } from "@storybook/addon-knobs/react";
 import { Empty } from "./Empty";
 import { Button } from "../Button/Button";
+import { action } from "@storybook/addon-actions";
+import { text } from "@storybook/addon-knobs/react";
+import { storiesOf } from "@storybook/react";
+import * as React from "react";
+
 storiesOf("Components/Empty", module)
   .add("Default", () => <Empty />)
   .add("Custom Description Text", () => (
@@ -25,6 +26,7 @@ storiesOf("Components/Empty", module)
         variant="blue"
         size="small"
         icon="fas fa-plus"
+        onClick={action("onClick")}
       />
     </Empty>
   ))

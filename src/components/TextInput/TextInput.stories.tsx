@@ -10,6 +10,7 @@ storiesOf("Components/Inputs/TextInput", module)
     <TextInput
       onChange={action("input-changed")}
       disabled={boolean("Disabled", false)}
+      value=""
     />
   ))
   .add("with Addon", () => (
@@ -17,13 +18,15 @@ storiesOf("Components/Inputs/TextInput", module)
       addonBefore="@"
       addonAfter=".com"
       onChange={action("input-changed")}
+      value=""
     />
   ))
   .add("with Fix", () => (
     <TextInput
-      prefix={<FontAwesomeIcon icon="fas fa-check" />}
       suffix={<FontAwesomeIcon icon="fab fa-discord" />}
+      prefix={<FontAwesomeIcon icon="fas fa-check" />}
       onChange={action("input-changed")}
+      value=""
     />
   ))
   .add("Sizes", () => (
@@ -39,15 +42,18 @@ storiesOf("Components/Inputs/TextInput", module)
         placeholder="Small"
         size="small"
         onChange={action("input-changed")}
+        value=""
       />
       <TextInput
         placeholder="Normal (default)"
         onChange={action("input-changed")}
+        value=""
       />
       <TextInput
         placeholder="Large"
         size="large"
         onChange={action("input-changed")}
+        value=""
       />
     </div>
   ));

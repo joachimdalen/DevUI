@@ -12,6 +12,7 @@ export type SocialProviders =
   | "reddit"
   | "spotify"
   | "steam"
+  | "snapchat"
   | "twitch"
   | "twitter"
   | "youtube";

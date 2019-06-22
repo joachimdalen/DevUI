@@ -1,13 +1,11 @@
-import React from "react";
-
-import { storiesOf } from "@storybook/react";
 import { Card } from "./Card";
 import { CardBody } from "./CardBody";
-import { CardHeader } from "./CardHeader";
 import { CardFooter } from "./CardFooter";
-import { CardImage } from "./CardImage";
-import { text } from "@storybook/addon-knobs/dist/deprecated";
+import { CardHeader } from "./CardHeader";
+import { text } from "@storybook/addon-knobs";
 import { number } from "@storybook/addon-knobs";
+import { storiesOf } from "@storybook/react";
+import * as React from "react";
 
 storiesOf("Components/Card", module)
   .add("Basic Card", () => (

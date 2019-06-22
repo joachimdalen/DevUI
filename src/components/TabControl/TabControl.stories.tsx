@@ -1,11 +1,9 @@
-import React from "react";
-
+import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { TabControl } from "./TabControl";
-import { text, boolean } from "@storybook/addon-knobs";
-import { action } from "@storybook/addon-actions";
+import { Tab } from "./TabControlTypes";
 
-const tabControlTabs = [
+const tabControlTabs: Tab[] = [
   {
     label: "Hello",
     key: "hello",
@@ -17,7 +15,7 @@ const tabControlTabs = [
   {
     label: "Hello2",
     key: "hello2",
-    icon: null,
+    icon: undefined,
     render: () => {
       return <div>Hello2</div>;
     }
@@ -25,7 +23,7 @@ const tabControlTabs = [
   {
     label: "Profile Settings",
     key: "hello12",
-    icon: null,
+    icon: undefined,
     disabled: true,
     render: () => {
       return <div>Profile</div>;

@@ -2,7 +2,7 @@ import * as React from "react";
 import { TableCell } from "./TableCell";
 import cx from "classnames";
 export interface Props extends React.HTMLAttributes<HTMLTableRowElement> {
-  children: TableCell[];
+  children: React.ReactElement<TableCell> | React.ReactElement<TableCell>[]
   bordered?: boolean;
   checked?: boolean;
   isHeader?: boolean;

@@ -1,14 +1,14 @@
-import React from "react";
+import * as React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Table } from "./Table";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
-import { DataTable, Column } from "./DataTable";
+import { DataTable } from "./DataTable";
 import { TableColumnPicker } from "./TableColumnPicker";
 import { boolean, number } from "@storybook/addon-knobs";
-import { action } from "@storybook/addon-actions";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { action } from "@storybook/addon-actions";
 const values = require("../../../data/invoices.json");
 const columnHeaders = [
   {
@@ -28,7 +28,7 @@ const columnHeaders = [
     label: "Status",
     sortable: true,
     searchable: true,
-    renderer: item => {
+    renderer: (item: any) => {
       if (item.status === "Paid")
         return <span className="dui-color-success">{item.status}</span>;
       else if (item.status === "Pending")
@@ -39,20 +39,20 @@ const columnHeaders = [
   {
     key: "first_name",
     label: "First Name",
-    accessor: item => item.customer.first_name,
+    accessor: (item: any) => item.customer.first_name,
     sortable: true,
     searchable: true
   },
   {
     key: "last_name",
     label: "Last Name",
-    accessor: item => item.customer.last_name
+    accessor: (item: any) => item.customer.last_name
   },
   {
     key: "company",
     label: "Company",
-    accessor: item => item.customer.company,
-    renderer: item =>
+    accessor: (item: any) => item.customer.company,
+    renderer: (item: any) =>
       item.customer.company ? (
         <span>
           {item.customer.company.name} ({item.customer.company.id})
@@ -66,7 +66,7 @@ const columnHeaders = [
     key: "amount",
     label: "Amount",
     sortable: true,
-    renderer: item => (
+    renderer: (item: any) => (
       <span>
         <FontAwesomeIcon
           icon="fas fa-dollar-sign"
@@ -80,17 +80,15 @@ const columnHeaders = [
 storiesOf("Components/Table", module)
   .add("With Children", () => (
     <Table
-      caption="This is my table"
-      captionLocation="top"
       bordered={boolean("bordered", false)}
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
     >
       <TableRow bordered={true}>
-        <TableCell isHeader={true}>Hi</TableCell>
-        <TableCell isHeader={true}>Hi</TableCell>
-        <TableCell isHeader={true}>Hi</TableCell>
-        <TableCell isHeader={true}>Hi</TableCell>
+        <TableCell>Hi</TableCell>
+        <TableCell>Hi</TableCell>
+        <TableCell>Hi</TableCell>
+        <TableCell>Hi</TableCell>
       </TableRow>
       <TableRow>
         <TableCell>Hello</TableCell>
@@ -122,7 +120,6 @@ storiesOf("Components/Table", module)
     <DataTable
       rows={values}
       columns={columnHeaders}
-      multiSelect={true}
       bordered={boolean("bordered", false)}
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
@@ -133,7 +130,6 @@ storiesOf("Components/Table", module)
     <DataTable
       rows={values}
       columns={columnHeaders}
-      multiSelect={true}
       bordered={boolean("bordered", false)}
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
@@ -143,5 +139,9 @@ storiesOf("Components/Table", module)
     />
   ))
   .add("TableColumnPicker", () => (
-    <TableColumnPicker columns={columnHeaders} />
+    <TableColumnPicker
+      columns={columnHeaders}
+      visibleColumns={columnHeaders.map(i => i.key)}
+      onColumnUpdate={action("onColumnUpdate")}
+    />
   ));

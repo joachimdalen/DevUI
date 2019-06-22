@@ -372,7 +372,7 @@ $fontawesome-icon-margin-left: 5px !default;
 /* MODAL */
 
 $modal-backdrop-background: rgba(0, 0, 0, 0.5) !default;
-$modal-backdrop-zindex: 1 !default;
+$modal-backdrop-zindex: 9998 !default;
 $modal-small-width: 300px !default;
 $modal-small-height: 200px !default;
 $modal-normal-width: 400px !default;
@@ -396,3 +396,4 @@ $modal-body-padding-x: 5px !default;
 $modal-body-padding-y: 10px !default;
 $modal-body-padding: $modal-body-padding-y $modal-body-padding-x !default;
 $modal-top-margin: 25px !default;
+$modal-zindex: 9999 !default;

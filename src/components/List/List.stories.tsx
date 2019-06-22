@@ -1,12 +1,11 @@
-import React from "react";
-
+import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { List } from "./List";
 import { ListItem } from "./ListItem";
 import { ListActionItem } from "./ListActionItem";
-import { text } from "@storybook/addon-knobs/dist/deprecated";
-import { boolean } from "@storybook/addon-knobs";
+import { text, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
+
 storiesOf("Components/List", module)
   .add("Basic List", () => (
     <List title={text("List title", "List title", "List")}>

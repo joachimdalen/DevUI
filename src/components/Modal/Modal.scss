@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     margin: $modal-top-margin auto;
+    z-index: $modal-zindex;
     &-center {
       margin: auto;
     }

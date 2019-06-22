@@ -1,7 +1,6 @@
-import React from "react";
-
+import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import { Button } from "./Button";
+import { Button, ButtonFormat } from "./Button";
 import { text, boolean } from "@storybook/addon-knobs/react";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
@@ -20,7 +19,7 @@ storiesOf("Components/Button", module)
       disabled={boolean("disabled", false)}
       variant={text("variant", "default")}
       onClick={action("button-clicked")}
-      format={text("format", "block")}
+      format={text("format", "block") as ButtonFormat}
     />
   ))
   .add("Outlined Button", () => (
@@ -79,7 +78,7 @@ storiesOf("Components/Button", module)
   .add("Variants", () => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
-        {variants.map(variant => {
+        {variants.map((variant: string) => {
           return (
             <Button
               key={`normal-${variant}`}

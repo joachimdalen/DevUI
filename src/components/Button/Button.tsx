@@ -1,13 +1,15 @@
 import * as React from "react";
 import cx from "classnames";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+export type ButtonFormat = "default" | "block";
+export type ButtonSize = "small" | "medium" | "large";
 export interface Props {
   label?: string;
   onClick: () => void;
   disabled?: boolean;
   variant?: string;
-  format?: "default" | "block";
-  size?: "small" | "medium" | "large";
+  format?: ButtonFormat;
+  size?: ButtonSize;
   outlined?: boolean;
   dashed?: boolean;
   loading?: boolean;

@@ -2,9 +2,10 @@ import * as React from "react";
 import cx from "classnames";
 import { CardImage } from "./CardImage";
 import { isNumber } from "util";
+export type CardImagePlacement = "top" | "left" | "right";
 export interface Props {
   image?: string;
-  imagePlacement?: "top" | "left" | "right";
+  imagePlacement?: CardImagePlacement;
   width: number | string;
   className?: string;
 }

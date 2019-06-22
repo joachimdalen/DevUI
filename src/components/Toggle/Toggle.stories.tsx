@@ -1,7 +1,7 @@
-import React from "react";
+import * as React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { Toggle } from "./Toggle";
+import { Toggle, ToggleSize } from "./Toggle";
 import { text, boolean } from "@storybook/addon-knobs/react";
 import { List } from "../List/List";
 import { ListItem } from "../List/ListItem";
@@ -9,7 +9,9 @@ import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
 
 storiesOf("Components/Toggle", module)
-  .add("Basic Toggle", () => <Toggle toggled={boolean("Toggled", true)} />)
+  .add("Basic Toggle", () => (
+    <Toggle toggled={boolean("Toggled", true)} onToggle={action("toggled")} />
+  ))
   .add("Rounded Toggle", () => (
     <Toggle
       toggled={boolean("Toggled", true)}
@@ -21,7 +23,7 @@ storiesOf("Components/Toggle", module)
     <Toggle
       toggled={boolean("Toggled", true)}
       rounded={boolean("Rounded", false)}
-      size={text("Size", "large")}
+      size={text("Size", "large") as ToggleSize}
       onToggle={action("toggled")}
     />
   ))
@@ -29,7 +31,7 @@ storiesOf("Components/Toggle", module)
     <Toggle
       toggled={boolean("Toggled", true)}
       rounded={boolean("Rounded", false)}
-      size={text("Size", "large")}
+      size={text("Size", "large") as ToggleSize}
       showLabels={boolean("Show labels", true)}
       onToggle={action("toggled")}
     />

@@ -1,13 +1,14 @@
 import * as React from "react";
 import cx from "classnames";
 
+export type ToggleSize = "normal" | "large";
 export interface Props {
   className?: string;
   toggled?: boolean;
   showLabels?: boolean;
   rounded?: boolean;
   onToggle: () => any;
-  size?: "normal" | "large";
+  size?: ToggleSize;
   variant?: string;
 }
 

@@ -61,7 +61,7 @@
     padding: $button-large-padding;
     font-size: $button-large-font-size;
   }
-  &-small:not(.#{$provider-prefix}-icon-only) {
+  &-small:not(.#{$provider-prefix}-button-icon-only) {
     font-size: $button-small-font-size;
     padding: $button-small-padding;
   }
