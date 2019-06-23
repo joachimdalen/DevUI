@@ -64,16 +64,15 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
   render() {
     const { columns, rows, emptyComp, showEmpty, ...rest } = this.props;
     const hasSearch = columns.find((e: Column) => e.searchable === true);
-    const hasRows = rows && rows.length !== 0;
     const emptyItem = showEmpty ? emptyComp : null;
     return (
       <div className="dui-table-wrapper">
         {this._getTableHeader()}
         <Table {...rest} className={cx({ "dui-table-search": hasSearch })}>
           {this._getHeaders() as any}
-          {hasRows && (this._getRows() as any)}
+          {this._getRows() as any}
         </Table>
-        {!hasRows && emptyItem}
+        {!rows && emptyItem}
       </div>
     );
   }
