@@ -1,0 +1,23 @@
+.#{$provider-prefix}-form-group {
+  &-label {
+    font-weight: $form-group-label-font-weight;
+    margin-bottom: $form-group-label-margin-bottom;
+    display: block;
+  }
+  &-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &-extra {
+    font-size: $form-group-extra-font-size;
+    color: $form-group-extra-color;
+  }
+  .#{$provider-prefix}-select,
+  .#{$provider-prefix}-input,
+  .#{$provider-prefix}-textarea,
+  .#{$provider-prefix}-tag-input {
+    margin: 0;
+    width: 100%;
+  }
+}
