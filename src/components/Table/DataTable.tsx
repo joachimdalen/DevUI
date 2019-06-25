@@ -143,23 +143,21 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
     });
   }
   _checkedChange() {
-    const { checked } = this.state;
     const { onCheck } = this.props;
-    onCheck && onCheck(checked);
+    onCheck && onCheck(this.state.checked);
   }
 
   _toggleItem(item: any) {
     const { onCheck } = this.props;
-    const { checked } = this.state;
-    const checkIndex = checked.indexOf(item);
-    var arrCpy = [...checked];
+    const checkIndex = this.state.checked.indexOf(item);
+    var arrCpy = [...this.state.checked];
     if (checkIndex !== -1) {
       arrCpy.splice(checkIndex, 1);
       this.setState({ checked: arrCpy }, () => {
-        onCheck && onCheck(checked);
+        onCheck && onCheck(this.state.checked);
       });
     } else {
-      const newItems = [...checked, item];
+      const newItems = [...this.state.checked, item];
       this.setState({ checked: newItems }, () => {
         onCheck && onCheck(newItems);
       });
@@ -167,12 +165,16 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
   }
 
   _toggleAll(): void {
-    const { rows } = this.props;
+    const { rows, onCheck } = this.props;
     const { checked } = this.state;
     if (rows.length !== checked.length) {
-      this.setState({ checked: rows });
+      this.setState({ checked: rows }, () => {
+        onCheck && onCheck(this.state.checked);
+      });
     } else {
-      this.setState({ checked: [] });
+      this.setState({ checked: [] }, () => {
+        onCheck && onCheck(this.state.checked);
+      });
     }
   }
 
