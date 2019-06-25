@@ -1,0 +1,61 @@
+.#{$provider-prefix}-alert {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 2px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  .fas {
+    font-size: 20px;
+  }
+  .#{$provider-prefix}-alert-message {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    color: $color-dark;
+  }
+  .#{$provider-prefix}-alert-description {
+    margin-top: 5px;
+    color: $color-text-gray;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .#{$provider-prefix}-alert-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: $color-gray;
+    &:hover {
+      cursor: pointer;
+      color: $color-dark;
+    }
+  }
+  &.#{$provider-prefix}-alert-wi {
+    display: inline-flex;
+    .#{$provider-prefix}-alert-wi-content {
+      margin-left: 10px;
+    }
+  }
+  &.#{$provider-prefix}-alert-info {
+    border-color: lighten($color-blue, 10%);
+    background-color: lighten($color-blue, 40%);
+    color: lighten($color-blue, 10%);
+  }
+  &.#{$provider-prefix}-alert-success {
+    border-color: lighten($color-success, 10%);
+    background-color: lighten($color-success, 50%);
+    color: lighten($color-success, 10%);
+  }
+  &.#{$provider-prefix}-alert-warning {
+    border-color: lighten($color-warning, 10%);
+    background-color: lighten($color-warning, 30%);
+    color: lighten($color-warning, 10%);
+  }
+  &.#{$provider-prefix}-alert-danger {
+    border-color: lighten($color-danger, 10%);
+    background-color: lighten($color-danger, 30%);
+    color: lighten($color-danger, 10%);
+  }
+}

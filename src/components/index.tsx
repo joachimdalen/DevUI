@@ -45,3 +45,4 @@ export { ModalBody } from "./Modal/ModalBody";
 export { ModalFooter } from "./Modal/ModalFooter";
 export { ModalHeader } from "./Modal/ModalHeader";
 export { FormGroup } from "./FormGroup/FormGroup";
+export { Alert } from "./Alert/Alert";
