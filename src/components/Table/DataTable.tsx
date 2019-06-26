@@ -47,7 +47,6 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
     to: this.props.paginationPageSize || 15
   };
 
-  span = this.props.columns.length;
   static defaultProps: Partial<DataTableProps> = {
     showEmpty: false,
     emptyComp: <Empty description="No data" />
