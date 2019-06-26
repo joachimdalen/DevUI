@@ -1,35 +1,35 @@
 .#{$provider-prefix}-alert {
-  border-width: 1px;
+  border-width: $alert-border-width;
   border-style: solid;
-  border-radius: 4px;
-  padding: 5px;
+  border-radius: $alert-border-radius;
+  padding: $alert-padding;
   margin: 2px;
   position: relative;
   display: inline-block;
   width: 100%;
   .fas {
-    font-size: 20px;
+    font-size: $alert-icon-font-size;
   }
   .#{$provider-prefix}-alert-message {
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: $alert-message-font-weight;
+    font-size: $alert-message-font-size;
     margin: 0;
-    color: $color-dark;
+    color: $alert-message-color;
   }
   .#{$provider-prefix}-alert-description {
     margin-top: 5px;
-    color: $color-text-gray;
-    font-weight: 600;
-    font-size: 12px;
+    color: $alert-description-color;
+    font-weight: $alert-description-font-weight;
+    font-size: $alert-description-font-size;
   }
   .#{$provider-prefix}-alert-close {
     position: absolute;
     top: 5px;
     right: 10px;
-    color: $color-gray;
+    color: $alert-close-color;
     &:hover {
       cursor: pointer;
-      color: $color-dark;
+      color: $alert-close-hover-color;
     }
   }
   &.#{$provider-prefix}-alert-wi {
@@ -39,23 +39,23 @@
     }
   }
   &.#{$provider-prefix}-alert-info {
-    border-color: lighten($color-blue, 10%);
-    background-color: lighten($color-blue, 40%);
-    color: lighten($color-blue, 10%);
+    border-color: $alert-info-border-color;
+    background-color: $alert-info-background;
+    color: $alert-info-color;
   }
   &.#{$provider-prefix}-alert-success {
-    border-color: lighten($color-success, 10%);
-    background-color: lighten($color-success, 50%);
-    color: lighten($color-success, 10%);
+    border-color: $alert-success-border-color;
+    background-color: $alert-success-background;
+    color: $alert-success-color;
   }
   &.#{$provider-prefix}-alert-warning {
-    border-color: lighten($color-warning, 10%);
-    background-color: lighten($color-warning, 30%);
-    color: lighten($color-warning, 10%);
+    border-color: $alert-warning-border-color;
+    background-color: $alert-warning-background;
+    color: $alert-warning-color;
   }
   &.#{$provider-prefix}-alert-danger {
-    border-color: lighten($color-danger, 10%);
-    background-color: lighten($color-danger, 30%);
-    color: lighten($color-danger, 10%);
+    border-color: $alert-danger-border-color;
+    background-color: $alert-danger-background;
+    color: $alert-danger-color;
   }
 }
