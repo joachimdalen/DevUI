@@ -36,7 +36,7 @@
       font-weight: $card-title-font-weight;
       color: $card-title-color;
     }
-    min-height: $card-title-min-height;
+    height: $card-header-height;
     padding: $card-title-padding;
     border-bottom: 1px solid $color-gray;
   }
@@ -44,6 +44,7 @@
     padding: $card-footer-padding;
     border-top: 1px solid $color-disabled;
     color: $card-footer-color;
+    height: $card-footer-height;
   }
   &-inner {
     flex-direction: column;
