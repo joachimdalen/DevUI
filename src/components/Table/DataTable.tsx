@@ -65,6 +65,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
     const { columns, rows, emptyComp, showEmpty, ...rest } = this.props;
     const hasSearch = columns.find((e: Column) => e.searchable === true);
     const emptyItem = showEmpty ? emptyComp : null;
+    const shouldShowEmpty = !rows || rows.length === 0;
     return (
       <div className="dui-table-wrapper">
         {this._getTableHeader()}
@@ -72,7 +73,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
           {this._getHeaders() as any}
           {this._getRows() as any}
         </Table>
-        {!rows && emptyItem}
+        {shouldShowEmpty && emptyItem}
       </div>
     );
   }
