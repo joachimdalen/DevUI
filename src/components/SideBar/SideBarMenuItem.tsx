@@ -3,11 +3,12 @@ import cx from "classnames";
 import { SideBarMenu } from "./SideBarMenu";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { isString } from "util";
+import { CustomComponent } from "../../common";
 
-interface IState {
+interface SideBarMenuItemState {
   subMenuVisible: boolean;
 }
-interface IProps {
+interface SideBarMenuItemProps extends CustomComponent {
   isHeader?: boolean;
   active?: boolean;
   icon?: string | React.ReactElement;
@@ -18,7 +19,10 @@ interface IProps {
   className?: string;
 }
 
-export class SideBarMenuItem extends React.Component<IProps, IState> {
+export class SideBarMenuItem extends React.Component<
+  SideBarMenuItemProps,
+  SideBarMenuItemState
+> {
   state = {
     subMenuVisible: false
   };
@@ -32,7 +36,9 @@ export class SideBarMenuItem extends React.Component<IProps, IState> {
       collapseIcon,
       label,
       hasSubmenu = false,
-      className = ""
+      className = "",
+      component,
+      componentProps
     } = this.props;
     const { subMenuVisible } = this.state;
     const menuClass = cx(
@@ -80,12 +86,22 @@ export class SideBarMenuItem extends React.Component<IProps, IState> {
     }
 
     if (!hasSubmenu || React.Children.count(children) === 0) {
-      return (
-        <div className={menuClass}>
+      const baseChildren = (
+        <React.Fragment>
           <span className="dui-sidebar-menu-item-icon">{iconComp}</span>
           <span className="dui-sidebar-menu-item-label">{label}</span>
-        </div>
+        </React.Fragment>
       );
+
+      if (component) {
+        const Component: React.ComponentType<any> = component;
+        return (
+          <Component className={menuClass} {...componentProps}>
+            {baseChildren}
+          </Component>
+        );
+      }
+      return <div className={menuClass}>{baseChildren}</div>;
     }
     return (
       <div className={menuClass}>
