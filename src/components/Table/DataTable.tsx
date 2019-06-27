@@ -11,6 +11,7 @@ import { TextInput } from "../TextInput/TextInput";
 import cx from "classnames";
 import * as React from "react";
 import { Empty } from "../Empty/Empty";
+import { Omit } from "../common";
 
 export interface DataTableProps {
   rows: any[];
@@ -33,7 +34,6 @@ export interface DataTableState {
   from: number;
   to: number;
 }
-type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 export type AllProps = Omit<TableProps, "children"> & DataTableProps;
 
 export class DataTable extends React.Component<AllProps, DataTableState> {
