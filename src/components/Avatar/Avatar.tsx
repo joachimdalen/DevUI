@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-export interface Props {
+export interface AvatarProps {
   img: React.ReactNode | string;
   size?: "small" | "normal" | "large";
   format?: "square" | "rounded" | "circle";
@@ -10,8 +10,8 @@ export interface Props {
   className?: string;
 }
 
-export class Avatar extends React.Component<Props> {
-  static defaultProps: Partial<Props> = {
+export class Avatar extends React.Component<AvatarProps> {
+  static defaultProps: Partial<AvatarProps> = {
     size: "normal",
     format: "square"
   };
