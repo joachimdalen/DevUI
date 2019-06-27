@@ -10,7 +10,9 @@ export { CardImage } from "./components/Card/CardImage";
 export { CheckBox } from "./components/CheckBox/CheckBox";
 export { CheckBoxList } from "./components/CheckBoxList/CheckBoxList";
 export { DataTable } from "./components/Table/DataTable";
-export { default as FontAwesomeIcon } from "./components/FontAwesomeIcon/FontAwesomeIcon";
+export {
+  default as FontAwesomeIcon
+} from "./components/FontAwesomeIcon/FontAwesomeIcon";
 export { Empty } from "./components/Empty/Empty";
 export { List } from "./components/List/List";
 export { ListActionItem } from "./components/List/ListActionItem";
@@ -22,7 +24,10 @@ export { SideBar } from "./components/SideBar/SideBar";
 export { SideBarMenu } from "./components/SideBar/SideBarMenu";
 export { SideBarMenuItem } from "./components/SideBar/SideBarMenuItem";
 export { SideBarAddon } from "./components/SideBar/SideBarAddon";
-export { SocialButton, SocialProviders } from "./components/SocialButton/SocialButton";
+export {
+  SocialButton,
+  SocialProviders
+} from "./components/SocialButton/SocialButton";
 export { TabControl } from "./components/TabControl/TabControl";
 export { Table } from "./components/Table/Table";
 export { TableCell } from "./components/Table/TableCell";
@@ -40,7 +45,7 @@ export { Toast } from "./components/Toast/Toast";
 export { Toggle } from "./components/Toggle/Toggle";
 export * from "./components/TabControl/TabControlTypes";
 export * from "./components/Table/TableTypes";
-export { Modal } from "./components/Modal/Modal";
+export { Modal, Props as ModalProps } from "./components/Modal/Modal";
 export { ModalBody } from "./components/Modal/ModalBody";
 export { ModalFooter } from "./components/Modal/ModalFooter";
 export { ModalHeader } from "./components/Modal/ModalHeader";

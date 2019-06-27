@@ -432,3 +432,18 @@ $alert-warning-color: lighten($color-warning, 10%) !default;
 $alert-danger-border-color: lighten($color-danger, 10%) !default;
 $alert-danger-background: lighten($color-danger, 30%) !default;
 $alert-danger-color: lighten($color-danger, 10%) !default;
+
+$header-height: 44px !default;
+$header-background: $color-dark !default;
+$header-color: $color-light !default;
+$header-toggle-background: $color-light !default;
+$header-toggle-hover-color: $color-dark !default;
+$header-brand-font: inherit !default;
+$user-menu-visible-color: $color-light !default;
+$user-menu-visible-background: $color-dark !default;
+$user-avatar-border-color: none !default;
+$user-menu-hover-background: $color-dark !default;
+$user-dropdown-background: $color-dark !default;
+$user-dropdown-color: $color-light !default;
+$user-dropdown-item-hover-background: $color-blue !default;
+$user-dropdown-item-hover-color: $color-light !default;

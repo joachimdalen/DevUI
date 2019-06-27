@@ -1,0 +1,142 @@
+.#{$provider-prefix}-header {
+  background-color: $header-background;
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  color: $header-color;
+  width: 100%;
+  box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem;
+  &-toggle {
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background-color: $header-toggle-background;
+      transition: background-color 0.5s ease;
+      color: $header-toggle-hover-color;
+      cursor: pointer;
+    }
+  }
+  &-brand {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: $header-brand-font !important;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  &-items {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+  }
+  &-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $header-color;
+      color: $header-background;
+    }
+  }
+  &-user-menu {
+    margin-left: auto;
+    margin-right: 10px;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: $header-background;
+    min-height: $header-height;
+    &-visible {
+      background-color: $user-menu-visible-background;
+      color: $user-menu-visible-color;
+    }
+    &-trigger {
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      span {
+        margin-right: 5px;
+      }
+      .dui-avatar {
+        margin-right: 10px;
+        border: 1px solid $user-avatar-border-color;
+      }
+      svg {
+        max-height: 16px;
+      }
+      @media screen and (max-width: 320px) {
+        span,
+        svg {
+          display: none;
+        }
+        img {
+          margin-right: 5px;
+        }
+      }
+    }
+    &:hover {
+      background-color: $user-menu-hover-background;
+      color: $user-dropdown-item-hover-color;
+      transition: background-color 0.5s ease;
+      cursor: pointer;
+    }
+    &-dropdown {
+      display: none;
+      position: absolute;
+      background-color: $user-dropdown-background;
+      width: 100%;
+      min-height: 100px;
+      color: $color-light;
+      top: $header-height + 1px;
+      border-radius: 5px;
+      z-index: 1000;
+      &-visible {
+        display: flex;
+      }
+      div {
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        .dui-header-user-menu-item {
+          padding: 8px 5px;
+          border-radius: 5px;
+          color: inherit;
+          text-decoration: none;
+          &:hover:not(.dui-header-user-menu-item-header) {
+            background-color: $user-dropdown-item-hover-background;
+            cursor: pointer;
+            transition: background-color 0.5s;
+          }
+          display: flex;
+          align-items: center;
+          svg {
+            max-height: 16px;
+            margin-right: 5px;
+          }
+          &-danger {
+            &:hover {
+              background-color: $color-danger !important;
+            }
+          }
+          &-header {
+            &::before {
+              width: 100%;
+              background-color: $sidebar-item-header-color;
+              content: "";
+              height: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
