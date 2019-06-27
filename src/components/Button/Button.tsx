@@ -1,11 +1,12 @@
 import * as React from "react";
 import cx from "classnames";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { CustomComponent } from "../common";
 export type ButtonFormat = "default" | "block";
 export type ButtonSize = "small" | "medium" | "large";
-export interface Props {
+export interface ButtonProps extends CustomComponent {
   label?: string;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   variant?: string;
   format?: ButtonFormat;
@@ -19,11 +20,10 @@ export interface Props {
   className?: string;
 }
 
-export class Button extends React.Component<Props> {
+export class Button extends React.Component<ButtonProps> {
   public render() {
     const {
       label,
-      onClick,
       format = "default",
       disabled = false,
       variant = "default",
@@ -34,7 +34,10 @@ export class Button extends React.Component<Props> {
       loadingIcon,
       loadingText,
       icon,
-      className
+      className,
+      component,
+      componentProps,
+      ...rest
     } = this.props;
 
     const buttonText = loading ? loadingText || "Loading" : label;
@@ -75,14 +78,31 @@ export class Button extends React.Component<Props> {
         icon={loadingIconClass}
       />
     );
-
-    return (
-      <button className={buttonClass} disabled={disabled} onClick={onClick}>
+    const content = (
+      <React.Fragment>
         {loading && loadingIconComp}
         {!loading && icon && (
           <FontAwesomeIcon icon={icon} margin={hasButtonText} />
         )}
         {hasButtonText && buttonText}
+      </React.Fragment>
+    );
+    if (component) {
+      const Component = component;
+      return (
+        <Component
+          className={buttonClass}
+          disabled={disabled}
+          {...componentProps}
+          {...rest}
+        >
+          {content}
+        </Component>
+      );
+    }
+    return (
+      <button className={buttonClass} disabled={disabled} {...rest}>
+        {content}
       </button>
     );
   }

@@ -94,7 +94,7 @@ export class SideBarMenuItem extends React.Component<
       );
 
       if (component) {
-        const Component: React.ComponentType<any> = component;
+        const Component = component;
         return (
           <Component className={menuClass} {...componentProps}>
             {baseChildren}
