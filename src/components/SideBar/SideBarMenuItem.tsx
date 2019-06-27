@@ -3,7 +3,7 @@ import cx from "classnames";
 import { SideBarMenu } from "./SideBarMenu";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { isString } from "util";
-import { CustomComponent } from "../../common";
+import { CustomComponent } from "../common";
 
 interface SideBarMenuItemState {
   subMenuVisible: boolean;
