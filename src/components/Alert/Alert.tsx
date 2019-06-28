@@ -2,21 +2,18 @@ import * as React from "react";
 import cx from "classnames";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 
-export interface Props {
+export type AlertVariant = "info" | "success" | "warning" | "danger";
+export interface AlertProps {
   className?: string;
-  variant?: "info" | "success" | "warning" | "danger";
+  variant?: AlertVariant;
   message: string;
   description?: string;
-  closable?: boolean;
   onClose?: () => void;
-  withIcon?: boolean;
   icon?: string;
 }
-export class Alert extends React.Component<Props> {
-  static defaultProps: Partial<Props> = {
-    variant: "info",
-    closable: false,
-    withIcon: false
+export class Alert extends React.Component<AlertProps> {
+  static defaultProps: Partial<AlertProps> = {
+    variant: "info"
   };
   _getIconFromVariant = () => {
     const { variant } = this.props;
@@ -40,11 +37,10 @@ export class Alert extends React.Component<Props> {
       variant,
       message,
       description,
-      closable,
       onClose,
-      withIcon,
       icon
     } = this.props;
+    const closable = onClose !== null;
     const baseComponent = (
       <React.Fragment>
         <h1 className={cx("dui-alert-message")}>{message}</h1>
@@ -64,7 +60,7 @@ export class Alert extends React.Component<Props> {
       `dui-alert-${variant}`,
       className
     );
-    if (withIcon) {
+    if (icon) {
       const itemIcon = icon ? `fa-${icon}` : this._getIconFromVariant();
       return (
         <div className={baseClass}>
