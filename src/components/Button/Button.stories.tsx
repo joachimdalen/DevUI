@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Button, ButtonFormat } from "./Button";
-import { text, boolean } from "@storybook/addon-knobs/react";
+import { text, boolean, select } from "@storybook/addon-knobs/react";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
 storiesOf("Components/Button", module)
@@ -9,7 +9,7 @@ storiesOf("Components/Button", module)
     <Button
       label={text("label", "Delete")}
       disabled={boolean("disabled", false)}
-      variant={text("variant", "default")}
+      variant={select("Variant", variants, "default")}
       onClick={action("button-clicked")}
     />
   ))
@@ -17,7 +17,7 @@ storiesOf("Components/Button", module)
     <Button
       label={text("label", "Button")}
       disabled={boolean("disabled", false)}
-      variant={text("variant", "default")}
+      variant={select("Variant", variants, "default")}
       onClick={action("button-clicked")}
       format={text("format", "block") as ButtonFormat}
     />
@@ -27,7 +27,7 @@ storiesOf("Components/Button", module)
       label={text("label", "Delete")}
       disabled={boolean("disabled", false)}
       outlined={boolean("outlined", true)}
-      variant={text("variant", "danger")}
+      variant={select("Variant", variants, "danger")}
       onClick={action("button-clicked")}
     />
   ))
@@ -37,7 +37,7 @@ storiesOf("Components/Button", module)
       disabled={boolean("disabled", false)}
       outlined={boolean("outlined", true)}
       dashed={boolean("dashed", true)}
-      variant={text("variant", "danger")}
+      variant={select("Variant", variants, "danger")}
       onClick={action("button-clicked")}
     />
   ))
@@ -45,7 +45,7 @@ storiesOf("Components/Button", module)
     <Button
       label={text("label", "Delete")}
       disabled={boolean("disabled", true)}
-      variant={text("variant", "danger")}
+      variant={select("Variant", variants, "default")}
       onClick={action("button-clicked")}
     />
   ))
@@ -53,7 +53,7 @@ storiesOf("Components/Button", module)
     <Button
       label={text("label", "Delete")}
       disabled={boolean("disabled", true)}
-      variant={text("variant", "danger")}
+      variant={select("Variant", variants, "default")}
       onClick={action("button-clicked")}
       loadingIcon={text("Loading Icon", "fas fa-spinner")}
       loadingText={text("Loading Text", "Loading")}
@@ -62,7 +62,7 @@ storiesOf("Components/Button", module)
   ))
   .add("Icon Button", () => (
     <Button
-      variant={text("variant", "secondary")}
+      variant={select("Variant", variants, "default")}
       onClick={action("button-clicked")}
       icon="fas fa-check"
       label="Approve"
@@ -70,7 +70,7 @@ storiesOf("Components/Button", module)
   ))
   .add("Icon Only Button", () => (
     <Button
-      variant={text("variant", "secondary")}
+      variant={select("Variant", variants, "default")}
       onClick={action("button-clicked")}
       icon="fas fa-check"
     />
