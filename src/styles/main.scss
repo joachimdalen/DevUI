@@ -18,7 +18,7 @@ $provider-prefix: "dui";
   display: none;
 }
 [class*="#{$provider-prefix}"]{
-  font-family: "Nunito", sans-serif !important;
+  font-family: $font-family;
 }
 
 @each $color, $value in $theme-colors {

@@ -36,6 +36,7 @@ $brand-colors: map-merge(
   $brand-colors
 );
 
+$font-family: "Nunito", sans-serif !default;
 $shadow-focus: inset 0 0 2px rgba($color-dark, 0.14),
   inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14) !default;
 // FONT
