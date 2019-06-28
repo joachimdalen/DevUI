@@ -1,10 +1,12 @@
 import * as React from "react";
 import cx from "classnames";
 
+export type AvatarFormat = "square" | "rounded" | "circle";
+export type AvatarSize = "small" | "normal" | "large";
 export interface AvatarProps {
   img: React.ReactNode | string;
-  size?: "small" | "normal" | "large";
-  format?: "square" | "rounded" | "circle";
+  size?: AvatarSize;
+  format?: AvatarFormat;
   width?: number;
   height?: number;
   className?: string;
