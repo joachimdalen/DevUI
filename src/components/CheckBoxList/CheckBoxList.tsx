@@ -3,12 +3,12 @@ import { Empty } from "../Empty/Empty";
 import cx from "classnames";
 import * as React from "react";
 import { isString } from "util";
-export interface Props {
+export interface CheckBoxListProps {
   items: ILB[];
   defaultChecked?: ILB[] | string[];
   disabledItems?: ILB[] | string[];
-  showCheckCount: boolean;
-  showCheckAll: boolean;
+  showCheckCount?: boolean;
+  showCheckAll?: boolean;
   onCheckChange: (checked: ILB[]) => any;
 }
 export interface ILB {
@@ -18,7 +18,11 @@ export interface ILB {
 interface State {
   checked: ILB[];
 }
-export class CheckBoxList extends React.Component<Props, State> {
+export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
+  static defaultProps: Partial<CheckBoxListProps> = {
+    showCheckAll: false,
+    showCheckCount: false
+  };
   state: State = {
     checked: []
   };
@@ -28,7 +32,7 @@ export class CheckBoxList extends React.Component<Props, State> {
   }
 
   public render() {
-    const { items, showCheckAll = true, showCheckCount = true } = this.props;
+    const { items, showCheckAll, showCheckCount } = this.props;
     const { checked } = this.state;
     const isIndeterminate =
       checked.length !== 0 && !(items.length === checked.length);

@@ -1,13 +1,16 @@
 import * as React from "react";
 import cx from "classnames";
-export interface Props {
+export interface CardBodyProps {
   className?: string;
   noPadding?: boolean;
 }
 
-export class CardBody extends React.Component<Props> {
+export class CardBody extends React.Component<CardBodyProps> {
+  static defaultProps: Partial<CardBodyProps> = {
+    noPadding: false
+  };
   public render() {
-    const { children, className, noPadding = false } = this.props;
+    const { children, className, noPadding } = this.props;
     return (
       <div
         className={cx(

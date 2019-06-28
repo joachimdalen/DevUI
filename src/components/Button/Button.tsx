@@ -21,16 +21,25 @@ export interface ButtonProps extends CustomComponent {
 }
 
 export class Button extends React.Component<ButtonProps> {
+  static defaultProps: Partial<ButtonProps> = {
+    format: "default",
+    disabled: false,
+    variant: "default",
+    size: "medium",
+    outlined: false,
+    dashed: false,
+    loading: false
+  };
   public render() {
     const {
       label,
-      format = "default",
-      disabled = false,
-      variant = "default",
-      size = "medium",
-      outlined = false,
-      dashed = false,
-      loading = false,
+      format,
+      disabled,
+      variant,
+      size,
+      outlined,
+      dashed,
+      loading,
       loadingIcon,
       loadingText,
       icon,

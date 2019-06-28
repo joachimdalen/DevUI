@@ -2,7 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 import { isUndefined } from "util";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-export interface Props {
+export interface BadgeProps {
   label: string;
   variant?: string;
   dismissible?: boolean;
@@ -10,8 +10,8 @@ export interface Props {
   onDismiss?: () => any;
 }
 
-export class Badge extends React.Component<Props> {
-  static defaultProps: Partial<Props> = {
+export class Badge extends React.Component<BadgeProps> {
+  static defaultProps: Partial<BadgeProps> = {
     variant: "default",
     dismissible: false
   };

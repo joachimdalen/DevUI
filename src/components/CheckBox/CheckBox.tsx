@@ -1,6 +1,6 @@
 import cx from "classnames";
 import * as React from "react";
-export interface Props {
+export interface CheckBoxProps {
   label?: string;
   checked: boolean;
   onCheckChange: (state: boolean) => void;
@@ -11,14 +11,18 @@ export interface Props {
   name?: string;
 }
 
-export class CheckBox extends React.Component<Props> {
+export class CheckBox extends React.Component<CheckBoxProps> {
+  static defaultProps: Partial<CheckBoxProps> = {
+    disabled: false,
+    variant: "default"
+  };
   _inputRef: any = React.createRef();
 
   componentDidMount() {
     const { checked, indeterminate } = this.props;
     this._setIndeterminate(indeterminate === true && checked === false);
   }
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps: CheckBoxProps) {
     const { checked, indeterminate = false } = this.props;
     if (prevProps.indeterminate != this.props.indeterminate) {
       this._setIndeterminate(indeterminate && checked === false);
@@ -29,8 +33,8 @@ export class CheckBox extends React.Component<Props> {
     const {
       label,
       checked,
-      disabled = false,
-      variant = "default",
+      disabled,
+      variant,
       onCheckChange,
       className,
       name
