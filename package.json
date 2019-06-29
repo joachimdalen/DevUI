@@ -1,6 +1,6 @@
 {
   "name": "dev-ui",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "build/lib/index.js",
   "types": "build/lib/index.d.ts",
@@ -8,9 +8,17 @@
     "storybook": "start-storybook -p 6006 -c .storybook",
     "build": "tsc"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "components",
+    "ui-library"
+  ],
   "author": "Joachim Dalen <joachim@dalenapps.no> (https://joachimdalen.no)",
-  "license": "ISC",
+  "license": "GPL-3.0",
+  "repository": "github:joachimdalen/DevUI",
+  "bugs": {
+    "url": "https://github.com/joachimdalen/DevUI/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@storybook/addon-actions": "^5.1.3",
