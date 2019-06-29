@@ -1,7 +1,4 @@
-<p align="center"><h1>DevUI</h1></p>
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+# DevUI
 
 ![Contributions welcome](https://img.shields.io/badge/contributions-welcome-blueviolet.svg)
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](https://opensource.org/licenses/GPL-3.0)
