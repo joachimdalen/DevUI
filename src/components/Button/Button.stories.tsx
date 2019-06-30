@@ -4,6 +4,7 @@ import { Button, ButtonFormat } from "./Button";
 import { text, boolean, select } from "@storybook/addon-knobs/react";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
+import { ButtonGroup } from "./ButtonGroup";
 storiesOf("Controls|Button", module)
   .add("Basic Button", () => (
     <Button
@@ -146,4 +147,55 @@ storiesOf("Controls|Button", module)
         />
       </div>
     </div>
+  ));
+storiesOf("Controls|Button/Group", module)
+  .add("Default", () => (
+    <ButtonGroup>
+      <Button
+        label="Save"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-large-clicked")}
+        variant="success"
+        icon="fas fa-save"
+      />
+      <Button
+        label="Edit"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-large-clicked")}
+        variant="warning"
+        icon="fas fa-edit"
+      />
+      <Button
+        label="Delete"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-large-clicked")}
+        variant="danger"
+        icon="fas fa-trash"
+      />
+    </ButtonGroup>
+  ))
+  .add("Vertical", () => (
+    <ButtonGroup vertical={boolean("Vertical", true)}>
+      <Button
+        label="Save"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-large-clicked")}
+        variant="success"
+        icon="fas fa-save"
+      />
+      <Button
+        label="Edit"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-large-clicked")}
+        variant="warning"
+        icon="fas fa-edit"
+      />
+      <Button
+        label="Delete"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-large-clicked")}
+        variant="danger"
+        icon="fas fa-trash"
+      />
+    </ButtonGroup>
   ));

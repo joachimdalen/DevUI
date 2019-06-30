@@ -3,7 +3,6 @@
   background-color: $button-outlined-background;
 }
 .#{$provider-prefix}-button {
-  margin: auto;
   font-size: $button-font-size;
   text-align: center;
   text-transform: capitalize;
@@ -64,5 +63,19 @@
   &-small:not(.#{$provider-prefix}-button-icon-only) {
     font-size: $button-small-font-size;
     padding: $button-small-padding;
+  }
+  &-group {
+    box-shadow: $box-shadow;
+    display: flex;
+    flex-direction: row;
+    margin: 2px;
+    .#{$provider-prefix}-button {
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    &-vertical {
+      flex-direction: column;
+    }
   }
 }
