@@ -73,4 +73,12 @@
       background-color: $checkbox-disabled-background;
     }
   }
+  &-right {
+    padding-right: $checkbox-padding-left;
+    padding-left: 0;
+    .#{$provider-prefix}-checkmark {
+      left: unset;
+      right: 0;
+    }
+  }
 }

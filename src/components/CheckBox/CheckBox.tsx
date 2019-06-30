@@ -1,5 +1,6 @@
 import cx from "classnames";
 import * as React from "react";
+export type CheckBoxIndicatorLocation = "left" | "right";
 export interface CheckBoxProps {
   label?: string;
   checked: boolean;
@@ -9,12 +10,14 @@ export interface CheckBoxProps {
   className?: string;
   indeterminate?: boolean;
   name?: string;
+  indicatorLocation?: CheckBoxIndicatorLocation;
 }
 
 export class CheckBox extends React.Component<CheckBoxProps> {
   static defaultProps: Partial<CheckBoxProps> = {
     disabled: false,
-    variant: "default"
+    variant: "default",
+    indicatorLocation: "left"
   };
   _inputRef: any = React.createRef();
 
@@ -37,7 +40,8 @@ export class CheckBox extends React.Component<CheckBoxProps> {
       variant,
       onCheckChange,
       className,
-      name
+      name,
+      indicatorLocation
     } = this.props;
 
     return (
@@ -46,6 +50,7 @@ export class CheckBox extends React.Component<CheckBoxProps> {
           "dui-checkbox",
           { ["disabled"]: disabled },
           { [`dui-checkbox-${variant}`]: variant !== "default" },
+          { [`dui-checkbox-right`]: indicatorLocation !== "left" },
           className
         )}
       >

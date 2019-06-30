@@ -29,4 +29,15 @@ storiesOf("Controls|CheckBoxList", module)
       showCheckCount={boolean("Show Check Count", true)}
       onCheckChange={action("onCheckChange")}
     />
+  ))
+  .add("Right indicator", () => (
+    <CheckBoxList
+      items={items}
+      defaultChecked={[items[0], items[2]]}
+      disabledItems={[items[3]]}
+      showCheckAll={boolean("Show Check All", true)}
+      showCheckCount={boolean("Show Check Count", true)}
+      onCheckChange={action("onCheckChange")}
+      indicatorLocation="right"
+    />
   ));

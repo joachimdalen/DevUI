@@ -1,4 +1,4 @@
-import { CheckBox } from "../CheckBox/CheckBox";
+import { CheckBox, CheckBoxIndicatorLocation } from "../CheckBox/CheckBox";
 import { Empty } from "../Empty/Empty";
 import cx from "classnames";
 import * as React from "react";
@@ -10,6 +10,7 @@ export interface CheckBoxListProps {
   showCheckCount?: boolean;
   showCheckAll?: boolean;
   onCheckChange: (checked: ILB[]) => any;
+  indicatorLocation?: CheckBoxIndicatorLocation;
 }
 export interface ILB {
   label: string;
@@ -32,7 +33,12 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
   }
 
   public render() {
-    const { items, showCheckAll, showCheckCount } = this.props;
+    const {
+      items,
+      showCheckAll,
+      showCheckCount,
+      indicatorLocation
+    } = this.props;
     const { checked } = this.state;
     const isIndeterminate =
       checked.length !== 0 && !(items.length === checked.length);
@@ -50,6 +56,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
                 disabled={!items.length}
                 indeterminate={isIndeterminate}
                 name="check_all"
+                indicatorLocation={indicatorLocation}
               />
             )}
             {showCheckCount && (
@@ -72,6 +79,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
                       checked={isChecked}
                       onCheckChange={() => this._toggleItem(item)}
                       name={item.key}
+                      indicatorLocation={indicatorLocation}
                     />
                   </li>
                 );
