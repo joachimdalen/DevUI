@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { TagInput } from "./TagInput";
 import { action } from "@storybook/addon-actions";
