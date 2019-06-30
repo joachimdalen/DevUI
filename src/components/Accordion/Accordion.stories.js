@@ -5,7 +5,7 @@ import { text } from "@storybook/addon-knobs/dist/deprecated";
 import { boolean } from "@storybook/addon-knobs";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 
-storiesOf("Components/Accordion", module)
+storiesOf("Components|Accordion", module)
   .add("Basic Accordion", () => (
     <Accordion
       title={text("Account", "Account")}

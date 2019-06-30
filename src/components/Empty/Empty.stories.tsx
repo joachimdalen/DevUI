@@ -5,7 +5,7 @@ import { text } from "@storybook/addon-knobs/react";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 
-storiesOf("Components/Empty", module)
+storiesOf("Display Components|Empty", module)
   .add("Default", () => <Empty />)
   .add("Custom Description Text", () => (
     <Empty description={text("Description", "Not Found")} />

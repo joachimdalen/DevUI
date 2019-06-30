@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Avatar } from "./Avatar";
-storiesOf("Components/Avatar", module)
+storiesOf("Display Components|Avatar", module)
   .add("Avatar", () => <Avatar img={"//placehold.it/400x400"} />)
   .add("Formats", () => (
     <div

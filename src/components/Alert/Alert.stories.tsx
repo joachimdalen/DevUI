@@ -10,7 +10,7 @@ const typeOptions = {
   success: "success",
   danger: "danger"
 };
-storiesOf("Components/Alert", module)
+storiesOf("Display Components|Alert", module)
   .add("Default", () => (
     <Alert
       message="This is the message"

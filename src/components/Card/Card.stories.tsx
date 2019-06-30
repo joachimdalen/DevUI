@@ -7,7 +7,7 @@ import { number } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 
-storiesOf("Components/Card", module)
+storiesOf("Layout|Card", module)
   .add("Basic Card", () => (
     <Card width={number("card width", 200)}>
       <CardBody>

@@ -77,7 +77,7 @@ const columnHeaders = [
     )
   }
 ];
-storiesOf("Components/Table", module)
+storiesOf("Display Components|Table", module)
   .add("With Children", () => (
     <Table
       bordered={boolean("bordered", false)}

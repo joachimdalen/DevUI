@@ -5,7 +5,7 @@ import { CheckBox } from "./CheckBox";
 import { text, boolean } from "@storybook/addon-knobs/react";
 import variants from "../../storyUtil/variants";
 
-storiesOf("Components/CheckBox", module)
+storiesOf("Controls|CheckBox", module)
   .add("Basic CheckBox", () => (
     <CheckBox
       label={text("label", "Delete")}

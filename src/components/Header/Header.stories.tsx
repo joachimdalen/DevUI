@@ -7,7 +7,7 @@ import { HeaderItem } from "./HeaderItem";
 import { HeaderBrand } from "./HeaderBrand";
 import { HeaderUserMenu } from "./HeaderUserMenu";
 import { HeaderUserMenuItem } from "./HeaderUserMenuItem";
-storiesOf("Components/Header", module).add("Default", () => (
+storiesOf("Layout|Header", module).add("Default", () => (
   <div style={{ minWidth: "500px" }}>
     <Header
       brand={<HeaderBrand>Hello</HeaderBrand>}

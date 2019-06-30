@@ -9,7 +9,7 @@ import { ModalBody } from "./ModalBody";
 import { ModalFooter } from "./ModalFooter";
 import { Button } from "../Button/Button";
 
-storiesOf("Components/Modal", module).add("Default", () => (
+storiesOf("Layout|Modal", module).add("Default", () => (
   <Modal
     size={text("Size", "medium") as ModalSize}
     onBackdropClick={action("onBackdropClick")}

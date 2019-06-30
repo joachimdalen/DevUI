@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { SocialButton } from "./SocialButton";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
-storiesOf("Components/SocialButton/Providers", module)
+storiesOf("Controls|SocialButton/Providers", module)
   .add("Twitch", () => (
     <SocialButton
       onClick={action("onClick")}
@@ -89,7 +89,7 @@ storiesOf("Components/SocialButton/Providers", module)
       text="Sign in with Dropbox"
     />
   ));
-storiesOf("Components/SocialButton", module)
+storiesOf("Controls|SocialButton", module)
   .add("Border style - Light", () => (
     <SocialButton
       onClick={action("onClick")}

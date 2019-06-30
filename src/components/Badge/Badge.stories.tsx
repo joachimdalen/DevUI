@@ -5,7 +5,7 @@ import { text, boolean } from "@storybook/addon-knobs/react";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
 import variants from "../../storyUtil/variants";
-storiesOf("Components/Badge", module)
+storiesOf("Display Components|Badge", module)
   .add("Default Badge", () => <Badge label={text("label", "Active")} />)
   .add("Dismissible", () => (
     <Badge

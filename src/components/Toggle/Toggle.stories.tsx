@@ -8,7 +8,7 @@ import { ListItem } from "../List/ListItem";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
 
-storiesOf("Components/Toggle", module)
+storiesOf("Controls|Toggle", module)
   .add("Basic Toggle", () => (
     <Toggle toggled={boolean("Toggled", true)} onToggle={action("toggled")} />
   ))

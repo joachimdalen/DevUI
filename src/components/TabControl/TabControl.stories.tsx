@@ -30,7 +30,7 @@ const tabControlTabs: Tab[] = [
     }
   }
 ];
-storiesOf("Components/TabControl", module).add("TabControl", () => (
+storiesOf("Components|TabControl", module).add("TabControl", () => (
   <div style={{ minWidth: "400px" }}>
     <TabControl tabs={tabControlTabs} />
   </div>

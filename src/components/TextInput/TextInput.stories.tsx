@@ -5,7 +5,7 @@ import { TextInput } from "./TextInput";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
 import { boolean } from "@storybook/addon-knobs";
-storiesOf("Components/Inputs/TextInput", module)
+storiesOf("Controls|TextInput", module)
   .add("Basic Input", () => (
     <TextInput
       onChange={action("input-changed")}

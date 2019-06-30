@@ -4,7 +4,7 @@ import { Button, ButtonFormat } from "./Button";
 import { text, boolean, select } from "@storybook/addon-knobs/react";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
-storiesOf("Components/Button", module)
+storiesOf("Controls|Button", module)
   .add("Basic Button", () => (
     <Button
       label={text("label", "Delete")}

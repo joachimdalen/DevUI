@@ -6,7 +6,7 @@ import { ListActionItem } from "./ListActionItem";
 import { text, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 
-storiesOf("Components/List", module)
+storiesOf("Display Components|List", module)
   .add("Basic List", () => (
     <List title={text("List title", "List title", "List")}>
       <ListItem

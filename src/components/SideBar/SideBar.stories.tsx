@@ -9,7 +9,7 @@ import { SideBarAddon } from "./SideBarAddon";
 import { Avatar } from "../Avatar/Avatar";
 import { Select } from "../Select/Select";
 import { action } from "@storybook/addon-actions";
-storiesOf("Components/SideBar", module)
+storiesOf("Layout|SideBar", module)
   .add("SideBar", () => {
     const mainGroup = "Sidebar";
 

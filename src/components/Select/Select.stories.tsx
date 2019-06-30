@@ -24,7 +24,7 @@ function getOptions(amount: number): Option[] {
   return options;
 }
 
-storiesOf("Components/Select", module)
+storiesOf("Controls|Select", module)
   .add("With Children", () => (
     <Select
       label="Select City"
