@@ -32,7 +32,7 @@
   border-radius: $badge-border-radius;
   color: $color-dark;
   font-size: $badge-font-size;
-
+  line-height: 18px;
   @each $color, $value in $theme-colors {
     @include badge-variant("-#{$color}", $value);
   }

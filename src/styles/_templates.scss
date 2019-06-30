@@ -8,6 +8,9 @@
   margin: $badge-margin;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 20px;
+  max-width: 100%;
+  min-height: 20px;
 }
 %input-base {
   color: $color-text-gray;
