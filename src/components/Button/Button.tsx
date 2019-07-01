@@ -16,7 +16,7 @@ export interface ButtonProps extends CustomComponent {
   loading?: boolean;
   loadingIcon?: string;
   loadingText?: string;
-  icon?: string;
+  icon?: string | React.ReactElement;
   className?: string;
 }
 
@@ -87,12 +87,15 @@ export class Button extends React.Component<ButtonProps> {
         icon={loadingIconClass}
       />
     );
+    const iconComp = React.isValidElement(icon) ? (
+      icon
+    ) : (
+      <FontAwesomeIcon icon={icon as string} margin={hasButtonText} />
+    );
     const content = (
       <React.Fragment>
         {loading && loadingIconComp}
-        {!loading && icon && (
-          <FontAwesomeIcon icon={icon} margin={hasButtonText} />
-        )}
+        {!loading && icon && iconComp}
         {hasButtonText && buttonText}
       </React.Fragment>
     );
