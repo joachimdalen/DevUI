@@ -56,7 +56,7 @@ export class Alert extends React.Component<AlertProps> {
     );
     const baseClass = cx(
       "dui-alert",
-      "dui-alert-wi",
+      { "dui-alert-wi": icon },
       `dui-alert-${variant}`,
       className
     );
