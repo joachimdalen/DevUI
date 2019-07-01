@@ -98,6 +98,8 @@
         box-shadow: none !important;
         border: $table-pg-button-border-width solid
           $table-pg-button-border-color;
+        padding: revert;
+        line-height: 23px;
       }
     }
   }

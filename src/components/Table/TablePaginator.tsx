@@ -1,6 +1,7 @@
 import cx from "classnames";
 import * as React from "react";
 import { Button } from "../Button/Button";
+import { ButtonGroup } from "../Button/ButtonGroup";
 
 export interface Props {
   totalItems: number;
@@ -21,20 +22,22 @@ export class TablePaginator extends React.Component<Props> {
           <span>{`${from}-${Math.min(to, totalItems)}`}</span> of{" "}
           <span>{totalItems}</span>
         </div>
-        <Button
-          icon="fas fa-angle-left"
-          size="small"
-          variant="light"
-          onClick={this.movePrev}
-          disabled={from == 1 || totalItems == 0}
-        />
-        <Button
-          icon="fas fa-angle-right"
-          size="small"
-          variant="light"
-          onClick={this.moveNext}
-          disabled={to === totalItems || totalItems == 0}
-        />
+        <ButtonGroup>
+          <Button
+            icon="fas fa-angle-left"
+            size="small"
+            variant="light"
+            onClick={this.movePrev}
+            disabled={from == 1 || totalItems == 0}
+          />
+          <Button
+            icon="fas fa-angle-right"
+            size="small"
+            variant="light"
+            onClick={this.moveNext}
+            disabled={to === totalItems || totalItems == 0}
+          />
+        </ButtonGroup>
       </div>
     );
   }
