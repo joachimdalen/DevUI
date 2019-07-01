@@ -22,6 +22,12 @@
     padding: 10px 20px;
     font-size: 20px;
     font-family: $header-brand-font !important;
+    display: flex;
+    align-items: center;
+  }
+  &-brand, &-item{
+    text-decoration: none;
+    color: inherit;
     a {
       text-decoration: none;
       color: inherit;
@@ -41,8 +47,12 @@
 
     &:hover {
       cursor: pointer;
-      background-color: $header-color;
-      color: $header-background;
+      background-color: $header-item-hover-background;
+      color: $header-item-hover-color;
+    }
+    &-active{
+      background-color: $header-item-active-background;
+      color: $header-item-active-color;
     }
   }
   &-user-menu {

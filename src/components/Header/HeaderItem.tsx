@@ -1,23 +1,28 @@
 import * as React from "react";
-import { CustomComponent } from "components/common";
+import { CustomComponent } from "../common";
+import cx from "classnames";
 
 export interface HeaderItemProps extends CustomComponent {
   onClick?: () => void;
+  active?: boolean;
 }
 
 export class HeaderItem extends React.Component<HeaderItemProps> {
   render() {
-    const { children, onClick, component, componentProps } = this.props;
+    const { children, onClick, component, componentProps, active } = this.props;
+    const baseClass = cx("dui-header-item", {
+      "dui-header-item-active": active
+    });
     if (component) {
       const Component = component;
       return (
-        <Component className="dui-header-item" {...componentProps}>
+        <Component className={baseClass} {...componentProps}>
           {children}
         </Component>
       );
     }
     return (
-      <div className="dui-header-item" onClick={onClick}>
+      <div className={baseClass} onClick={onClick}>
         {children}
       </div>
     );
