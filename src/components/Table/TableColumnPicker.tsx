@@ -1,7 +1,7 @@
 import cx from "classnames";
 import * as React from "react";
 import { Column } from "./TableTypes";
-import { CheckBoxList } from "../CheckBoxList/CheckBoxList";
+import { CheckBoxList, ICheckBoxItem } from "../CheckBoxList/CheckBoxList";
 import { Button } from "../Button/Button";
 
 export interface Props {
@@ -11,13 +11,20 @@ export interface Props {
 }
 export interface State {
   visible: boolean;
-  selected: any[];
+  selected: ICheckBoxItem[];
 }
 
 export class TableColumnPicker extends React.Component<Props, State> {
+  _mapColumn = (column: Column): ICheckBoxItem => {
+    return {
+      key: column.key,
+      label: column.label
+    };
+  };
+
   state = {
     visible: false,
-    selected: [] as any[]
+    selected: this.props.columns.map(this._mapColumn) || []
   };
 
   componentDidMount() {}
@@ -41,12 +48,7 @@ export class TableColumnPicker extends React.Component<Props, State> {
     const contentClass = cx("dui-table-column-picker-content", {
       visible: this.state.visible
     });
-    const columnNames = columns.map((c: Column) => {
-      return {
-        key: c.key,
-        label: c.label
-      };
-    });
+    const columnNames = columns.map(this._mapColumn);
     return (
       <div className={baseClass}>
         <Button
