@@ -1,8 +1,22 @@
+import * as React from "react";
 import { configure, addParameters } from "@storybook/react";
 import { setAddon, addDecorator } from "@storybook/react";
 import { withKnobs, select } from "@storybook/addon-knobs/react";
-import centered from '@storybook/addon-centered/react';
+import centered from "@storybook/addon-centered/react";
+
+const minWidth = storyFn => (
+  <div
+    style={{
+      minWidth: "500px",
+      display: "flex",
+      justifyContent: "center"
+    }}
+  >
+    {storyFn()}
+  </div>
+);
 import "../src/styles/main.scss";
+addDecorator(minWidth);
 addDecorator(withKnobs);
 addDecorator(centered);
 
