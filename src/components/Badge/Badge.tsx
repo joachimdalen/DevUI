@@ -18,17 +18,11 @@ export class Badge extends React.Component<BadgeProps> {
 
   _handleClick = () => {
     const { onDismiss } = this.props;
-    onDismiss && onDismiss()
-  }
+    onDismiss && onDismiss();
+  };
 
   public render() {
-    const {
-      label,
-      variant,
-      dismissible,
-      onDismiss,
-      dismissText
-    } = this.props;
+    const { label, variant, dismissible, onDismiss, dismissText } = this.props;
     const badgeClass = cx(
       "dui-badge",
       { [`dui-badge-${variant}`]: variant !== "default" },
@@ -45,12 +39,12 @@ export class Badge extends React.Component<BadgeProps> {
 
     if (isDismissible)
       return (
-        <div className={wrapperClass}>
+        <span className={wrapperClass}>
           {badgeComponent}
           <span className={dismissibleClass} onClick={this._handleClick}>
             {dismissTextComponent}
           </span>
-        </div>
+        </span>
       );
 
     return badgeComponent;
