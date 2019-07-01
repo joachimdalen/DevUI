@@ -4,20 +4,20 @@ import cx from "classnames";
 import * as React from "react";
 import { isString } from "util";
 export interface CheckBoxListProps {
-  items: ILB[];
-  defaultChecked?: ILB[] | string[];
-  disabledItems?: ILB[] | string[];
+  items: ICheckBoxItem[];
+  defaultChecked?: ICheckBoxItem[] | string[];
+  disabledItems?: ICheckBoxItem[] | string[];
   showCheckCount?: boolean;
   showCheckAll?: boolean;
-  onCheckChange: (checked: ILB[]) => any;
+  onCheckChange: (checked: ICheckBoxItem[]) => any;
   indicatorLocation?: CheckBoxIndicatorLocation;
 }
-export interface ILB {
+export interface ICheckBoxItem {
   label: string;
   key: string;
 }
 interface State {
-  checked: ILB[];
+  checked: ICheckBoxItem[];
 }
 export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
   static defaultProps: Partial<CheckBoxListProps> = {
@@ -69,7 +69,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
         {items.length ? (
           <ul className="dui-checkbox-list-items">
             {items &&
-              items.map((item: ILB) => {
+              items.map((item: ICheckBoxItem) => {
                 const isChecked =
                   checked.findIndex(i => i.key === item.key) !== -1;
                 return (
@@ -92,10 +92,10 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     );
   }
 
-  _toggleItem(item: ILB) {
+  _toggleItem(item: ICheckBoxItem) {
     const { onCheckChange } = this.props;
     const { checked } = this.state;
-    const checkIndex = checked.findIndex((i: ILB) => i.key === item.key);
+    const checkIndex = checked.findIndex((i: ICheckBoxItem) => i.key === item.key);
     var arrCpy = [...this.state.checked];
     if (checkIndex !== -1) {
       arrCpy.splice(checkIndex, 1);
@@ -128,7 +128,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     if (!defaultChecked) {
       return;
     }
-    const checkedItems: ILB[] = [];
+    const checkedItems: ICheckBoxItem[] = [];
     for (let i = 0; i < defaultChecked.length; i++) {
       const rawItem = defaultChecked[i];
       if (isString(rawItem)) {
@@ -137,14 +137,14 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
           checkedItems.push(item);
         }
       } else {
-        checkedItems.push(defaultChecked[i] as ILB);
+        checkedItems.push(defaultChecked[i] as ICheckBoxItem);
       }
     }
     this.setState({ checked: checkedItems });
   }
 
-  _findItem(key: string): ILB | undefined {
+  _findItem(key: string): ICheckBoxItem | undefined {
     const { items } = this.props;
-    return items.find((i: ILB) => i.key === key);
+    return items.find((i: ICheckBoxItem) => i.key === key);
   }
 }
