@@ -56,4 +56,5 @@ export { HeaderBrand } from "./components/Header/HeaderBrand";
 export { HeaderItem } from "./components/Header/HeaderItem";
 export { HeaderUserMenu } from "./components/Header/HeaderUserMenu";
 export { HeaderUserMenuItem } from "./components/Header/HeaderUserMenuItem";
+export { Overlay } from "./components/Overlay/Overlay";
 export * from "./components/common";
