@@ -17,7 +17,6 @@ export type SocialProviders =
   | "twitter"
   | "youtube";
 
-
 export interface Props {
   provider: SocialProviders;
   darkText?: boolean;
@@ -53,7 +52,7 @@ export class SocialButton extends React.Component<Props> {
           {hasCustomIcon ? (
             icon
           ) : (
-            <FontAwesomeIcon icon={`fa-fw fab fa-${provider}`} />
+            <FontAwesomeIcon iconStyle="brands" icon={`fa-fw fa-${provider}`} />
           )}
         </div>
         {!iconOnly && <span>{text}</span>}

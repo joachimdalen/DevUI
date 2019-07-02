@@ -52,7 +52,7 @@ export class Button extends React.Component<ButtonProps> {
     const buttonText = loading ? loadingText || "Loading" : label;
     const isDefaultVariant = variant === "default";
     const isDefaultFormat = format === "default";
-    const loadingIconClass = loadingIcon ? loadingIcon : "fas fa-spinner";
+    const loadingIconClass = loadingIcon ? loadingIcon : "fa-spinner";
     const baseButtonClass = "dui-button";
     const hasButtonText = !(
       label === undefined ||
@@ -80,6 +80,7 @@ export class Button extends React.Component<ButtonProps> {
 
     const loadingIconComp = (
       <FontAwesomeIcon
+        iconStyle="solid"
         animate={true}
         animationType="spin"
         margin={true}
@@ -90,7 +91,11 @@ export class Button extends React.Component<ButtonProps> {
     const iconComp = React.isValidElement(icon) ? (
       icon
     ) : (
-      <FontAwesomeIcon icon={icon as string} margin={hasButtonText} />
+      <FontAwesomeIcon
+        iconStyle="solid"
+        icon={icon as string}
+        margin={hasButtonText}
+      />
     );
     const content = (
       <React.Fragment>

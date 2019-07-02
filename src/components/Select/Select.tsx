@@ -53,7 +53,7 @@ export class Select extends React.Component<Props, State> {
     const caretContainerClass = cx("dui-select-caret-container");
     const optionsClass = cx("dui-select-options");
     const optionsListClass = cx("dui-select-options-list");
-    const caretIcon = expanded ? "fas fa-caret-up" : "fas fa-caret-down";
+    const caretIcon = expanded ? "fa-caret-up" : "fa-caret-down";
     const contextValue: SelectContextType = {
       options: this.props.options,
       onSelect: (item: Option) => {
@@ -70,7 +70,7 @@ export class Select extends React.Component<Props, State> {
           <div className={infoClass} onClick={() => this._toggle()}>
             <div className={previewClass}>{this._getPreviewLabel()}</div>
             <span className={caretContainerClass}>
-              <FontAwesomeIcon icon={caretIcon} />
+              <FontAwesomeIcon iconStyle="solid" icon={caretIcon} />
             </span>
           </div>
            

@@ -19,7 +19,12 @@ storiesOf("Layout|Header", module).add("Default", () => (
     >
       <HeaderItem onClick={action("itemClick")}>Hello</HeaderItem>
       <HeaderItem onClick={action("itemClick")}>
-        <FontAwesomeIcon icon="fas fa-user" margin marginDirection="right" />
+        <FontAwesomeIcon
+          iconStyle="solid"
+          icon="fa-user"
+          margin
+          marginDirection="right"
+        />
         Hello
       </HeaderItem>
     </Header>

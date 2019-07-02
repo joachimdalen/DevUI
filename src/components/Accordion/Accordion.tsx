@@ -21,7 +21,8 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
     const { expanded } = this.state;
     const caretIcon = (
       <FontAwesomeIcon
-        icon={expanded ? "fas fa-caret-up" : "fas fa-caret-down"}
+        iconStyle="solid"
+        icon={expanded ? "fa-caret-up" : "fa-caret-down"}
       />
     );
     const expandComp = React.isValidElement(expandIcon)

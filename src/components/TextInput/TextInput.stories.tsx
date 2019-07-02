@@ -23,8 +23,8 @@ storiesOf("Controls|TextInput", module)
   ))
   .add("with Fix", () => (
     <TextInput
-      suffix={<FontAwesomeIcon icon="fab fa-discord" />}
-      prefix={<FontAwesomeIcon icon="fas fa-check" />}
+      suffix={<FontAwesomeIcon iconStyle="brands" icon="fa-discord" />}
+      prefix={<FontAwesomeIcon iconStyle="solid" icon="fa-check" />}
       onChange={action("input-changed")}
       value=""
     />

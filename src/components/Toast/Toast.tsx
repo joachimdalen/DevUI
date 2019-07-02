@@ -33,7 +33,7 @@ export class Toast extends React.Component<Props> {
     );
     return (
       <div className={containerClass}>
-        {icon && <FontAwesomeIcon icon={icon} />}
+        {icon && <FontAwesomeIcon iconStyle="solid" icon={icon} />}
         <div className="dui-toast-details">
           <h3 className="dui-toast-title">{title}</h3>
           {subtitle && <div className="dui-toast-subtitle">{subtitle}</div>}
@@ -46,7 +46,8 @@ export class Toast extends React.Component<Props> {
             onClick={() => onDismiss()}
           >
             <FontAwesomeIcon
-              icon="fas fa-times"
+              iconStyle="solid"
+              icon="fa-times"
               className="dui-toast-close-icon"
             />
           </button>

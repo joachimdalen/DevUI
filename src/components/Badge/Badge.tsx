@@ -32,7 +32,7 @@ export class Badge extends React.Component<BadgeProps> {
     const wrapperClass = cx("dui-badge-wrapper");
     const isDismissible = !isUndefined(onDismiss) && dismissible;
     const badgeComponent = <span className={badgeClass}>{label}</span>;
-    const dismissIcon = <FontAwesomeIcon icon="fas fa-times" />;
+    const dismissIcon = <FontAwesomeIcon iconStyle="solid" icon="fa-times" />;
     const dismissTextComponent = isUndefined(dismissText)
       ? dismissIcon
       : dismissText;

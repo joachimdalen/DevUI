@@ -69,7 +69,8 @@ const columnHeaders = [
     renderer: (item: any) => (
       <span>
         <FontAwesomeIcon
-          icon="fas fa-dollar-sign"
+          iconStyle="solid"
+          icon="fa-dollar-sign"
           className="dui-color-success"
         />{" "}
         {item.amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}

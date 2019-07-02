@@ -196,7 +196,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
               {col.sortable ? (
                 <div onClick={() => this._sort(col)} className={cellClass}>
                   <span>{col.label}</span>
-                  <FontAwesomeIcon icon="fas fa-sort" />
+                  <FontAwesomeIcon iconStyle="solid" icon="fa-sort" />
                 </div>
               ) : (
                 <div>

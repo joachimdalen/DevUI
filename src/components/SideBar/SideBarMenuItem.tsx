@@ -56,13 +56,19 @@ export class SideBarMenuItem extends React.Component<
     const iconComp = React.isValidElement(icon)
       ? icon
       : isString(icon) && (
-          <FontAwesomeIcon margin marginDirection="right" icon={icon} />
+          <FontAwesomeIcon
+            iconStyle="solid"
+            margin
+            marginDirection="right"
+            icon={icon}
+          />
         );
     const expandComp = React.isValidElement(expandIcon) ? (
       expandIcon
     ) : (
       <FontAwesomeIcon
-        icon="fas fa-arrow-circle-up"
+        iconStyle="solid"
+        icon="fa-arrow-circle-up"
         margin={true}
         marginDirection="right"
       />
@@ -71,7 +77,8 @@ export class SideBarMenuItem extends React.Component<
       collapseIcon
     ) : (
       <FontAwesomeIcon
-        icon="fas fa-arrow-circle-down"
+        iconStyle="solid"
+        icon="fa-arrow-circle-down"
         margin={true}
         marginDirection="right"
       />

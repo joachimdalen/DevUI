@@ -18,7 +18,7 @@ export const TabNavItem = ({ tab }: { tab: Tab }) => (
           }
         }}
       >
-         {tab.icon && <FontAwesomeIcon icon={tab.icon} />}
+         {tab.icon && <FontAwesomeIcon iconStyle="solid" icon={tab.icon} />}
         {tab.label}
       </li>
     )}

@@ -19,7 +19,7 @@ storiesOf("Display Components|Badge", module)
       label={text("label", "Active")}
       dismissible={boolean("Dismissible", true)}
       onDismiss={action("badge-dismissed")}
-      dismissText={<FontAwesomeIcon icon="fas fa-egg" />}
+      dismissText={<FontAwesomeIcon iconStyle="solid" icon="fa-egg" />}
     />
   ))
   .add("Variants", () => (

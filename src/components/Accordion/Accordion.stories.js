@@ -18,7 +18,12 @@ storiesOf("Components|Accordion", module)
     <Accordion
       title={
         <span className="dui-color-danger">
-          <FontAwesomeIcon icon="fas fa-trash" margin marginDirection="right" />
+          <FontAwesomeIcon
+            iconStyle="solid"
+            icon="fa-trash"
+            margin
+            marginDirection="right"
+          />
           Delete
         </span>
       }

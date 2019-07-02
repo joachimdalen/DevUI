@@ -101,7 +101,7 @@ storiesOf("Controls|SocialButton", module)
     <SocialButton
       onClick={action("onClick")}
       provider="steam"
-      icon={<FontAwesomeIcon icon="fab fa-steam-square" />}
+      icon={<FontAwesomeIcon iconStyle="brands" icon="fa-steam-square" />}
       text="Sign in with Steam"
     />
   ))

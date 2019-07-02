@@ -49,7 +49,7 @@ export class Alert extends React.Component<AlertProps> {
         )}
         {closable && (
           <span className={cx("dui-alert-close")} onClick={onClose}>
-            <FontAwesomeIcon icon="fas fa-times" />
+            <FontAwesomeIcon iconStyle="solid" icon="fa-times" />
           </span>
         )}
       </React.Fragment>
@@ -65,7 +65,7 @@ export class Alert extends React.Component<AlertProps> {
       return (
         <div className={baseClass}>
           <span>
-            <FontAwesomeIcon icon={cx("fas", "fa-fw", itemIcon)} />
+            <FontAwesomeIcon iconStyle="solid" icon={cx("fa-fw", itemIcon)} />
           </span>
           <div className={cx("dui-alert-wi-content")}>{baseComponent}</div>
         </div>

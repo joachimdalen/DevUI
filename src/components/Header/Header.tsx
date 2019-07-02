@@ -37,7 +37,7 @@ export class Header extends React.Component<Props, State> {
               {isCustomToggle ? (
                 toggleIcon
               ) : (
-                <FontAwesomeIcon icon="fas fa-bars" />
+                <FontAwesomeIcon iconStyle="solid" icon="fa-bars" />
               )}
             </div>
           )}

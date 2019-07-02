@@ -61,7 +61,7 @@ export class Modal extends React.Component<Props> {
       <div className={backdropClass} onClick={this._onBackdropClick}>
         <div className={itemClass} ref={this.wrapperRef}>
           <span onClick={this._closeModal} className="dui-modal-icon">
-            <FontAwesomeIcon icon="fas fa-times" />
+            <FontAwesomeIcon icon="fa-times" iconStyle="solid" />
           </span>
           {this.props.children}
         </div>

@@ -18,7 +18,12 @@ storiesOf("Layout|Overlay", module)
           color: "white"
         }}
       >
-        <FontAwesomeIcon icon="fas fa-spinner fa-spin fa-2x" />
+        <FontAwesomeIcon
+          animate
+          animationType="spin"
+          iconStyle="solid"
+          icon="fa-spinner"
+        />
         <span
           style={{
             marginTop: "10px"

@@ -30,12 +30,12 @@ export class HeaderUserMenu extends React.Component<IProps> {
     const openIconComp = hasCustomOpenIcon ? (
       openIcon
     ) : (
-      <FontAwesomeIcon icon="fas fa-caret-down" />
+      <FontAwesomeIcon iconStyle="solid" icon="fa-caret-down" />
     );
     const closeIconComp = hasCustomCloseIcon ? (
       closeIcon
     ) : (
-      <FontAwesomeIcon icon="fas fa-caret-up" />
+      <FontAwesomeIcon iconStyle="solid" icon="fa-caret-up" />
     );
     const avatarComp = React.isValidElement(avatar) ? (
       avatar
