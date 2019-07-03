@@ -85,7 +85,7 @@ storiesOf("Display Components|Table", module)
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
     >
-      <TableRow bordered={true}>
+      <TableRow bordered={true} isHeader={true}>
         <TableCell>Hi</TableCell>
         <TableCell>Hi</TableCell>
         <TableCell>Hi</TableCell>

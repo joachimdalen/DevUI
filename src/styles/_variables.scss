@@ -171,7 +171,7 @@ $table-border-width: 1px !default;
 $table-border-color: $color-border !default;
 $table-background: $color-light !default;
 $table-color: $color-text-gray !default;
-$table-striped-background: $color-blue-light !default;
+$table-striped-background: $color-badge-primary !default;
 $table-hover-background: $color-disabled !default;
 
 $table-cp-button-border-width: 1px !default;
@@ -202,9 +202,9 @@ $table-pg-button-border-color: $color-border !default;
 
 $table-row-checked-background: darken($color-blue-light, 10%) !default;
 $table-row-header-height: 40px !default;
-$table-row-header-font-size: $font-size-normal !default;
+$table-row-header-font-size: $font-size-small !default;
 $table-row-header-font-weight: $font-weight-bold !default;
-$table-row-header-color: $color-text-secondary !default;
+$table-row-header-color: $color-dark !default;
 
 $table-cell-padding-x: 8px !default;
 $table-cell-padding-y: 8px !default;
@@ -403,7 +403,7 @@ $modal-zindex: 9999 !default;
 
 $form-group-label-font-weight: $font-weight-bold !default;
 $form-group-label-font-size: $font-size-normal !default;
-$form-group-label-margin-bottom: 10px !default;
+$form-group-label-margin-bottom: 5px !default;
 $form-group-extra-font-size: 10px !default;
 $form-group-extra-color: #777 !default;
 
