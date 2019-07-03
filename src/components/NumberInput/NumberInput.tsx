@@ -93,13 +93,13 @@ export class NumberInput extends React.Component<Props, State> {
             className="dui-number-input-button dui-number-input-button-increase"
             onClick={this._increase}
           >
-            <FontAwesomeIcon icon="fas fa-plus" />
+            <FontAwesomeIcon iconStyle="solid" icon="fa-plus" />
           </div>
           <div
             className="dui-number-input-button dui-number-input-button-decrease"
             onClick={this._decrease}
           >
-            <FontAwesomeIcon icon="fas fa-minus" />
+            <FontAwesomeIcon iconStyle="solid" icon="fa-minus" />
           </div>
         </div>
       </div>
