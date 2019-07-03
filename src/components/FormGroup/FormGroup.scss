@@ -13,6 +13,20 @@
   &-extra {
     font-size: $form-group-extra-font-size;
     color: $form-group-extra-color;
+    &-success {
+      color: $color-success;
+    }
+    &-warning {
+      color: $color-warning;
+    }
+    &-danger {
+      color: $color-danger;
+    }
+  }
+  &-error {
+    color: $color-danger;
+    font-weight: bold;
+    font-size: 12px;
   }
   .#{$provider-prefix}-select,
   .#{$provider-prefix}-input,
@@ -20,5 +34,12 @@
   .#{$provider-prefix}-tag-input {
     margin: 0;
     width: 100%;
+  }
+  &-required {
+    color: $color-danger;
+    margin-left: 5px;
+    &-text {
+      font-size: 10px;
+    }
   }
 }
