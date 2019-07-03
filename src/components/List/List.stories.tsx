@@ -20,6 +20,19 @@ storiesOf("Display Components|List", module)
       />
     </List>
   ))
+  .add("Without title", () => (
+    <List>
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+      />
+    </List>
+  ))
   .add("Full list", () => (
     <List title={text("Title", "List title", "List")}>
       <ListItem
