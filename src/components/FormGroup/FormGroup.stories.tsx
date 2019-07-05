@@ -49,7 +49,6 @@ storiesOf("Components|FormGroup", module)
   .add("Extra", () => (
     <FormGroup
       label="Username"
-      inline
       extra={text("Extra", "This is the username you used when signing up")}
       extraType={
         select(
@@ -60,28 +59,23 @@ storiesOf("Components|FormGroup", module)
       }
     >
       <TextInput value="devexer" onChange={action("onChange")} />
-      <Button
-        size="small"
-        icon="fas fa-save"
-        variant="success"
-        onClick={action("onClick")}
-      />
     </FormGroup>
   ))
   .add("With Error", () => (
     <FormGroup
       label="Username"
-      inline
       extra={text("Extra", "This is the username you used when signing up")}
       error={{ code: 400, message: "Username is already taken" }}
       errorAccessor={error => error.message}
     >
       <TextInput value="devexer" onChange={action("onChange")} />
-      <Button
-        size="small"
-        icon="fas fa-save"
-        variant="success"
-        onClick={action("onClick")}
-      />
+    </FormGroup>
+  )).add("With Notice", () => (
+    <FormGroup
+      label="Username"
+      errorAccessor={error => error.message}
+      notice="This username is what you will be recognized as by other users throughout the app"
+    >
+      <TextInput value="devexer" onChange={action("onChange")} />
     </FormGroup>
   ));

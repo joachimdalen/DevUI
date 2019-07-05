@@ -7,6 +7,7 @@ export interface FormGroupProps {
   requiredType?: FormGroupRequiredType;
   extra?: string;
   extraType?: FormGroupExtraType;
+  notice?: string;
   className?: string;
   error?: any;
   errorAccessor?: (error: any) => string;
@@ -30,37 +31,38 @@ export class FormGroup extends React.Component<FormGroupProps> {
       required,
       requiredType,
       error,
-      errorAccessor
+      errorAccessor,
+      notice
     } = this.props;
     const labelComponent = React.isValidElement(label) ? (
       label
     ) : (
-      <label className="dui-form-group-label">
-        {label}
-        {required && (
-          <span
-            className={cx("dui-form-group-required", {
-              "dui-form-group-required-text": requiredType === "text"
-            })}
-          >
-            {requiredType === "icon" ? "*" : "Required"}
-          </span>
-        )}
-      </label>
-    );
-    
+        <label className="dui-form-group-label">
+          {label}
+          {required && (
+            <span
+              className={cx("dui-form-group-required", {
+                "dui-form-group-required-text": requiredType === "text"
+              })}
+            >
+              {requiredType === "icon" ? "*" : "Required"}
+            </span>
+          )}
+        </label>
+      );
+
     const bodyComp = inline ? (
       <div className="dui-form-group-inline">{children}</div>
     ) : (
-      children
-    );
-    
+        children
+      );
+
     const errorComp = error && errorAccessor && (
       <small className="dui-form-group-error dui-form-group-extra">
         {errorAccessor(error)}
       </small>
     );
-    
+
     const extraComp = extra && !error && (
       <small
         className={cx("dui-form-group-extra", {
@@ -70,13 +72,16 @@ export class FormGroup extends React.Component<FormGroupProps> {
         {extra}
       </small>
     );
-
+    const noticeComp = notice && (
+      <div className={cx('dui-form-group-notice')}>{notice}</div>
+    )
     return (
       <div className={cx("dui-form-group", className)}>
         {labelComponent}
         {bodyComp}
         {extraComp}
         {errorComp}
+        {noticeComp}
       </div>
     );
   }
