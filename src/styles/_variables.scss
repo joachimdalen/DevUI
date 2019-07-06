@@ -406,9 +406,12 @@ $form-group-label-font-size: $font-size-normal !default;
 $form-group-label-margin-bottom: 5px !default;
 $form-group-extra-font-size: 10px !default;
 $form-group-extra-color: #777 !default;
-$form-group-notice-font-size: $font-size-small;
-$form-group-notice-background: rgb(229,255,0);
-$form-group-notice-color: $color-dark;
+$form-group-notice-font-size: $font-size-small !default;
+$form-group-notice-background: rgb(229,255,0) !default;
+$form-group-notice-color: $color-dark  !default;
+$form-group-error-font-weight: $font-weight-bold !default;
+$form-group-error-font-size: $font-size-small  !default;
+$form-group-required-font-size: 10px  !default;
 
 $alert-border-width: 1px !default;
 $alert-border-radius: $border-raidus !default;

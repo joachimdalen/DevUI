@@ -32,8 +32,8 @@
   }
   &-error {
     color: $color-danger;
-    font-weight: bold;
-    font-size: 12px;
+    font-weight: $form-group-error-font-weight;
+    font-size: $form-group-error-font-size;
   }
   .#{$provider-prefix}-select,
   .#{$provider-prefix}-input,
@@ -46,7 +46,7 @@
     color: $color-danger;
     margin-left: 5px;
     &-text {
-      font-size: 10px;
+      font-size: $form-group-required-font-size;
     }
   }
 }
