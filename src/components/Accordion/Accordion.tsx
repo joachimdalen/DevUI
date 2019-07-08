@@ -6,7 +6,7 @@ export interface AccordionProps {
   title: string | React.ReactElement;
   expandIcon?: string | React.ReactElement;
   collapseIcon?: string | React.ReactElement;
-  initiallyExpanded?: boolean;
+  expanded?: boolean;
 }
 interface AccordionState {
   expanded: boolean;
@@ -14,8 +14,19 @@ interface AccordionState {
 
 export class Accordion extends React.Component<AccordionProps, AccordionState> {
   state = {
-    expanded: this.props.initiallyExpanded || false
+    expanded: this.props.expanded || false
   };
+  componentDidUpdate(
+    prevProps: AccordionProps,
+    prevState: AccordionState,
+    snapshot: any
+  ) {
+    if (prevProps !== this.props) {
+      this.setState({
+        expanded: this.props.expanded || false
+      });
+    }
+  }
   public render() {
     const { children, title, expandIcon, collapseIcon } = this.props;
     const { expanded } = this.state;

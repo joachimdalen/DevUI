@@ -1,15 +1,14 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
 import { Accordion } from "./Accordion";
-import { text } from "@storybook/addon-knobs/dist/deprecated";
-import { boolean } from "@storybook/addon-knobs";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { boolean, text } from "@storybook/addon-knobs";
+import { storiesOf } from "@storybook/react";
+import * as React from "react";
 
 storiesOf("Components|Accordion", module)
   .add("Basic Accordion", () => (
     <Accordion
       title={text("Account", "Account")}
-      initiallyExpanded={boolean("Initially Expanded", true)}
+      expanded={boolean("expanded", true)}
     >
       Hello
     </Accordion>
