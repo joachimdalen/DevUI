@@ -5,6 +5,7 @@ export interface FormGroupProps {
   inline?: boolean;
   required?: boolean;
   requiredType?: FormGroupRequiredType;
+  requiredText?: string;
   extra?: string;
   extraType?: FormGroupExtraType;
   notice?: string;
@@ -30,6 +31,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
       children,
       required,
       requiredType,
+      requiredText,
       error,
       errorAccessor,
       notice
@@ -45,7 +47,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
                 "dui-form-group-required-text": requiredType === "text"
               })}
             >
-              {requiredType === "icon" ? "*" : "Required"}
+              {requiredType === "icon" ? "*" : requiredText || "Required"}
             </span>
           )}
         </label>
