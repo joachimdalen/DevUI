@@ -19,7 +19,8 @@ export class FormGroup extends React.Component<FormGroupProps> {
   static defaultProps: Partial<FormGroupProps> = {
     inline: false,
     extraType: "normal",
-    requiredType: "icon"
+    requiredType: "icon",
+    requiredText: "Required"
   };
   render() {
     const {
@@ -47,7 +48,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
                 "dui-form-group-required-text": requiredType === "text"
               })}
             >
-              {requiredType === "icon" ? "*" : requiredText || "Required"}
+              {requiredType === "icon" ? "*" : requiredText}
             </span>
           )}
         </label>
