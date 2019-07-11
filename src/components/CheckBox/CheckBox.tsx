@@ -51,6 +51,7 @@ export class CheckBox extends React.Component<CheckBoxProps> {
           { ["disabled"]: disabled },
           { [`dui-checkbox-${variant}`]: variant !== "default" },
           { [`dui-checkbox-right`]: indicatorLocation !== "left" },
+          { [`dui-checkbox-no-label`]: !label },
           className
         )}
       >

@@ -13,6 +13,9 @@
     opacity: 0;
     cursor: pointer;
   }
+  &-no-label{
+    padding-left: $checkbox-no-label-padding-left;
+  }
   .#{$provider-prefix}-checkmark {
     position: absolute;
     top: 0;
