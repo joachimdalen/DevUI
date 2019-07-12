@@ -1,3 +1,53 @@
-.#{$provider-prefix}-tree-view {
- 
+.#{$provider-prefix}-treeview {
+  background-color: $color-light;
+
+  &-item {
+    margin: 5px 0;
+
+    &-expand {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-details {
+      display: inline-flex;
+      min-height: 20px;
+      align-items: center;
+
+      span {}
+    }
+
+    &-icons {
+      display: inline-flex;
+      justify-content: space-between;
+      margin-right: 10px;
+
+      .#{$provider-prefix}-checkbox {
+        margin: 0;
+        margin-right: 10px;
+      }
+    }
+
+    &-label {
+      padding: 5px 2px;
+      box-sizing: border-box;
+      border: 1px solid transparent;
+
+      &:hover {
+        background-color: rgba(red, 0.1);
+        border: 1px dotted rgba(red, 0.2);
+        cursor: pointer;
+      }
+    }
+
+    &-selected {
+      background-color: rgba(red, 0.2);
+      border-radius: 4px;
+    }
+
+    .#{$provider-prefix}-treeview-item {
+      margin-left: 25px;
+    }
+  }
 }
