@@ -9,6 +9,7 @@ export interface FontAwesomeIconProps {
   iconStyle: FAIStyle;
   marginDirection?: FAIMarginDirection;
   animationType?: FAIAnimationType;
+  onClick?: () => void;
 }
 export type FAIMarginDirection = "left" | "right";
 export type FAIAnimationType = "spin" | "pulse";
@@ -46,7 +47,8 @@ const FontAwesomeIcon = ({
   animationType,
   size = "normal",
   className = "",
-  iconStyle
+  iconStyle,
+  onClick
 }: FontAwesomeIconProps) => {
   const animationClass = animationType === "spin" ? "fa-spin" : "fa-pulse";
   const marginClass =
@@ -55,6 +57,7 @@ const FontAwesomeIcon = ({
 
   return (
     <i
+      onClick={onClick}
       className={cx(
         "dui-icon",
         className,
