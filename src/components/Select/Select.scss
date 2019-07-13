@@ -38,9 +38,9 @@
     width: 100%;
     z-index: 1;
     position: absolute;
-    right: -1px; // WHY??
-    //top: $input-height-normal - 6px;
-    top: 100%;
+    top: $input-height-normal + 2px;
+    border-bottom-left-radius: $select-border-radius;
+    border-bottom-right-radius: $select-border-radius;
 
     &.visible {
       display: block;
