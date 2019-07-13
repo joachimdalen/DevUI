@@ -7,6 +7,7 @@ import { boolean } from "@storybook/addon-knobs/react";
 import { Empty } from "../Empty/Empty";
 import { action } from "@storybook/addon-actions";
 import { Option } from "./SelectTypes";
+import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 /* const optioons = [
   { label: "Hi", value: "Hi" },
   { label: "Bye", value: "Bye" },
@@ -53,7 +54,9 @@ storiesOf("Controls|Select", module)
       disabled={boolean("Disabled", false)}
       showEmptyPlaceholder={boolean("Show empty placeholder", false)}
       onChange={action("select-changed")}
-      emptyPlaceholder={<Empty icon="fas fa-check" />}
+      emptyPlaceholder={<Empty header="" image={
+        <FontAwesomeIcon icon="fa-check" iconStyle="solid" />
+      } />}
     />
   ))
   .add("With Renderer", () => (

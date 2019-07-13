@@ -3,6 +3,7 @@ import { Empty } from "../Empty/Empty";
 import cx from "classnames";
 import * as React from "react";
 import { isString } from "util";
+import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 export interface CheckBoxListProps {
   items: ICheckBoxItem[];
   defaultChecked?: ICheckBoxItem[] | string[];
@@ -62,7 +63,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
             {showCheckCount && (
               <span className="dui-checkbox-list-header-counter">{`(${
                 checked.length
-              }/${items.length})`}</span>
+                }/${items.length})`}</span>
             )}
           </div>
         )}
@@ -86,8 +87,11 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
               })}
           </ul>
         ) : (
-          <Empty icon="fas fa-minus" description="No items" />
-        )}
+            <Empty image={
+              <FontAwesomeIcon icon="fa-minus" iconStyle="solid"></FontAwesomeIcon>
+            }
+              header="No items" />
+          )}
       </div>
     );
   }

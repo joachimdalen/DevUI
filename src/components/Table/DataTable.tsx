@@ -49,7 +49,9 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
 
   static defaultProps: Partial<DataTableProps> = {
     showEmpty: false,
-    emptyComp: <Empty description="No data" />
+    emptyComp: <Empty header="No data" image={
+      <FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />
+    } />
   };
 
   componentDidMount() {
@@ -199,10 +201,10 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
                   <FontAwesomeIcon iconStyle="solid" icon="fa-sort" />
                 </div>
               ) : (
-                <div>
-                  <span>{col.label}</span>
-                </div>
-              )}
+                  <div>
+                    <span>{col.label}</span>
+                  </div>
+                )}
               {col.searchable && (
                 <div>
                   <TextInput
@@ -292,21 +294,21 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
         rowItems =
           sortDirection === "asc"
             ? rowItems.sort((a: Column, b: Column) =>
-                sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
-              )
+              sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
+            )
             : rowItems.sort((a: Column, b: Column) =>
-                sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
-              );
+              sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
+            );
       } else {
         let sortKey = sortBy.key;
         rowItems =
           sortDirection === "asc"
             ? rowItems.sort((a: Column, b: Column) =>
-                a[sortKey] < b[sortKey] ? 0 : 1
-              )
+              a[sortKey] < b[sortKey] ? 0 : 1
+            )
             : rowItems.sort((a: Column, b: Column) =>
-                a[sortKey] > b[sortKey] ? 0 : 1
-              );
+              a[sortKey] > b[sortKey] ? 0 : 1
+            );
       }
     }
 

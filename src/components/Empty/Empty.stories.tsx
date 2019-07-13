@@ -1,17 +1,25 @@
 import { Empty } from "./Empty";
 import { Button } from "../Button/Button";
 import { action } from "@storybook/addon-actions";
-import { text } from "@storybook/addon-knobs/react";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 
 storiesOf("Display Components|Empty", module)
-  .add("Default", () => <Empty />)
-  .add("Custom Description Text", () => (
-    <Empty description={text("Description", "Not Found")} />
-  ))
-  .add("Custom Description", () => (
+  .add("Default", () => <Empty
+    header="This is the header"
+    image="https://brdv.coffee/storage/uploads/3/46b95d03-1eda-42d9-aba9-e7e083c8332a.png"
+  />)
+  .add("With Description", () => (
     <Empty
+      header="This is the header"
+      image="https://brdv.coffee/storage/uploads/3/46b95d03-1eda-42d9-aba9-e7e083c8332a.png"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+    />
+  ))
+  .add("Custom Description Component", () => (
+    <Empty
+      header="This is the header"
+      image="https://brdv.coffee/storage/uploads/3/46b95d03-1eda-42d9-aba9-e7e083c8332a.png"
       description={
         <span>
           Click <a href="#">here</a> for more info
@@ -19,28 +27,24 @@ storiesOf("Display Components|Empty", module)
       }
     />
   ))
-  .add("Children", () => (
-    <Empty description="No items exist">
-      <Button
-        label="Create New"
+  .add("With Actions", () => (
+    <Empty
+      header="This is the header"
+      image="https://brdv.coffee/storage/uploads/3/46b95d03-1eda-42d9-aba9-e7e083c8332a.png"
+      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+      primaryAction={<Button
+        label="Primary Action"
         variant="blue"
         size="small"
-        icon="fas fa-plus"
         onClick={action("onClick")}
-      />
-    </Empty>
-  ))
-  .add("Custom Icon", () => (
-    <Empty description="No items exist" icon="fas fa-frown" />
-  ))
-  .add("Image Icon", () => (
-    <Empty
-      description="No items exist"
-      image={
-        <img
-          style={{ maxHeight: "50px" }}
-          src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/github-square-512.png"
-        />
-      }
+      />}
+      secondaryAction={<Button
+        label="Secondary action"
+        variant="secondary"
+        size="small"
+        onClick={action("onClick")}
+      />}
+      tertiaryAction={<a href="#">Tertiary Action</a>}
     />
+
   ));

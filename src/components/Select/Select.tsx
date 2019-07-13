@@ -10,8 +10,8 @@ export interface Props {
   label: string;
   options?: Option[];
   children?:
-    | React.ReactElement<SelectOption>
-    | React.ReactElement<SelectOption>[];
+  | React.ReactElement<SelectOption>
+  | React.ReactElement<SelectOption>[];
   iconOpen?: string | React.ReactNode;
   iconClose?: string | React.ReactNode;
   keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
@@ -73,7 +73,7 @@ export class Select extends React.Component<Props, State> {
               <FontAwesomeIcon iconStyle="solid" icon={caretIcon} />
             </span>
           </div>
-           
+
           {expanded && (
             <div className={optionsClass}>
               <div className={optionsListClass}>{this._renderOptions()}</div>
@@ -110,7 +110,9 @@ export class Select extends React.Component<Props, State> {
       emptyPlaceholder
     } = this.props;
     if (!options || (!options.length && showEmptyPlaceholder)) {
-      return emptyPlaceholder || <Empty description="No options" />;
+      return emptyPlaceholder || <Empty header="No options" image={
+        <FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />
+      } />;
     }
     return options.map((option: Option) => {
       return (
