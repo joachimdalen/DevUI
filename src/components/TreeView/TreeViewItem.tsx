@@ -54,11 +54,11 @@ export class TreeViewItem extends React.Component<
                     <div className={cx("dui-treeview-item", className)}>
                         <div className="dui-treeview-item-details">
                             <div className="dui-treeview-item-icons">
+                                {ecComp}
                                 {multiselect && (<CheckBox
                                     checked={false}
                                     onCheckChange={() => console.log("checked")}
                                 />)}
-                                {ecComp}
                                 {isLeafNode ? leafIconComp : (
                                     <FontAwesomeIcon
                                         margin
