@@ -33,7 +33,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
     const caretIcon = (
       <FontAwesomeIcon
         iconStyle="solid"
-        icon={expanded ? "fa-caret-up" : "fa-caret-down"}
+        icon={"fa-caret-down"}
       />
     );
     const expandComp = React.isValidElement(expandIcon)
@@ -43,7 +43,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
       ? collapseIcon
       : caretIcon;
     return (
-      <div className={cx("dui-accordion")}>
+      <div className={cx("dui-accordion", { "dui-accordion-expanded": expanded })}>
         <div
           className="dui-accordion-header"
           onClick={() => this.setState({ expanded: !expanded })}
@@ -57,8 +57,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
           className={cx(
             { "dui-show": expanded },
             { "dui-hide": !expanded },
-            "dui-accordion-content",
-            { "dui-accordion-content-expanded": expanded }
+            "dui-accordion-content"
           )}
         >
           {children}

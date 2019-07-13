@@ -1,38 +1,57 @@
 .#{$provider-prefix}-accordion {
   min-width: 200px;
-  padding: 5px;
   border: 1px solid $color-gray;
   background-color: $color-light;
-  box-shadow: $box-shadow;
-  transition: 0.4s;
   outline: none;
+
   &-header {
-    padding: 5px 10px;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     font-size: 12px;
+    align-items: center;
+    transition: background-color ease 200ms;
+
     &-content {
       color: $color-dark;
       font-weight: $font-weight-bold;
       flex-grow: 1;
-      margin-bottom: 2px;
     }
+
     &-toggle {
       right: 10px;
       font-size: 16px;
+
+      .dui-icon {
+        transition: 250ms transform;
+      }
     }
+
     &:hover {
       cursor: pointer;
+      background-color: $color-gray;
     }
   }
+
   &-content {
     border-top: 1px solid $color-gray;
     padding: 5px 10px;
-    min-height: 50px;
+    height: auto;
     display: none;
     overflow: hidden;
-    &-expanded {
+  }
+
+  &-expanded {
+    .#{$provider-prefix}-accordion-content {
       display: block;
+    }
+
+    .#{$provider-prefix}-accordion-header {
+      background-color: $color-gray;
+    }
+
+    .#{$provider-prefix}-accordion-header-toggle .dui-icon {
+      transform: rotate(-180deg);
     }
   }
 }
