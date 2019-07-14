@@ -1,20 +1,19 @@
 .#{$provider-prefix}-accordion {
-  min-width: 200px;
-  border: 1px solid $color-gray;
-  background-color: $color-light;
+  width: 100%;
+  border: $accordion-border-width solid $accordion-border-color;
+  background-color: $accordion-background;
   outline: none;
 
   &-header {
-    padding: 10px;
+    padding: $accordion-header-padding;
     display: flex;
     flex-direction: row;
-    font-size: 12px;
+    font-size: $accordion-header-font-size;
     align-items: center;
     transition: background-color ease 200ms;
 
     &-content {
-      color: $color-dark;
-      font-weight: $font-weight-bold;
+      font-weight: $accordion-header-font-weight;
       flex-grow: 1;
     }
 
@@ -29,13 +28,13 @@
 
     &:hover {
       cursor: pointer;
-      background-color: $color-gray;
+      background-color: $accordion-header-hover-background;
     }
   }
 
   &-content {
-    border-top: 1px solid $color-gray;
-    padding: 5px 10px;
+    border: $accordion-border-width solid $accordion-border-color;
+    padding: $accordion-content-padding;
     height: auto;
     display: none;
     overflow: hidden;
@@ -47,7 +46,7 @@
     }
 
     .#{$provider-prefix}-accordion-header {
-      background-color: $color-gray;
+      background-color: $accordion-header-active-background;
     }
 
     .#{$provider-prefix}-accordion-header-toggle .dui-icon {

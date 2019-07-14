@@ -1,9 +1,7 @@
 // THEMEING
 $theme-colors: () !default;
 
-$theme-colors: map-merge(
-  (
-    "primary": $color-primary,
+$theme-colors: map-merge(("primary": $color-primary,
     "secondary": $color-secondary,
     "dark": $color-dark,
     "light": $color-light,
@@ -11,15 +9,11 @@ $theme-colors: map-merge(
     "danger": $color-danger,
     "magenta": $color-magenta,
     "warning": $color-warning,
-    "blue": $color-blue
-  ),
-  $theme-colors
-);
+    "blue": $color-blue),
+  $theme-colors);
 $brand-colors: () !default;
 
-$brand-colors: map-merge(
-  (
-    "discord": #7289da,
+$brand-colors: map-merge(("discord": #7289da,
     "youtube": #ff0000,
     "twitter": #1da1f2,
     "twitch": #6441a5,
@@ -31,14 +25,14 @@ $brand-colors: map-merge(
     "reddit": #ff4500,
     "snapchat": #fffc00,
     "bitbucket": #205081,
-    "dropbox": #007ee5
-  ),
-  $brand-colors
-);
+    "dropbox": #007ee5),
+  $brand-colors);
 
-$font-family: "Nunito", sans-serif !default;
+$font-family: "Nunito",
+sans-serif !default;
 $shadow-focus: inset 0 0 2px rgba($color-dark, 0.14),
-  inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14) !default;
+inset 0 0 0 1px $color-blue,
+0 0 0 3px rgba($color-blue, 0.14) !default;
 // FONT
 $font-weight-light: 300 !default;
 $font-weight-regular: 400 !default;
@@ -235,19 +229,16 @@ $checkbox-list-border-color: $color-gray !default;
 $checkbox-list-background: $color-light !default;
 $checkbox-list-header-padding-x: 5px !default;
 $checkbox-list-header-padding-y: 5px !default;
-$checkbox-list-header-padding: $checkbox-list-header-padding-y
-  $checkbox-list-header-padding-x !default;
+$checkbox-list-header-padding: $checkbox-list-header-padding-y $checkbox-list-header-padding-x !default;
 $checkbox-list-header-font-size: $font-size-small !default;
 $checkbox-list-header-counter-font-size: 10px !default;
 
 $checkbox-list-items-padding-x: 5px !default;
 $checkbox-list-items-padding-y: 5px !default;
-$checkbox-list-items-padding: $checkbox-list-items-padding-y
-  $checkbox-list-items-padding-x !default;
+$checkbox-list-items-padding: $checkbox-list-items-padding-y $checkbox-list-items-padding-x !default;
 $checkbox-list-item-padding-x: 0 !default;
 $checkbox-list-item-padding-y: 1px !default;
-$checkbox-list-item-padding: $checkbox-list-item-padding-y
-  $checkbox-list-item-padding-x !default;
+$checkbox-list-item-padding: $checkbox-list-item-padding-y $checkbox-list-item-padding-x !default;
 $checkbox-list-checkbox-color: lighten($color-dark, 50%) !default;
 
 /* SELECT */
@@ -319,8 +310,7 @@ $list-item-icon-max-height: 40px !default;
 
 $list-item-content-padding-x: 5px !default;
 $list-item-content-padding-y: 10px !default;
-$list-item-content-padding: $list-item-content-padding-y
-  $list-item-content-padding-x !default;
+$list-item-content-padding: $list-item-content-padding-y $list-item-content-padding-x !default;
 
 $list-item-content-title-font-size: $font-size-small !default;
 $list-item-content-subtitle-font-size: 10px !default;
@@ -350,8 +340,7 @@ $tab-control-border-color: $color-border !default;
 $tab-control-border-radius: $border-raidus !default;
 $tab-control-item-padding-x: 20px !default;
 $tab-control-item-padding-y: 11px !default;
-$tab-control-item-padding: $tab-control-item-padding-y
-  $tab-control-item-padding-x !default;
+$tab-control-item-padding: $tab-control-item-padding-y $tab-control-item-padding-x !default;
 $tab-control-item-color: #9c9c9c !default;
 $tab-control-item-font-size: $font-size-small !default;
 $tab-control-item-active-background: $color-light !default;
@@ -360,8 +349,7 @@ $tab-control-item-disabled-background: #fafafa !default;
 $tab-control-item-disabled-color: #9c9c9c !default;
 $tab-control-pane-padding-x: 20px !default;
 $tab-control-pane-padding-y: 20px !default;
-$tab-control-pane-padding: $tab-control-pane-padding-y
-  $tab-control-pane-padding-x !default;
+$tab-control-pane-padding: $tab-control-pane-padding-y $tab-control-pane-padding-x !default;
 
 /* TAG INPUT */
 $tag-input-control-background: $text-input-background !default;
@@ -409,10 +397,10 @@ $form-group-extra-font-size: 10px !default;
 $form-group-extra-color: #777 !default;
 $form-group-notice-font-size: $font-size-small !default;
 $form-group-notice-background: #fbff00 !default;
-$form-group-notice-color: $color-dark  !default;
+$form-group-notice-color: $color-dark !default;
 $form-group-error-font-weight: $font-weight-bold !default;
-$form-group-error-font-size: $font-size-small  !default;
-$form-group-required-font-size: 10px  !default;
+$form-group-error-font-size: $font-size-small !default;
+$form-group-required-font-size: 10px !default;
 
 $alert-border-width: 1px !default;
 $alert-border-radius: $border-raidus !default;
@@ -459,3 +447,17 @@ $user-dropdown-background: $color-dark !default;
 $user-dropdown-color: $color-light !default;
 $user-dropdown-item-hover-background: $color-blue !default;
 $user-dropdown-item-hover-color: $color-light !default;
+
+$accordion-border-width: 1px !default;
+$accordion-border-color: $color-border !default;
+$accordion-background: $color-light !default;
+$accordion-header-active-background: $color-gray !default;
+$accordion-header-hover-background: $color-gray !default;
+$accordion-header-padding-x: 10px !default;
+$accordion-header-padding-y: 10px !default;
+$accordion-header-padding: $accordion-header-padding-y $accordion-header-padding-x !default;
+$accordion-header-font-size: $font-size-small !default;
+$accordion-header-font-weight: $font-weight-bold !default;
+$accordion-content-padding-x: 10px !default;
+$accordion-content-padding-y: 5px !default;
+$accordion-content-padding: $accordion-content-padding-y $accordion-content-padding-x !default;
