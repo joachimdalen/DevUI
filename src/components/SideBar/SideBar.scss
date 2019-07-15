@@ -90,6 +90,7 @@
       }
       &-active {
         border-left: 5px solid $sidebar-item-active-background;
+        background-color: rgba($sidebar-item-active-background, 0.2);
         padding: 10px 15px;
       }
       &-has-sub {

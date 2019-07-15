@@ -20,7 +20,7 @@ storiesOf("Layout|SideBar", module)
         showCompactLabels={boolean("Show compact labels", false, mainGroup)}
       >
         <SideBarMenuItem label="General" isHeader={true} />
-        <SideBarMenuItem label="Analytics" icon="fas fa-tachometer-alt" />
+        <SideBarMenuItem label="Analytics" icon="fas fa-tachometer-alt" active />
         <SideBarMenuItem
           label="Administration"
           icon="fas fa-shield-alt"
