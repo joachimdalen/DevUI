@@ -9,6 +9,7 @@
   border: $table-border-width solid $table-border-color;
   background-color: $table-background;
   color: $table-color;
+  width: 100%;
   &-bordered {
     .#{$provider-prefix}-table-row,
     .#{$provider-prefix}-table-cell {
@@ -18,12 +19,14 @@
   &-striped {
     .#{$provider-prefix}-table-row:nth-child(2n) {
       background-color: $table-striped-background;
+      color: $table-striped-color;
     }
   }
   &-hoverable {
     .#{$provider-prefix}-table-row:not(.dui-table-row-header) {
       &:hover {
         background-color: $table-hover-background;
+        color: $table-hover-color;
         cursor: pointer;
         @extend %background-ease;
       }
@@ -112,6 +115,7 @@
     }
     &-checked {
       background-color: $table-row-checked-background !important ;
+      color: $table-row-checked-color:
       @extend %background-ease;
     }
     &-header {
