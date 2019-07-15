@@ -7,6 +7,7 @@ import { Button } from "../Button/Button";
 export interface Props {
   columns: Column[];
   visibleColumns: string[];
+  forcedColumns?: string[];
   onColumnUpdate: (visible: string[]) => void;
 }
 export interface State {
@@ -65,6 +66,7 @@ export class TableColumnPicker extends React.Component<Props, State> {
             items={columnNames}
             defaultChecked={selected}
             onCheckChange={e => this.setState({ selected: e })}
+            disabledItems={this.props.forcedColumns}
           />
           <Button
             label="Select"

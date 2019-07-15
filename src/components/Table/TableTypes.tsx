@@ -5,6 +5,7 @@ export interface Column {
   label: string;
   sortable?: boolean;
   searchable?: boolean;
+  forceVisible?: boolean;
   accessor?: (item: any) => string;
   renderer?: (item: any) => React.ReactNode;
   onSort?: (a: TableRow, b: TableRow) => number;

@@ -9,13 +9,15 @@ import { TableColumnPicker } from "./TableColumnPicker";
 import { boolean, number } from "@storybook/addon-knobs";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
+import { Column } from "./TableTypes";
 const values = require("../../../data/invoices.json");
-const columnHeaders = [
+const columnHeaders: Column[] = [
   {
     key: "id",
     label: "Invoice",
     sortable: false,
-    searchable: true
+    searchable: true,
+    forceVisible: true
   },
   {
     key: "created",
@@ -58,8 +60,8 @@ const columnHeaders = [
           {item.customer.company.name} ({item.customer.company.id})
         </span>
       ) : (
-        "-"
-      )
+          "-"
+        )
   },
   { key: "service", label: "Service" },
   {
@@ -144,5 +146,6 @@ storiesOf("Display Components|Table", module)
       columns={columnHeaders}
       visibleColumns={columnHeaders.map(i => i.key)}
       onColumnUpdate={action("onColumnUpdate")}
+      forcedColumns={columnHeaders.filter(i => i.forceVisible).map(i => i.key)}
     />
   ));

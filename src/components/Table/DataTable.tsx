@@ -101,6 +101,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
               columns={this.props.columns}
               visibleColumns={this.state.visibleColumns}
               onColumnUpdate={this._setVisibleColumns}
+              forcedColumns={this.props.columns.filter(i => i.forceVisible === true).map(i => i.key)}
             />
           ) as any)}
         {paginationEnabled &&
