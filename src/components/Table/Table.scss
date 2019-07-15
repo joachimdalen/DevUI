@@ -115,7 +115,7 @@
     }
     &-checked {
       background-color: $table-row-checked-background !important ;
-      color: $table-row-checked-color:
+      color: $table-row-checked-color;
       @extend %background-ease;
     }
     &-header {
