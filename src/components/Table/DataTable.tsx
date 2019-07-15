@@ -210,6 +210,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
                   <TextInput
                     name="filter"
                     size="small"
+                    prefix={<FontAwesomeIcon iconStyle="solid" icon="fa-search" />}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       this._handleSearch(col.key, e.target.value)
                     }
