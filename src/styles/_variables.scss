@@ -69,12 +69,14 @@ $sidebar-background: $color-light !default;
 $sidebar-item-hover-background: $color-blue-light !default;
 // Color of the sidebar headers
 $sidebar-item-header-color: $color-secondary !default;
+$sidebar-item-hover-color: $color-dark !default;
 // Background color of a submenu
 $sidebar-submenu-background: #e3e3e3 !default;
 // Color of the icons in the sidebar menu
 //$sidebar-icon-color: $color-light-1 !default;
 // Background color of active item in sidebar menu
 $sidebar-item-active-background: $color-blue !default;
+$sidebar-item-active-color: inherit !default;
 // Width of the sidebar in expanded mode
 $sidebar-full-width: 250px !default;
 // Width of the sidebar in compact mode with labels visible
@@ -443,6 +445,7 @@ $user-menu-visible-color: $color-light !default;
 $user-menu-visible-background: $color-dark !default;
 $user-avatar-border-color: none !default;
 $user-menu-hover-background: $color-dark !default;
+$user-dropdown-item-color: inherit !default;
 $user-dropdown-background: $color-dark !default;
 $user-dropdown-color: $color-light !default;
 $user-dropdown-item-hover-background: $color-blue !default;

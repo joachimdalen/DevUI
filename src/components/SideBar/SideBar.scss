@@ -26,6 +26,7 @@
         transition: background-color 0.5s;
         &:not(.#{$provider-prefix}-sidebar-menu-item-active) {
           background-color: $sidebar-item-hover-background;
+          color: $sidebar-item-hover-color;
         }
         &::after {
           width: 100%;
@@ -60,6 +61,7 @@
         transition: background-color 0.5s;
         &:not(.#{$provider-prefix}-sidebar-menu-item-active) {
           background-color: $sidebar-item-hover-background;
+          color: $sidebar-item-hover-color;
         }
       }
 
