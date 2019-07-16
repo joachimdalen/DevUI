@@ -127,6 +127,7 @@ storiesOf("Display Components|Table", module)
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
       multiSelect={boolean("multi-select", true)}
+      showColumnPicker={boolean('ShowColumnPicker', true)}
     />
   ))
   .add("DataTable Pagination", () => (
