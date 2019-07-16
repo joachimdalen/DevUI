@@ -337,7 +337,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
               .map((col: Column) => {
                 const cellValue = col.renderer
                   ? col.renderer(row)
-                  : row[col.key];
+                  : col.accessor ? col.accessor(row) : row[col.key];
                 return (
                   <TableCell className={cx(col.className)}>
                     {cellValue}
