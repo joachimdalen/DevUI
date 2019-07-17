@@ -6,15 +6,15 @@
   background-color: $empty-background;
   padding: $empty-padding;
   text-align: center;
-  width: 450px;
+  width: $empty-width;
 
   &-image {
-    max-height: 300px;
+    max-height: $empty-image-max-width;
   }
 
   &-header {
-    font-weight: bold;
-    font-size: 20px;
+    font-weight: $empty-header-font-weight;
+    font-size: $empty-header-font-size;
   }
 
   &-description {
