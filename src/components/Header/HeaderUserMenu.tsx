@@ -40,7 +40,7 @@ export class HeaderUserMenu extends React.Component<IProps> {
     const avatarComp = React.isValidElement(avatar) ? (
       avatar
     ) : (
-      <Avatar img={avatar} size="small" {...avatarProps} />
+      <Avatar src={avatar} size="small" {...avatarProps} />
     );
     const shouldRenderDropdown = React.Children.count(children) !== 0;
 

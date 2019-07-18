@@ -1,10 +1,12 @@
 import * as React from "react";
 import cx from "classnames";
+import { Image } from '../Image/Image';
 
 export type AvatarFormat = "square" | "rounded" | "circle";
 export type AvatarSize = "small" | "normal" | "large";
 export interface AvatarProps {
-  img: React.ReactNode | string;
+  src: React.ReactNode | string;
+  fallbackSrc?: string;
   size?: AvatarSize;
   format?: AvatarFormat;
   width?: number;
@@ -19,7 +21,7 @@ export class Avatar extends React.Component<AvatarProps> {
   };
 
   render() {
-    const { img, size, format, width, height, className } = this.props;
+    const { src, size, format, width, height, className, fallbackSrc } = this.props;
 
     const isDefaultFormat = format === "square";
     const hasCustomSize = (width || height) !== undefined;
@@ -31,15 +33,16 @@ export class Avatar extends React.Component<AvatarProps> {
     );
     if (hasCustomSize) {
       return (
-        <img
-          src={img as string}
+        <Image
+          src={src as string}
           height={height}
           width={width}
           className={baseClass}
           alt="avatar"
+          fallbackSrc={fallbackSrc}
         />
       );
     }
-    return <img src={img as string} className={baseClass} alt="avatar" />;
+    return <Image src={src as string} className={baseClass} alt="avatar" fallbackSrc={fallbackSrc} />;
   }
 }

@@ -69,7 +69,7 @@ storiesOf("Layout|SideBar", module)
           }}
         >
           <Avatar
-            img="http://placehold.it/50x50"
+            src="http://placehold.it/50x50"
             size="normal"
             format="rounded"
           />
