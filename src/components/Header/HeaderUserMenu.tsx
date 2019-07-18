@@ -13,7 +13,7 @@ interface IProps {
   children?:
     | React.ReactElement<HeaderUserMenuItem>
     | React.ReactElement<HeaderUserMenuItem>[];
-  avatarProps?: Omit<AvatarProps, "img">;
+  avatarProps?: Omit<AvatarProps, "src">;
 }
 export class HeaderUserMenu extends React.Component<IProps> {
   render() {
