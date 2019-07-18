@@ -18,13 +18,13 @@
   }
 
   &-description {
-    margin-top: 5px;
+    margin-top: $empty-description-margin-top;
   }
 
   &-main-actions {
     display: inline-flex;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-top: $empty-actions-margin-top;
+    margin-bottom: $empty-actions-margin-bottom;
   }
 }
