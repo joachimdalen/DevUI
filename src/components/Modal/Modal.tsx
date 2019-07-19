@@ -1,7 +1,8 @@
 import * as React from "react";
 import cx from "classnames";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-export type ModalSize = "small" | "medium" | "large";
+import { GenericSizes } from "../common";
+export type ModalSize = GenericSizes;
 export type ModalLocation = "top" | "center";
 
 export interface Props {

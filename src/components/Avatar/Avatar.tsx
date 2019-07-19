@@ -1,9 +1,10 @@
 import * as React from "react";
 import cx from "classnames";
 import { Image } from '../Image/Image';
+import { GenericSizes } from "../common";
 
 export type AvatarFormat = "square" | "rounded" | "circle";
-export type AvatarSize = "small" | "normal" | "large";
+export type AvatarSize = GenericSizes;
 export interface AvatarProps {
   src: React.ReactNode | string;
   fallbackSrc?: string;
@@ -16,7 +17,7 @@ export interface AvatarProps {
 
 export class Avatar extends React.Component<AvatarProps> {
   static defaultProps: Partial<AvatarProps> = {
-    size: "normal",
+    size: "medium",
     format: "square"
   };
 

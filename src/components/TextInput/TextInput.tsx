@@ -1,6 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 import { isUndefined } from "util";
+import { GenericSizes } from "components/common";
 
 export interface Props {
   className?: string;
@@ -13,7 +14,7 @@ export interface Props {
   id?: string;
   value: string;
   disabled?: boolean;
-  size?: "small" | "large";
+  size?: Omit<GenericSizes, "medium">;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
   addonBefore?: string | React.ReactElement;
   addonAfter?: string | React.ReactElement;
@@ -54,8 +55,8 @@ export class TextInput extends React.Component<AllProps> {
     const sizeClass = isDefaultSize
       ? ""
       : size === "small"
-      ? "dui-input-small"
-      : "dui-input-large";
+        ? "dui-input-small"
+        : "dui-input-large";
     const shouldWrapAddons = hasAddonBefore || hasAddonAfter;
     const shouldWrapFix = hasPrefix || hasSuffix;
     const addonWrapperClass = cx(

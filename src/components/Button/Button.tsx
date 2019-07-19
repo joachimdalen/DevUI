@@ -1,9 +1,9 @@
 import * as React from "react";
 import cx from "classnames";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-import { CustomComponent } from "../common";
+import { CustomComponent, GenericSizes } from "../common";
 export type ButtonFormat = "default" | "block";
-export type ButtonSize = "small" | "medium" | "large";
+export type ButtonSize = GenericSizes;
 export interface ButtonProps extends CustomComponent {
   label?: string;
   onClick?: () => void;
@@ -63,8 +63,8 @@ export class Button extends React.Component<ButtonProps> {
     const buttonSizeClass = isDefaultSize
       ? ""
       : size === "small"
-      ? "small"
-      : "large";
+        ? "small"
+        : "large";
     const buttonClass = cx(
       baseButtonClass,
       { disabled: disabled && !loading },
@@ -91,12 +91,12 @@ export class Button extends React.Component<ButtonProps> {
     const iconComp = React.isValidElement(icon) ? (
       icon
     ) : (
-      <FontAwesomeIcon
-        iconStyle="solid"
-        icon={icon as string}
-        margin={hasButtonText}
-      />
-    );
+        <FontAwesomeIcon
+          iconStyle="solid"
+          icon={icon as string}
+          margin={hasButtonText}
+        />
+      );
     const content = (
       <React.Fragment>
         {loading && loadingIconComp}

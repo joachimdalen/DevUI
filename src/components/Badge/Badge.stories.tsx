@@ -10,14 +10,12 @@ storiesOf("Display Components|Badge", module)
   .add("Dismissible", () => (
     <Badge
       label={text("label", "Active")}
-      dismissible={boolean("Dismissible", true)}
       onDismiss={action("badge-dismissed")}
     />
   ))
   .add("Custom Dismiss Icon", () => (
     <Badge
       label={text("label", "Active")}
-      dismissible={boolean("Dismissible", true)}
       onDismiss={action("badge-dismissed")}
       dismissText={<FontAwesomeIcon iconStyle="solid" icon="fa-egg" />}
     />

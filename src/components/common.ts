@@ -3,3 +3,4 @@ export interface CustomComponent {
   component?: React.ComponentType<any> | React.ElementType<any>;
   componentProps?: any;
 }
+export type GenericSizes = "small" | "medium" | "large";
