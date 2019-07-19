@@ -5,15 +5,13 @@ import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 export interface BadgeProps {
   label: string;
   variant?: string;
-  dismissible?: boolean;
   dismissText?: string | React.ReactNode;
   onDismiss?: () => any;
 }
 
-export class Badge extends React.Component<BadgeProps> {
+export class Badge extends React.PureComponent<BadgeProps> {
   static defaultProps: Partial<BadgeProps> = {
-    variant: "default",
-    dismissible: false
+    variant: "default"
   };
 
   _handleClick = () => {
@@ -22,20 +20,18 @@ export class Badge extends React.Component<BadgeProps> {
   };
 
   public render() {
-    const { label, variant, dismissible, onDismiss, dismissText } = this.props;
+    const { label, variant, onDismiss, dismissText } = this.props;
     const badgeClass = cx(
       "dui-badge",
       { [`dui-badge-${variant}`]: variant !== "default" },
-      { [`dui-badge-dismiss`]: dismissible }
+      { [`dui-badge-dismiss`]: onDismiss }
     );
     const dismissibleClass = cx("dui-badge-dismissible");
     const wrapperClass = cx("dui-badge-wrapper");
-    const isDismissible = !isUndefined(onDismiss) && dismissible;
+    const isDismissible = onDismiss;
     const badgeComponent = <span className={badgeClass}>{label}</span>;
     const dismissIcon = <FontAwesomeIcon iconStyle="solid" icon="fa-times" />;
-    const dismissTextComponent = isUndefined(dismissText)
-      ? dismissIcon
-      : dismissText;
+    const dismissTextComponent = dismissText ? dismissIcon : dismissText;
 
     if (isDismissible)
       return (
