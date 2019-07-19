@@ -10,7 +10,7 @@ export interface BadgeProps {
   onDismiss?: () => any;
 }
 
-export class Badge extends React.Component<BadgeProps> {
+export class Badge extends React.PureComponent<BadgeProps> {
   static defaultProps: Partial<BadgeProps> = {
     variant: "default",
     dismissible: false
