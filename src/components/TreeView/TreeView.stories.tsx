@@ -2,6 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { TreeView } from "./TreeView";
 import { TreeViewNode } from "./TreeViewTypes";
+import { action } from "@storybook/addon-actions";
 
 const nodes: TreeViewNode[] = [
   {
@@ -19,7 +20,11 @@ const nodes: TreeViewNode[] = [
 ]
 storiesOf("Components|TreeView", module)
   .add("Default", () => (
-    <TreeView nodes={nodes}>
+    <TreeView nodes={nodes}
+      onSelect={action('onSelect')}
+      onExpanded={action('onExpanded')}
+      onCheck={action('onCheck')}
+    >
       {/*   <TreeViewItem label="0001 - Finances">
         <TreeViewItem label="1001 - Car loan" />
         <TreeViewItem label="1002 - Bank statements" />

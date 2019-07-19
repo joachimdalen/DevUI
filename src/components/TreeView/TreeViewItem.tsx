@@ -2,12 +2,10 @@ import * as React from "react";
 import cx from "classnames";
 import { CheckBox } from "../CheckBox/CheckBox";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-import { TreeViewConsumer, TreeViewContextType } from "./TreeViewTypes";
+import { TreeViewConsumer, TreeViewContextType, TreeViewNode } from "./TreeViewTypes";
 export interface TreeViewItemProps {
     className?: string;
-    label: string;
-    itemKey: string | number;
-    leafIcon: string | React.ReactElement;
+    node: TreeViewNode;
 }
 interface TreeViewItemState {
     expanded: boolean;
@@ -20,16 +18,17 @@ export class TreeViewItem extends React.Component<
     state = {
         expanded: false
     };
+
     render() {
-        const { label, className, leafIcon, children, itemKey } = this.props;
+        const { node, className, children } = this.props;
         const { expanded } = this.state;
         const isLeafNode = React.Children.count(children) == 0;
 
-        const leafIconComp = leafIcon ? React.isValidElement(leafIcon) ? leafIcon :
+        const leafIconComp = node.icon ? React.isValidElement(node.icon) ? node.icon :
             <FontAwesomeIcon
                 margin
                 marginDirection="left"
-                icon={leafIcon as string}
+                icon={node.icon as string}
                 iconStyle="regular"
             /> : <FontAwesomeIcon
                 margin
@@ -37,24 +36,26 @@ export class TreeViewItem extends React.Component<
                 icon="fa-file"
                 iconStyle="regular"
             />
-        const ecComp = !isLeafNode && (
-            <FontAwesomeIcon
-                margin
-                marginDirection="left"
-                icon={expanded ? "fa-minus-square" : "fa-plus-square"}
-                iconStyle="regular"
-                className="dui-treeview-item-expand"
-                onClick={() =>
-                    this.setState({ expanded: expanded ? false : true })
-                }
-            />);
+
         return (
             <TreeViewConsumer>
-                {({ multiselect, selected, onSelect }: TreeViewContextType) => (
+                {({ multiselect, selected, onSelect, onExpanded }: TreeViewContextType) => (
                     <div className={cx("dui-treeview-item", className)}>
                         <div className="dui-treeview-item-details">
                             <div className="dui-treeview-item-icons">
-                                {ecComp}
+                                {!isLeafNode && (
+                                    <FontAwesomeIcon
+                                        margin
+                                        marginDirection="left"
+                                        icon={expanded ? "fa-minus-square" : "fa-plus-square"}
+                                        iconStyle="regular"
+                                        className="dui-treeview-item-expand"
+                                        onClick={() => {
+                                            if (!this.state.expanded) {
+                                                onExpanded && onExpanded(node);
+                                            }
+                                            this.setState({ expanded: this.state.expanded ? false : true });
+                                        }} />)}
                                 {multiselect && (<CheckBox
                                     checked={false}
                                     onCheckChange={() => console.log("checked")}
@@ -70,11 +71,11 @@ export class TreeViewItem extends React.Component<
                             </div>
                             <span
                                 className={cx("dui-treeview-item-label", {
-                                    "dui-treeview-item-selected": itemKey !== undefined && itemKey === selected
+                                    "dui-treeview-item-selected": node.key !== undefined && node.key === selected
                                 })}
-                                onClick={() => onSelect && onSelect(itemKey)}
+                                onClick={() => onSelect && onSelect(node)}
                             >
-                                {label}
+                                {node.label}
                             </span>
                         </div>
                         {!isLeafNode && expanded && (

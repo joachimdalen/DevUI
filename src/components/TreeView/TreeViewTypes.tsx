@@ -11,8 +11,9 @@ export interface TreeViewContextType {
     multiselect?: boolean;
     selected?: string | number;
     nodes?: TreeViewNode[];
-    onCheck?: (node: Node) => void;
-    onSelect?: (key: string | number) => void;
+    onCheck?: (node: TreeViewNode) => void;
+    onExpanded?: (node: TreeViewNode) => void;
+    onSelect?: (node: TreeViewNode) => void;
 }
 
 export const TreeViewContext = React.createContext<TreeViewContextType>({
