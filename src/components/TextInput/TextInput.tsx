@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 import { isUndefined } from "util";
-import { GenericSizes } from "components/common";
+import { GenericSizes, Omit } from "../common";
 
 export interface Props {
   className?: string;

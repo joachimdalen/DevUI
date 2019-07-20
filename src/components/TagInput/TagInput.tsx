@@ -26,7 +26,6 @@ export class TagInput extends React.Component<Props, State> {
       return (
         <Badge
           label={t.value}
-          dismissible={t.removeable}
           onDismiss={() => this._removeTag(t)}
         />
       );

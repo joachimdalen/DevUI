@@ -1,6 +1,5 @@
 import * as React from "react";
 import cx from "classnames";
-import { isUndefined } from "util";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 export interface BadgeProps {
   label: string;
