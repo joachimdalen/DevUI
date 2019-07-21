@@ -11,7 +11,8 @@ export interface TreeViewContextType {
     multiselect?: boolean;
     selected?: string | number;
     nodes?: TreeViewNode[];
-    onCheck?: (node: TreeViewNode) => void;
+    checkedItems?:TreeViewNode[];
+    onItemCheck?: (node: TreeViewNode) => void;
     onExpanded?: (node: TreeViewNode) => void;
     onSelect?: (node: TreeViewNode) => void;
 }

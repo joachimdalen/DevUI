@@ -7,16 +7,18 @@ export interface TreeViewProps {
   nodes?: TreeViewNode[];
   multiselect?: boolean;
   children?: React.ReactElement<TreeViewItem> | React.ReactElement<TreeViewItem>[];
-  onCheck?: (node: TreeViewNode) => void;
+  onCheck?: (nodes: TreeViewNode[]) => void;
   onExpanded?: (node: TreeViewNode) => void;
   onSelect?: (node: TreeViewNode) => void;
 }
 interface TreeViewState {
   selected?: string | number;
+  checked?: TreeViewNode[];
 }
 
 export class TreeView extends React.Component<TreeViewProps, TreeViewState> {
-  state = { selected: undefined }
+  state = { selected: undefined, checked: [] }
+
   static defaultProps: Partial<TreeViewProps> = {};
   _getChildNodes = (node: TreeViewNode) => {
     return node.nodes && node.nodes.map(node => {
@@ -25,8 +27,25 @@ export class TreeView extends React.Component<TreeViewProps, TreeViewState> {
       </TreeViewItem>)
     });
   }
+  _toggleItem(node: TreeViewNode) {
+    const { onCheck } = this.props;
+    const { checked } = this.state;
+    const checkIndex = checked.findIndex((i: TreeViewNode) => i.key === node.key);
+    var arrCpy = [...this.state.checked];
+    if (checkIndex !== -1) {
+      arrCpy.splice(checkIndex, 1);
+      this.setState({ checked: arrCpy }, () => {
+        onCheck && onCheck(this.state.checked);
+      });
+    } else {
+      const newItems = [...this.state.checked, node];
+      this.setState({ checked: newItems }, () => {
+        onCheck && onCheck(newItems);
+      });
+    }
+  }
   render() {
-    const { className, children, nodes, multiselect, onCheck, onExpanded, onSelect } = this.props;
+    const { className, children, nodes, multiselect, onExpanded, onSelect } = this.props;
     const contextValue: TreeViewContextType = {
       nodes: nodes,
       multiselect: multiselect,
@@ -35,8 +54,9 @@ export class TreeView extends React.Component<TreeViewProps, TreeViewState> {
         this.setState({ selected: node.key });
         onSelect && onSelect(node);
       },
-      onCheck: onCheck,
+      onItemCheck: (node) => this._toggleItem(node),
       onExpanded: onExpanded,
+      checkedItems: this.state.checked
     };
 
     const childNodes = React.Children.count(children) === 0 ? nodes && nodes.map((node: TreeViewNode) => {

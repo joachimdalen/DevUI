@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { TreeView } from "./TreeView";
 import { TreeViewNode } from "./TreeViewTypes";
 import { action } from "@storybook/addon-actions";
+import { boolean } from "@storybook/addon-knobs";
 
 const nodes: TreeViewNode[] = [
   {
@@ -24,6 +25,7 @@ storiesOf("Components|TreeView", module)
       onSelect={action('onSelect')}
       onExpanded={action('onExpanded')}
       onCheck={action('onCheck')}
+      multiselect={boolean('Multiselect', false)}
     >
       {/*   <TreeViewItem label="0001 - Finances">
         <TreeViewItem label="1001 - Car loan" />
