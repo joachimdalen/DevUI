@@ -57,6 +57,7 @@ export class TagInput extends React.Component<Props, State> {
     if (event.charCode !== 44) return;
     if (this.state.value !== "") {
       this._addTag();
+      event.preventDefault();
       return false;
     }
     return true;
