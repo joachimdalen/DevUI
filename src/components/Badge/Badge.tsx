@@ -30,7 +30,7 @@ export class Badge extends React.PureComponent<BadgeProps> {
     const isDismissible = onDismiss;
     const badgeComponent = <span className={badgeClass}>{label}</span>;
     const dismissIcon = <FontAwesomeIcon iconStyle="solid" icon="fa-times" />;
-    const dismissTextComponent = dismissText ? dismissIcon : dismissText;
+    const dismissTextComponent = dismissText ? dismissText : dismissIcon;
 
     if (isDismissible)
       return (
