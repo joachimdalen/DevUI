@@ -6,26 +6,41 @@
 
   .#{$provider-prefix}-badge {
     padding: 2px 5px;
+    align-content: center;
   }
 
   &-type {
     margin-left: 10px;
   }
+
   &-tags {
     display: flex;
     align-items: center;
   }
+
   &-control {
     border: none;
+
     &:focus {
       box-shadow: none;
     }
+
     background-color: $tag-input-control-background;
     color: $tag-input-control-color;
   }
+
   .#{$provider-prefix}-badge-wrapper,
   .#{$provider-prefix}-badge {
     min-height: $tag-input-badge-min-height;
   }
 
+  .#{$provider-prefix}-input {
+    border: none;
+    background-color: rgb(240, 236, 236);
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+  }
 }
