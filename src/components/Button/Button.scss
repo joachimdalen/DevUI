@@ -22,7 +22,7 @@
     border-color: transparent;
     color: $button-disabled-color;
   }
-  &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
+  &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading):not(.#{$provider-prefix}-button-link) {
     cursor: pointer;
     background-color: $button-default-hover-background;
     border-color: $button-default-hover-border-color;
@@ -34,7 +34,18 @@
     display: block;
     width: 100%;
   }
+  &-link{
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    outline:none;
+    color: blue;
+    text-decoration: none;
 
+    &:hover{
+      text-decoration: underline;
+    }
+  }
   &-outlined {
     @each $color, $value in $theme-colors {
       @include button-outlined("-#{$color}", $value);

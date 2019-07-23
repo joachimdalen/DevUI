@@ -12,6 +12,7 @@ export interface ButtonProps extends CustomComponent {
   format?: ButtonFormat;
   size?: ButtonSize;
   outlined?: boolean;
+  linkButton?: boolean;
   dashed?: boolean;
   loading?: boolean;
   loadingIcon?: string;
@@ -37,6 +38,7 @@ export class Button extends React.Component<ButtonProps> {
       disabled,
       variant,
       size,
+      linkButton,
       outlined,
       dashed,
       loading,
@@ -68,13 +70,14 @@ export class Button extends React.Component<ButtonProps> {
     const buttonClass = cx(
       baseButtonClass,
       { disabled: disabled && !loading },
-      { [`${baseButtonClass}-${variant}`]: !isDefaultVariant && !outlined },
+      { [`${baseButtonClass}-${variant}`]: !isDefaultVariant && !outlined && !linkButton },
       { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
-      { [`${baseButtonClass}-outlined-${variant}`]: outlined },
-      { [`${baseButtonClass}-dashed`]: dashed && outlined },
+      { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
+      { [`${baseButtonClass}-dashed`]: dashed && outlined && !linkButton },
       { [`${baseButtonClass}-loading`]: loading },
       { [`${baseButtonClass}-icon-only`]: hasButtonText === false },
       { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
+      { [`${baseButtonClass}-link`]: linkButton },
       className
     );
 

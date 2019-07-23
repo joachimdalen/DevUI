@@ -32,6 +32,13 @@ storiesOf("Controls|Button", module)
       onClick={action("button-clicked")}
     />
   ))
+  .add("Link Button", () => (
+    <Button
+      label={text("label", "Delete")}
+      linkButton={boolean('Link Button', true)}
+      onClick={action("button-clicked")}
+    />
+  ))
   .add("Dashed Button", () => (
     <Button
       label={text("label", "Delete")}

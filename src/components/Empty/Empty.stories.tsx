@@ -44,7 +44,7 @@ storiesOf("Display Components|Empty", module)
         size="small"
         onClick={action("onClick")}
       />}
-      tertiaryAction={<a href="#">Tertiary Action</a>}
+      tertiaryAction={<Button linkButton component="a" componentProps={{ href: "#" }} label="Tertiary Action"></Button>}
     />
 
   ));
