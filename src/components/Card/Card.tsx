@@ -6,7 +6,7 @@ export type CardImagePlacement = "top" | "left" | "right";
 export interface CardProps {
   image?: string;
   imagePlacement?: CardImagePlacement;
-  width: number | string;
+  width?: number | string;
   className?: string;
 }
 
