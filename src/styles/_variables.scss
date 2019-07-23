@@ -75,7 +75,8 @@ $sidebar-submenu-background: #e3e3e3 !default;
 // Color of the icons in the sidebar menu
 //$sidebar-icon-color: $color-light-1 !default;
 // Background color of active item in sidebar menu
-$sidebar-item-active-background: $color-blue !default;
+$sidebar-item-active-border-color: $color-blue !default;
+$sidebar-item-active-background: rgba($color-blue, 0.2) !default;
 $sidebar-item-active-color: inherit !default;
 // Width of the sidebar in expanded mode
 $sidebar-full-width: 250px !default;
