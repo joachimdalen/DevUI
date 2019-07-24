@@ -67,6 +67,7 @@ export class Button extends React.Component<ButtonProps> {
       : size === "small"
         ? "small"
         : "large";
+    const isIconOnly = hasButtonText === false;
     const buttonClass = cx(
       baseButtonClass,
       { disabled: disabled && !loading },
@@ -75,11 +76,12 @@ export class Button extends React.Component<ButtonProps> {
       { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
       { [`${baseButtonClass}-dashed`]: dashed && outlined && !linkButton },
       { [`${baseButtonClass}-loading`]: loading },
-      { [`${baseButtonClass}-icon-only`]: hasButtonText === false },
+      { [`${baseButtonClass}-icon-only`]: isIconOnly },
       { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
       { [`${baseButtonClass}-link`]: linkButton },
       className
     );
+
 
     const loadingIconComp = (
       <FontAwesomeIcon
@@ -89,6 +91,7 @@ export class Button extends React.Component<ButtonProps> {
         margin={true}
         marginDirection="right"
         icon={loadingIconClass}
+        fixedWidth={isIconOnly}
       />
     );
     const iconComp = React.isValidElement(icon) ? (
@@ -98,6 +101,7 @@ export class Button extends React.Component<ButtonProps> {
           iconStyle="solid"
           icon={icon as string}
           margin={hasButtonText}
+          fixedWidth={isIconOnly}
         />
       );
     const content = (

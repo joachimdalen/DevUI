@@ -4,6 +4,7 @@ export interface FontAwesomeIconProps {
   icon: string;
   margin?: boolean;
   animate?: boolean;
+  fixedWidth?: boolean;
   className?: string;
   size?: FAISize;
   iconStyle: FAIStyle;
@@ -47,6 +48,7 @@ const FontAwesomeIcon = ({
   animationType,
   size = "normal",
   className = "",
+  fixedWidth,
   iconStyle,
   onClick
 }: FontAwesomeIconProps) => {
@@ -60,6 +62,7 @@ const FontAwesomeIcon = ({
       onClick={onClick}
       className={cx(
         "dui-icon",
+        { "fa-fw": fixedWidth },
         className,
         _typeFromStyle(iconStyle),
         icon,

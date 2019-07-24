@@ -22,7 +22,7 @@
     border-color: transparent;
     color: $button-disabled-color;
   }
-  &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading):not(.#{$provider-prefix}-button-link) {
+  &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
     cursor: pointer;
     background-color: $button-default-hover-background;
     border-color: $button-default-hover-border-color;
@@ -42,8 +42,11 @@
     color: blue;
     text-decoration: none;
 
-    &:hover{
+    &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading){
       text-decoration: underline;
+      cursor: pointer;
+      background-color: transparent;
+      border-color: none;
     }
   }
   &-outlined {
