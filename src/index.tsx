@@ -54,6 +54,8 @@ export { TextArea } from "./components/TextArea/TextArea";
 export { TextInput } from "./components/TextInput/TextInput";
 export { Toast } from "./components/Toast/Toast";
 export { Toggle } from "./components/Toggle/Toggle";
+export { OverflowMenu } from "./components/OverflowMenu/OverflowMenu";
+export { OverflowMenuItem } from "./components/OverflowMenu/OverflowMenuItem";
 export * from "./components/common";
 export * from "./components/TabControl/TabControlTypes";
 export * from "./components/Table/TableTypes";

@@ -473,3 +473,18 @@ $accordion-header-font-weight: $font-weight-bold !default;
 $accordion-content-padding-x: 10px !default;
 $accordion-content-padding-y: 5px !default;
 $accordion-content-padding: $accordion-content-padding-y $accordion-content-padding-x !default;
+
+/* Overflow Menu */
+$overflow-menu-border-width: 1px !default;
+$overflow-menu-border-color: $color-border !default;
+$overflow-menu-padding-x: 5px !default;
+$overflow-menu-padding-y: 5px !default;
+$overflow-menu-padding: $overflow-menu-padding-y $overflow-menu-padding-x !default;
+$overflow-menu-item-padding-x: 10px !default;
+$overflow-menu-item-padding-y: 5px !default;
+$overflow-menu-item-padding: $overflow-menu-item-padding-y $overflow-menu-item-padding-x !default;
+$overflow-menu-item-border-radius: 5px !default;
+$overflow-menu-item-background: $color-light !default;
+$overflow-menu-item-color: $color-dark !default;
+$overflow-menu-item-hover-background: $color-disabled !default;
+$overflow-menu-item-hover-color: $color-dark !default;

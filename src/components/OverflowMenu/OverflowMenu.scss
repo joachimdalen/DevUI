@@ -1,0 +1,34 @@
+.#{$provider-prefix}-overflow-menu-wrapper {
+    position: relative;
+
+    .#{$provider-prefix}-overflow-menu {
+        &-content {
+            position: absolute;
+            white-space: nowrap;
+            padding: $overflow-menu-padding;
+            border: $overflow-menu-border-width solid $overflow-menu-border-color;
+            background-color: $select-background;
+            margin-left: 2px;
+        }
+
+        &-items {
+            width: 100%;
+            z-index: 1;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        &-item {
+            padding: $overflow-menu-item-padding;
+            border-radius: $overflow-menu-item-border-radius;
+            background-color: $overflow-menu-item-background;
+            color: $overflow-menu-item-color;
+
+            &:hover {
+                background-color: $overflow-menu-item-hover-background;
+                color: $overflow-menu-item-hover-color;
+                cursor: pointer;
+            }
+        }
+    }
+}
