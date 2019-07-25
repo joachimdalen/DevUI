@@ -3,6 +3,7 @@ import cx from "classnames";
 export interface FormGroupProps {
   label: string | React.ReactElement;
   inline?: boolean;
+  inlineLabel?: boolean;
   required?: boolean;
   requiredType?: FormGroupRequiredType;
   requiredText?: string;
@@ -18,6 +19,7 @@ export type FormGroupExtraType = "success" | "danger" | "warning" | "normal";
 export class FormGroup extends React.Component<FormGroupProps> {
   static defaultProps: Partial<FormGroupProps> = {
     inline: false,
+    inlineLabel: false,
     extraType: "normal",
     requiredType: "icon",
     requiredText: "Required"
@@ -29,6 +31,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
       extraType,
       className,
       inline,
+      inlineLabel,
       children,
       required,
       requiredType,
@@ -78,6 +81,20 @@ export class FormGroup extends React.Component<FormGroupProps> {
     const noticeComp = notice && (
       <div className={cx('dui-form-group-notice')}>{notice}</div>
     )
+    if (inlineLabel) {
+      return (
+        <div className={cx("dui-form-group", "dui-form-group-label-inline", className)}>
+          <div className="dui-form-group-label-container">
+            {labelComponent}
+          </div>
+          <div className="dui-form-group-content">
+            {bodyComp}
+            {extraComp}
+            {errorComp}
+            {noticeComp}
+          </div>
+        </div>)
+    }
     return (
       <div className={cx("dui-form-group", className)}>
         {labelComponent}

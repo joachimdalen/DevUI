@@ -31,11 +31,26 @@ storiesOf("Components|FormGroup", module)
       <TextInput value="devexer" onChange={action("onChange")} />
     </FormGroup>
   ))
-  .add("Inline", () => (
+  .add("Inline Controls", () => (
     <FormGroup
       label="Username"
       inline
       extra={text("Extra", "This is the username you used when signing up")}
+    >
+      <TextInput value="devexer" onChange={action("onChange")} />
+      <Button
+        size="small"
+        icon="fas fa-save"
+        variant="success"
+        onClick={action("onClick")}
+      />
+    </FormGroup>
+  ))
+  .add("Inline label", () => (
+    <FormGroup
+      label="Username"
+      inline={boolean("Inline", true)}
+      inlineLabel={boolean("Inline Label", true)}
     >
       <TextInput value="devexer" onChange={action("onChange")} />
       <Button
