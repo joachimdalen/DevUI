@@ -26,12 +26,10 @@ export class TreeViewItem extends React.Component<
 
         const leafIconComp = node.icon ? React.isValidElement(node.icon) ? node.icon :
             <FontAwesomeIcon
-                margin
                 marginDirection="left"
                 icon={node.icon as string}
                 iconStyle="regular"
             /> : <FontAwesomeIcon
-                margin
                 marginDirection="left"
                 icon="fa-file"
                 iconStyle="regular"
@@ -48,7 +46,6 @@ export class TreeViewItem extends React.Component<
                                 <div className="dui-treeview-item-icons">
                                     {!isLeafNode && (
                                         <FontAwesomeIcon
-                                            margin
                                             marginDirection="left"
                                             icon={expanded ? "fa-minus-square" : "fa-plus-square"}
                                             iconStyle="regular"
@@ -65,7 +62,6 @@ export class TreeViewItem extends React.Component<
                                     />)}
                                     {isLeafNode ? leafIconComp : (
                                         <FontAwesomeIcon
-                                            margin
                                             marginDirection="left"
                                             icon={expanded ? "fa-folder-open" : "fa-folder"}
                                             iconStyle="regular"

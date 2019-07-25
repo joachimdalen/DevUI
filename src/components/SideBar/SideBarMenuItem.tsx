@@ -58,7 +58,6 @@ export class SideBarMenuItem extends React.Component<
       : isString(icon) && (
           <FontAwesomeIcon
             iconStyle="solid"
-            margin
             marginDirection="right"
             icon={icon}
           />
@@ -69,7 +68,6 @@ export class SideBarMenuItem extends React.Component<
       <FontAwesomeIcon
         iconStyle="solid"
         icon="fa-arrow-circle-up"
-        margin={true}
         marginDirection="right"
       />
     );
@@ -79,7 +77,6 @@ export class SideBarMenuItem extends React.Component<
       <FontAwesomeIcon
         iconStyle="solid"
         icon="fa-arrow-circle-down"
-        margin={true}
         marginDirection="right"
       />
     );

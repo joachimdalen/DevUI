@@ -22,7 +22,6 @@ storiesOf("Layout|Header", module).add("Default", () => (
         <FontAwesomeIcon
           iconStyle="solid"
           icon="fa-user"
-          margin
           marginDirection="right"
         />
         Hello

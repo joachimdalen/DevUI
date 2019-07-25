@@ -88,7 +88,6 @@ export class Button extends React.Component<ButtonProps> {
         iconStyle="solid"
         animate={true}
         animationType="spin"
-        margin={true}
         marginDirection="right"
         icon={loadingIconClass}
         fixedWidth={isIconOnly}
@@ -100,7 +99,7 @@ export class Button extends React.Component<ButtonProps> {
         <FontAwesomeIcon
           iconStyle="solid"
           icon={icon as string}
-          margin={hasButtonText}
+          marginDirection={hasButtonText ? "right" : undefined}
           fixedWidth={isIconOnly}
         />
       );

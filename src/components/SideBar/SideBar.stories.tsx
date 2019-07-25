@@ -33,7 +33,6 @@ storiesOf("Layout|SideBar", module)
               <FontAwesomeIcon
                 iconStyle="solid"
                 icon="fa-user-shield"
-                margin
                 marginDirection="right"
               />
             }
@@ -118,7 +117,6 @@ storiesOf("Layout|SideBar", module)
               <FontAwesomeIcon
                 iconStyle="solid"
                 icon="fa-user-shield"
-                margin
                 marginDirection="right"
               />
             }

@@ -20,7 +20,6 @@ storiesOf("Components|Accordion", module)
           <FontAwesomeIcon
             iconStyle="solid"
             icon="fa-trash"
-            margin
             marginDirection="right"
           />
           Delete

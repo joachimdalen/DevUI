@@ -2,7 +2,6 @@ import * as React from "react";
 import cx from "classnames";
 export interface FontAwesomeIconProps {
   icon: string;
-  margin?: boolean;
   animate?: boolean;
   fixedWidth?: boolean;
   className?: string;
@@ -42,7 +41,6 @@ const _sizeClassFromSize = (size: FAISize) => {
 
 const FontAwesomeIcon = ({
   icon,
-  margin = false,
   marginDirection,
   animate = false,
   animationType,
@@ -67,9 +65,8 @@ const FontAwesomeIcon = ({
         _typeFromStyle(iconStyle),
         icon,
         sizeClass,
-
         { [animationClass]: animate },
-        { [marginClass]: margin }
+        { [marginClass]: marginDirection }
       )}
     />
   );
