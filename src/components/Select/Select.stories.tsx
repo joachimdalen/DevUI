@@ -8,21 +8,15 @@ import { Empty } from "../Empty/Empty";
 import { action } from "@storybook/addon-actions";
 import { Option } from "./SelectTypes";
 import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-/* const optioons = [
-  { label: "Hi", value: "Hi" },
-  { label: "Bye", value: "Bye" },
-  { label: "France", value: 2 }
-]; */
-function getOptions(amount: number): Option[] {
-  let options = [];
+function getOptions(): Option[] {
+  let customers = require('../../../data/invoices.json').map((i: any) => i.customer);
 
-  for (let i = 0; i < amount; i++) {
-    options.push({
-      label: "France => " + i,
-      value: i.toString()
-    });
-  }
-  return options;
+  return customers.map((c: any) => {
+    return {
+      label: [c.last_name, ",", c.prefix, c.first_name].join(' '),
+      value: [c.last_name, ",", c.prefix, c.first_name].join(' ')
+    }
+  });
 }
 
 storiesOf("Controls|Select", module)
@@ -48,8 +42,8 @@ storiesOf("Controls|Select", module)
   ))
   .add("With Data", () => (
     <Select
-      label="Select City"
-      options={getOptions(100)}
+      label="Select Customer"
+      options={getOptions()}
       keepOpenOnLostFocus={boolean("Keep Open", true)}
       disabled={boolean("Disabled", false)}
       showEmptyPlaceholder={boolean("Show empty placeholder", false)}
