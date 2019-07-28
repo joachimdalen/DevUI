@@ -68,14 +68,9 @@ storiesOf("Controls|Select", module)
   .add("With Renderer & Meta", () => (
     <Select
       label="Select City"
-      options={[
-        {
-          label: "Hi",
-          value: "Hi",
-          meta: {
-            firstName: "Devexer"
-          }
-        }
+      options={[{
+        label: "Hi", value: "Hi", meta: { firstName: "Devexer" }
+      }
       ]}
       renderer={option => (
         <SelectOption label={option.label} value={option.value}>
