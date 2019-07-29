@@ -1,6 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { TreeView } from "./TreeView";
+import { TreeViewItem } from "./TreeViewItem";
 import { TreeViewNode } from "./TreeViewTypes";
 import { action } from "@storybook/addon-actions";
 import { boolean } from "@storybook/addon-knobs";
@@ -27,23 +28,5 @@ storiesOf("Components|TreeView", module)
       onCheck={action('onCheck')}
       multiselect={boolean('Multiselect', false)}
     >
-      {/*   <TreeViewItem label="0001 - Finances">
-        <TreeViewItem label="1001 - Car loan" />
-        <TreeViewItem label="1002 - Bank statements" />
-        <TreeViewItem label="1003 - Bills">
-          <TreeViewItem label="1004 - Power" />
-          <TreeViewItem label="1005 - Phone">
-            <TreeViewItem label="1006 - 2016" />
-            <TreeViewItem label="1007 - 2017" />
-            <TreeViewItem label="1008 - 2018" />
-          </TreeViewItem>
-          <TreeViewItem label="1008 - 2018" />
-        </TreeViewItem>
-      </TreeViewItem>
-      <TreeViewItem label="1008 - 2018" >
-        <TreeViewItem label="1008 - 2018" leafIcon="fa-file-pdf" />
-        <TreeViewItem label="1008 - 2018" />
-      </TreeViewItem>
-      <TreeViewItem label="1008 - 2018" /> */}
     </TreeView>
   ));
