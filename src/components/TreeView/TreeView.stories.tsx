@@ -1,7 +1,6 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { TreeView } from "./TreeView";
-import { TreeViewItem } from "./TreeViewItem";
 import { TreeViewNode } from "./TreeViewTypes";
 import { action } from "@storybook/addon-actions";
 import { boolean } from "@storybook/addon-knobs";
