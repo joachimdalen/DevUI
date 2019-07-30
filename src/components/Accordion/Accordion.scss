@@ -54,3 +54,11 @@
     }
   }
 }
+
+.#{$provider-prefix}-accordion-group {
+  width: 100%;
+
+  >.#{$provider-prefix}-accordion {
+    border-bottom: none;
+  }
+}

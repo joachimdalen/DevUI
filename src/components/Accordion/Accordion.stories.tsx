@@ -3,6 +3,7 @@ import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
 import { boolean, text } from "@storybook/addon-knobs";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
+import { AccordionGroup } from "./AccordionGroup";
 
 storiesOf("Components|Accordion", module)
   .add("Basic Accordion", () => (
@@ -28,4 +29,19 @@ storiesOf("Components|Accordion", module)
     >
       Hello
     </Accordion>
+  )).add("Group", () => (
+    <AccordionGroup>
+      <Accordion
+        title={text("Account", "Account")}
+        expanded={boolean("expanded", true)}
+      >
+        Hello
+    </Accordion>
+      <Accordion
+        title={text("Account", "Account")}
+        expanded={boolean("expanded", true)}
+      >
+        Hello
+    </Accordion>
+    </AccordionGroup>
   ));
