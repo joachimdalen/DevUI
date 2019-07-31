@@ -7,6 +7,7 @@ export interface AccordionProps {
   expandIcon?: string | React.ReactElement;
   collapseIcon?: string | React.ReactElement;
   expanded?: boolean;
+  borderless?: boolean;
 }
 interface AccordionState {
   expanded: boolean;
@@ -28,7 +29,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
     }
   }
   public render() {
-    const { children, title, expandIcon, collapseIcon } = this.props;
+    const { children, title, expandIcon, collapseIcon, borderless } = this.props;
     const { expanded } = this.state;
     const caretIcon = (
       <FontAwesomeIcon
@@ -43,7 +44,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
       ? collapseIcon
       : caretIcon;
     return (
-      <div className={cx("dui-accordion", { "dui-accordion-expanded": expanded })}>
+      <div className={cx("dui-accordion", { "dui-accordion-expanded": expanded }, { "dui-accordion-borderless": borderless })}>
         <div
           className="dui-accordion-header"
           onClick={() => this.setState({ expanded: !expanded })}

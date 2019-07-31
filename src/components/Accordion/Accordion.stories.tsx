@@ -14,6 +14,15 @@ storiesOf("Components|Accordion", module)
       Hello
     </Accordion>
   ))
+  .add("Borderless", () => (
+    <Accordion
+      title={text("Account", "Account")}
+      expanded={boolean("expanded", true)}
+      borderless={boolean("borderless", true)}
+    >
+      Hello
+    </Accordion>
+  ))
   .add("Custom Title", () => (
     <Accordion
       title={

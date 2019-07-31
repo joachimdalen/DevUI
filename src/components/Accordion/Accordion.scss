@@ -1,8 +1,11 @@
 .#{$provider-prefix}-accordion {
   width: 100%;
-  border: $accordion-border-width solid $accordion-border-color;
   background-color: $accordion-background;
   outline: none;
+
+  .#{$provider-prefix}-accordion:not(.#{provider-prefix}-accordion-borderless) {
+    border: $accordion-border-width solid $accordion-border-color;
+  }
 
   &-header {
     padding: $accordion-header-padding;
@@ -33,7 +36,6 @@
   }
 
   &-content {
-    border: $accordion-border-width solid $accordion-border-color;
     padding: $accordion-content-padding;
     height: auto;
     display: none;
@@ -58,7 +60,7 @@
 .#{$provider-prefix}-accordion-group {
   width: 100%;
 
-  >.#{$provider-prefix}-accordion {
-    border-bottom: none;
+  >.#{$provider-prefix}-accordion~.#{$provider-prefix}-accordion {
+    border-top: none;
   }
 }
