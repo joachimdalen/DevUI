@@ -3,10 +3,6 @@
   background-color: $accordion-background;
   outline: none;
 
-  .#{$provider-prefix}-accordion:not(.#{provider-prefix}-accordion-borderless) {
-    border: $accordion-border-width solid $accordion-border-color;
-  }
-
   &-header {
     padding: $accordion-header-padding;
     display: flex;
@@ -63,4 +59,8 @@
   >.#{$provider-prefix}-accordion~.#{$provider-prefix}-accordion {
     border-top: none;
   }
+}
+
+.#{$provider-prefix}-accordion:not(.#{$provider-prefix}-accordion-borderless) {
+  border: $accordion-border-width solid $accordion-border-color;
 }
