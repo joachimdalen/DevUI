@@ -8,6 +8,7 @@ export interface AccordionProps {
   collapseIcon?: string | React.ReactElement;
   expanded?: boolean;
   borderless?: boolean;
+  onToggle?: (state: boolean) => void;
 }
 interface AccordionState {
   expanded: boolean;
@@ -29,7 +30,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
     }
   }
   public render() {
-    const { children, title, expandIcon, collapseIcon, borderless } = this.props;
+    const { children, title, expandIcon, collapseIcon, borderless, onToggle } = this.props;
     const { expanded } = this.state;
     const caretIcon = (
       <FontAwesomeIcon
@@ -47,7 +48,9 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
       <div className={cx("dui-accordion", { "dui-accordion-expanded": expanded }, { "dui-accordion-borderless": borderless })}>
         <div
           className="dui-accordion-header"
-          onClick={() => this.setState({ expanded: !expanded })}
+          onClick={() => this.setState({ expanded: !expanded }, () => {
+            onToggle && onToggle(this.state.expanded);
+          })}
         >
           <p className="dui-accordion-header-content">{title}</p>
           <span className="dui-accordion-header-toggle">
