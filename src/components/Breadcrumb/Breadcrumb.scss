@@ -1,0 +1,9 @@
+.#{$provider-prefix}-breadcrumbs{
+    padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+&-item{
+    display: inline;
+    font-size: 18px;
+}
+}
