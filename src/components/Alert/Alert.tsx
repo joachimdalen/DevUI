@@ -9,6 +9,7 @@ export interface AlertProps {
   message: string;
   description?: string;
   onClose?: () => void;
+  withIcon?: boolean;
   icon?: string;
 }
 export class Alert extends React.Component<AlertProps> {
@@ -38,7 +39,8 @@ export class Alert extends React.Component<AlertProps> {
       message,
       description,
       onClose,
-      icon
+      icon,
+      withIcon
     } = this.props;
     const closable = onClose !== null;
     const baseComponent = (
@@ -60,7 +62,7 @@ export class Alert extends React.Component<AlertProps> {
       `dui-alert-${variant}`,
       className
     );
-    if (icon) {
+    if (withIcon) {
       const itemIcon = icon ? `fa-${icon}` : this._getIconFromVariant();
       return (
         <div className={baseClass}>
