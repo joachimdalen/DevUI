@@ -10,6 +10,11 @@
   background-color: $table-background;
   color: $table-color;
   width: 100%;
+  &-condensed{
+    .#{$provider-prefix}-table-cell {
+      padding: $table-condensed-cell-padding;
+    }
+  }
   &-bordered {
     .#{$provider-prefix}-table-row,
     .#{$provider-prefix}-table-cell {
@@ -33,7 +38,7 @@
     }
   }
   &-search {
-    .#{$provider-prefix}-table-cell {
+    .#{$provider-prefix}-row-header .#{$provider-prefix}-table-cell {
       vertical-align: top;
     }
   }

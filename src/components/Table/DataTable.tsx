@@ -49,9 +49,12 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
 
   static defaultProps: Partial<DataTableProps> = {
     showEmpty: false,
-    emptyComp: <Empty header="No data" image={
-      <FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />
-    } />
+    emptyComp: (
+      <Empty
+        header="No data"
+        image={<FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />}
+      />
+    )
   };
 
   componentDidMount() {
@@ -101,7 +104,9 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
               columns={this.props.columns}
               visibleColumns={this.state.visibleColumns}
               onColumnUpdate={this._setVisibleColumns}
-              forcedColumns={this.props.columns.filter(i => i.forceVisible === true).map(i => i.key)}
+              forcedColumns={this.props.columns
+                .filter(i => i.forceVisible === true)
+                .map(i => i.key)}
             />
           ) as any)}
         {paginationEnabled &&
@@ -202,16 +207,18 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
                   <FontAwesomeIcon iconStyle="solid" icon="fa-sort" />
                 </div>
               ) : (
-                  <div>
-                    <span>{col.label}</span>
-                  </div>
-                )}
+                <div>
+                  <span>{col.label}</span>
+                </div>
+              )}
               {col.searchable && (
                 <div>
                   <TextInput
                     name="filter"
                     size="small"
-                    prefix={<FontAwesomeIcon iconStyle="solid" icon="fa-search" />}
+                    prefix={
+                      <FontAwesomeIcon iconStyle="solid" icon="fa-search" />
+                    }
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       this._handleSearch(col.key, e.target.value)
                     }
@@ -296,21 +303,21 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
         rowItems =
           sortDirection === "asc"
             ? rowItems.sort((a: Column, b: Column) =>
-              sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
-            )
+                sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
+              )
             : rowItems.sort((a: Column, b: Column) =>
-              sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
-            );
+                sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
+              );
       } else {
         let sortKey = sortBy.key;
         rowItems =
           sortDirection === "asc"
             ? rowItems.sort((a: Column, b: Column) =>
-              a[sortKey] < b[sortKey] ? 0 : 1
-            )
+                a[sortKey] < b[sortKey] ? 0 : 1
+              )
             : rowItems.sort((a: Column, b: Column) =>
-              a[sortKey] > b[sortKey] ? 0 : 1
-            );
+                a[sortKey] > b[sortKey] ? 0 : 1
+              );
       }
     }
 
@@ -337,7 +344,9 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
               .map((col: Column) => {
                 const cellValue = col.renderer
                   ? col.renderer(row)
-                  : col.accessor ? col.accessor(row) : row[col.key];
+                  : col.accessor
+                  ? col.accessor(row)
+                  : row[col.key];
                 return (
                   <TableCell className={cx(col.className)}>
                     {cellValue}

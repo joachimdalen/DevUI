@@ -210,6 +210,11 @@ $table-cell-padding-x: 8px !default;
 $table-cell-padding-y: 8px !default;
 $table-cell-padding: $table-cell-padding-y $table-cell-padding-x !default;
 
+$table-condensed-cell-padding-x: 2px !default;
+$table-condensed-cell-padding-y: 2px !default;
+$table-condensed-cell-padding: $table-condensed-cell-padding-y
+  $table-condensed-cell-padding-x !default;
+
 /* CHECKBOX */
 $checkbox-padding-left: 25px !default;
 $checkbox-no-label-padding-left: 16px !default;
