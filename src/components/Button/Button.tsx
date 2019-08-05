@@ -19,6 +19,7 @@ export interface ButtonProps extends CustomComponent {
   loadingText?: string;
   icon?: string | React.ReactElement;
   className?: string;
+  fixedIconSize?: boolean;
 }
 
 export class Button extends React.Component<ButtonProps> {
@@ -29,7 +30,8 @@ export class Button extends React.Component<ButtonProps> {
     size: "medium",
     outlined: false,
     dashed: false,
-    loading: false
+    loading: false,
+    fixedIconSize: false
   };
   public render() {
     const {
@@ -48,6 +50,7 @@ export class Button extends React.Component<ButtonProps> {
       className,
       component,
       componentProps,
+      fixedIconSize,
       ...rest
     } = this.props;
 
@@ -65,13 +68,16 @@ export class Button extends React.Component<ButtonProps> {
     const buttonSizeClass = isDefaultSize
       ? ""
       : size === "small"
-        ? "small"
-        : "large";
+      ? "small"
+      : "large";
     const isIconOnly = hasButtonText === false;
     const buttonClass = cx(
       baseButtonClass,
       { disabled: disabled && !loading },
-      { [`${baseButtonClass}-${variant}`]: !isDefaultVariant && !outlined && !linkButton },
+      {
+        [`${baseButtonClass}-${variant}`]:
+          !isDefaultVariant && !outlined && !linkButton
+      },
       { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
       { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
       { [`${baseButtonClass}-dashed`]: dashed && outlined && !linkButton },
@@ -82,7 +88,6 @@ export class Button extends React.Component<ButtonProps> {
       className
     );
 
-
     const loadingIconComp = (
       <FontAwesomeIcon
         iconStyle="solid"
@@ -90,19 +95,19 @@ export class Button extends React.Component<ButtonProps> {
         animationType="spin"
         marginDirection="right"
         icon={loadingIconClass}
-        fixedWidth={isIconOnly}
+        fixedWidth={isIconOnly || fixedIconSize}
       />
     );
     const iconComp = React.isValidElement(icon) ? (
       icon
     ) : (
-        <FontAwesomeIcon
-          iconStyle="solid"
-          icon={icon as string}
-          marginDirection={hasButtonText ? "right" : undefined}
-          fixedWidth={isIconOnly}
-        />
-      );
+      <FontAwesomeIcon
+        iconStyle="solid"
+        icon={icon as string}
+        marginDirection={hasButtonText ? "right" : undefined}
+        fixedWidth={isIconOnly || fixedIconSize}
+      />
+    );
     const content = (
       <React.Fragment>
         {loading && loadingIconComp}

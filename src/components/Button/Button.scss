@@ -34,15 +34,15 @@
     display: block;
     width: 100%;
   }
-  &-link{
+  &-link {
     background-color: transparent;
     box-shadow: none;
     border: none;
-    outline:none;
+    outline: none;
     color: blue;
     text-decoration: none;
 
-    &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading){
+    &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
       text-decoration: underline;
       cursor: pointer;
       background-color: transparent;
