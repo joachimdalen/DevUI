@@ -11,7 +11,7 @@
   transition: border-color 0.15s ease-in-out;
   margin: $text-input-margin;
   line-height: 1.5;
-  &:hover:not(:focus):not(&.#{$provider-prefix}-input-diabled) {
+  &:hover:not(:focus):not(&.#{$provider-prefix}-input-disabled) {
     border-color: $color-blue;
   }
   &:focus {
@@ -109,7 +109,7 @@
   .#{$provider-prefix}-input {
     border: none;
     box-shadow: none;
-    color: $color-text-gray;
+    color: $text-input-color;
     margin: 0;
     padding: 0 25px;
     &-prefix,
