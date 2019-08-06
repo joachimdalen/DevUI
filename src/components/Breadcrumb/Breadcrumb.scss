@@ -1,9 +1,13 @@
-.#{$provider-prefix}-breadcrumbs{
-    padding: 10px 16px;
+.#{$provider-prefix}-breadcrumb {
+  padding: 10px 16px;
   list-style: none;
-  background-color: #eee;
-&-item{
-    display: inline;
-    font-size: 18px;
-}
+  display: flex;
+  flex-direction: row;
+  font-weight: normal;
+  &-item {
+    & ~ ::before {
+      content: ">";
+      margin: 0 5px;
+    }
+  }
 }
