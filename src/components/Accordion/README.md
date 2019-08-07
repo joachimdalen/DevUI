@@ -27,7 +27,7 @@ An accordion acts as a expansion panel allowing the user to toggle the display o
 </Accordion>
 ```
 
-For more exapmples, see `Accordion.stories.tsx`
+For more examples, see `Accordion.stories.tsx`
 
 # Accordion Group
 
