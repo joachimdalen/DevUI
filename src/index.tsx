@@ -1,4 +1,6 @@
-export { default as FontAwesomeIcon } from "./components/FontAwesomeIcon/FontAwesomeIcon";
+export {
+  default as FontAwesomeIcon
+} from "./components/FontAwesomeIcon/FontAwesomeIcon";
 export {
   SocialButton,
   SocialProviders
@@ -7,7 +9,10 @@ export { Accordion } from "./components/Accordion/Accordion";
 export { Alert } from "./components/Alert/Alert";
 export { Avatar } from "./components/Avatar/Avatar";
 export { Badge } from "./components/Badge/Badge";
+export { Breadcrumb } from "./components/Breadcrumb/Breadcrumb";
+export { BreadcrumbItem } from "./components/Breadcrumb/BreadcrumbItem";
 export { Button } from "./components/Button/Button";
+export { ButtonGroup } from "./components/Button/ButtonGroup";
 export { Card } from "./components/Card/Card";
 export { CardBody } from "./components/Card/CardBody";
 export { CardFooter } from "./components/Card/CardFooter";
@@ -23,7 +28,7 @@ export { HeaderBrand } from "./components/Header/HeaderBrand";
 export { HeaderItem } from "./components/Header/HeaderItem";
 export { HeaderUserMenu } from "./components/Header/HeaderUserMenu";
 export { HeaderUserMenuItem } from "./components/Header/HeaderUserMenuItem";
-export { Image } from './components/Image/Image';
+export { Image } from "./components/Image/Image";
 export { List } from "./components/List/List";
 export { ListActionItem } from "./components/List/ListActionItem";
 export { ListItem } from "./components/List/ListItem";
@@ -31,6 +36,9 @@ export { Modal, Props as ModalProps } from "./components/Modal/Modal";
 export { ModalBody } from "./components/Modal/ModalBody";
 export { ModalFooter } from "./components/Modal/ModalFooter";
 export { ModalHeader } from "./components/Modal/ModalHeader";
+export { NumberInput } from "./components/NumberInput/NumberInput";
+export { OverflowMenu } from "./components/OverflowMenu/OverflowMenu";
+export { OverflowMenuItem } from "./components/OverflowMenu/OverflowMenuItem";
 export { Overlay } from "./components/Overlay/Overlay";
 export { ProgressBar } from "./components/ProgressBar/ProgressBar";
 export { Select } from "./components/Select/Select";
@@ -54,8 +62,11 @@ export { TextArea } from "./components/TextArea/TextArea";
 export { TextInput } from "./components/TextInput/TextInput";
 export { Toast } from "./components/Toast/Toast";
 export { Toggle } from "./components/Toggle/Toggle";
-export { OverflowMenu } from "./components/OverflowMenu/OverflowMenu";
-export { OverflowMenuItem } from "./components/OverflowMenu/OverflowMenuItem";
+export { TreeView } from "./components/TreeView/TreeView";
+export { TreeViewItem } from "./components/TreeView/TreeViewItem";
 export * from "./components/common";
+export * from "./components/Header/HeaderTypes";
+export * from "./components/Select/SelectTypes";
 export * from "./components/TabControl/TabControlTypes";
 export * from "./components/Table/TableTypes";
+export * from "./components/TreeView/TreeViewTypes";
