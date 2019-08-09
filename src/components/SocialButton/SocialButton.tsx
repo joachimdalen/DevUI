@@ -17,7 +17,7 @@ export type SocialProviders =
   | "twitter"
   | "youtube";
 
-export interface Props {
+export interface SocialButtonProps {
   provider: SocialProviders;
   darkText?: boolean;
   iconOnly?: boolean;
@@ -27,15 +27,20 @@ export interface Props {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export class SocialButton extends React.Component<Props> {
+export class SocialButton extends React.Component<SocialButtonProps> {
+  static defaultProps: Partial<SocialButtonProps> = {
+    className: "",
+    iconOnly: false,
+    darkText: false
+  };
   render() {
     const {
       provider,
-      className = "",
-      iconOnly = false,
+      className,
+      iconOnly,
       icon,
       text,
-      darkText = false,
+      darkText,
       onClick
     } = this.props;
     const buttonClass = cx(

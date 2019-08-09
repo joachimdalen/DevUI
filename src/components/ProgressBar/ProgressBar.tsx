@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-export interface Props {
+export interface ProgressBarProps {
   className?: string;
   completed: number;
   striped?: boolean;
@@ -10,15 +10,21 @@ export interface Props {
   title?: string;
 }
 
-export class ProgressBar extends React.Component<Props> {
+export class ProgressBar extends React.Component<ProgressBarProps> {
+  static defaultProps: Partial<ProgressBarProps> = {
+    className: "",
+    variant: "default",
+    striped: false,
+    animated: false
+  };
   public render() {
     const {
-      className = "",
-      variant = "default",
+      className,
+      variant,
       completed,
       title,
-      striped = false,
-      animated = false
+      striped,
+      animated
     } = this.props;
 
     const innerClass = cx(

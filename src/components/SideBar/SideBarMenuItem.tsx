@@ -26,17 +26,23 @@ export class SideBarMenuItem extends React.Component<
   state = {
     subMenuVisible: false
   };
+  static defaultProps: Partial<SideBarMenuItemProps> = {
+    isHeader: false,
+    active: false,
+    hasSubmenu: false,
+    className: ""
+  };
   render() {
     const {
       children,
-      isHeader = false,
-      active = false,
+      isHeader,
+      active,
       icon,
       expandIcon,
       collapseIcon,
       label,
-      hasSubmenu = false,
-      className = "",
+      hasSubmenu,
+      className,
       component,
       componentProps
     } = this.props;
