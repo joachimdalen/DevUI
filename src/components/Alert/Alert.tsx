@@ -66,7 +66,7 @@ export class Alert extends React.Component<AlertProps> {
       const itemIcon = icon ? `fa-${icon}` : this._getIconFromVariant();
       return (
         <div className={baseClass}>
-          <span>
+          <span className="dui-alert-icon-container">
             <FontAwesomeIcon iconStyle="solid" icon={cx("fa-fw", itemIcon)} />
           </span>
           <div className={cx("dui-alert-wi-content")}>{baseComponent}</div>

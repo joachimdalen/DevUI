@@ -23,7 +23,7 @@ storiesOf("Display Components|Alert", module)
       message="This is the message"
       description="This is the description"
       variant={select("Variant", typeOptions, "info") as AlertVariant}
-      icon="fas fa-comment"
+      withIcon
     />
   ))
   .add("Closable", () => (
