@@ -7,6 +7,7 @@ import cx from "classnames";
 import * as React from "react";
 export interface Props {
   onToggleClick?: () => void;
+  responsive?: boolean;
   brand?: React.ReactElement<HeaderBrand>;
   userMenu?: React.ReactElement<HeaderUserMenu>;
   children?: React.ReactElement<HeaderItem> | React.ReactElement<HeaderItem>[];
@@ -14,14 +15,23 @@ export interface Props {
 }
 interface State {
   userMenuVisible: boolean;
+  mobileExpanded: boolean;
 }
 export class Header extends React.Component<Props, State> {
   state = {
-    userMenuVisible: false
+    userMenuVisible: false,
+    mobileExpanded: false
   };
   render() {
-    const { onToggleClick, brand, children, userMenu, toggleIcon } = this.props;
-    const { userMenuVisible } = this.state;
+    const {
+      onToggleClick,
+      brand,
+      children,
+      userMenu,
+      toggleIcon,
+      responsive
+    } = this.props;
+    const { userMenuVisible, mobileExpanded } = this.state;
     const contextValue: HeaderContextType = {
       toggled: this.state.userMenuVisible,
       onUserMenuToggle: () => {
@@ -30,7 +40,11 @@ export class Header extends React.Component<Props, State> {
     };
     const isCustomToggle = React.isValidElement(toggleIcon);
     return (
-      <header className={cx("dui-header")}>
+      <header
+        className={cx("dui-header", {
+          "dui-header-toggled": responsive && mobileExpanded
+        })}
+      >
         <HeaderProvider value={contextValue}>
           {onToggleClick && (
             <div className="dui-header-toggle" onClick={onToggleClick}>
@@ -46,6 +60,19 @@ export class Header extends React.Component<Props, State> {
 
           {userMenu && userMenu}
         </HeaderProvider>
+        <div
+          className="dui-header-mobile-toggle"
+          onClick={() =>
+            this.setState({ mobileExpanded: !this.state.mobileExpanded })
+          }
+        >
+          <FontAwesomeIcon
+            icon={mobileExpanded ? "fa-times" : "fa-bars"}
+            iconStyle="solid"
+            size="large"
+            fixedWidth
+          />
+        </div>
       </header>
     );
   }

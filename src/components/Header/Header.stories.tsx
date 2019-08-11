@@ -7,9 +7,35 @@ import { HeaderItem } from "./HeaderItem";
 import { HeaderBrand } from "./HeaderBrand";
 import { HeaderUserMenu } from "./HeaderUserMenu";
 import { HeaderUserMenuItem } from "./HeaderUserMenuItem";
-storiesOf("Layout|Header", module).add("Default", () => (
-  <div style={{ minWidth: "500px" }}>
+storiesOf("Layout|Header", module)
+  .add("Default", () => (
+    <div style={{ minWidth: "500px" }}>
+      <Header
+        brand={<HeaderBrand>Hello</HeaderBrand>}
+        userMenu={
+          <HeaderUserMenu
+            username="Joachim"
+            avatar="http://placehold.it/100x100"
+          >
+            <HeaderUserMenuItem>Hello</HeaderUserMenuItem>
+          </HeaderUserMenu>
+        }
+      >
+        <HeaderItem onClick={action("itemClick")}>Hello</HeaderItem>
+        <HeaderItem onClick={action("itemClick")}>
+          <FontAwesomeIcon
+            iconStyle="solid"
+            icon="fa-user"
+            marginDirection="right"
+          />
+          Hello
+        </HeaderItem>
+      </Header>
+    </div>
+  ))
+  .add("Responsive", () => (
     <Header
+      responsive
       brand={<HeaderBrand>Hello</HeaderBrand>}
       userMenu={
         <HeaderUserMenu username="Joachim" avatar="http://placehold.it/100x100">
@@ -27,5 +53,4 @@ storiesOf("Layout|Header", module).add("Default", () => (
         Hello
       </HeaderItem>
     </Header>
-  </div>
-));
+  ));

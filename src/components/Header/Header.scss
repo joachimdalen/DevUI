@@ -18,6 +18,10 @@
       cursor: pointer;
     }
   }
+  &-mobile-toggle {
+    display: none;
+  }
+
   &-brand {
     padding: 10px 20px;
     font-size: 20px;
@@ -25,7 +29,8 @@
     display: flex;
     align-items: center;
   }
-  &-brand, &-item{
+  &-brand,
+  &-item {
     text-decoration: none;
     color: inherit;
     a {
@@ -50,7 +55,7 @@
       background-color: $header-item-hover-background;
       color: $header-item-hover-color;
     }
-    &-active{
+    &-active {
       background-color: $header-item-active-background;
       color: $header-item-active-color;
     }
@@ -119,7 +124,7 @@
         .dui-header-user-menu-item {
           padding: 8px 5px;
           border-radius: 5px;
-          color:  $user-dropdown-item-color;
+          color: $user-dropdown-item-color;
           text-decoration: none;
           &:hover:not(.dui-header-user-menu-item-header) {
             background-color: $user-dropdown-item-hover-background;
@@ -144,6 +149,55 @@
               content: "";
               height: 2px;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .#{$provider-prefix}-header {
+    position: relative;
+    &-mobile-toggle {
+      height: 100%;
+      align-items: center;
+      display: flex;
+      margin-left: auto;
+      .#{$provider-prefix}-icon {
+        margin: 0 10px;
+      }
+      &:hover {
+        background-color: $header-toggle-background;
+        transition: background-color 0.5s ease;
+        color: $header-toggle-hover-color;
+        cursor: pointer;
+      }
+    }
+    &-items,
+    &-user-menu {
+      display: none;
+    }
+    &-toggled {
+      .#{$provider-prefix}-header {
+        &-items {
+          position: absolute;
+          display: flex;
+          left: 0;
+          top: 44px;
+          right: 0;
+          background-color: white;
+          bottom: 0;
+          color: black;
+          flex-direction: column;
+        }
+        &-item {
+          width: 100%;
+          padding: 10px 15px;
+          &:hover {
+            cursor: pointer;
+            color: $header-item-hover-background;
+            background-color: $header-item-hover-color;
           }
         }
       }
