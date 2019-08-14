@@ -468,6 +468,14 @@ $header-item-hover-background: $header-color !default;
 $header-item-hover-color: $header-background !default;
 $header-item-active-background: $header-color !default;
 $header-item-active-color: $header-background !default;
+$header-item-mobile-background: $color-light !default;
+$header-item-mobile-color: $color-dark !default;
+$header-item-mobile-hover-background: $color-dark !default;
+$header-item-mobile-hover-color: $color-light !default;
+$header-item-mobile-padding-x: 15px !default;
+$header-item-mobile-padding-y: 10px !default;
+$header-item-mobile-padding: $header-item-mobile-padding-y
+  $header-item-mobile-padding-x !default;
 $user-menu-visible-color: $color-light !default;
 $user-menu-visible-background: $color-dark !default;
 $user-avatar-border-color: none !default;

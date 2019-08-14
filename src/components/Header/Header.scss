@@ -183,21 +183,21 @@
         &-items {
           position: absolute;
           display: flex;
+          top: $header-height;
           left: 0;
-          top: 44px;
           right: 0;
-          background-color: white;
+          background-color: $header-item-mobile-background;
           bottom: 0;
-          color: black;
+          color: $header-item-mobile-color;
           flex-direction: column;
         }
         &-item {
           width: 100%;
-          padding: 10px 15px;
+          padding: $header-item-mobile-padding;
           &:hover {
             cursor: pointer;
-            color: $header-item-hover-background;
-            background-color: $header-item-hover-color;
+            color: $header-item-mobile-hover-color;
+            background-color: $header-item-mobile-hover-background;
           }
         }
       }
