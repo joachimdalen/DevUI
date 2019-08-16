@@ -168,9 +168,9 @@
         margin: 0 10px;
       }
       &:hover {
-        background-color: $header-toggle-background;
+        background-color: $header-toggle-mobile-background;
         transition: background-color 0.5s ease;
-        color: $header-toggle-hover-color;
+        color: $header-toggle-mobile-hover-color;
         cursor: pointer;
       }
     }
