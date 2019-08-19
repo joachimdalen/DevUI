@@ -520,3 +520,16 @@ $overflow-menu-item-color: $color-dark !default;
 $overflow-menu-item-hover-background: $color-disabled !default;
 $overflow-menu-item-hover-color: $color-dark !default;
 $overflow-menu-skip: 33px !default;
+
+/* Radiobutton */
+$radiobutton-padding-left: 25px !default;
+$radiobutton-margin-x: 3px !default;
+$radiobutton-margin-y: 3px !default;
+$radiobutton-margin: $radiobutton-margin-y $radiobutton-margin-x !default;
+$radiobutton-font-size: $font-size-normal !default;
+$radiobutton-selected-height: 15px !default;
+$radiobutton-selected-width: 15px !default;
+$radiobutton-selected-border-radius: 50% !default;
+$radiobutton-selected-background: $color-disabled !default;
+$radiobutton-selected-hover-background: darken($color-disabled, 20%) !default;
+$radiobutton-mark-color: $color-dark !default;

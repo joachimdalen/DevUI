@@ -41,6 +41,7 @@ export { OverflowMenu } from "./components/OverflowMenu/OverflowMenu";
 export { OverflowMenuItem } from "./components/OverflowMenu/OverflowMenuItem";
 export { Overlay } from "./components/Overlay/Overlay";
 export { ProgressBar } from "./components/ProgressBar/ProgressBar";
+export { RadioButton } from "./components/RadioButton/RadioButton";
 export { Select } from "./components/Select/Select";
 export { SelectOption } from "./components/Select/SelectOption";
 export { SideBar } from "./components/SideBar/SideBar";

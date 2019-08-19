@@ -1,0 +1,10 @@
+@mixin radiobutton-variant($parent, $color) {
+  &#{$parent} {
+    input:checked ~ .#{$provider-prefix}-radiobutton-selected {
+      background-color: $color !important;
+    }
+    .#{$provider-prefix}-radiobutton-selected:after {
+      background-color: colorFromBackground($color) !important;
+    }
+  }
+}
