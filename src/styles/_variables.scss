@@ -420,16 +420,15 @@ $modal-body-padding: $modal-body-padding-y $modal-body-padding-x !default;
 $modal-top-margin: 25px !default;
 $modal-zindex: 9999 !default;
 
-$form-group-label-font-weight: $font-weight-bold !default;
+$form-group-label-font-weight: $font-weight-regular !default;
 $form-group-label-font-size: $font-size-normal !default;
-$form-group-label-margin-bottom: 5px !default;
+$form-group-label-margin-bottom: 8px !default;
+$form-group-extra-margin-top: 4px !default;
 $form-group-extra-font-size: 10px !default;
 $form-group-extra-color: #777 !default;
 $form-group-notice-font-size: $font-size-small !default;
 $form-group-notice-background: #fbff00 !default;
 $form-group-notice-color: $color-dark !default;
-$form-group-error-font-weight: $font-weight-bold !default;
-$form-group-error-font-size: $font-size-small !default;
 $form-group-required-font-size: 10px !default;
 
 $alert-border-width: 1px !default;

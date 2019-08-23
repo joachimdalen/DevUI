@@ -13,6 +13,7 @@
   &-extra {
     font-size: $form-group-extra-font-size;
     color: $form-group-extra-color;
+    margin-top: $form-group-extra-margin-top;
     &-success {
       color: $color-success;
     }
@@ -32,8 +33,6 @@
   }
   &-error {
     color: $color-danger;
-    font-weight: $form-group-error-font-weight;
-    font-size: $form-group-error-font-size;
   }
   .#{$provider-prefix}-select,
   .#{$provider-prefix}-input,
@@ -49,13 +48,12 @@
       font-size: $form-group-required-font-size;
     }
   }
-  &-label-inline
-  {
+  &-label-inline {
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     align-items: center;
 
-    .#{$provider-prefix}-form-group-content{
+    .#{$provider-prefix}-form-group-content {
       margin-left: 15px;
     }
   }
