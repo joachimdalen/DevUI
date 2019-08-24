@@ -177,6 +177,7 @@
     &-items,
     &-user-menu {
       display: none;
+      z-index: 9999;
     }
     &-toggled {
       .#{$provider-prefix}-header {
