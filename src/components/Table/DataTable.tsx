@@ -325,38 +325,40 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
       rowItems = rowItems.slice(from - 1, to);
     }
 
-    let renderedRows = rowItems.map((row: any) => {
-      const isRowChecked = checked && checked.indexOf(row) !== -1;
-      return (
-        <TableRow checked={isRowChecked && multiSelect}>
-          {multiSelect && visibleColumns.length !== 0 && (
-            <TableCell className={checkCellClass}>
-              <CheckBox
-                label="xx"
-                checked={isRowChecked}
-                onCheckChange={() => this._toggleItem(row)}
-              />
-            </TableCell>
-          )}
-          {
-            columns
-              .filter((i: Column) => visibleColumns.indexOf(i.key) !== -1)
-              .map((col: Column) => {
-                const cellValue = col.renderer
-                  ? col.renderer(row)
-                  : col.accessor
-                  ? col.accessor(row)
-                  : row[col.key];
-                return (
-                  <TableCell className={cx(col.className)}>
-                    {cellValue}
-                  </TableCell>
-                );
-              }) as any
-          }
-        </TableRow>
-      );
-    });
+    let renderedRows =
+      rowItems &&
+      rowItems.map((row: any) => {
+        const isRowChecked = checked && checked.indexOf(row) !== -1;
+        return (
+          <TableRow checked={isRowChecked && multiSelect}>
+            {multiSelect && visibleColumns.length !== 0 && (
+              <TableCell className={checkCellClass}>
+                <CheckBox
+                  label="xx"
+                  checked={isRowChecked}
+                  onCheckChange={() => this._toggleItem(row)}
+                />
+              </TableCell>
+            )}
+            {
+              columns
+                .filter((i: Column) => visibleColumns.indexOf(i.key) !== -1)
+                .map((col: Column) => {
+                  const cellValue = col.renderer
+                    ? col.renderer(row)
+                    : col.accessor
+                    ? col.accessor(row)
+                    : row[col.key];
+                  return (
+                    <TableCell className={cx(col.className)}>
+                      {cellValue}
+                    </TableCell>
+                  );
+                }) as any
+            }
+          </TableRow>
+        );
+      });
     return renderedRows;
   }
 }
