@@ -14,15 +14,13 @@ export class Card extends React.Component<CardProps> {
   public render() {
     const { children, image, imagePlacement, width, className } = this.props;
     const cardWidth = isNumber(width) ? `${width}px` : width;
+    const baseClass = cx(
+      "dui-card",
+      { [`dui-card-image-${imagePlacement}`]: image !== undefined },
+      className
+    );
     return (
-      <div
-        className={cx(
-          "dui-card",
-          { [`dui-card-image-${imagePlacement}`]: image !== undefined },
-          className
-        )}
-        style={{ width: cardWidth }}
-      >
+      <div className={baseClass} style={{ width: cardWidth }}>
         {image && <CardImage image={image} />}
         {image === null ? (
           children

@@ -11,16 +11,11 @@ export class CardBody extends React.Component<CardBodyProps> {
   };
   public render() {
     const { children, className, noPadding } = this.props;
-    return (
-      <div
-        className={cx(
-          "dui-card-body",
-          { "dui-card-body-np": noPadding },
-          className
-        )}
-      >
-        {children}
-      </div>
+    const baseClass = cx(
+      "dui-card-body",
+      { "dui-card-body-np": noPadding },
+      className
     );
+    return <div className={baseClass}>{children}</div>;
   }
 }
