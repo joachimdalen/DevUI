@@ -47,9 +47,8 @@
     }
   }
   &-menu {
-    margin-top: 10px;
     width: 100%;
-    height: calc(100% - 10px);
+    height: 100%;
     &-item {
       padding: 10px 20px;
       font-size: 14px;
@@ -169,7 +168,7 @@
       display: none;
     }
   }
-  &-addon{
+  &-addon {
     background-color: $sidebar-submenu-background;
     min-height: 80px;
   }
