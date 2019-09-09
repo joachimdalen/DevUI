@@ -14,6 +14,9 @@
   &-preview {
     white-space: nowrap;
   }
+  &-placeholder {
+    color: $select-placeholder-color;
+  }
   &.disabled {
     background-color: $select-disabled-background;
     color: $select-disabled-color;

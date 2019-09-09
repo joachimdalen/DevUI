@@ -10,8 +10,8 @@ export interface Props {
   label: string;
   options?: Option[];
   children?:
-  | React.ReactElement<SelectOption>
-  | React.ReactElement<SelectOption>[];
+    | React.ReactElement<SelectOption>
+    | React.ReactElement<SelectOption>[];
   iconOpen?: string | React.ReactNode;
   iconClose?: string | React.ReactNode;
   keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
@@ -49,8 +49,12 @@ export class Select extends React.Component<Props, State> {
     const { disabled } = this.props;
     const containerClass = cx("dui-select", { disabled: disabled });
     const infoClass = cx("dui-select-info");
-    const previewClass = cx("dui-select-preview");
-    const caretContainerClass = cx("dui-select-caret-container");
+    const previewClass = cx("dui-select-preview", {
+      "dui-select-placeholder": isUndefined(this.state.selectedItem)
+    });
+    const caretContainerClass = cx("dui-select-caret-container", {
+      "dui-select-placeholder": isUndefined(this.state.selectedItem)
+    });
     const optionsClass = cx("dui-select-options");
     const optionsListClass = cx("dui-select-options-list");
     const caretIcon = expanded ? "fa-caret-up" : "fa-caret-down";
@@ -110,9 +114,14 @@ export class Select extends React.Component<Props, State> {
       emptyPlaceholder
     } = this.props;
     if (!options || (!options.length && showEmptyPlaceholder)) {
-      return emptyPlaceholder || <Empty header="No options" image={
-        <FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />
-      } />;
+      return (
+        emptyPlaceholder || (
+          <Empty
+            header="No options"
+            image={<FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />}
+          />
+        )
+      );
     }
     return options.map((option: Option) => {
       return (
