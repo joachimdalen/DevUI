@@ -1,0 +1,24 @@
+.#{$provider-prefix}-panel {
+  width: 100%;
+  border: 1px solid $color-border;
+
+  &-header {
+    width: 100%;
+    border-bottom: 1px solid $color-border;
+    padding: 5px 10px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .dui-panel-title {
+      font-weight: bold;
+    }
+    .dui-panel-actions {
+      margin-left: auto;
+      color: $color-dark;
+    }
+  }
+  &-body {
+    padding: 5px 10px;
+  }
+}

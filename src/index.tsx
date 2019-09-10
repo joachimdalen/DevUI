@@ -40,6 +40,7 @@ export { NumberInput } from "./components/NumberInput/NumberInput";
 export { OverflowMenu } from "./components/OverflowMenu/OverflowMenu";
 export { OverflowMenuItem } from "./components/OverflowMenu/OverflowMenuItem";
 export { Overlay } from "./components/Overlay/Overlay";
+export { Panel } from "./components/Panel/Panel";
 export { ProgressBar } from "./components/ProgressBar/ProgressBar";
 export { RadioButton } from "./components/RadioButton/RadioButton";
 export { Select } from "./components/Select/Select";
