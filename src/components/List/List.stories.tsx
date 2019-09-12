@@ -42,7 +42,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon="ABC"
+        leftIcon="ABC"
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}
@@ -51,7 +51,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon="ABC"
+        leftIcon="ABC"
       />
     </List>
   ))
@@ -67,7 +67,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon="ABC"
+        leftIcon="ABC"
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}
@@ -76,7 +76,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon="ABC"
+        leftIcon="ABC"
       />
     </List>
   ))
@@ -92,7 +92,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon="ABC"
+        leftIcon="ABC"
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}
@@ -101,7 +101,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon="ABC"
+        leftIcon="ABC"
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}
@@ -110,7 +110,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon="ABC"
+        leftIcon="ABC"
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}
@@ -138,7 +138,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon={
+        leftIcon={
           <img src="https://www.ntbinfo.no/data/images/00163/604fce71-7704-4ba9-8808-95c92a479aa2-w_960_h_960.png" />
         }
       />
@@ -149,10 +149,9 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon={
+        rightIcon={
           <img src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/github-square-512.png" />
         }
-        iconPlacement="right"
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}
@@ -161,7 +160,7 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon={"LA"}
+        leftIcon={"LA"}
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}
@@ -170,8 +169,19 @@ storiesOf("Display Components|List", module)
           "While this is a long item subtitle",
           "List Items"
         )}
-        icon={"LA"}
-        iconPlacement="right"
+        rightIcon={"LA"}
+      />
+      <ListItem
+        title={text("Item title", "This is a long item title", "List Items")}
+        subtitle={text(
+          "Item subtitle",
+          "While this is a long item subtitle",
+          "List Items"
+        )}
+        leftIcon={
+          <img src="https://cdn2.iconfinder.com/data/icons/font-awesome/1792/github-square-512.png" />
+        }
+        rightIcon={"LA"}
       />
       <ListItem
         title={text("Item title", "This is a long item title", "List Items")}

@@ -3,27 +3,26 @@ import cx from "classnames";
 export interface ListItemProps {
   title: string;
   subtitle?: string;
-  icon?: string | React.ReactNode;
-  iconPlacement?: "left" | "right";
+  leftIcon?: string | React.ReactNode;
+  rightIcon?: string | React.ReactNode;
 }
 
 export class ListItem extends React.Component<ListItemProps> {
-  static defaultProps: Partial<ListItemProps> = {
-    iconPlacement: "left"
-  };
   public render() {
-    const { title, subtitle, icon, iconPlacement } = this.props;
+    const { title, subtitle, rightIcon, leftIcon } = this.props;
     return (
       <ul className={cx("dui-list-item")}>
-        {icon && (
+        {leftIcon && (
+          <span className={cx("dui-list-item-icon")}>{leftIcon}</span>
+        )}
+        {rightIcon && (
           <span
-            className={cx("dui-list-item-icon", {
-              [`dui-list-item-icon-right`]: iconPlacement === "right"
-            })}
+            className={cx("dui-list-item-icon", "dui-list-item-icon-right")}
           >
-            {icon}
+            {rightIcon}
           </span>
         )}
+
         <div className="dui-list-item-content">
           <p className={cx("dui-list-item-content-title")}>{title}</p>
           {subtitle && (
