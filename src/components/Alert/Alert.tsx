@@ -42,14 +42,14 @@ export class Alert extends React.Component<AlertProps> {
       icon,
       withIcon
     } = this.props;
-    const closable = onClose !== null;
+
     const baseComponent = (
       <React.Fragment>
         <h1 className={cx("dui-alert-message")}>{message}</h1>
         {description && (
           <p className={cx("dui-alert-description")}>{description}</p>
         )}
-        {closable && (
+        {onClose && (
           <span className={cx("dui-alert-close")} onClick={onClose}>
             <FontAwesomeIcon iconStyle="solid" icon="fa-times" />
           </span>
