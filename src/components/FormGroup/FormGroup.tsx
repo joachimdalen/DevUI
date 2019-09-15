@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 export interface FormGroupProps {
-  label: string | React.ReactElement;
+  label?: string | React.ReactElement;
   inline?: boolean;
   inlineLabel?: boolean;
   required?: boolean;
@@ -43,25 +43,25 @@ export class FormGroup extends React.Component<FormGroupProps> {
     const labelComponent = React.isValidElement(label) ? (
       label
     ) : (
-        <label className="dui-form-group-label">
-          {label}
-          {required && (
-            <span
-              className={cx("dui-form-group-required", {
-                "dui-form-group-required-text": requiredType === "text"
-              })}
-            >
-              {requiredType === "icon" ? "*" : requiredText}
-            </span>
-          )}
-        </label>
-      );
+      <label className="dui-form-group-label">
+        {label}
+        {required && (
+          <span
+            className={cx("dui-form-group-required", {
+              "dui-form-group-required-text": requiredType === "text"
+            })}
+          >
+            {requiredType === "icon" ? "*" : requiredText}
+          </span>
+        )}
+      </label>
+    );
 
     const bodyComp = inline ? (
       <div className="dui-form-group-inline">{children}</div>
     ) : (
-        children
-      );
+      children
+    );
 
     const errorComp = error && errorAccessor && (
       <small className="dui-form-group-error dui-form-group-extra">
@@ -79,25 +79,35 @@ export class FormGroup extends React.Component<FormGroupProps> {
       </small>
     );
     const noticeComp = notice && (
-      <div className={cx('dui-form-group-notice')}>{notice}</div>
-    )
+      <div className={cx("dui-form-group-notice")}>{notice}</div>
+    );
     if (inlineLabel) {
       return (
-        <div className={cx("dui-form-group", "dui-form-group-label-inline", className)}>
-          <div className="dui-form-group-label-container">
-            {labelComponent}
-          </div>
+        <div
+          className={cx(
+            "dui-form-group",
+            "dui-form-group-label-inline",
+            className
+          )}
+        >
+           
+          {label && (
+            <div className="dui-form-group-label-container">
+              {labelComponent}
+            </div>
+          )}
           <div className="dui-form-group-content">
             {bodyComp}
             {extraComp}
             {errorComp}
             {noticeComp}
           </div>
-        </div>)
+        </div>
+      );
     }
     return (
       <div className={cx("dui-form-group", className)}>
-        {labelComponent}
+        {label && labelComponent}
         {bodyComp}
         {extraComp}
         {errorComp}
