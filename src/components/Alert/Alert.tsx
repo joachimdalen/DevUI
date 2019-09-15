@@ -7,7 +7,7 @@ export interface AlertProps {
   className?: string;
   variant?: AlertVariant;
   message: string;
-  description?: string;
+  description?: string | React.ReactElement;
   onClose?: () => void;
   withIcon?: boolean;
   icon?: string;
