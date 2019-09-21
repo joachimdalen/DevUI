@@ -10,6 +10,7 @@ export interface Props {
   onToggle: () => any;
   size?: ToggleSize;
   variant?: string;
+  name?: string;
 }
 
 export class Toggle extends React.Component<Props> {
@@ -21,7 +22,8 @@ export class Toggle extends React.Component<Props> {
       variant = "default",
       size = "normal",
       showLabels = false,
-      onToggle
+      onToggle,
+      name
     } = this.props;
 
     return (
@@ -40,6 +42,7 @@ export class Toggle extends React.Component<Props> {
           className={cx("dui-toggle")}
           checked={toggled}
           onChange={() => onToggle()}
+          name={name}
         />
         <span className={cx("dui-toggle-button")} />
       </label>
