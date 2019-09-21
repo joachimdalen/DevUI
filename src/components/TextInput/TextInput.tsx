@@ -25,7 +25,7 @@ type AllProps = Props & React.HTMLAttributes<HTMLInputElement>;
 export class TextInput extends React.Component<AllProps> {
   public render() {
     const {
-      autoComplete = false,
+      autoComplete = true,
       autoFocus = false,
       name,
       maxLength,
