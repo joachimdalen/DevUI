@@ -49,6 +49,8 @@
     display: flex;
     align-items: center;
     padding: 5px 20px;
+    color: $header-item-color;
+    background: $header-item-background;
 
     &:hover {
       cursor: pointer;
