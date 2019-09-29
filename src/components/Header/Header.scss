@@ -11,8 +11,10 @@
     height: 100%;
     display: flex;
     align-items: center;
+    color: $header-toggle-color;
+    background-color: $header-toggle-background;
     &:hover {
-      background-color: $header-toggle-background;
+      background-color: $header-toggle-hover-background;
       transition: background-color 0.5s ease;
       color: $header-toggle-hover-color;
       cursor: pointer;
