@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert } from "./Alert";
 import renderer from "react-test-renderer";
+import FontAwesomeIcon from '../FontAwesomeIcon/FontAwesomeIcon';
 
 describe("Alert", () => {
   it("matches snapshot", () => {
@@ -38,5 +39,23 @@ describe("Alert", () => {
     expect(component.root.findAllByType("div")[0].props.className).toContain(
       "dui-alert-success"
     );
+  });
+  it("should show the default icon", () => {
+    const component = renderer.create(
+      <Alert message="hello" variant="success" withIcon />
+    );
+    expect(component.root.findAllByType("span")[0].props.className).toContain(
+      "dui-alert-icon-container"
+    );
+  });
+  it("should show the given icon", () => {
+    const component = renderer.create(
+      <Alert message="hello" variant="success" withIcon icon="times" />
+    );
+    const iconContainer = component.root.findAllByType("span")[0];
+    expect(iconContainer).not.toBeUndefined();
+    const icon = iconContainer.findAllByType(FontAwesomeIcon)[0];
+    expect(icon).not.toBeUndefined();
+    expect(icon.props.icon).toContain("fa-times");
   });
 });
