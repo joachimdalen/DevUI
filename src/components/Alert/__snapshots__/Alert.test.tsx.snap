@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert matches snapshot 1`] = `
+<div
+  className="dui-alert dui-alert-info"
+>
+  <h1
+    className="dui-alert-message"
+  >
+    Hello
+  </h1>
+</div>
+`;
