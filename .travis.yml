@@ -12,10 +12,14 @@ install:
 - npm install
 script:
 - npm test
+before_script:
+- npm build-storybook
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
+  repo: joachimdalen/DevUI
+  target_branch: gh-pages
   keep_history: true
   on:
     branch: master
