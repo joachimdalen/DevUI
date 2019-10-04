@@ -13,6 +13,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   repo: joachimdalen/DevUI
+  local_dir: storybook-static
   target_branch: gh-pages
   keep_history: true
   on:
