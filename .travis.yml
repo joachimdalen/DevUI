@@ -13,7 +13,7 @@ install:
 script:
 - npm test
 before_script:
-- npm build-storybook
+- npm run build-storybook
 deploy:
   provider: pages
   skip_cleanup: true
