@@ -1,11 +1,13 @@
 sudo: false
 language: node_js
+node_js:
+  - "stable"
 install:
-- npm install
+  - npm install
 script:
-- npm test
+  - npm test
 before_script:
-- npm run build-storybook
+  - npm run build-storybook
 deploy:
   provider: pages
   skip_cleanup: true
