@@ -23,3 +23,5 @@ deploy:
   keep_history: true
   on:
     branch: master
+notifications:
+  email: false
