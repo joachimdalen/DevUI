@@ -1,9 +1,10 @@
 {
-  "name": "dev-ui",
+  "name": "@joachimdalen/devui",
   "version": "0.0.1",
   "description": "",
   "main": "build/lib/index.js",
   "types": "build/lib/index.d.ts",
+  "files": ["build/**/*"],
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook",
     "build": "tsc",
