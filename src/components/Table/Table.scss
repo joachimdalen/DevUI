@@ -10,7 +10,8 @@
   background-color: $table-background;
   color: $table-color;
   width: 100%;
-  &-condensed{
+  border-collapse: collapse;
+  &-condensed {
     .#{$provider-prefix}-table-cell {
       padding: $table-condensed-cell-padding;
     }
@@ -38,7 +39,7 @@
     }
   }
   &-search {
-    .#{$provider-prefix}-row-header .#{$provider-prefix}-table-cell {
+    .#{$provider-prefix}-table-row-header .#{$provider-prefix}-table-cell {
       vertical-align: top;
     }
   }
@@ -119,8 +120,20 @@
       }
     }
     &-checked {
-      background-color: $table-row-checked-background !important ;
+      background-color: #f5fbff !important ;
       color: $table-row-checked-color;
+      .dui-table-cell {
+        box-sizing: border-box;
+
+        &:first-child {
+          border-left: 1px solid #4aa4cc;
+        }
+        &:last-child {
+          border-right: 1px solid #4aa4cc;
+        }
+        border-bottom: 1px solid #4aa4cc;
+        border-top: 1px solid #4aa4cc;
+      }
       @extend %background-ease;
     }
     &-header {
@@ -147,8 +160,6 @@
     }
 
     &-checkable {
-      text-align: center;
-      vertical-align: middle;
       width: 30px;
       .#{$provider-prefix}-checkbox {
         padding-left: 0;
@@ -157,6 +168,7 @@
           color: transparent;
         }
         .#{$provider-prefix}-checkmark {
+          top: unset;
           background-color: $color-light;
           @extend %background-ease;
           border: 1px solid $table-border-color;

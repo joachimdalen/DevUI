@@ -8,7 +8,7 @@
     }
     &:hover:not(.disabled) {
       .#{$provider-prefix}-checkmark {
-        background-color: darken($background, 20%);
+        background-color: darken($background, 10%);
       }
     }
   }

@@ -40,7 +40,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
   state = {
     checked: [] as any[],
     sortBy: {} as Column,
-    sortDirection: "asc",
+    sortDirection: "",
     search: [] as SearchEntry[],
     visibleColumns: [] as string[],
     from: 1,
@@ -185,6 +185,13 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
       });
     }
   }
+  
+  _getSortIcon = (key: string) => {
+    const { sortDirection, sortBy } = this.state;
+    if (!sortDirection || sortBy.key !== key) return "fa-sort";
+    if (sortDirection === "asc") return "fa-sort-alpha-down";
+    return "fa-sort-alpha-up";
+  };
 
   _getHeaders() {
     const { columns, rows, multiSelect } = this.props;
@@ -204,7 +211,10 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
               {col.sortable ? (
                 <div onClick={() => this._sort(col)} className={cellClass}>
                   <span>{col.label}</span>
-                  <FontAwesomeIcon iconStyle="solid" icon="fa-sort" />
+                  <FontAwesomeIcon
+                    iconStyle="solid"
+                    icon={this._getSortIcon(col.key)}
+                  />
                 </div>
               ) : (
                 <div>
@@ -244,7 +254,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
       rowHeaders.unshift((
         <TableCell className={checkCellClass}>
           <CheckBox
-            label="xx"
+            variant="blue"
             checked={isChecked}
             indeterminate={isIndeterminate}
             onCheckChange={() => this._toggleAll()}
@@ -334,7 +344,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
             {multiSelect && visibleColumns.length !== 0 && (
               <TableCell className={checkCellClass}>
                 <CheckBox
-                  label="xx"
+                  variant="blue"
                   checked={isRowChecked}
                   onCheckChange={() => this._toggleItem(row)}
                 />
