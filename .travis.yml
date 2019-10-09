@@ -8,15 +8,23 @@ script:
   - npm test
 before_script:
   - npm run build-storybook
+before_deploy:
+  - npm run build
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  repo: joachimdalen/DevUI
-  local_dir: storybook-static
-  target_branch: gh-pages
-  keep_history: true
-  on:
-    branch: master
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    repo: joachimdalen/DevUI
+    local_dir: storybook-static
+    target_branch: gh-pages
+    keep_history: true
+    on:
+      branch: master
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_API_TOKEN
+    skip_cleanup: true
+    on:
+      branch: master
 notifications:
   email: false
