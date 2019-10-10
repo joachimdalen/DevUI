@@ -3,12 +3,12 @@ import cx from "classnames";
 import { BreadcrumbItem } from "./BreadcrumbItem";
 import { Crumb } from "./BreadcrumbTypes";
 
-export interface BreadcrumbProps {
+interface BreadcrumbProps {
   className?: string;
   crumbs?: Crumb[];
 }
 
-export class Breadcrumb extends React.Component<BreadcrumbProps> {
+class Breadcrumb extends React.Component<BreadcrumbProps> {
   public render() {
     const { children, crumbs, className } = this.props;
     return (
@@ -28,3 +28,4 @@ export class Breadcrumb extends React.Component<BreadcrumbProps> {
     );
   }
 }
+export { BreadcrumbProps, Breadcrumb };

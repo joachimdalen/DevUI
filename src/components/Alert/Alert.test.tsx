@@ -1,7 +1,7 @@
 import React from "react";
 import { Alert } from "./Alert";
 import renderer from "react-test-renderer";
-import FontAwesomeIcon from '../FontAwesomeIcon/FontAwesomeIcon';
+import {FontAwesomeIcon} from '../FontAwesomeIcon/FontAwesomeIcon';
 
 describe("Alert", () => {
   it("matches snapshot", () => {

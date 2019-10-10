@@ -1,10 +1,10 @@
 import * as React from "react";
 import cx from "classnames";
-export interface Props {
+interface TableCellProps {
   className?: string;
   onClick?: () => void;
 }
-export class TableCell extends React.Component<Props> {
+class TableCell extends React.Component<TableCellProps> {
   public render() {
     const { children, className, ...rest } = this.props;
     const cellClass = cx("dui-table-cell", className);
@@ -15,3 +15,4 @@ export class TableCell extends React.Component<Props> {
     );
   }
 }
+export { TableCell, TableCellProps };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TableRow } from "./TableRow";
 import cx from "classnames";
-export interface Props extends React.HTMLAttributes<HTMLTableElement> {
+interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   children: React.ReactElement<TableRow> | React.ReactElement<TableRow>[];
   striped?: boolean;
   bordered?: boolean;
@@ -9,7 +9,7 @@ export interface Props extends React.HTMLAttributes<HTMLTableElement> {
   condensed?: boolean;
   className?: string;
 }
-export class Table extends React.Component<Props> {
+class Table extends React.Component<TableProps> {
   public render() {
     const {
       children,
@@ -19,7 +19,7 @@ export class Table extends React.Component<Props> {
       condensed = false,
       className = ""
     } = this.props;
-    
+
     const tableClass = cx(
       "dui-table",
       className,
@@ -32,3 +32,4 @@ export class Table extends React.Component<Props> {
     return <div className={tableClass}>{children}</div>;
   }
 }
+export { TableProps, Table };

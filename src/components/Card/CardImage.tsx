@@ -1,9 +1,9 @@
 import * as React from "react";
-export interface Props {
+interface CardImageProps {
   image: string;
 }
 
-export class CardImage extends React.Component<Props> {
+class CardImage extends React.Component<CardImageProps> {
   public render() {
     const { image } = this.props;
     const style: React.CSSProperties = {
@@ -12,3 +12,5 @@ export class CardImage extends React.Component<Props> {
     return <header style={style} className="dui-card-image-header" />;
   }
 }
+
+export { CardImage, CardImageProps };

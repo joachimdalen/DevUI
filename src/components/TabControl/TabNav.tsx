@@ -1,17 +1,17 @@
 import * as React from "react";
 import { TabNavItem } from "./TabNavItem";
-import { TabControlConsumer, Tab, ContextType } from "./TabControlTypes";
+import { TabControlConsumer, TabType, ContextType } from "./TabControlTypes";
 import cx from "classnames";
-export interface Props {}
+interface TabNavProps {}
 
-export class TabNav extends React.Component<Props> {
+class TabNav extends React.Component<TabNavProps> {
   render() {
     return (
       <TabControlConsumer>
         {({ navClassName, tabs }: ContextType) => (
           <ul className={cx("dui-tab-control-nav", navClassName)}>
             {tabs &&
-              tabs.map((tab: Tab) => {
+              tabs.map((tab: TabType) => {
                 return <TabNavItem tab={tab} key={tab.key} />;
               })}
           </ul>
@@ -20,3 +20,5 @@ export class TabNav extends React.Component<Props> {
     );
   }
 }
+
+export { TabNav, TabNavProps };

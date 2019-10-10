@@ -2,29 +2,29 @@ import * as React from "react";
 import cx from "classnames";
 import { Badge, BadgeProps } from "../Badge/Badge";
 import { TextInput } from "../TextInput/TextInput";
-import { Omit } from '../common';
+import { Omit } from "../common";
 
-export interface Tag {
+interface Tag {
   value: string;
   removeable?: boolean;
 }
 
-export interface State {
+interface State {
   tags: Tag[];
   value: string;
 }
-export interface Props {
+interface TagInputProps {
   initialTags?: Tag[];
   onChange?: (tags: Tag[]) => void;
-  badgeProps?: Omit<BadgeProps, "label" | "onDismiss">
+  badgeProps?: Omit<BadgeProps, "label" | "onDismiss">;
 }
 
-export class TagInput extends React.Component<Props, State> {
+class TagInput extends React.Component<TagInputProps, State> {
   state = {
     tags: this.props.initialTags || ([] as Tag[]),
     value: ""
   };
-  
+
   render() {
     const badges = this.state.tags.map((t: Tag) => {
       return (
@@ -106,3 +106,4 @@ export class TagInput extends React.Component<Props, State> {
     onChange && onChange(tags);
   }
 }
+export { Tag, TagInput, TagInputProps };

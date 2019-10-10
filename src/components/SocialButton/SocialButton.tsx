@@ -1,8 +1,8 @@
 import * as React from "react";
 import cx from "classnames";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-export type SocialProviders =
+type SocialProviders =
   | "bitbucket"
   | "discord"
   | "dropbox"
@@ -17,7 +17,7 @@ export type SocialProviders =
   | "twitter"
   | "youtube";
 
-export interface SocialButtonProps {
+interface SocialButtonProps {
   provider: SocialProviders;
   darkText?: boolean;
   iconOnly?: boolean;
@@ -27,7 +27,7 @@ export interface SocialButtonProps {
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export class SocialButton extends React.Component<SocialButtonProps> {
+class SocialButton extends React.Component<SocialButtonProps> {
   static defaultProps: Partial<SocialButtonProps> = {
     className: "",
     iconOnly: false,
@@ -65,3 +65,4 @@ export class SocialButton extends React.Component<SocialButtonProps> {
     );
   }
 }
+export { SocialProviders, SocialButtonProps, SocialButton };

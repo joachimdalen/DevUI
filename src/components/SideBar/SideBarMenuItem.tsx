@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 import { SideBarMenu } from "./SideBarMenu";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { isString } from "util";
 import { CustomComponent } from "../common";
 
@@ -19,7 +19,7 @@ interface SideBarMenuItemProps extends CustomComponent {
   className?: string;
 }
 
-export class SideBarMenuItem extends React.Component<
+class SideBarMenuItem extends React.Component<
   SideBarMenuItemProps,
   SideBarMenuItemState
 > {
@@ -130,3 +130,4 @@ export class SideBarMenuItem extends React.Component<
     );
   }
 }
+export { SideBarMenuItemProps, SideBarMenuItem };

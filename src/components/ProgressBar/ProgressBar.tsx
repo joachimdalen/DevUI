@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-export interface ProgressBarProps {
+interface ProgressBarProps {
   className?: string;
   completed: number;
   striped?: boolean;
@@ -10,7 +10,7 @@ export interface ProgressBarProps {
   title?: string;
 }
 
-export class ProgressBar extends React.Component<ProgressBarProps> {
+class ProgressBar extends React.Component<ProgressBarProps> {
   static defaultProps: Partial<ProgressBarProps> = {
     className: "",
     variant: "default",
@@ -43,3 +43,4 @@ export class ProgressBar extends React.Component<ProgressBarProps> {
     );
   }
 }
+export { ProgressBar, ProgressBarProps };

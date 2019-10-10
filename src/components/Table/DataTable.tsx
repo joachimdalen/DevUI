@@ -1,4 +1,4 @@
-import { Props as TableProps, Table } from "./Table";
+import { TableProps, Table } from "./Table";
 import { TableCell } from "./TableCell";
 import { TableColumnPicker } from "./TableColumnPicker";
 import { TableHeader } from "./TableHeader";
@@ -6,14 +6,14 @@ import { TablePaginator } from "./TablePaginator";
 import { TableRow } from "./TableRow";
 import { Column, SearchEntry } from "./TableTypes";
 import { CheckBox } from "../CheckBox/CheckBox";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { TextInput } from "../TextInput/TextInput";
 import cx from "classnames";
 import * as React from "react";
 import { Empty } from "../Empty/Empty";
 import { Omit } from "../common";
 
-export interface DataTableProps {
+interface InternalDataTableProps {
   rows: any[];
   columns: Column[];
   multiSelect?: boolean;
@@ -25,7 +25,7 @@ export interface DataTableProps {
   onCheck?: (checked: any) => void;
 }
 
-export interface DataTableState {
+interface DataTableState {
   checked: any[];
   sortBy?: Column;
   sortDirection: string;
@@ -34,9 +34,9 @@ export interface DataTableState {
   from: number;
   to: number;
 }
-export type AllProps = Omit<TableProps, "children"> & DataTableProps;
+type DataTableProps = Omit<TableProps, "children"> & InternalDataTableProps;
 
-export class DataTable extends React.Component<AllProps, DataTableState> {
+class DataTable extends React.Component<DataTableProps, DataTableState> {
   state = {
     checked: [] as any[],
     sortBy: {} as Column,
@@ -185,7 +185,7 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
       });
     }
   }
-  
+
   _getSortIcon = (key: string) => {
     const { sortDirection, sortBy } = this.state;
     if (!sortDirection || sortBy.key !== key) return "fa-sort";
@@ -372,3 +372,4 @@ export class DataTable extends React.Component<AllProps, DataTableState> {
     return renderedRows;
   }
 }
+export { DataTable, DataTableProps, Column };

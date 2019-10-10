@@ -5,7 +5,7 @@ interface SideBarMenuProps {
   className?: string;
 }
 
-export class SideBarMenu extends React.Component<SideBarMenuProps, IState> {
+class SideBarMenu extends React.Component<SideBarMenuProps, IState> {
   static defaultProps: Partial<SideBarMenuProps> = {
     className: ""
   };
@@ -15,3 +15,4 @@ export class SideBarMenu extends React.Component<SideBarMenuProps, IState> {
     return <div className={menuClass}>{children}</div>;
   }
 }
+export { SideBarMenu, SideBarMenuProps };

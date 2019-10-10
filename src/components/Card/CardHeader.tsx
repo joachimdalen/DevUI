@@ -1,10 +1,10 @@
 import * as React from "react";
 import cx from "classnames";
-export interface Props {
+interface CardHeaderProps {
   title: string;
 }
 
-export class CardHeader extends React.Component<Props> {
+class CardHeader extends React.Component<CardHeaderProps> {
   public render() {
     const { title, children } = this.props;
     return (
@@ -15,3 +15,4 @@ export class CardHeader extends React.Component<Props> {
     );
   }
 }
+export { CardHeaderProps, CardHeader };

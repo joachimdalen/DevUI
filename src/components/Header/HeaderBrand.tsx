@@ -1,9 +1,9 @@
 import * as React from "react";
 import { CustomComponent } from "../common";
 
-export interface HeaderBrandProps extends CustomComponent {}
+interface HeaderBrandProps extends CustomComponent {}
 
-export class HeaderBrand extends React.Component<HeaderBrandProps> {
+class HeaderBrand extends React.Component<HeaderBrandProps> {
   render() {
     const { children, component, componentProps } = this.props;
     if (component) {
@@ -17,3 +17,4 @@ export class HeaderBrand extends React.Component<HeaderBrandProps> {
     return <div className="dui-header-brand">{children}</div>;
   }
 }
+export { HeaderBrandProps, HeaderBrand };

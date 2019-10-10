@@ -1,11 +1,11 @@
 import * as React from "react";
 import cx from "classnames";
-export interface Props {
+interface ModalHeaderProps {
   title: string;
   className?: string;
 }
-export class ModalHeader extends React.Component<Props> {
-  static defaultProps: Partial<Props> = {
+class ModalHeader extends React.Component<ModalHeaderProps> {
+  static defaultProps: Partial<ModalHeaderProps> = {
     className: ""
   };
 
@@ -19,3 +19,4 @@ export class ModalHeader extends React.Component<Props> {
     );
   }
 }
+export { ModalHeader, ModalHeaderProps };

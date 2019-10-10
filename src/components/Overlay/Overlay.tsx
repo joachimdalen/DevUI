@@ -1,10 +1,10 @@
 import * as React from "react";
 import cx from "classnames";
-export interface OverlayProps {
+interface OverlayProps {
   className?: string;
   visible: boolean;
 }
-export const Overlay: React.FunctionComponent<OverlayProps> = ({
+const Overlay: React.FunctionComponent<OverlayProps> = ({
   children,
   visible,
   className
@@ -12,3 +12,5 @@ export const Overlay: React.FunctionComponent<OverlayProps> = ({
   const baseClass = cx("dui-overlay", className);
   return visible ? <div className={baseClass}>{children}</div> : null;
 };
+
+export { OverlayProps, Overlay };

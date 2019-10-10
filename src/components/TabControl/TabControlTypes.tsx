@@ -1,5 +1,5 @@
 import * as React from "react";
-export interface Tab {
+export interface TabType {
   key: string;
   label: string;
   icon?: string;
@@ -10,7 +10,7 @@ export interface Tab {
 }
 
 export interface ContextType {
-  tabs: Tab[];
+  tabs: TabType[];
   activeTab: string;
   setActive?: (key: string) => void;
   navClassName?: string;

@@ -1,12 +1,18 @@
 import * as React from "react";
 import cx from "classnames";
 import { TreeViewItem } from "./TreeViewItem";
-import { TreeViewNode, TreeViewContextType, TreeViewProvider } from "./TreeViewTypes";
-export interface TreeViewProps {
+import {
+  TreeViewNode,
+  TreeViewContextType,
+  TreeViewProvider
+} from "./TreeViewTypes";
+interface TreeViewProps {
   className?: string;
   nodes?: TreeViewNode[];
   multiselect?: boolean;
-  children?: React.ReactElement<TreeViewItem> | React.ReactElement<TreeViewItem>[];
+  children?:
+    | React.ReactElement<TreeViewItem>
+    | React.ReactElement<TreeViewItem>[];
   onCheck?: (nodes: TreeViewNode[]) => void;
   onExpanded?: (node: TreeViewNode) => void;
   onSelect?: (node: TreeViewNode) => void;
@@ -16,21 +22,28 @@ interface TreeViewState {
   checked?: TreeViewNode[];
 }
 
-export class TreeView extends React.Component<TreeViewProps, TreeViewState> {
-  state = { selected: undefined, checked: [] }
+class TreeView extends React.Component<TreeViewProps, TreeViewState> {
+  state = { selected: undefined, checked: [] };
 
   static defaultProps: Partial<TreeViewProps> = {};
   _getChildNodes = (node: TreeViewNode) => {
-    return node.nodes && node.nodes.map(node => {
-      return (<TreeViewItem node={node}>
-        {node.nodes && this._getChildNodes(node)}
-      </TreeViewItem>)
-    });
-  }
+    return (
+      node.nodes &&
+      node.nodes.map(node => {
+        return (
+          <TreeViewItem node={node}>
+            {node.nodes && this._getChildNodes(node)}
+          </TreeViewItem>
+        );
+      })
+    );
+  };
   _toggleItem(node: TreeViewNode) {
     const { onCheck } = this.props;
     const { checked } = this.state;
-    const checkIndex = checked.findIndex((i: TreeViewNode) => i.key === node.key);
+    const checkIndex = checked.findIndex(
+      (i: TreeViewNode) => i.key === node.key
+    );
     var arrCpy = [...this.state.checked];
     if (checkIndex !== -1) {
       arrCpy.splice(checkIndex, 1);
@@ -45,7 +58,14 @@ export class TreeView extends React.Component<TreeViewProps, TreeViewState> {
     }
   }
   render() {
-    const { className, children, nodes, multiselect, onExpanded, onSelect } = this.props;
+    const {
+      className,
+      children,
+      nodes,
+      multiselect,
+      onExpanded,
+      onSelect
+    } = this.props;
     const contextValue: TreeViewContextType = {
       nodes: nodes,
       multiselect: multiselect,
@@ -54,20 +74,27 @@ export class TreeView extends React.Component<TreeViewProps, TreeViewState> {
         this.setState({ selected: node.key });
         onSelect && onSelect(node);
       },
-      onItemCheck: (node) => this._toggleItem(node),
+      onItemCheck: node => this._toggleItem(node),
       onExpanded: onExpanded,
       checkedItems: this.state.checked
     };
 
-    const childNodes = React.Children.count(children) === 0 ? nodes && nodes.map((node: TreeViewNode) => {
-      return (<TreeViewItem node={node}>{this._getChildNodes(node)}</TreeViewItem>)
-    }) : children;
+    const childNodes =
+      React.Children.count(children) === 0
+        ? nodes &&
+          nodes.map((node: TreeViewNode) => {
+            return (
+              <TreeViewItem node={node}>
+                {this._getChildNodes(node)}
+              </TreeViewItem>
+            );
+          })
+        : children;
     return (
       <TreeViewProvider value={contextValue}>
-        <div className={cx("dui-treeview", className)}>
-          {childNodes}
-        </div>
+        <div className={cx("dui-treeview", className)}>{childNodes}</div>
       </TreeViewProvider>
     );
   }
 }
+export { TreeView, TreeViewProps, TreeViewNode };

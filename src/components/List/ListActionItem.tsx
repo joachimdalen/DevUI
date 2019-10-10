@@ -1,11 +1,11 @@
 import * as React from "react";
-export interface Props {
+interface ListActionItemProps {
   title: string;
   onClick: () => void;
   icon?: string;
 }
 
-export class ListActionItem extends React.Component<Props> {
+class ListActionItem extends React.Component<ListActionItemProps> {
   public render() {
     const { title, onClick } = this.props;
     return (
@@ -17,3 +17,4 @@ export class ListActionItem extends React.Component<Props> {
     );
   }
 }
+export { ListActionItem, ListActionItemProps };

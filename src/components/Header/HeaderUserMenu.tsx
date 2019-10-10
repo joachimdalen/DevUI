@@ -1,11 +1,11 @@
 import { HeaderConsumer, HeaderContextType } from "./HeaderTypes";
 import { HeaderUserMenuItem } from "./HeaderUserMenuItem";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import cx from "classnames";
 import * as React from "react";
 import { Avatar, AvatarProps } from "../Avatar/Avatar";
 import { Omit } from "../common";
-interface IProps {
+interface HeaderUserMenuProps {
   username?: string;
   avatar?: string | React.ReactElement<Avatar>;
   closeIcon?: string | React.ReactElement;
@@ -15,7 +15,7 @@ interface IProps {
     | React.ReactElement<HeaderUserMenuItem>[];
   avatarProps?: Omit<AvatarProps, "src">;
 }
-export class HeaderUserMenu extends React.Component<IProps> {
+class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
   render() {
     const {
       username,
@@ -75,3 +75,4 @@ export class HeaderUserMenu extends React.Component<IProps> {
     );
   }
 }
+export { HeaderUserMenuProps, HeaderUserMenu };

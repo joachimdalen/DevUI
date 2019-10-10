@@ -1,11 +1,11 @@
 import * as React from "react";
 import cx from "classnames";
-import { Image } from '../Image/Image';
+import { Image } from "../Image/Image";
 import { GenericSizes } from "../common";
 
-export type AvatarFormat = "square" | "rounded" | "circle";
-export type AvatarSize = GenericSizes;
-export interface AvatarProps {
+type AvatarFormat = "square" | "rounded" | "circle";
+type AvatarSize = GenericSizes;
+interface AvatarProps {
   src: React.ReactNode | string;
   fallbackSrc?: string;
   size?: AvatarSize;
@@ -15,14 +15,22 @@ export interface AvatarProps {
   className?: string;
 }
 
-export class Avatar extends React.Component<AvatarProps> {
+class Avatar extends React.Component<AvatarProps> {
   static defaultProps: Partial<AvatarProps> = {
     size: "medium",
     format: "square"
   };
 
   render() {
-    const { src, size, format, width, height, className, fallbackSrc } = this.props;
+    const {
+      src,
+      size,
+      format,
+      width,
+      height,
+      className,
+      fallbackSrc
+    } = this.props;
 
     const isDefaultFormat = format === "square";
     const hasCustomSize = (width || height) !== undefined;
@@ -44,6 +52,14 @@ export class Avatar extends React.Component<AvatarProps> {
         />
       );
     }
-    return <Image src={src as string} className={baseClass} alt="avatar" fallbackSrc={fallbackSrc} />;
+    return (
+      <Image
+        src={src as string}
+        className={baseClass}
+        alt="avatar"
+        fallbackSrc={fallbackSrc}
+      />
+    );
   }
 }
+export { AvatarFormat, AvatarSize, AvatarProps, Avatar };
