@@ -1,12 +1,11 @@
 {
   "name": "@joachimdalen/devui",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "",
   "main": "build/lib/index.js",
   "types": "build/lib/index.d.ts",
   "files": [
-    "build/**/*",
-    "src/styles/*"
+    "build/**/*"
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006 -c .storybook",
