@@ -1,9 +1,9 @@
 {
   "name": "@joachimdalen/devui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
-  "main": "build/lib/index.js",
-  "types": "build/lib/index.d.ts",
+  "main": "build/main.js",
+  "types": "build/index.d.ts",
   "files": [
     "build/**/*"
   ],
