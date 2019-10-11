@@ -7,7 +7,7 @@ import { TableCell } from "./TableCell";
 import { DataTable } from "./DataTable";
 import { TableColumnPicker } from "./TableColumnPicker";
 import { boolean, number } from "@storybook/addon-knobs";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
 import { Column } from "./TableTypes";
 const values = require("../../../data/invoices.json");
@@ -60,8 +60,8 @@ const columnHeaders: Column[] = [
           {item.customer.company.name} ({item.customer.company.id})
         </span>
       ) : (
-          "-"
-        )
+        "-"
+      )
   },
   { key: "service", label: "Service" },
   {
@@ -127,7 +127,7 @@ storiesOf("Display Components|Table", module)
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
       multiSelect={boolean("multi-select", true)}
-      showColumnPicker={boolean('ShowColumnPicker', true)}
+      showColumnPicker={boolean("ShowColumnPicker", true)}
     />
   ))
   .add("DataTable Pagination", () => (

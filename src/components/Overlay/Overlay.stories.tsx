@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Overlay } from "./Overlay";
 import { boolean } from "@storybook/addon-knobs";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
 storiesOf("Layout|Overlay", module)
   .add("Default", () => <Overlay visible={boolean("Visible", true)}>h</Overlay>)

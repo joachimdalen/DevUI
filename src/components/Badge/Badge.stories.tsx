@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Badge } from "./Badge";
 import { text } from "@storybook/addon-knobs/react";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
 import variants from "../../storyUtil/variants";
 storiesOf("Display Components|Badge", module)

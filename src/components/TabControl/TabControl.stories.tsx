@@ -1,9 +1,9 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { TabControl } from "./TabControl";
-import { Tab } from "./TabControlTypes";
+import { TabType } from "./TabControlTypes";
 
-const tabControlTabs: Tab[] = [
+const tabControlTabs: TabType[] = [
   {
     label: "Hello",
     key: "hello",

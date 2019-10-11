@@ -2,7 +2,7 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Header } from "./Header";
 import { action } from "@storybook/addon-actions";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { HeaderItem } from "./HeaderItem";
 import { HeaderBrand } from "./HeaderBrand";
 import { HeaderUserMenu } from "./HeaderUserMenu";

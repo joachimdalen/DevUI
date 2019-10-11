@@ -1,7 +1,7 @@
 import { Accordion } from "./Accordion";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { boolean, text } from "@storybook/addon-knobs";
-import { action } from '@storybook/addon-actions';
+import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import * as React from "react";
 import { AccordionGroup } from "./AccordionGroup";
@@ -11,7 +11,7 @@ storiesOf("Components|Accordion", module)
     <Accordion
       title={text("Account", "Account")}
       expanded={boolean("expanded", true)}
-      onToggle={action('onToggle')}
+      onToggle={action("onToggle")}
     >
       Hello
     </Accordion>
@@ -21,7 +21,7 @@ storiesOf("Components|Accordion", module)
       title={text("Account", "Account")}
       expanded={boolean("expanded", true)}
       borderless={boolean("borderless", true)}
-      onToggle={action('onToggle')}
+      onToggle={action("onToggle")}
     >
       Hello
     </Accordion>
@@ -38,36 +38,40 @@ storiesOf("Components|Accordion", module)
           Delete
         </span>
       }
-      onToggle={action('onToggle')}
+      onToggle={action("onToggle")}
     >
       Hello
     </Accordion>
-  )).add("Group", () => (
-    <AccordionGroup multiExpand={boolean('Multi Expand', false)}>
+  ))
+  .add("Group", () => (
+    <AccordionGroup multiExpand={boolean("Multi Expand", false)}>
       <Accordion
         title={text("Account", "Account")}
         expanded={boolean("expanded", true)}
-        onToggle={action('onToggle')}
+        onToggle={action("onToggle")}
       >
         Hello
-    </Accordion>
+      </Accordion>
       <Accordion
         title={text("Account", "Account")}
         expanded={boolean("expanded", true)}
-        onToggle={action('onToggle')}
+        onToggle={action("onToggle")}
       >
         Hello
-    </Accordion>
+      </Accordion>
     </AccordionGroup>
-  )).add("Borderless Group", () => {
+  ))
+  .add("Borderless Group", () => {
     return (
-      <AccordionGroup accordionProps={{
-        expanded: boolean("expanded", true),
-        borderless: boolean("borderless", true),
-        onToggle: action('onToggle')
-      }}>
+      <AccordionGroup
+        accordionProps={{
+          expanded: boolean("expanded", true),
+          borderless: boolean("borderless", true),
+          onToggle: action("onToggle")
+        }}
+      >
         <Accordion title="This is one">Hello</Accordion>
         <Accordion title="This is two">Hello</Accordion>
       </AccordionGroup>
-    )
+    );
   });
