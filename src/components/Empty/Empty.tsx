@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-interface EmptyProps {
+export interface EmptyProps {
   header: string;
   description?: string | React.ReactNode;
   image: string | React.ReactElement;
@@ -9,7 +9,7 @@ interface EmptyProps {
   tertiaryAction?: React.ReactElement;
 }
 
-class Empty extends React.Component<EmptyProps> {
+export class Empty extends React.Component<EmptyProps> {
   public render() {
     const {
       image,
@@ -40,4 +40,3 @@ class Empty extends React.Component<EmptyProps> {
     );
   }
 }
-export { Empty, EmptyProps };

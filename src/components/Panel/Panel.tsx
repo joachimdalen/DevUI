@@ -1,9 +1,9 @@
 import * as React from "react";
 import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-interface PanelProps {}
+export interface PanelProps {}
 
-class Panel extends React.Component<PanelProps> {
+export class Panel extends React.Component<PanelProps> {
   render() {
     const baseClass = cx("dui-panel");
     return (
@@ -26,4 +26,3 @@ class Panel extends React.Component<PanelProps> {
     );
   }
 }
-export { PanelProps, Panel };

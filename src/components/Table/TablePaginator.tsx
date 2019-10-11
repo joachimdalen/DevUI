@@ -3,7 +3,7 @@ import * as React from "react";
 import { Button } from "../Button/Button";
 import { ButtonGroup } from "../Button/ButtonGroup";
 
-interface TablePaginatorProps {
+export interface TablePaginatorProps {
   totalItems: number;
   pageLimit: number;
   from: number;
@@ -11,7 +11,7 @@ interface TablePaginatorProps {
   onPageChange: (from: number, to: number) => void;
 }
 
-class TablePaginator extends React.Component<TablePaginatorProps> {
+export class TablePaginator extends React.Component<TablePaginatorProps> {
   public render() {
     const baseClass = cx("dui-table-paginator");
     const countClass = cx("dui-table-paginator-count");
@@ -54,4 +54,3 @@ class TablePaginator extends React.Component<TablePaginatorProps> {
     onPageChange(newFrom, newTo);
   };
 }
-export { TablePaginatorProps, TablePaginator };

@@ -6,7 +6,7 @@ import {
   TreeViewContextType,
   TreeViewProvider
 } from "./TreeViewTypes";
-interface TreeViewProps {
+export interface TreeViewProps {
   className?: string;
   nodes?: TreeViewNode[];
   multiselect?: boolean;
@@ -22,7 +22,7 @@ interface TreeViewState {
   checked?: TreeViewNode[];
 }
 
-class TreeView extends React.Component<TreeViewProps, TreeViewState> {
+export class TreeView extends React.Component<TreeViewProps, TreeViewState> {
   state = { selected: undefined, checked: [] };
 
   static defaultProps: Partial<TreeViewProps> = {};
@@ -97,4 +97,3 @@ class TreeView extends React.Component<TreeViewProps, TreeViewState> {
     );
   }
 }
-export { TreeView, TreeViewProps, TreeViewNode };

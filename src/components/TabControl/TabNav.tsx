@@ -2,9 +2,9 @@ import * as React from "react";
 import { TabNavItem } from "./TabNavItem";
 import { TabControlConsumer, TabType, ContextType } from "./TabControlTypes";
 import cx from "classnames";
-interface TabNavProps {}
+export interface TabNavProps {}
 
-class TabNav extends React.Component<TabNavProps> {
+export class TabNav extends React.Component<TabNavProps> {
   render() {
     return (
       <TabControlConsumer>
@@ -20,5 +20,3 @@ class TabNav extends React.Component<TabNavProps> {
     );
   }
 }
-
-export { TabNav, TabNavProps };

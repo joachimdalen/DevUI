@@ -5,7 +5,7 @@ import * as React from "react";
 import { isString } from "util";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-interface CheckBoxListProps {
+export interface CheckBoxListProps {
   items: ICheckBoxItem[];
   defaultChecked?: ICheckBoxItem[] | string[];
   disabledItems?: ICheckBoxItem[] | string[];
@@ -14,14 +14,14 @@ interface CheckBoxListProps {
   onCheckChange: (checked: ICheckBoxItem[]) => any;
   indicatorLocation?: CheckBoxIndicatorLocation;
 }
-interface ICheckBoxItem {
+export interface ICheckBoxItem {
   label: string;
   key: string;
 }
 interface State {
   checked: ICheckBoxItem[];
 }
-class CheckBoxList extends React.Component<CheckBoxListProps, State> {
+export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
   static defaultProps: Partial<CheckBoxListProps> = {
     showCheckAll: false,
     showCheckCount: false
@@ -158,4 +158,3 @@ class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     return items.find((i: ICheckBoxItem) => i.key === key);
   }
 }
-export { CheckBoxListProps, ICheckBoxItem, CheckBoxList };

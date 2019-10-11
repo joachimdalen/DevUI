@@ -3,12 +3,12 @@ import { Button, ButtonProps } from "../Button/Button";
 import cx from "classnames";
 import { camelCaseToDash } from "../common";
 
-type OverflowMenuLocation =
+export type OverflowMenuLocation =
   | "topRight"
   | "topLeft"
   | "bottomRight"
   | "bottomLeft";
-interface OverflowMenuProps {
+export interface OverflowMenuProps {
   triggerButtonProps?: ButtonProps;
   className?: string;
   menuLocation?: OverflowMenuLocation;
@@ -16,7 +16,7 @@ interface OverflowMenuProps {
 interface OverflowMenuState {
   visible: boolean;
 }
-class OverflowMenu extends React.Component<
+export class OverflowMenu extends React.Component<
   OverflowMenuProps,
   OverflowMenuState
 > {
@@ -61,4 +61,3 @@ class OverflowMenu extends React.Component<
     this.setState({ visible: !this.state.visible });
   };
 }
-export { OverflowMenu, OverflowMenuLocation, OverflowMenuProps };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-interface FormGroupProps {
+export interface FormGroupProps {
   label?: string | React.ReactElement;
   inline?: boolean;
   inlineLabel?: boolean;
@@ -15,9 +15,9 @@ interface FormGroupProps {
   error?: any;
   errorAccessor?: (error: any) => string;
 }
-type FormGroupRequiredType = "icon" | "text";
-type FormGroupExtraType = "success" | "danger" | "warning" | "normal";
-class FormGroup extends React.Component<FormGroupProps> {
+export type FormGroupRequiredType = "icon" | "text";
+export type FormGroupExtraType = "success" | "danger" | "warning" | "normal";
+export class FormGroup extends React.Component<FormGroupProps> {
   static defaultProps: Partial<FormGroupProps> = {
     inline: false,
     inlineLabel: false,
@@ -117,4 +117,3 @@ class FormGroup extends React.Component<FormGroupProps> {
     );
   }
 }
-export { FormGroupProps, FormGroupRequiredType, FormGroupExtraType, FormGroup };

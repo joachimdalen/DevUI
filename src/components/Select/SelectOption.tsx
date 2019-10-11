@@ -1,14 +1,14 @@
 import * as React from "react";
 import { SelectConsumer, SelectContextType } from "./SelectTypes";
 import cx from "classnames";
-interface SelectOptionProps {
+export interface SelectOptionProps {
   label: string;
   value: string;
   meta?: any;
   className?: string;
   onClick?: (value: any) => any;
 }
-class SelectOption extends React.PureComponent<SelectOptionProps> {
+export class SelectOption extends React.PureComponent<SelectOptionProps> {
   render() {
     const { children, label, value, meta, className } = this.props;
     return (
@@ -33,4 +33,3 @@ class SelectOption extends React.PureComponent<SelectOptionProps> {
     );
   }
 }
-export { SelectOptionProps, SelectOption };

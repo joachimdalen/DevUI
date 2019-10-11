@@ -2,7 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-interface ToastProps {
+export interface ToastProps {
   className?: string;
   icon?: string;
   title: string;
@@ -13,7 +13,7 @@ interface ToastProps {
   onDismiss?: () => void;
 }
 
-class Toast extends React.Component<ToastProps> {
+export class Toast extends React.Component<ToastProps> {
   public render() {
     const {
       className = "",
@@ -56,4 +56,3 @@ class Toast extends React.Component<ToastProps> {
     );
   }
 }
-export { Toast, ToastProps };

@@ -34,9 +34,10 @@ interface DataTableState {
   from: number;
   to: number;
 }
-type DataTableProps = Omit<TableProps, "children"> & InternalDataTableProps;
+export type DataTableProps = Omit<TableProps, "children"> &
+  InternalDataTableProps;
 
-class DataTable extends React.Component<DataTableProps, DataTableState> {
+export class DataTable extends React.Component<DataTableProps, DataTableState> {
   state = {
     checked: [] as any[],
     sortBy: {} as Column,
@@ -372,4 +373,3 @@ class DataTable extends React.Component<DataTableProps, DataTableState> {
     return renderedRows;
   }
 }
-export { DataTable, DataTableProps, Column };

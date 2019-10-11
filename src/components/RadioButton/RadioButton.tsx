@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-interface RadioButtonProps {
+export interface RadioButtonProps {
   className?: string;
   checked: boolean;
   label: string;
@@ -8,7 +8,7 @@ interface RadioButtonProps {
   onCheckChange: () => void;
 }
 
-class RadioButton extends React.Component<RadioButtonProps> {
+export class RadioButton extends React.Component<RadioButtonProps> {
   render() {
     const { checked, variant, label, className } = this.props;
     const labelClass = cx(
@@ -34,4 +34,3 @@ class RadioButton extends React.Component<RadioButtonProps> {
     onCheckChange();
   }
 }
-export { RadioButton, RadioButtonProps };

@@ -5,7 +5,7 @@ import cx from "classnames";
 import * as React from "react";
 import { Avatar, AvatarProps } from "../Avatar/Avatar";
 import { Omit } from "../common";
-interface HeaderUserMenuProps {
+export interface HeaderUserMenuProps {
   username?: string;
   avatar?: string | React.ReactElement<Avatar>;
   closeIcon?: string | React.ReactElement;
@@ -15,7 +15,7 @@ interface HeaderUserMenuProps {
     | React.ReactElement<HeaderUserMenuItem>[];
   avatarProps?: Omit<AvatarProps, "src">;
 }
-class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
+export class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
   render() {
     const {
       username,
@@ -75,4 +75,3 @@ class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
     );
   }
 }
-export { HeaderUserMenuProps, HeaderUserMenu };

@@ -7,14 +7,14 @@ import {
   TreeViewContextType,
   TreeViewNode
 } from "./TreeViewTypes";
-interface TreeViewItemProps {
+export interface TreeViewItemProps {
   className?: string;
   node: TreeViewNode;
 }
 interface TreeViewItemState {
   expanded: boolean;
 }
-class TreeViewItem extends React.Component<
+export class TreeViewItem extends React.Component<
   TreeViewItemProps,
   TreeViewItemState
 > {
@@ -116,4 +116,3 @@ class TreeViewItem extends React.Component<
     );
   }
 }
-export { TreeViewItem, TreeViewItemProps };

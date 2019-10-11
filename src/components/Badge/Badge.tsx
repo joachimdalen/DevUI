@@ -2,14 +2,14 @@ import * as React from "react";
 import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-interface BadgeProps {
+export interface BadgeProps {
   label: string;
   variant?: string;
   dismissText?: string | React.ReactNode;
   onDismiss?: () => any;
 }
 
-class Badge extends React.PureComponent<BadgeProps> {
+export class Badge extends React.PureComponent<BadgeProps> {
   static defaultProps: Partial<BadgeProps> = {
     variant: "default"
   };
@@ -46,4 +46,3 @@ class Badge extends React.PureComponent<BadgeProps> {
     return badgeComponent;
   }
 }
-export { BadgeProps, Badge };

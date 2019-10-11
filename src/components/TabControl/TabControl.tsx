@@ -4,7 +4,7 @@ import { TabNav } from "./TabNav";
 import { TabPaneContainer } from "./TabPaneContainer";
 import { TabControlProvider, TabType } from "./TabControlTypes";
 
-interface TabControlProps {
+export interface TabControlProps {
   tabs: TabType[];
   defaultActive?: string;
   className?: string;
@@ -15,7 +15,7 @@ interface TabControlProps {
 interface State {
   activeNav: string;
 }
-class TabControl extends React.Component<TabControlProps, State> {
+export class TabControl extends React.Component<TabControlProps, State> {
   state = {
     activeNav:
       this.props.defaultActive || (this.props.tabs && this.props.tabs[0].key)
@@ -51,4 +51,3 @@ class TabControl extends React.Component<TabControlProps, State> {
     );
   }
 }
-export { TabControl, TabControlProps };

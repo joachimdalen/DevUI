@@ -1,9 +1,9 @@
 import * as React from "react";
 import cx from "classnames";
-interface ModalFooterProps {
+export interface ModalFooterProps {
   className?: string;
 }
-class ModalFooter extends React.Component<ModalFooterProps> {
+export class ModalFooter extends React.Component<ModalFooterProps> {
   static defaultProps: Partial<ModalFooterProps> = {
     className: ""
   };
@@ -13,4 +13,4 @@ class ModalFooter extends React.Component<ModalFooterProps> {
     return <div className={cx("dui-modal-footer", className)}>{children}</div>;
   }
 }
-export { ModalFooterProps, ModalFooter };
+

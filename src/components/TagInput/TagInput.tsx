@@ -4,7 +4,7 @@ import { Badge, BadgeProps } from "../Badge/Badge";
 import { TextInput } from "../TextInput/TextInput";
 import { Omit } from "../common";
 
-interface Tag {
+export interface Tag {
   value: string;
   removeable?: boolean;
 }
@@ -13,13 +13,13 @@ interface State {
   tags: Tag[];
   value: string;
 }
-interface TagInputProps {
+export interface TagInputProps {
   initialTags?: Tag[];
   onChange?: (tags: Tag[]) => void;
   badgeProps?: Omit<BadgeProps, "label" | "onDismiss">;
 }
 
-class TagInput extends React.Component<TagInputProps, State> {
+export class TagInput extends React.Component<TagInputProps, State> {
   state = {
     tags: this.props.initialTags || ([] as Tag[]),
     value: ""
@@ -106,4 +106,3 @@ class TagInput extends React.Component<TagInputProps, State> {
     onChange && onChange(tags);
   }
 }
-export { Tag, TagInput, TagInputProps };

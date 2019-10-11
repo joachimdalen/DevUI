@@ -2,12 +2,12 @@ import * as React from "react";
 import { CustomComponent } from "../common";
 import cx from "classnames";
 
-interface HeaderItemProps extends CustomComponent {
+export interface HeaderItemProps extends CustomComponent {
   onClick?: () => void;
   active?: boolean;
 }
 
-class HeaderItem extends React.Component<HeaderItemProps> {
+export class HeaderItem extends React.Component<HeaderItemProps> {
   render() {
     const { children, onClick, component, componentProps, active } = this.props;
     const baseClass = cx("dui-header-item", {
@@ -28,4 +28,3 @@ class HeaderItem extends React.Component<HeaderItemProps> {
     );
   }
 }
-export { HeaderItem, HeaderItemProps };

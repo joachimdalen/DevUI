@@ -1,11 +1,11 @@
 import * as React from "react";
 import cx from "classnames";
-interface CardBodyProps {
+export interface CardBodyProps {
   className?: string;
   noPadding?: boolean;
 }
 
-class CardBody extends React.Component<CardBodyProps> {
+export class CardBody extends React.Component<CardBodyProps> {
   static defaultProps: Partial<CardBodyProps> = {
     noPadding: false
   };
@@ -19,4 +19,3 @@ class CardBody extends React.Component<CardBodyProps> {
     return <div className={baseClass}>{children}</div>;
   }
 }
-export { CardBody, CardBodyProps };

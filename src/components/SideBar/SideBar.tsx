@@ -4,8 +4,8 @@ import { SideBarMenu } from "./SideBarMenu";
 import { SideBarAddon } from "./SideBarAddon";
 interface IState {}
 
-type SideBarAddonLocation = "top" | "bottom";
-interface SideBarProps {
+export type SideBarAddonLocation = "top" | "bottom";
+export interface SideBarProps {
   className?: string;
   compact?: boolean;
   showCompactLabels?: boolean;
@@ -14,7 +14,7 @@ interface SideBarProps {
   addonLocation?: SideBarAddonLocation;
 }
 
-class SideBar extends React.Component<SideBarProps, IState> {
+export class SideBar extends React.Component<SideBarProps, IState> {
   static defaultProps: Partial<SideBarProps> = {
     compact: false,
     animate: false
@@ -45,4 +45,3 @@ class SideBar extends React.Component<SideBarProps, IState> {
     );
   }
 }
-export { SideBarAddonLocation, SideBar, SideBarProps };

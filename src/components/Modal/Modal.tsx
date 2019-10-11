@@ -3,10 +3,10 @@ import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { GenericSizes } from "../common";
 
-type ModalSize = GenericSizes;
-type ModalLocation = "top" | "center";
+export type ModalSize = GenericSizes;
+export type ModalLocation = "top" | "center";
 
-interface ModalProps {
+export interface ModalProps {
   onBackdropClick?: () => void;
   onClose?: () => void;
   closeOnBackdropClick?: boolean;
@@ -16,7 +16,7 @@ interface ModalProps {
   className?: string;
   backdropClassName?: string;
 }
-class Modal extends React.Component<ModalProps> {
+export class Modal extends React.Component<ModalProps> {
   wrapperRef = React.createRef<HTMLDivElement>();
   static defaultProps: Partial<ModalProps> = {
     closeOnBackdropClick: false,
@@ -90,4 +90,3 @@ class Modal extends React.Component<ModalProps> {
     onClose && onClose();
   };
 }
-export { ModalSize, ModalLocation, ModalProps, Modal };

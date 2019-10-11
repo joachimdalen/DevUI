@@ -1,11 +1,11 @@
 import * as React from "react";
 import cx from "classnames";
-interface OverflowMenuItemProps {
+export interface OverflowMenuItemProps {
   className?: string;
   onClick?: () => void;
   children: any;
 }
-const OverflowMenuItem = ({
+export const OverflowMenuItem = ({
   className,
   children,
   onClick,
@@ -19,4 +19,3 @@ const OverflowMenuItem = ({
     {children}
   </div>
 );
-export { OverflowMenuItem, OverflowMenuItemProps };

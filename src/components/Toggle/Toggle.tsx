@@ -1,8 +1,8 @@
 import * as React from "react";
 import cx from "classnames";
 
-type ToggleSize = "normal" | "large";
-interface ToggleProps {
+export type ToggleSize = "normal" | "large";
+export interface ToggleProps {
   className?: string;
   toggled?: boolean;
   showLabels?: boolean;
@@ -13,7 +13,7 @@ interface ToggleProps {
   name?: string;
 }
 
-class Toggle extends React.Component<ToggleProps> {
+export class Toggle extends React.Component<ToggleProps> {
   public render() {
     const {
       className = "",
@@ -49,4 +49,3 @@ class Toggle extends React.Component<ToggleProps> {
     );
   }
 }
-export { Toggle, ToggleSize, ToggleProps };

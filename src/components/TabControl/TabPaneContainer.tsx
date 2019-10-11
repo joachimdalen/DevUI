@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TabControlConsumer, TabType, ContextType } from "./TabControlTypes";
 import cx from "classnames";
-class TabPaneContainer extends React.Component {
+export class TabPaneContainer extends React.Component {
   render() {
     return (
       <TabControlConsumer>
@@ -22,4 +22,3 @@ class TabPaneContainer extends React.Component {
     return current.render && current.render();
   }
 }
-export { TabPaneContainer };

@@ -10,7 +10,7 @@ import {
   SelectContextType
 } from "./SelectTypes";
 
-interface SelectProps {
+export interface SelectProps {
   label: string;
   options?: SelectOptionType[];
   children?:
@@ -30,7 +30,7 @@ interface State {
   expanded: boolean;
   selectedItem?: SelectOptionType;
 }
-class Select extends React.Component<SelectProps, State> {
+export class Select extends React.Component<SelectProps, State> {
   _wrapperRef: any = React.createRef();
   state = {
     expanded: false,
@@ -175,4 +175,3 @@ class Select extends React.Component<SelectProps, State> {
     return selectedItem.label;
   }
 }
-export { Select, SelectProps, SelectOptionType };

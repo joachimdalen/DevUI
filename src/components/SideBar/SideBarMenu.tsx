@@ -1,11 +1,11 @@
 import * as React from "react";
 import cx from "classnames";
 interface IState {}
-interface SideBarMenuProps {
+export interface SideBarMenuProps {
   className?: string;
 }
 
-class SideBarMenu extends React.Component<SideBarMenuProps, IState> {
+export class SideBarMenu extends React.Component<SideBarMenuProps, IState> {
   static defaultProps: Partial<SideBarMenuProps> = {
     className: ""
   };
@@ -15,4 +15,3 @@ class SideBarMenu extends React.Component<SideBarMenuProps, IState> {
     return <div className={menuClass}>{children}</div>;
   }
 }
-export { SideBarMenu, SideBarMenuProps };

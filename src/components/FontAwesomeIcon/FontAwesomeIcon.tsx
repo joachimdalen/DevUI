@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-interface FontAwesomeIconProps {
+export interface FontAwesomeIconProps {
   icon: string;
   animate?: boolean;
   fixedWidth?: boolean;
@@ -12,10 +12,10 @@ interface FontAwesomeIconProps {
   animationType?: FAIAnimationType;
   onClick?: () => void;
 }
-type FAIMarginDirection = "left" | "right";
-type FAIAnimationType = "spin" | "pulse";
-type FAISize = "normal" | "large" | "xlarge";
-type FAIStyle = "solid" | "regular" | "light" | "brands";
+export type FAIMarginDirection = "left" | "right";
+export type FAIAnimationType = "spin" | "pulse";
+export type FAISize = "normal" | "large" | "xlarge";
+export type FAIStyle = "solid" | "regular" | "light" | "brands";
 
 const _typeFromStyle = (style: FAIStyle) => {
   switch (style) {
@@ -40,7 +40,7 @@ const _sizeClassFromSize = (size: FAISize) => {
   }
 };
 
-const FontAwesomeIcon = ({
+export const FontAwesomeIcon = ({
   icon,
   marginDirection,
   animate = false,
@@ -72,11 +72,4 @@ const FontAwesomeIcon = ({
     />
   );
 };
-export {
-  FontAwesomeIconProps,
-  FAIMarginDirection,
-  FAIAnimationType,
-  FAISize,
-  FAIStyle,
-  FontAwesomeIcon
-};
+

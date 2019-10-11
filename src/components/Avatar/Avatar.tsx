@@ -3,9 +3,9 @@ import cx from "classnames";
 import { Image } from "../Image/Image";
 import { GenericSizes } from "../common";
 
-type AvatarFormat = "square" | "rounded" | "circle";
-type AvatarSize = GenericSizes;
-interface AvatarProps {
+export type AvatarFormat = "square" | "rounded" | "circle";
+export type AvatarSize = GenericSizes;
+export interface AvatarProps {
   src: React.ReactNode | string;
   fallbackSrc?: string;
   size?: AvatarSize;
@@ -15,7 +15,7 @@ interface AvatarProps {
   className?: string;
 }
 
-class Avatar extends React.Component<AvatarProps> {
+export class Avatar extends React.Component<AvatarProps> {
   static defaultProps: Partial<AvatarProps> = {
     size: "medium",
     format: "square"
@@ -62,4 +62,3 @@ class Avatar extends React.Component<AvatarProps> {
     );
   }
 }
-export { AvatarFormat, AvatarSize, AvatarProps, Avatar };

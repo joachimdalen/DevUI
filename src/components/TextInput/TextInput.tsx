@@ -3,7 +3,7 @@ import cx from "classnames";
 import { isUndefined } from "util";
 import { GenericSizes, Omit } from "../common";
 
-interface TextInputProps {
+export interface TextInputProps {
   className?: string;
   autoComplete?: boolean;
   autoFocus?: boolean;
@@ -22,7 +22,7 @@ interface TextInputProps {
   prefix?: string | any;
 }
 type AllProps = TextInputProps & React.HTMLAttributes<HTMLInputElement>;
-class TextInput extends React.Component<AllProps> {
+export class TextInput extends React.Component<AllProps> {
   public render() {
     const {
       autoComplete = true,
@@ -115,4 +115,3 @@ class TextInput extends React.Component<AllProps> {
     );
   }
 }
-export { TextInput, TextInputProps };

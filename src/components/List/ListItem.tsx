@@ -1,13 +1,13 @@
 import * as React from "react";
 import cx from "classnames";
-interface ListItemProps {
+export interface ListItemProps {
   title: string;
   subtitle?: string;
   leftIcon?: string | React.ReactNode;
   rightIcon?: string | React.ReactNode;
 }
 
-class ListItem extends React.Component<ListItemProps> {
+export class ListItem extends React.Component<ListItemProps> {
   public render() {
     const { title, subtitle, rightIcon, leftIcon } = this.props;
     return (
@@ -33,4 +33,3 @@ class ListItem extends React.Component<ListItemProps> {
     );
   }
 }
-export { ListItem, ListItemProps };

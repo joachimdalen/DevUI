@@ -2,8 +2,8 @@ import * as React from "react";
 import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-type AlertVariant = "info" | "success" | "warning" | "danger";
-interface AlertProps {
+export type AlertVariant = "info" | "success" | "warning" | "danger";
+export interface AlertProps {
   className?: string;
   variant?: AlertVariant;
   message: string;
@@ -12,7 +12,7 @@ interface AlertProps {
   withIcon?: boolean;
   icon?: string;
 }
-class Alert extends React.Component<AlertProps> {
+export class Alert extends React.Component<AlertProps> {
   static defaultProps: Partial<AlertProps> = {
     variant: "info"
   };
@@ -76,5 +76,3 @@ class Alert extends React.Component<AlertProps> {
     return <div className={baseClass}>{baseComponent}</div>;
   }
 }
-
-export { Alert, AlertProps, AlertVariant };

@@ -1,9 +1,9 @@
 import * as React from "react";
 import cx from "classnames";
-interface ModalBodyProps {
+export interface ModalBodyProps {
   className?: string;
 }
-class ModalBody extends React.Component<ModalBodyProps> {
+export class ModalBody extends React.Component<ModalBodyProps> {
   static defaultProps: Partial<ModalBodyProps> = {
     className: ""
   };
@@ -13,4 +13,3 @@ class ModalBody extends React.Component<ModalBodyProps> {
     return <div className={cx("dui-modal-body", className)}>{children}</div>;
   }
 }
-export { ModalBody, ModalBodyProps };

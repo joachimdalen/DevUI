@@ -2,7 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-interface AccordionProps {
+export interface AccordionProps {
   title: string | React.ReactElement;
   expandIcon?: string | React.ReactElement;
   collapseIcon?: string | React.ReactElement;
@@ -14,7 +14,7 @@ interface AccordionState {
   expanded: boolean;
 }
 
-class Accordion extends React.Component<AccordionProps, AccordionState> {
+export class Accordion extends React.Component<AccordionProps, AccordionState> {
   state = {
     expanded: this.props.expanded || false
   };
@@ -82,4 +82,3 @@ class Accordion extends React.Component<AccordionProps, AccordionState> {
     );
   }
 }
-export { Accordion, AccordionProps };

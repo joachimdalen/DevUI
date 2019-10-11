@@ -1,13 +1,14 @@
 import * as React from "react";
 import { TableCell } from "./TableCell";
 import cx from "classnames";
-interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement> {
+export interface TableRowProps
+  extends React.HTMLAttributes<HTMLTableRowElement> {
   children: React.ReactElement<TableCell> | React.ReactElement<TableCell>[];
   bordered?: boolean;
   checked?: boolean;
   isHeader?: boolean;
 }
-class TableRow extends React.Component<TableRowProps> {
+export class TableRow extends React.Component<TableRowProps> {
   public render() {
     const {
       children,
@@ -24,4 +25,3 @@ class TableRow extends React.Component<TableRowProps> {
     return <div className={rowClass}>{children}</div>;
   }
 }
-export { TableRowProps, TableRow };

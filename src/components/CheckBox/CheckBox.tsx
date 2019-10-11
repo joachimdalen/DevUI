@@ -1,8 +1,8 @@
 import cx from "classnames";
 import * as React from "react";
 
-type CheckBoxIndicatorLocation = "left" | "right";
-interface CheckBoxProps {
+export type CheckBoxIndicatorLocation = "left" | "right";
+export interface CheckBoxProps {
   label?: string;
   checked: boolean;
   onCheckChange: (state: boolean) => void;
@@ -14,7 +14,7 @@ interface CheckBoxProps {
   indicatorLocation?: CheckBoxIndicatorLocation;
 }
 
-class CheckBox extends React.Component<CheckBoxProps> {
+export class CheckBox extends React.Component<CheckBoxProps> {
   static defaultProps: Partial<CheckBoxProps> = {
     disabled: false,
     variant: "default",
@@ -74,4 +74,3 @@ class CheckBox extends React.Component<CheckBoxProps> {
     this._inputRef.indeterminate = value;
   }
 }
-export { CheckBoxIndicatorLocation, CheckBoxProps, CheckBox };

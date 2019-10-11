@@ -1,13 +1,15 @@
 import cx from "classnames";
 import * as React from "react";
 import { CustomComponent } from "../common";
-interface HeaderUserMenuItemProps extends CustomComponent {
+export interface HeaderUserMenuItemProps extends CustomComponent {
   className?: string;
   isHeader?: boolean;
   onClick: () => void;
 }
 
-class HeaderUserMenuItem extends React.Component<HeaderUserMenuItemProps> {
+export class HeaderUserMenuItem extends React.Component<
+  HeaderUserMenuItemProps
+> {
   static defaultProps: Partial<HeaderUserMenuItemProps> = {
     isHeader: false
   };
@@ -40,4 +42,3 @@ class HeaderUserMenuItem extends React.Component<HeaderUserMenuItemProps> {
     );
   }
 }
-export { HeaderUserMenuItemProps, HeaderUserMenuItem };

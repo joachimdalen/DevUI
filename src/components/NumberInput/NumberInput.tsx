@@ -2,7 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-interface NumberInputProps {
+export interface NumberInputProps {
   onChange: (value: number) => void;
   min?: number;
   max?: number;
@@ -13,7 +13,7 @@ interface State {
   value: number;
 }
 
-class NumberInput extends React.Component<NumberInputProps, State> {
+export class NumberInput extends React.Component<NumberInputProps, State> {
   static defaultProps: Partial<NumberInputProps> = {
     step: 1,
     min: Number.MIN_SAFE_INTEGER || -9007199254740991,
@@ -110,4 +110,3 @@ class NumberInput extends React.Component<NumberInputProps, State> {
     );
   }
 }
-export { NumberInput, NumberInputProps };

@@ -1,9 +1,9 @@
 import * as React from "react";
 import cx from "classnames";
-interface SideBarAddonProps {
+export interface SideBarAddonProps {
   className?: string;
 }
-class SideBarAddon extends React.Component<SideBarAddonProps> {
+export class SideBarAddon extends React.Component<SideBarAddonProps> {
   static defaultProps: Partial<SideBarAddonProps> = {};
   render() {
     const { className } = this.props;
@@ -11,4 +11,3 @@ class SideBarAddon extends React.Component<SideBarAddonProps> {
     return <div className={addonClass}>{this.props.children}</div>;
   }
 }
-export { SideBarAddonProps, SideBarAddon };

@@ -8,7 +8,7 @@ import { CustomComponent } from "../common";
 interface SideBarMenuItemState {
   subMenuVisible: boolean;
 }
-interface SideBarMenuItemProps extends CustomComponent {
+export interface SideBarMenuItemProps extends CustomComponent {
   isHeader?: boolean;
   active?: boolean;
   icon?: string | React.ReactElement;
@@ -19,7 +19,7 @@ interface SideBarMenuItemProps extends CustomComponent {
   className?: string;
 }
 
-class SideBarMenuItem extends React.Component<
+export class SideBarMenuItem extends React.Component<
   SideBarMenuItemProps,
   SideBarMenuItemState
 > {
@@ -130,4 +130,3 @@ class SideBarMenuItem extends React.Component<
     );
   }
 }
-export { SideBarMenuItemProps, SideBarMenuItem };

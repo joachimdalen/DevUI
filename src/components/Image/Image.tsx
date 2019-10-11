@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 
-interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   src: string;
   alt: string;
@@ -10,7 +10,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 interface ImageState {
   failed: boolean;
 }
-class Image extends React.Component<ImageProps, ImageState> {
+export class Image extends React.Component<ImageProps, ImageState> {
   state = {
     failed: false
   };
@@ -40,4 +40,3 @@ class Image extends React.Component<ImageProps, ImageState> {
     );
   }
 }
-export { ImageProps, Image };

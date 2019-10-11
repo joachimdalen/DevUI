@@ -1,12 +1,12 @@
 import * as React from "react";
 import cx from "classnames";
 
-interface ListProps {
+export interface ListProps {
   title?: string;
   bordered?: boolean;
 }
 
-class List extends React.Component<ListProps> {
+export class List extends React.Component<ListProps> {
   static defaultProps: Partial<ListProps> = {
     bordered: false
   };
@@ -22,4 +22,3 @@ class List extends React.Component<ListProps> {
     );
   }
 }
-export { List, ListProps };
