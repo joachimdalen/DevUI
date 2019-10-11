@@ -7,7 +7,9 @@ config = {
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "./build/")
+    path: path.resolve(__dirname, "./build/"),
+    libraryTarget: "umd",
+    umdNamedDefine: true
   },
   resolve: {
     // Add '.ts' and '.tsx' as a resolvable extension.
@@ -28,7 +30,7 @@ config = {
         to: "src/styles"
       },
       {
-        from: "src/components/**/*.scss",
+        from: "src/components/**/*.scss"
       }
     ])
   ]

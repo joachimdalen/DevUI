@@ -344,5 +344,6 @@ export {
   SelectOptionType,
   TabType,
   Column,
-  TreeViewNode
+  TreeViewNode,
+  Omit
 };
