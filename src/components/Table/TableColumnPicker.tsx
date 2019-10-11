@@ -4,18 +4,21 @@ import { Column } from "./TableTypes";
 import { CheckBoxList, ICheckBoxItem } from "../CheckBoxList/CheckBoxList";
 import { Button } from "../Button/Button";
 
-export interface Props {
+export interface TableColumnPickerProps {
   columns: Column[];
   visibleColumns: string[];
   forcedColumns?: string[];
   onColumnUpdate: (visible: string[]) => void;
 }
-export interface State {
+interface State {
   visible: boolean;
   selected: ICheckBoxItem[];
 }
 
-export class TableColumnPicker extends React.Component<Props, State> {
+export class TableColumnPicker extends React.Component<
+  TableColumnPickerProps,
+  State
+> {
   _mapColumn = (column: Column): ICheckBoxItem => {
     return {
       key: column.key,

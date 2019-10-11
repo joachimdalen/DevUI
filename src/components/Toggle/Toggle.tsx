@@ -2,7 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 
 export type ToggleSize = "normal" | "large";
-export interface Props {
+export interface ToggleProps {
   className?: string;
   toggled?: boolean;
   showLabels?: boolean;
@@ -13,7 +13,7 @@ export interface Props {
   name?: string;
 }
 
-export class Toggle extends React.Component<Props> {
+export class Toggle extends React.Component<ToggleProps> {
   public render() {
     const {
       className = "",

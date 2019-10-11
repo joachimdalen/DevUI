@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import { Image } from '../Image/Image';
+import { Image } from "../Image/Image";
 import { GenericSizes } from "../common";
 
 export type AvatarFormat = "square" | "rounded" | "circle";
@@ -22,7 +22,15 @@ export class Avatar extends React.Component<AvatarProps> {
   };
 
   render() {
-    const { src, size, format, width, height, className, fallbackSrc } = this.props;
+    const {
+      src,
+      size,
+      format,
+      width,
+      height,
+      className,
+      fallbackSrc
+    } = this.props;
 
     const isDefaultFormat = format === "square";
     const hasCustomSize = (width || height) !== undefined;
@@ -44,6 +52,13 @@ export class Avatar extends React.Component<AvatarProps> {
         />
       );
     }
-    return <Image src={src as string} className={baseClass} alt="avatar" fallbackSrc={fallbackSrc} />;
+    return (
+      <Image
+        src={src as string}
+        className={baseClass}
+        alt="avatar"
+        fallbackSrc={fallbackSrc}
+      />
+    );
   }
 }

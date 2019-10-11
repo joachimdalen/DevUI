@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 export interface PanelProps {}
 
 export class Panel extends React.Component<PanelProps> {
@@ -15,7 +15,7 @@ export class Panel extends React.Component<PanelProps> {
               icon="fa-angle-double-up"
               iconStyle="solid"
               fixedWidth
-              onClick={() => console.log('up')}
+              onClick={() => console.log("up")}
             />
             <FontAwesomeIcon icon="fa-sync-alt" iconStyle="solid" fixedWidth />
             <FontAwesomeIcon icon="fa-times" iconStyle="solid" fixedWidth />

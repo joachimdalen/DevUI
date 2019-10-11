@@ -3,7 +3,8 @@ import { Empty } from "../Empty/Empty";
 import cx from "classnames";
 import * as React from "react";
 import { isString } from "util";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+
 export interface CheckBoxListProps {
   items: ICheckBoxItem[];
   defaultChecked?: ICheckBoxItem[] | string[];
@@ -61,9 +62,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
               />
             )}
             {showCheckCount && (
-              <span className="dui-checkbox-list-header-counter">{`(${
-                checked.length
-                }/${items.length})`}</span>
+              <span className="dui-checkbox-list-header-counter">{`(${checked.length}/${items.length})`}</span>
             )}
           </div>
         )}
@@ -87,11 +86,16 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
               })}
           </ul>
         ) : (
-            <Empty image={
-              <FontAwesomeIcon icon="fa-minus" iconStyle="solid"></FontAwesomeIcon>
+          <Empty
+            image={
+              <FontAwesomeIcon
+                icon="fa-minus"
+                iconStyle="solid"
+              ></FontAwesomeIcon>
             }
-              header="No items" />
-          )}
+            header="No items"
+          />
+        )}
       </div>
     );
   }
@@ -99,7 +103,9 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
   _toggleItem(item: ICheckBoxItem) {
     const { onCheckChange } = this.props;
     const { checked } = this.state;
-    const checkIndex = checked.findIndex((i: ICheckBoxItem) => i.key === item.key);
+    const checkIndex = checked.findIndex(
+      (i: ICheckBoxItem) => i.key === item.key
+    );
     var arrCpy = [...this.state.checked];
     if (checkIndex !== -1) {
       arrCpy.splice(checkIndex, 1);

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Button, ButtonProps } from "../Button/Button";
 import cx from "classnames";
 import { camelCaseToDash } from "../common";
+
 export type OverflowMenuLocation =
   | "topRight"
   | "topLeft"
@@ -12,7 +13,7 @@ export interface OverflowMenuProps {
   className?: string;
   menuLocation?: OverflowMenuLocation;
 }
-export interface OverflowMenuState {
+interface OverflowMenuState {
   visible: boolean;
 }
 export class OverflowMenu extends React.Component<

@@ -1,10 +1,10 @@
 import * as React from "react";
 import cx from "classnames";
-export interface Props {
+export interface ModalBodyProps {
   className?: string;
 }
-export class ModalBody extends React.Component<Props> {
-  static defaultProps: Partial<Props> = {
+export class ModalBody extends React.Component<ModalBodyProps> {
+  static defaultProps: Partial<ModalBodyProps> = {
     className: ""
   };
 

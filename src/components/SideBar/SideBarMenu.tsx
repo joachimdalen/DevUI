@@ -1,7 +1,7 @@
 import * as React from "react";
 import cx from "classnames";
 interface IState {}
-interface SideBarMenuProps {
+export interface SideBarMenuProps {
   className?: string;
 }
 

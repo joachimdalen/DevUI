@@ -2,10 +2,10 @@ import * as React from "react";
 import cx from "classnames";
 import { TabNav } from "./TabNav";
 import { TabPaneContainer } from "./TabPaneContainer";
-import { TabControlProvider, Tab } from "./TabControlTypes";
+import { TabControlProvider, TabType } from "./TabControlTypes";
 
-export interface Props {
-  tabs: Tab[];
+export interface TabControlProps {
+  tabs: TabType[];
   defaultActive?: string;
   className?: string;
   navClassName?: string;
@@ -15,7 +15,7 @@ export interface Props {
 interface State {
   activeNav: string;
 }
-export class TabControl extends React.Component<Props, State> {
+export class TabControl extends React.Component<TabControlProps, State> {
   state = {
     activeNav:
       this.props.defaultActive || (this.props.tabs && this.props.tabs[0].key)

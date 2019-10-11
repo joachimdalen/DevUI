@@ -1,7 +1,8 @@
 import * as React from "react";
 import cx from "classnames";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { CustomComponent, GenericSizes } from "../common";
+
 export type ButtonFormat = "default" | "block";
 export type ButtonSize = GenericSizes;
 export interface ButtonProps extends CustomComponent {

@@ -1,15 +1,13 @@
 import * as React from "react";
-
-export interface Option {
+export interface SelectOptionType {
   label: string;
   value: string;
   group?: string;
   meta?: any;
 }
-
 export interface SelectContextType {
-  options?: Option[];
-  onSelect?: (option: Option) => void;
+  options?: SelectOptionType[];
+  onSelect?: (option: SelectOptionType) => void;
 }
 
 export const SelectContext = React.createContext<SelectContextType>({

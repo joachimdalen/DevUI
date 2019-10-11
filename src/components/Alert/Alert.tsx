@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
 export type AlertVariant = "info" | "success" | "warning" | "danger";
 export interface AlertProps {

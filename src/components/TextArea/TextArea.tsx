@@ -2,14 +2,14 @@ import * as React from "react";
 import cx from "classnames";
 
 export type TextAreaSizeMode = "vertical" | "horizontal" | "both";
-export interface Props {
+export interface TextAreaProps {
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   sizeMode?: TextAreaSizeMode;
   disabled?: boolean;
 }
-type AllProps = Props & React.HTMLAttributes<HTMLTextAreaElement>;
+type AllProps = TextAreaProps & React.HTMLAttributes<HTMLTextAreaElement>;
 export class TextArea extends React.Component<AllProps> {
-  static defaultProps: Partial<Props> = {
+  static defaultProps: Partial<TextAreaProps> = {
     sizeMode: "both"
   };
 

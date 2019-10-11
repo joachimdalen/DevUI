@@ -1,8 +1,8 @@
 import * as React from "react";
 import cx from "classnames";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-export interface Props {
+export interface NumberInputProps {
   onChange: (value: number) => void;
   min?: number;
   max?: number;
@@ -13,8 +13,8 @@ interface State {
   value: number;
 }
 
-export class NumberInput extends React.Component<Props, State> {
-  static defaultProps: Partial<Props> = {
+export class NumberInput extends React.Component<NumberInputProps, State> {
+  static defaultProps: Partial<NumberInputProps> = {
     step: 1,
     min: Number.MIN_SAFE_INTEGER || -9007199254740991,
     max: Number.MAX_SAFE_INTEGER || 9007199254740991
@@ -22,7 +22,11 @@ export class NumberInput extends React.Component<Props, State> {
   state = {
     value: this.props.value || 1
   };
-  componentDidUpdate(prevProps: Props, prevState: State, snapshot: any) {
+  componentDidUpdate(
+    prevProps: NumberInputProps,
+    prevState: State,
+    snapshot: any
+  ) {
     if (prevProps !== this.props && this.props.value) {
       this.setState({
         value: this.props.value

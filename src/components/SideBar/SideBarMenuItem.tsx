@@ -1,14 +1,14 @@
 import * as React from "react";
 import cx from "classnames";
 import { SideBarMenu } from "./SideBarMenu";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { isString } from "util";
 import { CustomComponent } from "../common";
 
 interface SideBarMenuItemState {
   subMenuVisible: boolean;
 }
-interface SideBarMenuItemProps extends CustomComponent {
+export interface SideBarMenuItemProps extends CustomComponent {
   isHeader?: boolean;
   active?: boolean;
   icon?: string | React.ReactElement;

@@ -1,14 +1,15 @@
 import * as React from "react";
 
 import { storiesOf } from "@storybook/react";
-import { SideBar, AddonLocation } from "./SideBar";
+import { SideBar, SideBarAddonLocation } from "./SideBar";
 import { SideBarMenuItem } from "./SideBarMenuItem";
 import { boolean, select } from "@storybook/addon-knobs";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { SideBarAddon } from "./SideBarAddon";
 import { Avatar } from "../Avatar/Avatar";
 import { Select } from "../Select/Select";
 import { action } from "@storybook/addon-actions";
+
 storiesOf("Layout|SideBar", module)
   .add("SideBar", () => {
     const mainGroup = "Sidebar";
@@ -20,7 +21,11 @@ storiesOf("Layout|SideBar", module)
         showCompactLabels={boolean("Show compact labels", false, mainGroup)}
       >
         <SideBarMenuItem label="General" isHeader={true} />
-        <SideBarMenuItem label="Analytics" icon="fas fa-tachometer-alt" active />
+        <SideBarMenuItem
+          label="Analytics"
+          icon="fas fa-tachometer-alt"
+          active
+        />
         <SideBarMenuItem
           label="Administration"
           icon="fas fa-shield-alt"
@@ -100,7 +105,7 @@ storiesOf("Layout|SideBar", module)
         compact={boolean("Compact", false, mainGroup)}
         animate={boolean("Animate", false, mainGroup)}
         showCompactLabels={boolean("Show compact labels", false, mainGroup)}
-        addonLocation={addonLocation as AddonLocation}
+        addonLocation={addonLocation as SideBarAddonLocation}
         addon={addon}
       >
         <SideBarMenuItem label="General" isHeader={true} />

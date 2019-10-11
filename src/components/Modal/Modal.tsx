@@ -1,11 +1,12 @@
 import * as React from "react";
 import cx from "classnames";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { GenericSizes } from "../common";
+
 export type ModalSize = GenericSizes;
 export type ModalLocation = "top" | "center";
 
-export interface Props {
+export interface ModalProps {
   onBackdropClick?: () => void;
   onClose?: () => void;
   closeOnBackdropClick?: boolean;
@@ -15,9 +16,9 @@ export interface Props {
   className?: string;
   backdropClassName?: string;
 }
-export class Modal extends React.Component<Props> {
+export class Modal extends React.Component<ModalProps> {
   wrapperRef = React.createRef<HTMLDivElement>();
-  static defaultProps: Partial<Props> = {
+  static defaultProps: Partial<ModalProps> = {
     closeOnBackdropClick: false,
     visible: false,
     size: "medium",

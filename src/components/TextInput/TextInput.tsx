@@ -3,7 +3,7 @@ import cx from "classnames";
 import { isUndefined } from "util";
 import { GenericSizes, Omit } from "../common";
 
-export interface Props {
+export interface TextInputProps {
   className?: string;
   autoComplete?: boolean;
   autoFocus?: boolean;
@@ -21,7 +21,7 @@ export interface Props {
   suffix?: string | any;
   prefix?: string | any;
 }
-type AllProps = Props & React.HTMLAttributes<HTMLInputElement>;
+type AllProps = TextInputProps & React.HTMLAttributes<HTMLInputElement>;
 export class TextInput extends React.Component<AllProps> {
   public render() {
     const {
@@ -55,8 +55,8 @@ export class TextInput extends React.Component<AllProps> {
     const sizeClass = isDefaultSize
       ? ""
       : size === "small"
-        ? "dui-input-small"
-        : "dui-input-large";
+      ? "dui-input-small"
+      : "dui-input-large";
     const shouldWrapAddons = hasAddonBefore || hasAddonAfter;
     const shouldWrapFix = hasPrefix || hasSuffix;
     const addonWrapperClass = cx(

@@ -1,21 +1,23 @@
 import * as React from "react";
-
 import { storiesOf } from "@storybook/react";
 import { Select } from "./Select";
 import { SelectOption } from "./SelectOption";
 import { boolean } from "@storybook/addon-knobs/react";
 import { Empty } from "../Empty/Empty";
 import { action } from "@storybook/addon-actions";
-import { Option } from "./SelectTypes";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
-function getOptions(): Option[] {
-  let customers = require('../../../data/invoices.json').map((i: any) => i.customer);
+import { SelectOptionType } from "./SelectTypes";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+
+function getOptions(): SelectOptionType[] {
+  let customers = require("../../../data/invoices.json").map(
+    (i: any) => i.customer
+  );
 
   return customers.map((c: any) => {
     return {
-      label: [c.last_name, ",", c.prefix, c.first_name].join(' '),
-      value: [c.last_name, ",", c.prefix, c.first_name].join(' ')
-    }
+      label: [c.last_name, ",", c.prefix, c.first_name].join(" "),
+      value: [c.last_name, ",", c.prefix, c.first_name].join(" ")
+    };
   });
 }
 
@@ -48,9 +50,12 @@ storiesOf("Controls|Select", module)
       disabled={boolean("Disabled", false)}
       showEmptyPlaceholder={boolean("Show empty placeholder", false)}
       onChange={action("select-changed")}
-      emptyPlaceholder={<Empty header="" image={
-        <FontAwesomeIcon icon="fa-check" iconStyle="solid" />
-      } />}
+      emptyPlaceholder={
+        <Empty
+          header=""
+          image={<FontAwesomeIcon icon="fa-check" iconStyle="solid" />}
+        />
+      }
     />
   ))
   .add("With Renderer", () => (
@@ -68,9 +73,12 @@ storiesOf("Controls|Select", module)
   .add("With Renderer & Meta", () => (
     <Select
       label="Select City"
-      options={[{
-        label: "Hi", value: "Hi", meta: { firstName: "Devexer" }
-      }
+      options={[
+        {
+          label: "Hi",
+          value: "Hi",
+          meta: { firstName: "Devexer" }
+        }
       ]}
       renderer={option => (
         <SelectOption label={option.label} value={option.value}>

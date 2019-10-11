@@ -1,5 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
+
 export interface FontAwesomeIconProps {
   icon: string;
   animate?: boolean;
@@ -39,7 +40,7 @@ const _sizeClassFromSize = (size: FAISize) => {
   }
 };
 
-const FontAwesomeIcon = ({
+export const FontAwesomeIcon = ({
   icon,
   marginDirection,
   animate = false,
@@ -71,4 +72,4 @@ const FontAwesomeIcon = ({
     />
   );
 };
-export default FontAwesomeIcon;
+

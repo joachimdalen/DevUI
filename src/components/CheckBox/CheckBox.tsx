@@ -1,5 +1,6 @@
 import cx from "classnames";
 import * as React from "react";
+
 export type CheckBoxIndicatorLocation = "left" | "right";
 export interface CheckBoxProps {
   label?: string;

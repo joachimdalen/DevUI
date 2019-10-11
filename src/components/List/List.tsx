@@ -1,13 +1,13 @@
 import * as React from "react";
 import cx from "classnames";
 
-export interface Props {
+export interface ListProps {
   title?: string;
   bordered?: boolean;
 }
 
-export class List extends React.Component<Props> {
-  static defaultProps: Partial<Props> = {
+export class List extends React.Component<ListProps> {
+  static defaultProps: Partial<ListProps> = {
     bordered: false
   };
   public render() {

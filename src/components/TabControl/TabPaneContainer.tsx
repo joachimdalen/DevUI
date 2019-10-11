@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TabControlConsumer, Tab, ContextType } from "./TabControlTypes";
+import { TabControlConsumer, TabType, ContextType } from "./TabControlTypes";
 import cx from "classnames";
 export class TabPaneContainer extends React.Component {
   render() {
@@ -14,9 +14,9 @@ export class TabPaneContainer extends React.Component {
     );
   }
 
-  renderContent(tabs: Tab[], activeTab: string) {
+  renderContent(tabs: TabType[], activeTab: string) {
     const current = tabs.find(
-      (t: Tab) => t.key.toLowerCase() === activeTab.toLowerCase()
+      (t: TabType) => t.key.toLowerCase() === activeTab.toLowerCase()
     );
     if (!current) return "";
     return current.render && current.render();

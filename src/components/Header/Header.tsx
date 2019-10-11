@@ -2,10 +2,10 @@ import { HeaderBrand } from "./HeaderBrand";
 import { HeaderItem } from "./HeaderItem";
 import { HeaderContextType, HeaderProvider } from "./HeaderTypes";
 import { HeaderUserMenu } from "./HeaderUserMenu";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import cx from "classnames";
 import * as React from "react";
-export interface Props {
+export interface HeaderProps {
   onToggleClick?: () => void;
   responsive?: boolean;
   brand?: React.ReactElement<HeaderBrand>;
@@ -17,7 +17,7 @@ interface State {
   userMenuVisible: boolean;
   mobileExpanded: boolean;
 }
-export class Header extends React.Component<Props, State> {
+export class Header extends React.Component<HeaderProps, State> {
   state = {
     userMenuVisible: false,
     mobileExpanded: false

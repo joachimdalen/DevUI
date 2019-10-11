@@ -1,12 +1,12 @@
 import * as React from "react";
 import cx from "classnames";
 import { Button } from "./Button";
-export interface ButtonGroupProps {
+interface ButtonGroupProps {
   children: React.ReactElement<Button> | React.ReactElement<Button>[];
   vertical?: boolean;
 }
 
-export class ButtonGroup extends React.Component<ButtonGroupProps> {
+class ButtonGroup extends React.Component<ButtonGroupProps> {
   static defaultProps: Partial<ButtonGroupProps> = {
     vertical: false
   };
@@ -19,3 +19,4 @@ export class ButtonGroup extends React.Component<ButtonGroupProps> {
     return <div className={groupClass}>{children}</div>;
   }
 }
+export { ButtonGroupProps, ButtonGroup };

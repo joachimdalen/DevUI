@@ -1,32 +1,36 @@
 import { SelectOption } from "./SelectOption";
-import FontAwesomeIcon from "../FontAwesomeIcon/FontAwesomeIcon";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import cx from "classnames";
 import * as React from "react";
 import { isUndefined } from "util";
 import { Empty } from "../Empty/Empty";
-import { Option, SelectProvider, SelectContextType } from "./SelectTypes";
+import {
+  SelectOptionType,
+  SelectProvider,
+  SelectContextType
+} from "./SelectTypes";
 
-export interface Props {
+export interface SelectProps {
   label: string;
-  options?: Option[];
+  options?: SelectOptionType[];
   children?:
     | React.ReactElement<SelectOption>
     | React.ReactElement<SelectOption>[];
   iconOpen?: string | React.ReactNode;
   iconClose?: string | React.ReactNode;
   keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
-  renderer?: (option: Option) => React.ReactElement<SelectOption>;
-  onChange: (value: Option) => void;
-  defaultValue?: Option;
+  renderer?: (option: SelectOptionType) => React.ReactElement<SelectOption>;
+  onChange: (value: SelectOptionType) => void;
+  defaultValue?: SelectOptionType;
   disabled?: boolean;
   showEmptyPlaceholder?: boolean;
   emptyPlaceholder?: React.ReactElement<Empty>;
 }
-export interface State {
+interface State {
   expanded: boolean;
-  selectedItem?: Option;
+  selectedItem?: SelectOptionType;
 }
-export class Select extends React.Component<Props, State> {
+export class Select extends React.Component<SelectProps, State> {
   _wrapperRef: any = React.createRef();
   state = {
     expanded: false,
@@ -60,7 +64,7 @@ export class Select extends React.Component<Props, State> {
     const caretIcon = expanded ? "fa-caret-up" : "fa-caret-down";
     const contextValue: SelectContextType = {
       options: this.props.options,
-      onSelect: (item: Option) => {
+      onSelect: (item: SelectOptionType) => {
         this._selectOption(item);
       }
     };
@@ -123,7 +127,7 @@ export class Select extends React.Component<Props, State> {
         )
       );
     }
-    return options.map((option: Option) => {
+    return options.map((option: SelectOptionType) => {
       return (
         <div
           className={cx("dui-select-option")}
@@ -156,7 +160,7 @@ export class Select extends React.Component<Props, State> {
     const { expanded } = this.state;
     this.setState({ expanded: !expanded });
   }
-  _selectOption(option: Option) {
+  _selectOption(option: SelectOptionType) {
     const { onChange } = this.props;
     this.setState({ expanded: false, selectedItem: option }, () => {
       onChange && onChange(option);
