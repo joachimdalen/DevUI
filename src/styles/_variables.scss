@@ -537,3 +537,16 @@ $radiobutton-selected-border-radius: 50% !default;
 $radiobutton-selected-background: $color-disabled !default;
 $radiobutton-selected-hover-background: darken($color-disabled, 20%) !default;
 $radiobutton-mark-color: $color-dark !default;
+
+$drawer-top-spacing: 10px !default;
+$drawer-bottom-spacing: 10px !default;
+$drawer-left-spacing: 10px !default;
+$drawer-right-spacing: 10px !default;
+$drawer-border: 1px solid $color-border !default;
+$drawer-padding-x: 10px !default;
+$drawer-padding-y: 10px !default;
+$drawer-padding: $drawer-padding-y $drawer-padding-x !default;
+$drawer-close-icon-color: $color-border !default;
+$drawer-close-icon-hover-color: $color-dark !default;
+$drawer-close-icon-top: 10px !default;
+$drawer-close-icon-right: 10px !default;

@@ -3,32 +3,38 @@ import cx from "classnames";
 import { isNumber } from "util";
 import { Overlay } from "../Overlay/Overlay";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import { Color } from "csstype";
 
 export type DrawerLocation = "left" | "right";
 export interface DrawerProps {
     width?: number | string;
     className?: string;
     visible: boolean;
+    location?: DrawerLocation;
     onClose?: () => void;
+    backgroundColor?: Color;
 }
 
 export class Drawer extends React.Component<DrawerProps> {
+    static defaultProps: DrawerProps = {
+        location: "right",
+        visible: false
+    }
     public render() {
-        const { width, visible, onClose } = this.props;
-        const cardWidth = isNumber(width) ? `${width}px` : width;
+        const { width, visible, onClose, location, backgroundColor } = this.props;
+        const contentWidth = isNumber(width) ? `${width}px` : width;
         const baseClass = cx(
-            "dui-drawer"
+            "dui-drawer",
+            [`dui-drawer-${location}`],
         );
-        console.log(cardWidth);
         return (
-            <Overlay visible={visible}>
+            <Overlay visible={visible} backgroundColor={backgroundColor}>
                 <div className="dui-drawer-container">
-
-                    <div className={baseClass}>
+                    <div className={baseClass} style={{ maxWidth: contentWidth }}>
                         {onClose && (
                             <FontAwesomeIcon iconStyle="solid" icon="fa-times" onClick={onClose} />
                         )}
-                        Hello
+                        {this.props.children}
                     </div>
                 </div>
             </Overlay>

@@ -2,26 +2,36 @@
     position: relative;
     height: 100%;
     width: 100%;
-    ;
 }
 
 .#{$provider-prefix}-drawer {
     background-color: $color-light;
-    right: 10px;
-    top: 10px;
-    bottom: 10px;
+    top: $drawer-top-spacing;
+    bottom: $drawer-bottom-spacing;
     position: absolute;
-    padding: 10px;
-    width: 100px;
-    border-radius: 4px;
+    padding: $drawer-padding;
     animation-delay: 1s;
     animation: slide 1s forwards;
+    border: $drawer-border;
+    box-shadow: $box-shadow;
 
     .#{$provider-prefix}-icon {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: $drawer-close-icon-top;
+        right: $drawer-close-icon-right;
         color: #ccc;
+        &:hover{
+            color: $color-dark;
+            cursor: pointer;
+        }
+    }
+
+    &-left {
+        left: $drawer-left-spacing;
+    }
+
+    &-right {
+        right: $drawer-right-spacing;
     }
 }
 
@@ -31,6 +41,6 @@
     }
 
     100% {
-        width: 400px;
+        width: 100%;
     }
 }
