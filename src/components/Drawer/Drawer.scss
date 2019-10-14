@@ -1,0 +1,46 @@
+.#{$provider-prefix}-drawer-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.#{$provider-prefix}-drawer {
+    background-color: $color-light;
+    top: $drawer-top-spacing;
+    bottom: $drawer-bottom-spacing;
+    position: absolute;
+    padding: $drawer-padding;
+    animation-delay: 1s;
+    animation: slide 1s forwards;
+    border: $drawer-border;
+    box-shadow: $box-shadow;
+
+    .#{$provider-prefix}-icon {
+        position: absolute;
+        top: $drawer-close-icon-top;
+        right: $drawer-close-icon-right;
+        color: #ccc;
+        &:hover{
+            color: $color-dark;
+            cursor: pointer;
+        }
+    }
+
+    &-left {
+        left: $drawer-left-spacing;
+    }
+
+    &-right {
+        right: $drawer-right-spacing;
+    }
+}
+
+@keyframes slide {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
