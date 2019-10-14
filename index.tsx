@@ -55,6 +55,7 @@ import {
   CheckBoxList,
   CheckBoxListProps
 } from "./src/components/CheckBoxList/CheckBoxList";
+import { Drawer, DrawerProps } from './src/components/Drawer/Drawer';
 import { DataTable, DataTableProps } from "./src/components/Table/DataTable";
 import { Empty, EmptyProps } from "./src/components/Empty/Empty";
 import {
@@ -244,6 +245,8 @@ export {
   CheckBoxListProps,
   DataTable,
   DataTableProps,
+  Drawer,
+  DrawerProps,
   Empty,
   EmptyProps,
   FormGroup,
