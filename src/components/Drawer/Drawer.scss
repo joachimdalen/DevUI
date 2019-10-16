@@ -15,7 +15,7 @@
     border: $drawer-border;
     box-shadow: $box-shadow;
 
-    .#{$provider-prefix}-icon {
+    .close-icon {
         position: absolute;
         top: $drawer-close-icon-top;
         right: $drawer-close-icon-right;

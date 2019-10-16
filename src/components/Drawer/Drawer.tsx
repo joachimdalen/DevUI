@@ -32,7 +32,7 @@ export class Drawer extends React.Component<DrawerProps> {
                 <div className="dui-drawer-container">
                     <div className={baseClass} style={{ maxWidth: contentWidth }}>
                         {onClose && (
-                            <FontAwesomeIcon iconStyle="solid" icon="fa-times" onClick={onClose} />
+                            <FontAwesomeIcon className="close-icon" iconStyle="solid" icon="fa-times" onClick={onClose} />
                         )}
                         {this.props.children}
                     </div>
