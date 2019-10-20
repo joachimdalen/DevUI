@@ -13,6 +13,7 @@ export interface CheckBoxListProps {
   showCheckAll?: boolean;
   onCheckChange: (checked: ICheckBoxItem[]) => any;
   indicatorLocation?: CheckBoxIndicatorLocation;
+  checkboxVariant?: string;
 }
 export interface ICheckBoxItem {
   label: string;
@@ -39,7 +40,8 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
       items,
       showCheckAll,
       showCheckCount,
-      indicatorLocation
+      indicatorLocation,
+      checkboxVariant
     } = this.props;
     const { checked } = this.state;
     const isIndeterminate =
@@ -58,6 +60,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
                 disabled={!items.length}
                 indeterminate={isIndeterminate}
                 name="check_all"
+                variant={checkboxVariant}
                 indicatorLocation={indicatorLocation}
               />
             )}
@@ -79,6 +82,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
                       checked={isChecked}
                       onCheckChange={() => this._toggleItem(item)}
                       name={item.key}
+                      variant={checkboxVariant}
                       indicatorLocation={indicatorLocation}
                     />
                   </li>
@@ -100,7 +104,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     );
   }
 
-  _toggleItem(item: ICheckBoxItem) {
+  private _toggleItem(item: ICheckBoxItem) {
     const { onCheckChange } = this.props;
     const { checked } = this.state;
     const checkIndex = checked.findIndex(
@@ -120,7 +124,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     }
   }
 
-  _toggleAll(): void {
+  private _toggleAll(): void {
     const { items, onCheckChange } = this.props;
     const { checked } = this.state;
     if (items.length !== checked.length) {
@@ -133,7 +137,8 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
       });
     }
   }
-  _setDefaultItems(): void {
+
+  private _setDefaultItems(): void {
     const { defaultChecked } = this.props;
     if (!defaultChecked) {
       return;
@@ -153,7 +158,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     this.setState({ checked: checkedItems });
   }
 
-  _findItem(key: string): ICheckBoxItem | undefined {
+  private _findItem(key: string): ICheckBoxItem | undefined {
     const { items } = this.props;
     return items.find((i: ICheckBoxItem) => i.key === key);
   }
