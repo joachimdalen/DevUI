@@ -1,8 +1,9 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { CheckBoxList, ICheckBoxItem } from "./CheckBoxList";
-import { boolean } from "@storybook/addon-knobs/react";
+import { boolean, select } from "@storybook/addon-knobs/react";
 import { action } from "@storybook/addon-actions";
+import variants from "../../storyUtil/variants";
 
 const items: ICheckBoxItem[] = [
   { label: "One", key: "0" },
@@ -20,6 +21,7 @@ storiesOf("Controls|CheckBoxList", module)
       showCheckAll={boolean("Show Check All", true)}
       showCheckCount={boolean("Show Check Count", true)}
       onCheckChange={action("onCheckChange")}
+      checkboxVariant={select("Checkbox Varient", variants, "primary")}
     />
   ))
   .add("Empty", () => (
@@ -28,6 +30,7 @@ storiesOf("Controls|CheckBoxList", module)
       showCheckAll={boolean("Show Check All", true)}
       showCheckCount={boolean("Show Check Count", true)}
       onCheckChange={action("onCheckChange")}
+      checkboxVariant={select("Checkbox Varient", variants, "primary")}
     />
   ))
   .add("Right indicator", () => (
@@ -39,5 +42,6 @@ storiesOf("Controls|CheckBoxList", module)
       showCheckCount={boolean("Show Check Count", true)}
       onCheckChange={action("onCheckChange")}
       indicatorLocation="right"
+      checkboxVariant={select("Checkbox Varient", variants, "primary")}
     />
   ));

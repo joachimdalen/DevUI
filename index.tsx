@@ -11,6 +11,11 @@ import {
   Accordion,
   AccordionProps
 } from "./src/components/Accordion/Accordion";
+import {
+  AccordionGroup,
+  ParitalAccordionProps,
+  AccordionGroupProps
+} from "./src/components/Accordion/AccordionGroup";
 import { Alert, AlertProps, AlertVariant } from "./src/components/Alert/Alert";
 import {
   Avatar,
@@ -55,7 +60,7 @@ import {
   CheckBoxList,
   CheckBoxListProps
 } from "./src/components/CheckBoxList/CheckBoxList";
-import { Drawer, DrawerProps } from './src/components/Drawer/Drawer';
+import { Drawer, DrawerProps } from "./src/components/Drawer/Drawer";
 import { DataTable, DataTableProps } from "./src/components/Table/DataTable";
 import { Empty, EmptyProps } from "./src/components/Empty/Empty";
 import {
@@ -208,6 +213,9 @@ export {
   SocialButtonProps,
   Accordion,
   AccordionProps,
+  AccordionGroup,
+  AccordionGroupProps,
+  ParitalAccordionProps,
   Alert,
   AlertProps,
   AlertVariant,

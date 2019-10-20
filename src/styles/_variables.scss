@@ -117,14 +117,17 @@ $button-small-font-size: $font-size-small !default;
 $button-padding-y: 4px !default;
 $button-padding-x: 16px !default;
 $button-padding: $button-padding-y $button-padding-x !default;
+$button-height: 35px !default;
 
 $button-large-padding-y: 8px !default;
 $button-large-padding-x: 32px !default;
 $button-large-padding: $button-large-padding-y $button-large-padding-x !default;
+$button-large-height: 45px !default;
 
 $button-small-padding-y: 2px !default;
 $button-small-padding-x: 10px !default;
 $button-small-padding: $button-small-padding-y $button-small-padding-x !default;
+$button-small-height: 30px !default;
 
 $button-default-color: $color-light !default;
 $button-default-background: $color-primary !default;
