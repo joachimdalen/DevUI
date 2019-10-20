@@ -17,6 +17,7 @@
   border-color: $button-default-border-color;
   display: inline-flex;
   align-items: center;
+  height: $button-height;
   &.disabled {
     background-color: $button-disabled-background;
     border-color: transparent;
@@ -75,10 +76,12 @@
   &-large {
     padding: $button-large-padding;
     font-size: $button-large-font-size;
+    height: $button-large-height;
   }
   &-small:not(.#{$provider-prefix}-button-icon-only) {
     font-size: $button-small-font-size;
     padding: $button-small-padding;
+    height: $button-small-height;
   }
   &-group {
     box-shadow: $box-shadow;
