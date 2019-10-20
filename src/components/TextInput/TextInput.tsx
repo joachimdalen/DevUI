@@ -5,6 +5,7 @@ import { GenericSizes, Omit } from "../common";
 
 export interface TextInputProps {
   className?: string;
+  wrapperClassName?: string;
   autoComplete?: boolean;
   autoFocus?: boolean;
   name?: string;
@@ -41,6 +42,7 @@ export class TextInput extends React.Component<AllProps> {
       prefix,
       suffix,
       className = "",
+      wrapperClassName = "",
       ...rest
     } = this.props;
 
@@ -62,9 +64,10 @@ export class TextInput extends React.Component<AllProps> {
     const addonWrapperClass = cx(
       "dui-input-wrapper",
       { ["dui-input-addon-before"]: hasAddonBefore },
-      { ["dui-input-addon-after"]: hasAddonAfter }
+      { ["dui-input-addon-after"]: hasAddonAfter },
+      wrapperClassName
     );
-    const fixWrapperClass = cx("dui-input-fix-wrapper");
+    const fixWrapperClass = cx("dui-input-fix-wrapper", wrapperClassName);
     const inputComponentClass = cx(
       "dui-input",
       { "dui-input-disabled": disabled },
