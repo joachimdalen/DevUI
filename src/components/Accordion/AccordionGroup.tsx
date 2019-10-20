@@ -2,8 +2,8 @@ import * as React from "react";
 import cx from "classnames";
 import { Accordion, AccordionProps } from "./Accordion";
 import { Omit } from "../common";
-type ParitalAccordionProps = Omit<AccordionProps, "title">;
-interface AccordionGroupProps {
+export type ParitalAccordionProps = Omit<AccordionProps, "title">;
+export interface AccordionGroupProps {
   multiExpand?: boolean;
   children?: React.ReactElement<Accordion> | React.ReactElement<Accordion>[];
   accordionProps?: ParitalAccordionProps;
@@ -13,7 +13,7 @@ interface AccordionState {
   expandedItem?: number;
 }
 
-class AccordionGroup extends React.Component<
+export class AccordionGroup extends React.Component<
   AccordionGroupProps,
   AccordionState
 > {
@@ -50,4 +50,3 @@ class AccordionGroup extends React.Component<
     );
   }
 }
-export { AccordionGroup, AccordionGroupProps, ParitalAccordionProps };
