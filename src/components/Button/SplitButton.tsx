@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { Button, ButtonProps } from "./Button";
 
 export interface SplitButtonProps extends ButtonProps {}
-export interface SplitButtonState {
+interface SplitButtonState {
   expanded: boolean;
 }
 

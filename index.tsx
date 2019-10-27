@@ -39,6 +39,14 @@ import {
   ButtonSize
 } from "./src/components/Button/Button";
 import {
+  SplitButton,
+  SplitButtonProps
+} from "./src/components/Button/SplitButton";
+import {
+  SplitButtonAction,
+  SplitButtonActionProps
+} from "./src/components/Button/SplitButtonAction";
+import {
   ButtonGroup,
   ButtonGroupProps
 } from "./src/components/Button/ButtonGroup";
@@ -315,6 +323,10 @@ export {
   SideBarMenuProps,
   SideBarMenuItem,
   SideBarMenuItemProps,
+  SplitButton,
+  SplitButtonAction,
+  SplitButtonProps,
+  SplitButtonActionProps,
   TabControl,
   TabControlProps,
   Table,
