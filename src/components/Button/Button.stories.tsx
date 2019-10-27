@@ -5,7 +5,10 @@ import { text, boolean, select } from "@storybook/addon-knobs/react";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
 import { ButtonGroup } from "./ButtonGroup";
-storiesOf("Controls|Button", module)
+import { SplitButton } from "./SplitButton";
+import { SplitButtonAction } from "./SplitButtonAction";
+
+storiesOf("Controls|Button/Default", module)
   .add("Basic Button", () => (
     <Button
       label={text("label", "Delete")}
@@ -35,7 +38,7 @@ storiesOf("Controls|Button", module)
   .add("Link Button", () => (
     <Button
       label={text("label", "Delete")}
-      linkButton={boolean('Link Button', true)}
+      linkButton={boolean("Link Button", true)}
       onClick={action("button-clicked")}
     />
   ))
@@ -206,3 +209,15 @@ storiesOf("Controls|Button/Group", module)
       />
     </ButtonGroup>
   ));
+storiesOf("Controls|Button/SplitButton", module).add("Default", () => (
+  <SplitButton
+    label="Save & Close"
+    onClick={action("main_clicked")}
+    size="small"
+    variant="blue"
+  >
+    <SplitButtonAction onClick={action("hello")} label="Hello" />
+    <SplitButtonAction onClick={action("hello1")} label="Hello1" />
+    <SplitButtonAction onClick={action("hello2")} label="Hello2" />
+  </SplitButton>
+));
