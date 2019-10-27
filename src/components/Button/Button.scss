@@ -98,3 +98,56 @@
     }
   }
 }
+.#{$provider-prefix}-split-button {
+  position: relative;
+  .#{$provider-prefix}-button {
+    margin: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: $split-button-border-width solid $split-button-border-color;
+  }
+  &-items {
+    display: flex;
+    flex-direction: row;
+  }
+  &-split {
+    padding: 2px 4px;
+    flex-grow: 1;
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+    }
+    border-top-right-radius: $button-border-radius;
+    border-bottom-right-radius: $button-border-radius;
+    @each $color, $value in $theme-colors {
+      @include button-variant(
+        ".#{$provider-prefix}-split-button-#{$color}",
+        $value
+      );
+    }
+  }
+  &-actions {
+    position: absolute;
+    display: none;
+    border: $split-button-menu-border-width solid $split-button-menu-border-color;
+    background-color: $select-background;
+    width: 100%;
+    &-item {
+      padding: $split-button-menu-item-padding;
+      background-color: $split-button-menu-item-background;
+      color: $split-button-menu-item-color;
+
+      &:hover {
+        background-color: $split-button-menu-item-hover-background;
+        color: $split-button-menu-item-hover-color;
+        cursor: pointer;
+      }
+    }
+  }
+  &-visible {
+    .#{$provider-prefix}-split-button-actions {
+      display: block;
+    }
+  }
+}
