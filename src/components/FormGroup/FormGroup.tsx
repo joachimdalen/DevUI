@@ -12,6 +12,8 @@ export interface FormGroupProps {
   extraType?: FormGroupExtraType;
   notice?: string;
   className?: string;
+  maxLength?: number;
+  currentLength?: number;
   error?: any;
   errorAccessor?: (error: any) => string;
 }
@@ -23,7 +25,9 @@ export class FormGroup extends React.Component<FormGroupProps> {
     inlineLabel: false,
     extraType: "normal",
     requiredType: "icon",
-    requiredText: "Required"
+    requiredText: "Required",
+    currentLength: undefined,
+    maxLength: undefined
   };
   render() {
     const {
@@ -37,6 +41,8 @@ export class FormGroup extends React.Component<FormGroupProps> {
       required,
       requiredType,
       requiredText,
+      currentLength,
+      maxLength,
       error,
       errorAccessor,
       notice
@@ -82,6 +88,39 @@ export class FormGroup extends React.Component<FormGroupProps> {
     const noticeComp = notice && (
       <div className={cx("dui-form-group-notice")}>{notice}</div>
     );
+    const lengthComp = maxLength && currentLength && (
+      <div
+        className={cx("dui-form-group-counter", {
+          "dui-form-group-counter-error": currentLength > maxLength
+        })}
+      >
+        ({`${currentLength}/${maxLength}`})
+      </div>
+    );
+
+    var extraItems = undefined;
+
+    if (lengthComp) {
+      extraItems = (
+        <div className="dui-form-group-items">
+          <div>
+            {extraComp}
+            {errorComp}
+            {noticeComp}
+          </div>
+          {lengthComp}
+        </div>
+      );
+    } else {
+      extraItems = (
+        <div>
+          {extraComp}
+          {errorComp}
+          {noticeComp}
+        </div>
+      );
+    }
+
     if (inlineLabel) {
       return (
         <div
@@ -99,9 +138,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
           )}
           <div className="dui-form-group-content">
             {bodyComp}
-            {extraComp}
-            {errorComp}
-            {noticeComp}
+            {extraItems}
           </div>
         </div>
       );
@@ -110,9 +147,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
       <div className={cx("dui-form-group", className)}>
         {label && labelComponent}
         {bodyComp}
-        {extraComp}
-        {errorComp}
-        {noticeComp}
+        {extraItems}
       </div>
     );
   }
