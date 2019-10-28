@@ -7,7 +7,8 @@ export interface TextAreaProps {
   sizeMode?: TextAreaSizeMode;
   disabled?: boolean;
 }
-type AllProps = TextAreaProps & React.HTMLAttributes<HTMLTextAreaElement>;
+type AllProps = TextAreaProps &
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 export class TextArea extends React.Component<AllProps> {
   static defaultProps: Partial<TextAreaProps> = {
     sizeMode: "both"
