@@ -76,6 +76,23 @@ storiesOf("Components|FormGroup", module)
       <TextInput value="devexer" onChange={action("onChange")} />
     </FormGroup>
   ))
+  .add("With counter", () => (
+    <FormGroup
+      label="Username"
+      extra={text("Extra", "This is the username you used when signing up")}
+      extraType={
+        select(
+          "ExtraType",
+          ["success", "normal", "danger", "warning"],
+          "normal"
+        ) as FormGroupExtraType
+      }
+      maxLength={100}
+      currentLength={300}
+    >
+      <TextInput value="devexer" onChange={action("onChange")} />
+    </FormGroup>
+  ))
   .add("With Error", () => (
     <FormGroup
       label="Username"
@@ -85,7 +102,8 @@ storiesOf("Components|FormGroup", module)
     >
       <TextInput value="devexer" onChange={action("onChange")} />
     </FormGroup>
-  )).add("With Notice", () => (
+  ))
+  .add("With Notice", () => (
     <FormGroup
       label="Username"
       errorAccessor={error => error.message}

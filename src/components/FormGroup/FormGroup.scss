@@ -24,6 +24,23 @@
       color: $color-danger;
     }
   }
+  &-counter {
+    font-size: $form-group-counter-font-size;
+    color: $form-group-counter-color;
+    margin-top: $form-group-counter-margin-top;
+    margin-left: 5px;
+    &-error {
+      color: $form-group-counter-error-color;
+    }
+  }
+  &-items {
+    div:first-of-type {
+      margin-right: auto;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
   &-notice {
     margin: 5px 0;
     padding: 5px;
