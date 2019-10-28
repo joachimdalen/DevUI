@@ -10,6 +10,13 @@ storiesOf("Controls|Toggle", module)
   .add("Basic Toggle", () => (
     <Toggle toggled={boolean("Toggled", true)} onToggle={action("toggled")} />
   ))
+  .add("Disabled", () => (
+    <Toggle
+      disabled
+      toggled={boolean("Toggled", true)}
+      onToggle={action("toggled")}
+    />
+  ))
   .add("Rounded Toggle", () => (
     <Toggle
       toggled={boolean("Toggled", true)}

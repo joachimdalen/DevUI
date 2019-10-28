@@ -7,6 +7,7 @@ export interface ToggleProps {
   toggled?: boolean;
   showLabels?: boolean;
   rounded?: boolean;
+  disabled?: boolean;
   onToggle: () => any;
   size?: ToggleSize;
   variant?: string;
@@ -22,6 +23,7 @@ export class Toggle extends React.Component<ToggleProps> {
       variant = "default",
       size = "normal",
       showLabels = false,
+      disabled = false,
       onToggle,
       name
     } = this.props;
@@ -34,6 +36,7 @@ export class Toggle extends React.Component<ToggleProps> {
           { [`dui-toggle-${variant}`]: variant !== "default" },
           { [`dui-toggle-${size}`]: size !== "normal" },
           { [`dui-toggle-labels`]: showLabels },
+          { [`dui-toggle-disabled`]: disabled },
           className
         )}
       >
@@ -43,6 +46,7 @@ export class Toggle extends React.Component<ToggleProps> {
           checked={toggled}
           onChange={() => onToggle()}
           name={name}
+          disabled={disabled}
         />
         <span className={cx("dui-toggle-button")} />
       </label>

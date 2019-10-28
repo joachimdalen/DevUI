@@ -111,4 +111,19 @@
       }
     }
   }
+  &-disabled {
+    input {
+      &:checked + .#{$provider-prefix}-toggle-button {
+        background-color: $color-disabled;
+      }
+    }
+    .#{$provider-prefix}-toggle-button:before {
+      background-color: darken($color-disabled, 10%);
+    }
+    &.#{$provider-prefix}-toggle-labels {
+      .#{$provider-prefix}-toggle-button:before {
+        color: $color-disabled;
+      }
+    }
+  }
 }
