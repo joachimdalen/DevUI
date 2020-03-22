@@ -14,11 +14,11 @@ export interface ButtonProps extends CustomComponent {
   size?: ButtonSize;
   outlined?: boolean;
   linkButton?: boolean;
-  dashed?: boolean;
   loading?: boolean;
   loadingIcon?: string;
   loadingText?: string;
   icon?: string | React.ReactElement;
+  iconOnly?: boolean;
   className?: string;
   fixedIconSize?: boolean;
 }
@@ -27,12 +27,12 @@ export class Button extends React.Component<ButtonProps> {
   static defaultProps: Partial<ButtonProps> = {
     format: "default",
     disabled: false,
-    variant: "default",
+    variant: "primary",
     size: "medium",
     outlined: false,
-    dashed: false,
     loading: false,
-    fixedIconSize: false
+    fixedIconSize: false,
+    iconOnly: false
   };
   public render() {
     const {
@@ -43,7 +43,6 @@ export class Button extends React.Component<ButtonProps> {
       size,
       linkButton,
       outlined,
-      dashed,
       loading,
       loadingIcon,
       loadingText,
@@ -52,11 +51,11 @@ export class Button extends React.Component<ButtonProps> {
       component,
       componentProps,
       fixedIconSize,
+      iconOnly,
       ...rest
     } = this.props;
 
     const buttonText = loading ? loadingText || "Loading" : label;
-    const isDefaultVariant = variant === "default";
     const isDefaultFormat = format === "default";
     const loadingIconClass = loadingIcon ? loadingIcon : "fa-spinner";
     const baseButtonClass = "dui-button";
@@ -71,19 +70,15 @@ export class Button extends React.Component<ButtonProps> {
       : size === "small"
       ? "small"
       : "large";
-    const isIconOnly = hasButtonText === false;
+    //const isIconOnly = hasButtonText === false;
     const buttonClass = cx(
       baseButtonClass,
       { disabled: disabled && !loading },
-      {
-        [`${baseButtonClass}-${variant}`]:
-          !isDefaultVariant && !outlined && !linkButton
-      },
+      { [`${baseButtonClass}-${variant}`]: !outlined && !linkButton },
       { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
       { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
-      { [`${baseButtonClass}-dashed`]: dashed && outlined && !linkButton },
       { [`${baseButtonClass}-loading`]: loading },
-      { [`${baseButtonClass}-icon-only`]: isIconOnly },
+      { [`${baseButtonClass}-icon-only`]: iconOnly },
       { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
       { [`${baseButtonClass}-link`]: linkButton },
       className
@@ -96,7 +91,7 @@ export class Button extends React.Component<ButtonProps> {
         animationType="spin"
         marginDirection="right"
         icon={loadingIconClass}
-        fixedWidth={isIconOnly || fixedIconSize}
+        fixedWidth={iconOnly || fixedIconSize}
       />
     );
     const iconComp = React.isValidElement(icon) ? (
@@ -105,15 +100,15 @@ export class Button extends React.Component<ButtonProps> {
       <FontAwesomeIcon
         iconStyle="solid"
         icon={icon as string}
-        marginDirection={hasButtonText ? "right" : undefined}
-        fixedWidth={isIconOnly || fixedIconSize}
+        marginDirection={hasButtonText && !iconOnly ? "right" : undefined}
+        fixedWidth={iconOnly || fixedIconSize}
       />
     );
     const content = (
       <React.Fragment>
         {loading && loadingIconComp}
         {!loading && icon && iconComp}
-        {hasButtonText && buttonText}
+        {hasButtonText && !iconOnly && buttonText}
       </React.Fragment>
     );
     if (component) {
@@ -129,9 +124,10 @@ export class Button extends React.Component<ButtonProps> {
         </Component>
       );
     }
+    console.log(buttonClass);
     return (
       <button className={buttonClass} disabled={disabled} {...rest}>
-        {content}
+        <span>{content}</span>
       </button>
     );
   }

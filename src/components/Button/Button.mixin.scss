@@ -2,11 +2,8 @@
   &#{$parent} {
     background-color: $background;
     color: colorFromBackground($background);
-    border-color: $background;
     &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
       background-color: darken($background, 10%);
-      border-color: darken($background, 10%);
-      transition: background-color 0.5s ease, border-color 0.5s ease;
     }
   }
 }
@@ -19,7 +16,6 @@
       background-color: $color;
       color: $color-light;
       border-color: $color;
-      transition: background-color 0.5s ease, border-color 0.5s ease;
     }
   }
 }

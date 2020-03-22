@@ -1,0 +1,43 @@
+.#{$provider-prefix}-flex {
+  display: flex;
+  &-row {
+    flex-direction: row;
+    &.dui-flex {
+      &-gap-small {
+        :not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+      &-gap-medium {
+        :not(:last-child) {
+          margin-right: 18px;
+        }
+      }
+      &-gap-large {
+        :not(:last-child) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+  &-column {
+    flex-direction: column;
+    &.dui-flex {
+      &-gap-small {
+        :not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+      &-gap-medium {
+        :not(:last-child) {
+          margin-bottom: 18px;
+        }
+      }
+      &-gap-large {
+        :not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}

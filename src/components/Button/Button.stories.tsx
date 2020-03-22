@@ -1,19 +1,20 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { Button, ButtonFormat } from "./Button";
-import { text, boolean, select } from "@storybook/addon-knobs/react";
+import { text, boolean, select } from "@storybook/addon-knobs";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
 import { ButtonGroup } from "./ButtonGroup";
 import { SplitButton } from "./SplitButton";
 import { SplitButtonAction } from "./SplitButtonAction";
+import { Flex } from "../Flex/Flex";
 
 storiesOf("Controls|Button/Default", module)
   .add("Basic Button", () => (
     <Button
       label={text("label", "Delete")}
       disabled={boolean("disabled", false)}
-      variant={select("Variant", variants, "default")}
+      variant={select("Variant", variants, "primary")}
       onClick={action("button-clicked")}
     />
   ))
@@ -21,7 +22,7 @@ storiesOf("Controls|Button/Default", module)
     <Button
       label={text("label", "Button")}
       disabled={boolean("disabled", false)}
-      variant={select("Variant", variants, "default")}
+      variant={select("Variant", variants, "primary")}
       onClick={action("button-clicked")}
       format={text("format", "block") as ButtonFormat}
     />
@@ -32,6 +33,9 @@ storiesOf("Controls|Button/Default", module)
       disabled={boolean("disabled", false)}
       outlined={boolean("outlined", true)}
       variant={select("Variant", variants, "danger")}
+      icon={text("icon", "fas fa-trash")}
+      size={select("Size", ["small", "medium", "large"], "medium")}
+      iconOnly={boolean("iconOnly", false)}
       onClick={action("button-clicked")}
     />
   ))
@@ -39,16 +43,7 @@ storiesOf("Controls|Button/Default", module)
     <Button
       label={text("label", "Delete")}
       linkButton={boolean("Link Button", true)}
-      onClick={action("button-clicked")}
-    />
-  ))
-  .add("Dashed Button", () => (
-    <Button
-      label={text("label", "Delete")}
       disabled={boolean("disabled", false)}
-      outlined={boolean("outlined", true)}
-      dashed={boolean("dashed", true)}
-      variant={select("Variant", variants, "danger")}
       onClick={action("button-clicked")}
     />
   ))
@@ -56,7 +51,7 @@ storiesOf("Controls|Button/Default", module)
     <Button
       label={text("label", "Delete")}
       disabled={boolean("disabled", true)}
-      variant={select("Variant", variants, "default")}
+      variant={select("Variant", variants, "primary")}
       onClick={action("button-clicked")}
     />
   ))
@@ -64,7 +59,7 @@ storiesOf("Controls|Button/Default", module)
     <Button
       label={text("label", "Delete")}
       disabled={boolean("disabled", true)}
-      variant={select("Variant", variants, "default")}
+      variant={select("Variant", variants, "primary")}
       onClick={action("button-clicked")}
       loadingIcon={text("Loading Icon", "fas fa-spinner")}
       loadingText={text("Loading Text", "Loading")}
@@ -73,7 +68,8 @@ storiesOf("Controls|Button/Default", module)
   ))
   .add("Icon Button", () => (
     <Button
-      variant={select("Variant", variants, "default")}
+      variant={select("Variant", variants, "primary")}
+      size={select("Size", ["small", "medium", "large"], "medium")}
       onClick={action("button-clicked")}
       icon="fas fa-check"
       label="Approve"
@@ -81,14 +77,16 @@ storiesOf("Controls|Button/Default", module)
   ))
   .add("Icon Only Button", () => (
     <Button
-      variant={select("Variant", variants, "default")}
+      variant={select("Variant", variants, "primary")}
       onClick={action("button-clicked")}
+      size={select("Size", ["small", "medium", "large"], "medium")}
       icon="fas fa-check"
+      iconOnly
     />
   ))
   .add("Variants", () => (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div>
+    <Flex gap="small" flexDirection="column">
+      <Flex gap="small">
         {variants.map((variant: string) => {
           return (
             <Button
@@ -100,63 +98,48 @@ storiesOf("Controls|Button/Default", module)
             />
           );
         })}
-      </div>
-      <div style={{ marginTop: "10px" }}>
-        {variants.map(variant => {
-          return (
-            <Button
-              key={`outlined-${variant}`}
-              label={variant}
-              disabled={boolean("disabled", false)}
-              outlined={boolean("outlined", true)}
-              variant={variant}
-              onClick={action("button-outlined-clicked-" + variant)}
-            />
-          );
-        })}
-      </div>
-      <div style={{ marginTop: "10px" }}>
-        {variants.map(variant => {
-          return (
-            <Button
-              key={`dashed-outlined-${variant}`}
-              label={variant}
-              disabled={boolean("disabled", false)}
-              dashed={true}
-              outlined={true}
-              variant={variant}
-              onClick={action("button-dashed-clicked-" + variant)}
-            />
-          );
-        })}
-      </div>
-    </div>
+      </Flex>
+      <Flex gap="small">
+        {variants
+          .filter(x => x !== "primary")
+          .map(variant => {
+            return (
+              <Button
+                key={`outlined-${variant}`}
+                label={variant}
+                disabled={boolean("disabled", false)}
+                outlined={boolean("outlined", true)}
+                variant={variant}
+                onClick={action("button-outlined-clicked-" + variant)}
+              />
+            );
+          })}
+      </Flex>
+    </Flex>
   ))
   .add("Sizes", () => (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div>
-        <Button
-          label="small"
-          disabled={boolean("disabled", false)}
-          onClick={action("button-small-clicked")}
-          size="small"
-          variant="secondary"
-        />
-        <Button
-          label="Medium"
-          disabled={boolean("disabled", false)}
-          onClick={action("button-medium-clicked")}
-          variant="secondary"
-        />
-        <Button
-          label="Large"
-          disabled={boolean("disabled", false)}
-          onClick={action("button-large-clicked")}
-          size="large"
-          variant="secondary"
-        />
-      </div>
-    </div>
+    <Flex gap="small">
+      <Button
+        label="small"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-small-clicked")}
+        size="small"
+        variant="secondary"
+      />
+      <Button
+        label="Medium"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-medium-clicked")}
+        variant="secondary"
+      />
+      <Button
+        label="Large"
+        disabled={boolean("disabled", false)}
+        onClick={action("button-large-clicked")}
+        size="large"
+        variant="secondary"
+      />
+    </Flex>
   ));
 storiesOf("Controls|Button/Group", module)
   .add("Default", () => (

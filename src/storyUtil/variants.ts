@@ -2,7 +2,6 @@ export default [
   "primary",
   "secondary",
   "dark",
-  "light",
   "success",
   "danger",
   "warning",

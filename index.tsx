@@ -75,6 +75,10 @@ import {
   FormGroup,
   FormGroupProps
 } from "./src/components/FormGroup/FormGroup";
+import {
+  Flex,
+  FlexProps
+} from "./src/components/Flex/Flex";
 import { Header, HeaderProps } from "./src/components/Header/Header";
 import {
   HeaderBrand,
@@ -267,6 +271,8 @@ export {
   EmptyProps,
   FormGroup,
   FormGroupProps,
+  Flex,
+  FlexProps,
   Header,
   HeaderProps,
   HeaderBrand,

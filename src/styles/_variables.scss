@@ -6,7 +6,6 @@ $theme-colors: map-merge(
     "primary": $color-primary,
     "secondary": $color-secondary,
     "dark": $color-dark,
-    "light": $color-light,
     "success": $color-success,
     "danger": $color-danger,
     "magenta": $color-magenta,
@@ -45,13 +44,13 @@ $font-weight-regular: 400 !default;
 $font-weight-bold: 700 !default;
 $font-weight-black: 900 !default;
 
-$font-size-small: 14px !default;
-$font-size-normal: 16px !default;
-$font-size-large: 18px !default;
+$font-size-small: 12px !default;
+$font-size-normal: 14px !default;
+$font-size-large: 16px !default;
 
 // GENERIC
-$border-raidus: 4px !default;
-$box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem !default;
+$border-raidus: 2px !default;
+$box-shadow: rgba(0, 0, 0, 0.1) 0px 0.2rem 0.4rem -0.075rem !default;
 
 // INPUT
 $input-height-small: 24px !default;
@@ -67,28 +66,17 @@ $input-font-size-normal: $font-size-normal !default;
 $input-font-size-large: $font-size-large !default;
 
 /* SIDEBAR */
-// Color of text in the sidebar
 $sidebar-color: $color-text-gray !default;
-// Background color of the sidebar
 $sidebar-background: $color-light !default;
-// Background when a sidebar item is hovered
 $sidebar-item-hover-background: $color-blue-light !default;
-// Color of the sidebar headers
 $sidebar-item-header-color: $color-secondary !default;
 $sidebar-item-hover-color: $color-dark !default;
-// Background color of a submenu
 $sidebar-submenu-background: #e3e3e3 !default;
-// Color of the icons in the sidebar menu
-//$sidebar-icon-color: $color-light-1 !default;
-// Background color of active item in sidebar menu
 $sidebar-item-active-border-color: $color-blue !default;
 $sidebar-item-active-background: rgba($color-blue, 0.2) !default;
 $sidebar-item-active-color: inherit !default;
-// Width of the sidebar in expanded mode
 $sidebar-full-width: 250px !default;
-// Width of the sidebar in compact mode with labels visible
 $sidebar-compact-label-width: 80px !default;
-// Width of the sidebar in compact mode with labels hidden
 $sidebar-compact-width: 62px !default;
 
 /* BADGE */
@@ -107,6 +95,8 @@ $badge-dismiss-padding: $badge-dismiss-padding-y $badge-dismiss-padding-x !defau
 $badge-dismiss-hover-background: lighten($color-danger, 30%) !default;
 
 /* BUTTON */
+$button-link-color: $color-dark;
+$button-link-hover-color: $color-secondary;
 $button-outlined-background: $color-light !default;
 $button-border-radius: $border-raidus !default;
 
@@ -114,33 +104,33 @@ $button-font-size: $font-size-normal !default;
 $button-large-font-size: $font-size-large !default;
 $button-small-font-size: $font-size-small !default;
 
-$button-padding-y: 4px !default;
-$button-padding-x: 16px !default;
+$button-padding-y: 0 !default;
+$button-padding-x: 20px !default;
 $button-padding: $button-padding-y $button-padding-x !default;
-$button-height: 35px !default;
+$button-height: 32px !default;
 
-$button-large-padding-y: 8px !default;
+$button-large-padding-y: 0 !default;
 $button-large-padding-x: 32px !default;
 $button-large-padding: $button-large-padding-y $button-large-padding-x !default;
-$button-large-height: 45px !default;
+$button-large-height: 40px !default;
 
-$button-small-padding-y: 2px !default;
+$button-small-padding-y: 0px !default;
 $button-small-padding-x: 10px !default;
 $button-small-padding: $button-small-padding-y $button-small-padding-x !default;
-$button-small-height: 30px !default;
+$button-small-height: 25px !default;
+$button-small-min-width: 78px;
+$button-small-max-width: 300px;
 
-$button-default-color: $color-light !default;
-$button-default-background: $color-primary !default;
-$button-default-border-color: $color-primary !default;
-$button-default-hover-background: darken($color-primary, 10%) !default;
+
+$button-default-hover-background: #c8c6c4 !default;
 $button-default-hover-border-color: darken($color-primary, 10%) !default;
 
 $button-disabled-background: $color-disabled !default;
-$button-disabled-color: $color-light !default;
+$button-disabled-color: #c8c6c4 !default;
 
-$button-loading-background: darken($color-disabled, 10%) !default;
+$button-loading-background: $color-disabled !default;
 $button-loading-border-color: transparent !default;
-$button-loading-color: $color-light !default;
+$button-loading-color: $button-disabled-color !default;
 
 $split-button-border-width: 1px !default;
 $split-button-border-color: $color-border !default;
