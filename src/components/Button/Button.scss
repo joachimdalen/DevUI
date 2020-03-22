@@ -54,7 +54,7 @@
       border-color: none;
       color: $button-link-hover-color;
     }
-    &.disabled{
+    &.disabled {
       background-color: transparent;
       color: $color-disabled;
     }
@@ -114,32 +114,25 @@
 }
 .#{$provider-prefix}-split-button {
   position: relative;
-  .#{$provider-prefix}-button {
-    margin: 0;
+  display: flex;
+  box-shadow: $box-shadow;
+  &-second,
+  &-main {
+    box-shadow: none;
+  }
+  &-second {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &-main {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    border-right: $split-button-border-width solid $split-button-border-color;
+    border-right-width: 0;
   }
+
   &-items {
     display: flex;
-    flex-direction: row;
-  }
-  &-split {
-    padding: 2px 4px;
-    flex-grow: 1;
-    display: block;
-
-    &:hover {
-      cursor: pointer;
-    }
-    border-top-right-radius: $button-border-radius;
-    border-bottom-right-radius: $button-border-radius;
-    @each $color, $value in $theme-colors {
-      @include button-variant(
-        ".#{$provider-prefix}-split-button-#{$color}",
-        $value
-      );
-    }
+    flex-direction: column;
   }
   &-actions {
     position: absolute;
@@ -157,6 +150,24 @@
         background-color: $split-button-menu-item-hover-background;
         color: $split-button-menu-item-hover-color;
         cursor: pointer;
+      }
+    }
+    &-small {
+      top: $button-small-height;
+      .dui-split-button-actions-item {
+        font-size: $button-small-font-size;
+      }
+    }
+    &-medium {
+      top: $button-height;
+      .dui-split-button-actions-item {
+        font-size: $button-font-size;
+      }
+    }
+    &-large {
+      top: $button-large-height;
+      .dui-split-button-actions-item {
+        font-size: $button-large-font-size;
       }
     }
   }

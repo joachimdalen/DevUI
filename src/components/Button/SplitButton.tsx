@@ -1,41 +1,47 @@
 import * as React from "react";
 import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { Button, ButtonProps } from "./Button";
 
-export interface SplitButtonProps extends ButtonProps {}
-interface SplitButtonState {
-  expanded: boolean;
+export interface SplitButtonProps extends Omit<ButtonProps, "variant"> {
+  children: any;
+  mainButton?: Omit<ButtonProps, "size" | "label">;
+  splitButton?: Omit<ButtonProps, "size" | "label" | "icon" | "iconOnly">;
 }
 
-export class SplitButton extends React.Component<
-  SplitButtonProps,
-  SplitButtonState
-> {
-  static defaultProps: Partial<SplitButtonProps> = {};
-  state = { expanded: false };
-  public render() {
-    const { variant, ...rest } = this.props;
-    const { expanded } = this.state;
-    const wrapperClass = cx("dui-split-button", {
-      [`dui-split-button-visible`]: expanded
-    });
-    const splitClass = cx("dui-split-button-split", [
-      `dui-split-button-${variant}`
-    ]);
-    return (
-      <div className={wrapperClass}>
-        <div className="dui-split-button-items">
-          <Button {...rest} variant={variant} />
-          <FontAwesomeIcon
-            icon="fa-caret-down"
-            iconStyle="solid"
-            className={splitClass}
-            onClick={() => this.setState({ expanded: !expanded })}
-          ></FontAwesomeIcon>
-        </div>
-        <div className="dui-split-button-actions">{this.props.children}</div>
+export const SplitButton = ({
+  children,
+  size = "medium",
+  mainButton,
+  splitButton,
+  ...rest
+}: SplitButtonProps) => {
+  const [expanded, setExpanded] = React.useState(false);
+  const wrapperClass = cx("dui-split-button", {
+    [`dui-split-button-visible`]: expanded
+  });
+  const actionClass = cx("dui-split-button-actions", [
+    `dui-split-button-actions-${size}`
+  ]);
+
+  return (
+    <div className={wrapperClass}>
+      <div className="dui-split-button-items">
+        <Button
+          {...mainButton}
+          {...rest}
+          size={size}
+          className="dui-split-button-main"
+        />
+        <div className={actionClass}>{children}</div>
       </div>
-    );
-  }
-}
+      <Button
+        {...{ splitButton }}
+        className="dui-split-button-second"
+        size={size}
+        icon="fa-angle-down"
+        iconOnly
+        onClick={() => setExpanded(!expanded)}
+      />
+    </div>
+  );
+};

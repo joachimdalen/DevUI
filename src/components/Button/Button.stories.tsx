@@ -195,9 +195,11 @@ storiesOf("Controls|Button/Group", module)
 storiesOf("Controls|Button/SplitButton", module).add("Default", () => (
   <SplitButton
     label="Save & Close"
+    icon="fa-save"
     onClick={action("main_clicked")}
-    size="small"
-    variant="blue"
+    size={select("Size", ["small", "medium", "large"], "medium")}
+    mainButton={{ variant: select("Main Variant", variants, "primary") }}
+    splitButton={{ variant: select("Split Variant", variants, "primary") }}
   >
     <SplitButtonAction onClick={action("hello")} label="Hello" />
     <SplitButtonAction onClick={action("hello1")} label="Hello1" />
