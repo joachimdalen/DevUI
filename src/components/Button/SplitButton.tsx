@@ -35,7 +35,7 @@ export const SplitButton = ({
         <div className={actionClass}>{children}</div>
       </div>
       <Button
-        {...{ splitButton }}
+        {...splitButton}
         className="dui-split-button-second"
         size={size}
         icon="fa-angle-down"
