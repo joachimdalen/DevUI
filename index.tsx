@@ -75,10 +75,7 @@ import {
   FormGroup,
   FormGroupProps
 } from "./src/components/FormGroup/FormGroup";
-import {
-  Flex,
-  FlexProps
-} from "./src/components/Flex/Flex";
+import { Flex, FlexProps } from "./src/components/Flex/Flex";
 import { Header, HeaderProps } from "./src/components/Header/Header";
 import {
   HeaderBrand,
@@ -197,7 +194,8 @@ import {
 } from "./src/components/TextArea/TextArea";
 import {
   TextInput,
-  TextInputProps
+  TextInputProps,
+  TextInputIconPlacement
 } from "./src/components/TextInput/TextInput";
 import { Toast, ToastProps } from "./src/components/Toast/Toast";
 import {
@@ -359,6 +357,7 @@ export {
   TextAreaSizeMode,
   TextInput,
   TextInputProps,
+  TextInputIconPlacement,
   Toast,
   ToastProps,
   Toggle,

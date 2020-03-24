@@ -4,17 +4,17 @@
     flex-direction: row;
     &.dui-flex {
       &-gap-small {
-        :not(:last-child) {
+        > :not(:last-child) {
           margin-right: 10px;
         }
       }
       &-gap-medium {
-        :not(:last-child) {
+        > :not(:last-child) {
           margin-right: 18px;
         }
       }
       &-gap-large {
-        :not(:last-child) {
+        > :not(:last-child) {
           margin-right: 30px;
         }
       }
@@ -24,17 +24,17 @@
     flex-direction: column;
     &.dui-flex {
       &-gap-small {
-        :not(:last-child) {
+        > :not(:last-child) {
           margin-bottom: 10px;
         }
       }
       &-gap-medium {
-        :not(:last-child) {
+        > :not(:last-child) {
           margin-bottom: 18px;
         }
       }
       &-gap-large {
-        :not(:last-child) {
+        > :not(:last-child) {
           margin-bottom: 30px;
         }
       }
