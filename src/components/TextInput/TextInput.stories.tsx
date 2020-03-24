@@ -4,56 +4,39 @@ import { storiesOf } from "@storybook/react";
 import { TextInput } from "./TextInput";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { action } from "@storybook/addon-actions";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
+import { Flex } from "../Flex/Flex";
 storiesOf("Controls|TextInput", module)
   .add("Basic Input", () => (
     <TextInput
       onChange={action("input-changed")}
       disabled={boolean("Disabled", false)}
-      value=""
+      value={text("Value", "")}
+      placeholder="Type a text..."
     />
   ))
-  .add("with Addon", () => (
+  .add("with icon", () => (
     <TextInput
-      addonBefore="@"
-      addonAfter=".com"
+      icon={<FontAwesomeIcon iconStyle="solid" icon="fa-check" />}
       onChange={action("input-changed")}
-      value=""
-    />
-  ))
-  .add("with Fix", () => (
-    <TextInput
-      suffix={<FontAwesomeIcon iconStyle="brands" icon="fa-discord" />}
-      prefix={<FontAwesomeIcon iconStyle="solid" icon="fa-check" />}
-      onChange={action("input-changed")}
-      value=""
+      value={text("Value", "")}
+      placeholder="Type a text..."
     />
   ))
   .add("Sizes", () => (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
+    <Flex gap="small">
       <TextInput
-        placeholder="Small"
-        size="small"
+        small
         onChange={action("input-changed")}
-        value=""
+        placeholder={text("Placeholder", "Small", "Small")}
+        value={text("Value", "", "Small")}
+        clearable={boolean("Clearable", false, "Small")}
       />
       <TextInput
-        placeholder="Normal (default)"
         onChange={action("input-changed")}
-        value=""
+        placeholder={text("Placeholder", "Normal (default)", "Default")}
+        value={text("Value", "", "Default")}
+        clearable={boolean("Clearable", false, "Default")}
       />
-      <TextInput
-        placeholder="Large"
-        size="large"
-        onChange={action("input-changed")}
-        value=""
-      />
-    </div>
+    </Flex>
   ));

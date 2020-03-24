@@ -13,7 +13,7 @@ import { boolean, select, text } from "@storybook/addon-knobs";
 storiesOf("Components|FormGroup", module)
   .add("Default", () => (
     <FormGroup label="Username">
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
     </FormGroup>
   ))
   .add("Required", () => (
@@ -28,7 +28,7 @@ storiesOf("Components|FormGroup", module)
         ) as FormGroupRequiredType
       }
     >
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
     </FormGroup>
   ))
   .add("Inline Controls", () => (
@@ -37,9 +37,9 @@ storiesOf("Components|FormGroup", module)
       inline
       extra={text("Extra", "This is the username you used when signing up")}
     >
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
       <Button
-        size="small"
+        iconOnly
         icon="fas fa-save"
         variant="success"
         onClick={action("onClick")}
@@ -52,11 +52,11 @@ storiesOf("Components|FormGroup", module)
       inline={boolean("Inline", true)}
       inlineLabel={boolean("Inline Label", true)}
     >
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
       <Button
-        size="small"
         icon="fas fa-save"
         variant="success"
+        iconOnly
         onClick={action("onClick")}
       />
     </FormGroup>
@@ -73,7 +73,7 @@ storiesOf("Components|FormGroup", module)
         ) as FormGroupExtraType
       }
     >
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
     </FormGroup>
   ))
   .add("With counter", () => (
@@ -90,7 +90,7 @@ storiesOf("Components|FormGroup", module)
       maxLength={100}
       currentLength={300}
     >
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
     </FormGroup>
   ))
   .add("With Error", () => (
@@ -100,7 +100,7 @@ storiesOf("Components|FormGroup", module)
       error={{ code: 400, message: "Username is already taken" }}
       errorAccessor={error => error.message}
     >
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
     </FormGroup>
   ))
   .add("With Notice", () => (
@@ -109,6 +109,6 @@ storiesOf("Components|FormGroup", module)
       errorAccessor={error => error.message}
       notice="This username is what you will be recognized as by other users throughout the app"
     >
-      <TextInput value="devexer" onChange={action("onChange")} />
+      <TextInput value="devexer" onChange={action("onChange")} fillWidth />
     </FormGroup>
   ));

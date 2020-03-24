@@ -1,132 +1,54 @@
+.#{$provider-prefix}-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-align: left;
+  background-color: $text-input-background;
+  height: $text-input-height;
+  color: $color-dark;
+  &-block {
+    width: 100%;
+  }
+  &.#{$provider-prefix}-input-small {
+    height: $text-input-small-height;
+    .#{$provider-prefix}-input {
+      padding: $text-input-small-padding;
+      font-size: $text-input-small-font-size;
+    }
+  }
+}
 .#{$provider-prefix}-input {
+  border-bottom: 1px solid transparent;
   color: $text-input-color;
   border-radius: $text-input-border-radius;
-  display: block;
   padding: $text-input-padding;
   font-size: $text-input-font-size;
-  height: $text-input-height;
   background-color: $text-input-background;
-  background-clip: padding-box;
-  border: $text-input-border-width solid $text-input-border-color;
   transition: border-color 0.15s ease-in-out;
-  margin: $text-input-margin;
-  line-height: 1.5;
-  &:hover:not(:focus):not(&.#{$provider-prefix}-input-disabled) {
-    border-color: $color-blue;
-  }
+  border: none;
+  overflow: visible;
   &:focus {
-    box-shadow: $shadow-focus;
-  }
-  &-small {
-    height: $text-input-small-height;
-    padding: $text-input-small-padding;
-    font-size: $text-input-small-font-size;
-    #{$provider-prefix}-input-addon {
-      &-before,
-      &-after {
-        height: $text-input-small-height;
-      }
-    }
-  }
-  &-large {
-    height: $text-input-large-height;
-    padding: $text-input-large-padding;
-    font-size: $text-input-large-font-size;
-    #{$provider-prefix}-input-addon {
-      &-before,
-      &-after {
-        height: $text-input-large-padding;
-      }
-    }
+    border-bottom: 2px solid $color-secondary;
   }
   &-disabled {
     background-color: $text-input-diabled-background;
     color: $text-input-diabled-color;
   }
-}
-.#{$provider-prefix}-input-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  &.#{$provider-prefix}-input-addon-before {
+  &-icon {
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    height: 100%;
+    right: 12px;
+    position: absolute;
+    line-height: 1;
     .#{$provider-prefix}-input {
-      margin-left: 0;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      padding-right: 28px;
     }
   }
-  &.#{$provider-prefix}-input-addon-after {
-    .#{$provider-prefix}-input {
+  &-clear {
+    .#{$provider-prefix}-icon {
       margin-right: 0;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-  }
-
-  .#{$provider-prefix}-input-addon {
-    &-before,
-    &-after {
-      height: $input-height-normal;
-      display: flex;
-      align-items: center;
-      padding: 0 5px;
-      color: $color-text-gray;
-      border: 1px solid $color-border;
-      background-color: lighten($color-disabled, 5%);
-    }
-    &-before {
-      border-right: none;
-      margin-left: 1px;
-      border-top-left-radius: $text-input-border-radius;
-      border-bottom-left-radius: $text-input-border-radius;
-    }
-    &-after {
-      border-left: none;
-      margin-right: 1px;
-      border-top-right-radius: $text-input-border-radius;
-      border-bottom-right-radius: $text-input-border-radius;
-    }
-  }
-}
-
-.#{$provider-prefix}-input-fix-wrapper {
-  display: inline-flex;
-  align-items: center;
-  background-color: $color-light;
-  border: 1px solid $color-border;
-  border-radius: $text-input-border-radius;
-  width: auto;
-  position: relative;
-  margin: 1px;
-  &:hover {
-    border-color: $color-blue;
-  }
-  &:focus {
-    border-width: 1px;
-    //border-color: $color-blue;
-  }
-  .#{$provider-prefix}-input {
-    border: none;
-    box-shadow: none;
-    color: $text-input-color;
-    margin: 0;
-    padding: 0 25px;
-    &-prefix,
-    &-suffix {
-      position: absolute;
-      background-color: transparent;
-      font-size: $input-font-size-normal;
-      color: $color-placeholder;
-    }
-    &-prefix {
-      left: 5px;
-    }
-    &-suffix {
-      right: 5px;
-    }
-    &:focus {
-      box-shadow: $shadow-focus;
     }
   }
 }

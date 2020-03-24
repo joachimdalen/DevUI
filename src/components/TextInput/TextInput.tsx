@@ -1,7 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import { isUndefined } from "util";
-import { GenericSizes, Omit } from "../common";
+import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
 export interface TextInputProps {
   className?: string;
@@ -12,16 +11,17 @@ export interface TextInputProps {
   maxLength?: number;
   placeholder?: string;
   password?: boolean;
+  clearable?: boolean;
   id?: string;
   value: string;
   disabled?: boolean;
-  size?: Omit<GenericSizes, "medium">;
+  fillWidth?: boolean;
+  small?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
-  addonBefore?: string | React.ReactElement;
-  addonAfter?: string | React.ReactElement;
-  suffix?: string | any;
-  prefix?: string | any;
+  icon?: string | any;
+  iconPlacement?: TextInputIconPlacement;
 }
+export type TextInputIconPlacement = "start" | "end";
 type AllProps = TextInputProps & React.HTMLAttributes<HTMLInputElement>;
 export class TextInput extends React.Component<AllProps> {
   public render() {
@@ -31,47 +31,35 @@ export class TextInput extends React.Component<AllProps> {
       name,
       maxLength,
       placeholder,
+      clearable = false,
       password = false,
       id,
       value,
       disabled = false,
+      fillWidth = false,
       onChange,
-      size,
-      addonAfter,
-      addonBefore,
-      prefix,
-      suffix,
+      small = false,
+      iconPlacement = "end",
+      icon,
       className = "",
       wrapperClassName = "",
       ...rest
     } = this.props;
-
+    var inputRef: React.RefObject<HTMLInputElement> = React.createRef<
+      HTMLInputElement
+    >();
     const autoCompleteValue = autoComplete ? "on" : "off";
     const typeValue = password ? "password" : "text";
-    const isDefaultSize = isUndefined(size);
-    const hasAddonBefore = !isUndefined(addonBefore);
-    const hasAddonAfter = !isUndefined(addonAfter);
-    const hasPrefix = !isUndefined(prefix);
-    const hasSuffix = !isUndefined(suffix);
 
-    const sizeClass = isDefaultSize
-      ? ""
-      : size === "small"
-      ? "dui-input-small"
-      : "dui-input-large";
-    const shouldWrapAddons = hasAddonBefore || hasAddonAfter;
-    const shouldWrapFix = hasPrefix || hasSuffix;
-    const addonWrapperClass = cx(
+    const wrapperClass = cx(
       "dui-input-wrapper",
-      { ["dui-input-addon-before"]: hasAddonBefore },
-      { ["dui-input-addon-after"]: hasAddonAfter },
+      { "dui-input-wrapper-block": fillWidth },
+      { "dui-input-small": small },
       wrapperClassName
     );
-    const fixWrapperClass = cx("dui-input-fix-wrapper", wrapperClassName);
     const inputComponentClass = cx(
       "dui-input",
       { "dui-input-disabled": disabled },
-      sizeClass,
       className
     );
     const inputComponent = (
@@ -87,32 +75,30 @@ export class TextInput extends React.Component<AllProps> {
         onChange={onChange}
         value={value}
         disabled={disabled}
+        ref={inputRef}
         {...rest}
       />
     );
 
-    if (!shouldWrapAddons && !shouldWrapFix) {
-      return inputComponent;
-    }
-
-    if (shouldWrapFix) {
-      return (
-        <div className={fixWrapperClass}>
-          {prefix && <span className={cx("dui-input-prefix")}>{prefix}</span>}
-          {inputComponent}
-          {suffix && <span className={cx("dui-input-suffix")}>{suffix}</span>}
-        </div>
-      );
-    }
-
+    const showIcon = !(clearable && iconPlacement === "end");
+    const clearVal = () => {
+      if (inputRef.current) {
+        inputRef.current.value = "";
+      }
+    };
     return (
-      <div className={addonWrapperClass}>
-        {addonBefore && (
-          <span className={cx("dui-input-addon-before")}>{addonBefore}</span>
-        )}
+      <div className={wrapperClass}>
         {inputComponent}
-        {addonAfter && (
-          <span className={cx("dui-input-addon-after")}>{addonAfter}</span>
+        {showIcon && icon && (
+          <span className={cx("dui-input-icon")}>{icon}</span>
+        )}
+        {clearable && value && (
+          <span
+            className={cx("dui-input-icon", "dui-input-clear")}
+            onClick={() => clearVal()}
+          >
+            <FontAwesomeIcon iconStyle="solid" icon="fa-times" />
+          </span>
         )}
       </div>
     );

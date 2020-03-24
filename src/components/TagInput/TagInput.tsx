@@ -47,7 +47,7 @@ export class TagInput extends React.Component<TagInputProps, State> {
         onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) =>
           this._handleKeyPress(event)
         }
-        size="small"
+        small
       />
     );
 

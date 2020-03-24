@@ -287,29 +287,20 @@ $select-option-hover-background: lighten($color-blue, 45%) !default;
 $select-option-hover-color: $color-dark !default;
 
 /* TEXT INPUT */
-$text-input-color: $color-text-gray !default;
+$text-input-color: $color-dark !default;
 $text-input-border-radius: $border-raidus !default;
-$text-input-padding-x: 11px !default;
-$text-input-padding-y: 4px !default;
-$text-input-padding: $text-input-padding-y $text-input-padding-x !default;
+$text-input-padding: 6px 14px 6px 14px !default;
 $text-input-font-size: $font-size-normal !default;
 $text-input-height: $input-height-normal !default;
-$text-input-background: $color-light !default;
+$text-input-background: #f3f2f1 !default;
 $text-input-border-width: 1px !default;
 $text-input-border-color: $color-border !default;
 $text-input-margin-x: 1px !default;
 $text-input-margin-y: 1px !default;
 $text-input-margin: $text-input-margin-y $text-input-margin-x !default;
 $text-input-small-height: $input-height-small !default;
-$text-input-small-padding-x: 7px !default;
-$text-input-small-padding-y: 1px !default;
-$text-input-small-padding: $text-input-small-padding-y $text-input-padding-x !default;
+$text-input-small-padding: 3px 7px 3px 7px !default;
 $text-input-small-font-size: $font-size-small !default;
-$text-input-large-height: $input-height-large !default;
-$text-input-large-padding-x: 11px !default;
-$text-input-large-padding-y: 6px !default;
-$text-input-large-padding: $text-input-large-padding-y $text-input-padding-x !default;
-$text-input-large-font-size: $font-size-large !default;
 $text-input-diabled-background: $color-disabled !default;
 $text-input-diabled-color: inherit !default;
 
