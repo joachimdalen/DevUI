@@ -124,7 +124,6 @@ export class Button extends React.Component<ButtonProps> {
         </Component>
       );
     }
-    console.log(buttonClass);
     return (
       <button className={buttonClass} disabled={disabled} {...rest}>
         <span>{content}</span>
