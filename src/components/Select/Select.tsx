@@ -16,8 +16,6 @@ export interface SelectProps {
   children?:
     | React.ReactElement<SelectOption>
     | React.ReactElement<SelectOption>[];
-  iconOpen?: string | React.ReactNode;
-  iconClose?: string | React.ReactNode;
   keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
   renderer?: (option: SelectOptionType) => React.ReactElement<SelectOption>;
   onChange: (value: SelectOptionType) => void;
@@ -47,7 +45,9 @@ export class Select extends React.Component<SelectProps, State> {
       this._handleClickOutside(e)
     );
   }
-
+  clearVal = () => {
+    this.props.onChange({} as SelectOptionType);
+  };
   public render() {
     const { expanded } = this.state;
     const { disabled } = this.props;
@@ -61,7 +61,7 @@ export class Select extends React.Component<SelectProps, State> {
     });
     const optionsClass = cx("dui-select-options");
     const optionsListClass = cx("dui-select-options-list");
-    const caretIcon = expanded ? "fa-caret-up" : "fa-caret-down";
+    const caretIcon = expanded ? "fa-angle-up" : "fa-angle-down";
     const contextValue: SelectContextType = {
       options: this.props.options,
       onSelect: (item: SelectOptionType) => {
@@ -131,6 +131,7 @@ export class Select extends React.Component<SelectProps, State> {
       return (
         <div
           className={cx("dui-select-option")}
+          role="option"
           key={option.value}
           onClick={() => this._selectOption(option)}
         >

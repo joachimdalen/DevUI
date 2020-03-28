@@ -6,13 +6,13 @@
   height: $select-height;
   background-color: $select-background;
   background-clip: padding-box;
-  border: $select-border-width solid $select-border-color;
   transition: all 0.3s;
   line-height: 1.5;
   min-width: $select-min-width;
   position: relative;
   &-preview {
     white-space: nowrap;
+    align-self: center;
   }
   &-placeholder {
     color: $select-placeholder-color;
@@ -30,21 +30,25 @@
     flex-direction: row;
     padding: $select-info-padding;
     padding-right: 20px;
+    height: 100%;
   }
   &-caret-container {
     position: absolute;
-    right: 4px;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    display: inline-flex;
+    align-items: center;
   }
   &-options {
-    border: $select-border-width solid $select-border-color;
-    background-color: $select-background;
+    background-color: $color-light;
     width: 100%;
     z-index: 1;
     position: absolute;
-    top: $input-height-normal + 2px;
+    top: $input-height-normal;
     border-bottom-left-radius: $select-border-radius;
     border-bottom-right-radius: $select-border-radius;
-
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0.8rem 1rem -0.2rem;
     &.visible {
       display: block;
     }

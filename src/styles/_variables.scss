@@ -265,12 +265,12 @@ $checkbox-list-item-padding: $checkbox-list-item-padding-y
 $checkbox-list-checkbox-color: lighten($color-dark, 50%) !default;
 
 /* SELECT */
-$select-color: $color-text-gray !default;
+$select-color: $color-dark !default;
 $select-border-radius: $border-raidus !default;
 $select-font-size: $font-size-normal !default;
 $select-height: 32px !default;
-$select-background: $color-light !default;
-$select-placeholder-color: $color-placeholder !default;
+$select-background: $color-input !default;
+$select-placeholder-color: $color-dark !default;
 $select-border-width: 1px !default;
 $select-border-color: $color-border !default;
 $select-min-width: 50px !default;
@@ -280,10 +280,10 @@ $select-info-padding-x: 11px !default;
 $select-info-padding-y: 4px !default;
 $select-info-padding: $select-info-padding-y $select-info-padding-x !default;
 $select-options-max-height: 150px !default;
-$select-option-padding-x: 5px !default;
-$select-option-padding-y: 2px !default;
+$select-option-padding-x: 13px !default;
+$select-option-padding-y: 5px !default;
 $select-option-padding: $select-option-padding-y $select-option-padding-x !default;
-$select-option-hover-background: lighten($color-blue, 45%) !default;
+$select-option-hover-background: $color-input !default;
 $select-option-hover-color: $color-dark !default;
 
 /* TEXT INPUT */
