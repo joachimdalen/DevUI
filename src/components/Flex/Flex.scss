@@ -40,4 +40,36 @@
       }
     }
   }
+  &-wrap {
+    flex-wrap: wrap;
+  }
+  &-wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+  &-justify {
+    &-flex-start {
+      justify-content: flex-start;
+    }
+    &-flex-end {
+      justify-content: flex-end;
+    }
+    &-center {
+      justify-content: center;
+    }
+    &-space-between {
+      justify-content: space-between;
+    }
+    &-space-around {
+      justify-content: space-around;
+    }
+    &-space-evenly {
+      justify-content: space-evenly;
+    }
+    &-start {
+      justify-content: start;
+    }
+    &-end {
+      justify-content: end;
+    }
+  }
 }
