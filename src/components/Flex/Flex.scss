@@ -56,20 +56,34 @@
     &-center {
       justify-content: center;
     }
-    &-space-between {
+    &-between {
       justify-content: space-between;
     }
-    &-space-around {
+    &-around {
       justify-content: space-around;
     }
-    &-space-evenly {
+    &-evenly {
       justify-content: space-evenly;
     }
-    &-start {
-      justify-content: start;
+  }
+  &-align {
+    &-flex-start {
+      align-items: flex-start;
     }
-    &-end {
-      justify-content: end;
+    &-flex-end {
+      align-items: flex-end;
+    }
+    &-center {
+      align-items: center;
+    }
+    &-between {
+      align-items: space-between;
+    }
+    &-around {
+      align-items: space-around;
+    }
+    &-stretch {
+      align-items: stretch;
     }
   }
 }

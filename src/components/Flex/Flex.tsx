@@ -10,16 +10,23 @@ export type FlexJustify =
   | "center"
   | "between"
   | "around"
-  | "evenly"
-  | "start"
-  | "end";
+  | "evenly";
+export type FlexAlign =
+  | "flexStart"
+  | "flexEnd"
+  | "center"
+  | "between"
+  | "around"
+  | "stretch";
 
 export interface FlexProps {
-  gap: FlexGap;
+  gap?: FlexGap;
   wrap?: FlexWrap;
   justify?: FlexJustify;
+  align?: FlexAlign;
   flexDirection?: FlexDirection;
   children: any;
+  className?: string;
 }
 
 const getWrapClass = (wrap?: FlexWrap): string => {
@@ -35,22 +42,36 @@ const getWrapClass = (wrap?: FlexWrap): string => {
 const getJustifyClass = (justify?: FlexJustify): string => {
   switch (justify) {
     case "flexStart":
-      return "dui-justify-flex-start";
+      return "dui-flex-justify-flex-start";
     case "flexEnd":
-      return "dui-justify-flex-end";
+      return "dui-flex-justify-flex-end";
     case "center":
-      return "dui-justify-center";
+      return "dui-flex-justify-center";
     case "between":
-      return "dui-justify-between";
+      return "dui-flex-justify-between";
     case "around":
-      return "dui-justify-around";
+      return "dui-flex-justify-around";
     case "evenly":
-      return "dui-justify-evenly";
-    case "start":
-      return "dui-justify-start";
-    case "end":
-      return "dui-justify-end";
+      return "dui-flex-justify-evenly";
 
+    default:
+      return "";
+  }
+};
+const getAlignClass = (align?: FlexAlign): string => {
+  switch (align) {
+    case "flexStart":
+      return "dui-flex-align-flex-start";
+    case "flexEnd":
+      return "dui-flex-align-flex-end";
+    case "center":
+      return "dui-flex-align-center";
+    case "between":
+      return "dui-flex-align-between";
+    case "around":
+      return "dui-flex-align-around";
+    case "stretch":
+      return "dui-flex-align-stretch";
     default:
       return "";
   }
@@ -61,14 +82,18 @@ export const Flex = ({
   flexDirection = "row",
   wrap,
   justify,
-  children
+  align,
+  className,
+  children,
 }: FlexProps) => {
   const classes = cx(
     "dui-flex",
     [`dui-flex-gap-${gap}`],
     [`dui-flex-${flexDirection}`],
     getWrapClass(wrap),
-    getJustifyClass(justify)
+    getJustifyClass(justify),
+    getAlignClass(align),
+    className
   );
 
   return <div className={classes}>{children}</div>;
