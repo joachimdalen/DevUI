@@ -167,10 +167,6 @@ import {
 import { Table, TableProps } from "./src/components/Table/Table";
 import { TableCell, TableCellProps } from "./src/components/Table/TableCell";
 import {
-  TableColumnPicker,
-  TableColumnPickerProps
-} from "./src/components/Table/TableColumnPicker";
-import {
   TableHeader,
   TableHeaderProps
 } from "./src/components/Table/TableHeader";
@@ -337,8 +333,6 @@ export {
   TableProps,
   TableCell,
   TableCellProps,
-  TableColumnPicker,
-  TableColumnPickerProps,
   TableHeader,
   TableHeaderProps,
   TablePaginator,

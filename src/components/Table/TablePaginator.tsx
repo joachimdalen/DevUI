@@ -26,14 +26,14 @@ export class TablePaginator extends React.Component<TablePaginatorProps> {
           <Button
             icon="fas fa-angle-left"
             size="small"
-            variant="light"
+            iconOnly
             onClick={this.movePrev}
             disabled={from == 1 || totalItems == 0}
           />
           <Button
             icon="fas fa-angle-right"
             size="small"
-            variant="light"
+            iconOnly
             onClick={this.moveNext}
             disabled={to === totalItems || totalItems == 0}
           />

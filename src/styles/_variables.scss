@@ -177,25 +177,11 @@ $table-border-width: 1px !default;
 $table-border-color: $color-border !default;
 $table-background: $color-light !default;
 $table-color: $color-text-gray !default;
-$table-striped-background: $color-blue-light !default;
+$table-striped-background: rgb(240, 240, 240) !default;
 $table-striped-color: inherit !default;
 $table-hover-background: $color-disabled !default;
 $table-hover-color: inherit !default;
-
-$table-cp-button-border-width: 1px !default;
-$table-cp-button-border-color: $color-border !default;
-$table-cp-checkbox-color: $color-dark !default;
-$table-cp-content-border-width: 1px !default;
-$table-cp-content-border-color: $color-gray !default;
-$table-cp-content-background: $color-light !default;
-$table-cp-header-border-width: 1px !default;
-$table-cp-header-border-color: $color-gray !default;
-$table-cp-header-padding-x: 10px !default;
-$table-cp-header-padding-y: 5px !default;
-$table-cp-header-padding: $table-cp-header-padding-y $table-cp-header-padding-x !default;
-$table-cp-header-font-size: $font-size-small !default;
-$table-cp-header-font-weight: $font-weight-bold !default;
-$table-cp-header-color: $color-text-gray !default;
+$table-font-size: $font-size-normal !default;
 
 $table-header-background: $color-light !default;
 $table-header-color: $color-text-gray !default;
@@ -208,19 +194,21 @@ $table-pg-font-weight: $font-weight-bold !default;
 $table-pg-button-border-width: 1px !default;
 $table-pg-button-border-color: $color-border !default;
 
+$table-row-height: 50px !default;
 $table-row-checked-background: darken($color-blue-light, 10%) !default;
 $table-row-checked-color: inherit !default;
 $table-row-header-height: 40px !default;
 $table-row-header-font-size: $font-size-small !default;
-$table-row-header-font-weight: $font-weight-bold !default;
+$table-row-header-font-weight: $font-weight-regular !default;
 $table-row-header-color: $color-dark !default;
 
-$table-cell-padding-x: 8px !default;
-$table-cell-padding-y: 8px !default;
+$table-cell-padding-x: 10px !default;
+$table-cell-padding-y: 0 !default;
 $table-cell-padding: $table-cell-padding-y $table-cell-padding-x !default;
 
-$table-condensed-cell-padding-x: 2px !default;
-$table-condensed-cell-padding-y: 2px !default;
+$table-condensed-row-height: 30px !default;
+$table-condensed-cell-padding-x: 5px !default;
+$table-condensed-cell-padding-y: 5px !default;
 $table-condensed-cell-padding: $table-condensed-cell-padding-y
   $table-condensed-cell-padding-x !default;
 

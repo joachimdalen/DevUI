@@ -6,14 +6,17 @@
 }
 .#{$provider-prefix}-table {
   display: table;
-  border: $table-border-width solid $table-border-color;
   background-color: $table-background;
   color: $table-color;
   width: 100%;
   border-collapse: collapse;
+  font-size: $table-font-size;
   &-condensed {
     .#{$provider-prefix}-table-cell {
       padding: $table-condensed-cell-padding;
+    }
+    .#{$provider-prefix}-table-row{
+      height: $table-condensed-row-height;
     }
   }
   &-bordered {
@@ -43,50 +46,8 @@
       vertical-align: top;
     }
   }
-  &-column-picker {
-    position: relative;
-    .#{$provider-prefix}-button {
-      box-shadow: none !important;
-      border: $table-cp-button-border-width solid $table-cp-button-border-color;
-    }
-    &-content {
-      min-width: 150px;
-      color: $table-color;
-      .#{$provider-prefix}-checkbox-list {
-        border: none;
-        background-color: $table-cp-content-background;
-      }
-      .#{$provider-prefix}-checkbox {
-        color: $table-cp-checkbox-color;
-      }
-      .#{$provider-prefix}-button {
-        margin: 0;
-      }
-      position: absolute;
-      z-index: 1;
-      display: none;
-      border: $table-cp-content-border-width solid
-        $table-cp-content-border-color;
-      background-color: $table-cp-content-background;
-      flex-direction: column;
-      justify-content: center;
-      &-header {
-        border-bottom: $table-cp-header-border-width solid
-          $table-cp-header-border-color;
-        padding: $table-cp-header-padding;
-        font-size: $table-cp-header-font-size;
-        text-transform: uppercase;
-        text-align: center;
-        color: $table-cp-header-color;
-        font-weight: $table-cp-header-font-weight;
-      }
-      &.visible {
-        display: flex;
-      }
-    }
-  }
   &-header {
-    border: $table-border-width solid $table-border-color;
+    // border: $table-border-width solid $table-border-color;
     background-color: $table-header-background;
     color: $table-header-color;
     padding: $table-header-padding;
@@ -114,6 +75,7 @@
   }
   &-row {
     display: table-row;
+    height: $table-row-height;
     &-bordered {
       .#{$provider-prefix}-table-cell {
         border-bottom: 3px solid $table-border-color;
@@ -122,18 +84,6 @@
     &-checked {
       background-color: #f5fbff !important ;
       color: $table-row-checked-color;
-      .dui-table-cell {
-        box-sizing: border-box;
-
-        &:first-child {
-          border-left: 1px solid #4aa4cc;
-        }
-        &:last-child {
-          border-right: 1px solid #4aa4cc;
-        }
-        border-bottom: 1px solid #4aa4cc;
-        border-top: 1px solid #4aa4cc;
-      }
       @extend %background-ease;
     }
     &-header {
@@ -143,9 +93,8 @@
       font-size: $table-row-header-font-size;
       font-weight: $table-row-header-font-weight;
       color: $table-row-header-color;
-      text-transform: uppercase;
       .dui-icon {
-        margin-left: auto;
+        margin-left: 5px;
         margin-right: 5px;
       }
     }
@@ -161,6 +110,7 @@
 
     &-checkable {
       width: 30px;
+      align-items: center;
       .#{$provider-prefix}-checkbox {
         padding-left: 0;
         display: inline;

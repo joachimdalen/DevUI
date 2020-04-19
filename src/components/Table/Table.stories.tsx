@@ -1,14 +1,11 @@
 import * as React from "react";
-
 import { storiesOf } from "@storybook/react";
 import { Table } from "./Table";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
 import { DataTable } from "./DataTable";
-import { TableColumnPicker } from "./TableColumnPicker";
 import { boolean, number } from "@storybook/addon-knobs";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { action } from "@storybook/addon-actions";
 import { Column } from "./TableTypes";
 const values = require("../../../data/invoices.json");
 const columnHeaders: Column[] = [
@@ -127,7 +124,7 @@ storiesOf("Display Components|Table", module)
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
       multiSelect={boolean("multi-select", true)}
-      showColumnPicker={boolean("ShowColumnPicker", true)}
+      condensed={boolean("condensed", true)}
     />
   ))
   .add("DataTable Pagination", () => (
@@ -140,13 +137,5 @@ storiesOf("Display Components|Table", module)
       paginationEnabled={boolean("Paginate", true)}
       paginationPageSize={number("PageSize", 3)}
       multiSelect={boolean("multi-select", true)}
-    />
-  ))
-  .add("TableColumnPicker", () => (
-    <TableColumnPicker
-      columns={columnHeaders}
-      visibleColumns={columnHeaders.map(i => i.key)}
-      onColumnUpdate={action("onColumnUpdate")}
-      forcedColumns={columnHeaders.filter(i => i.forceVisible).map(i => i.key)}
     />
   ));
