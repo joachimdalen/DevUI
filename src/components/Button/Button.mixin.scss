@@ -7,6 +7,15 @@
     }
   }
 }
+@mixin button-link-variant($parent, $color) {
+  &#{$parent} {
+    color: $color;
+    &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
+      color: darken($color, 10%);
+    }
+  }
+}
+
 @mixin button-outlined($parent, $color) {
   &#{$parent} {
     background-color: $color-light;
