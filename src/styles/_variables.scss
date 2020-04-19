@@ -280,7 +280,7 @@ $text-input-border-radius: $border-raidus !default;
 $text-input-padding: 6px 14px 6px 14px !default;
 $text-input-font-size: $font-size-normal !default;
 $text-input-height: $input-height-normal !default;
-$text-input-background: #f3f2f1 !default;
+$text-input-background: $color-input !default;
 $text-input-border-width: 1px !default;
 $text-input-border-color: $color-border !default;
 $text-input-margin-x: 1px !default;
@@ -321,7 +321,7 @@ $list-item-content-subtitle-font-size: 10px !default;
 $list-item-content-subtitle-margin-top: 5px !default;
 $list-item-content-subtitle-color: lighten($color-dark, 20%) !default;
 
-$list-item-action-color: $color-primary !default;
+$list-item-action-color: $color-secondary !default;
 $list-item-action-font-size: 12px !default;
 $list-item-action-hover-color: $color-blue !default;
 
