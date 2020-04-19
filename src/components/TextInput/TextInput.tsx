@@ -17,9 +17,10 @@ export interface TextInputProps {
   disabled?: boolean;
   fillWidth?: boolean;
   small?: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
   icon?: string | any;
   iconPlacement?: TextInputIconPlacement;
+  readOnly?:boolean;
 }
 export type TextInputIconPlacement = "start" | "end";
 type AllProps = TextInputProps & React.HTMLAttributes<HTMLInputElement>;
