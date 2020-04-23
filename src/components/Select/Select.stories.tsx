@@ -5,10 +5,9 @@ import { SelectOption } from "./SelectOption";
 import { boolean } from "@storybook/addon-knobs";
 import { Empty } from "../Empty/Empty";
 import { action } from "@storybook/addon-actions";
-import { SelectOptionType } from "./SelectTypes";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
-function getOptions(): SelectOptionType[] {
+function getOptions(): SelectOption[] {
   let customers = require("../../../data/invoices.json").map(
     (i: any) => i.customer
   );
@@ -16,39 +15,33 @@ function getOptions(): SelectOptionType[] {
   return customers.map((c: any) => {
     return {
       label: [c.last_name, ",", c.prefix, c.first_name].join(" "),
-      value: [c.last_name, ",", c.prefix, c.first_name].join(" ")
+      value: [c.last_name, ",", c.prefix, c.first_name].join(" "),
     };
   });
 }
 
 storiesOf("Controls|Select", module)
-  .add("With Children", () => (
-    <Select
-      label="Select City"
-      onChange={action("select-changed")}
-      keepOpenOnLostFocus={boolean("Keep Open", true)}
-    >
-      <SelectOption value="some" label="Some">
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "nowrap"
-          }}
-        >
-          <img src="http://placehold.it/100x100" style={{ maxWidth: "20px" }} />
-          This is some title
-        </div>
-      </SelectOption>
-    </Select>
-  ))
   .add("With Data", () => (
     <Select
       label="Select Customer"
       options={getOptions()}
       keepOpenOnLostFocus={boolean("Keep Open", true)}
       disabled={boolean("Disabled", false)}
-      showEmptyPlaceholder={boolean("Show empty placeholder", false)}
+      onChange={action("select-changed")}
+      emptyPlaceholder={
+        <Empty
+          header=""
+          image={<FontAwesomeIcon icon="fa-check" iconStyle="solid" />}
+        />
+      }
+    />
+  ))
+  .add("With Empty", () => (
+    <Select
+      label="Select Customer"
+      options={[]}
+      keepOpenOnLostFocus={boolean("Keep Open", true)}
+      disabled={boolean("Disabled", false)}
       onChange={action("select-changed")}
       emptyPlaceholder={
         <Empty
@@ -62,12 +55,8 @@ storiesOf("Controls|Select", module)
     <Select
       label="Select City"
       options={[{ label: "Hi", value: "Hi" }]}
-      renderer={option => (
-        <SelectOption label={option.label} value={option.value}>
-          Let's render: {option.value}
-        </SelectOption>
-      )}
-      onChange={o => console.log(o)}
+      renderer={(option) => <p>Let's render: {option.value}</p>}
+      onChange={(o) => console.log(o)}
     />
   ))
   .add("With Renderer & Meta", () => (
@@ -77,14 +66,12 @@ storiesOf("Controls|Select", module)
         {
           label: "Hi",
           value: "Hi",
-          meta: { firstName: "Devexer" }
-        }
+          meta: { firstName: "Devexer" },
+        },
       ]}
-      renderer={option => (
-        <SelectOption label={option.label} value={option.value}>
-          Let's render: {option.meta && option.meta.firstName}
-        </SelectOption>
+      renderer={(option) => (
+        <p>Let's render: {option.meta && option.meta.firstName}</p>
       )}
-      onChange={o => console.log(o)}
+      onChange={(o) => console.log(o)}
     />
   ));

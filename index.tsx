@@ -139,10 +139,7 @@ import {
   RadioButtonProps
 } from "./src/components/RadioButton/RadioButton";
 import { Select, SelectProps } from "./src/components/Select/Select";
-import {
-  SelectOption,
-  SelectOptionProps
-} from "./src/components/Select/SelectOption";
+import { SelectOption } from "./src/components/Select/SelectOption";
 import {
   SideBar,
   SideBarAddonLocation,
@@ -206,7 +203,6 @@ import {
 } from "./src/components/TreeView/TreeViewItem";
 import { CustomComponent, GenericSizes, Omit } from "./src/components/common";
 
-import { SelectOptionType } from "./src/components/Select/SelectTypes";
 import { TabType } from "./src/components/TabControl/TabControlTypes";
 import { Column } from "./src/components/Table/TableTypes";
 import { TreeViewNode } from "./src/components/TreeView/TreeViewTypes";
@@ -313,7 +309,6 @@ export {
   Select,
   SelectProps,
   SelectOption,
-  SelectOptionProps,
   SideBar,
   SideBarAddonLocation,
   SideBarProps,
@@ -363,7 +358,6 @@ export {
   TreeViewItemProps,
   CustomComponent,
   GenericSizes,
-  SelectOptionType,
   TabType,
   Column,
   TreeViewNode,

@@ -1,39 +1,40 @@
 import { SelectOption } from "./SelectOption";
+import { Empty } from "../Empty/Empty";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import cx from "classnames";
 import * as React from "react";
 import { isUndefined } from "util";
-import { Empty } from "../Empty/Empty";
-import {
-  SelectOptionType,
-  SelectProvider,
-  SelectContextType
-} from "./SelectTypes";
 
 export interface SelectProps {
   label: string;
-  options?: SelectOptionType[];
-  children?:
-    | React.ReactElement<SelectOption>
-    | React.ReactElement<SelectOption>[];
-  keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
-  renderer?: (option: SelectOptionType) => React.ReactElement<SelectOption>;
-  onChange: (value: SelectOptionType) => void;
-  defaultValue?: SelectOptionType;
+  options?: SelectOption[];
+  defaultValue?: SelectOption;
   disabled?: boolean;
-  showEmptyPlaceholder?: boolean;
+  keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
   emptyPlaceholder?: React.ReactElement<Empty>;
+  className?: string;
+  optionClassName?: string;
+  renderer?: (option: SelectOption) => React.ReactElement<SelectOption>;
+  onChange: (value: SelectOption) => void;
 }
 interface State {
   expanded: boolean;
-  selectedItem?: SelectOptionType;
+  selectedItem?: SelectOption;
 }
 export class Select extends React.Component<SelectProps, State> {
   _wrapperRef: any = React.createRef();
   state = {
     expanded: false,
-    selectedItem: this.props.defaultValue || undefined
+    selectedItem: this.props.defaultValue || undefined,
   };
+
+  public componentDidUpdate(prevProps: SelectProps) {
+    if (prevProps.defaultValue !== this.props.defaultValue) {
+      this.setState({
+        selectedItem: this.props.defaultValue || undefined,
+      });
+    }
+  }
 
   public componentDidMount() {
     document.addEventListener("mousedown", (e: MouseEvent) =>
@@ -46,78 +47,48 @@ export class Select extends React.Component<SelectProps, State> {
     );
   }
   clearVal = () => {
-    this.props.onChange({} as SelectOptionType);
+    this.props.onChange({} as SelectOption);
   };
   public render() {
-    const { expanded } = this.state;
-    const { disabled } = this.props;
-    const containerClass = cx("dui-select", { disabled: disabled });
+    const { expanded, selectedItem } = this.state;
+    const { disabled, className } = this.props;
+    const containerClass = cx("dui-select", { disabled: disabled }, className);
     const infoClass = cx("dui-select-info");
     const previewClass = cx("dui-select-preview", {
-      "dui-select-placeholder": isUndefined(this.state.selectedItem)
+      "dui-select-placeholder": isUndefined(selectedItem),
     });
     const caretContainerClass = cx("dui-select-caret-container", {
-      "dui-select-placeholder": isUndefined(this.state.selectedItem)
+      "dui-select-placeholder": isUndefined(selectedItem),
     });
     const optionsClass = cx("dui-select-options");
     const optionsListClass = cx("dui-select-options-list");
     const caretIcon = expanded ? "fa-angle-up" : "fa-angle-down";
-    const contextValue: SelectContextType = {
-      options: this.props.options,
-      onSelect: (item: SelectOptionType) => {
-        this._selectOption(item);
-      }
-    };
-    return (
-      <SelectProvider value={contextValue}>
-        <div
-          className={containerClass}
-          role="select"
-          ref={node => (this._wrapperRef = node)}
-        >
-          <div className={infoClass} onClick={() => this._toggle()}>
-            <div className={previewClass}>{this._getPreviewLabel()}</div>
-            <span className={caretContainerClass}>
-              <FontAwesomeIcon iconStyle="solid" icon={caretIcon} />
-            </span>
-          </div>
 
-          {expanded && (
-            <div className={optionsClass}>
-              <div className={optionsListClass}>{this._renderOptions()}</div>
-            </div>
-          )}
+    return (
+      <div
+        className={containerClass}
+        role="select"
+        ref={(node) => (this._wrapperRef = node)}
+      >
+        <div className={infoClass} onClick={() => this._toggle()}>
+          <div className={previewClass}>{this._getPreviewLabel()}</div>
+          <span className={caretContainerClass}>
+            <FontAwesomeIcon iconStyle="solid" icon={caretIcon} />
+          </span>
         </div>
-      </SelectProvider>
+
+        {expanded && (
+          <div className={optionsClass}>
+            <div className={optionsListClass}>{this._renderOptions()}</div>
+          </div>
+        )}
+      </div>
     );
   }
 
   _renderOptions() {
-    const { children, options, renderer } = this.props;
-
-    const hasChildOptions = !isUndefined(children);
-    const hasCustomRender = !isUndefined(renderer);
-    const hasOptions = !isUndefined(options);
-
-    if (hasChildOptions || !hasOptions) {
-      return this._renderChildOptions();
-    } else if (hasCustomRender) {
-      return this._renderCustomOptions();
-    } else {
-      return this._renderDataOptions();
-    }
-  }
-  _renderCustomOptions() {
-    const { options, renderer } = this.props;
-    return options && renderer && options.map(renderer);
-  }
-  _renderDataOptions() {
-    const {
-      options,
-      showEmptyPlaceholder = false,
-      emptyPlaceholder
-    } = this.props;
-    if (!options || (!options.length && showEmptyPlaceholder)) {
+    const { options, emptyPlaceholder, renderer, optionClassName } = this.props;
+    if (!options || (!options.length && emptyPlaceholder)) {
       return (
         emptyPlaceholder || (
           <Empty
@@ -127,15 +98,15 @@ export class Select extends React.Component<SelectProps, State> {
         )
       );
     }
-    return options.map((option: SelectOptionType) => {
+    return options.map((option: SelectOption) => {
       return (
         <div
-          className={cx("dui-select-option")}
+          className={cx("dui-select-option", optionClassName)}
           role="option"
           key={option.value}
           onClick={() => this._selectOption(option)}
         >
-          {option.label}
+          {renderer ? renderer(option) : option.label}
         </div>
       );
     });
@@ -161,7 +132,7 @@ export class Select extends React.Component<SelectProps, State> {
     const { expanded } = this.state;
     this.setState({ expanded: !expanded });
   }
-  _selectOption(option: SelectOptionType) {
+  _selectOption(option: SelectOption) {
     const { onChange } = this.props;
     this.setState({ expanded: false, selectedItem: option }, () => {
       onChange && onChange(option);
