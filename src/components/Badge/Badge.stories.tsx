@@ -20,10 +20,20 @@ storiesOf("Display Components|Badge", module)
       dismissText={<FontAwesomeIcon iconStyle="solid" icon="fa-egg" />}
     />
   ))
+  .add("Custom Icon", () => (
+    <Badge label={text("label", "Active")} variant="success" icon="fa-check" />
+  ))
+  .add("Custom Icon Component", () => (
+    <Badge
+      label={text("label", "Active")}
+      variant="success"
+      icon={<FontAwesomeIcon icon="fa-discord" iconStyle="brands" />}
+    />
+  ))
   .add("Variants", () => (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
-        {variants.map(variant => {
+        {variants.map((variant) => {
           return <Badge label={variant} variant={variant} />;
         })}
       </div>

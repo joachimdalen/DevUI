@@ -36,4 +36,9 @@
   @each $color, $value in $theme-colors {
     @include badge-variant("-#{$color}", $value);
   }
+  &-icon {
+    align-self: center;
+    margin-right: 5px;
+    font-size: $badge-font-size;
+  }
 }
