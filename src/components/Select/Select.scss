@@ -40,6 +40,9 @@
     display: inline-flex;
     align-items: center;
   }
+  &-loading {
+    color: $select-loading-color;
+  }
   &-options {
     background-color: $color-light;
     width: 100%;

@@ -14,7 +14,9 @@ export interface SelectProps {
   emptyPlaceholder?: React.ReactElement<Empty>;
   className?: string;
   optionClassName?: string;
+  loading?: boolean;
   renderer?: (option: SelectOption) => React.ReactElement<SelectOption>;
+  previewRenderer?: (option: SelectOption) => React.ReactElement<SelectOption>;
   onChange: (value: SelectOption) => void;
 }
 interface State {
@@ -51,8 +53,12 @@ export class Select extends React.Component<SelectProps, State> {
   };
   public render() {
     const { expanded, selectedItem } = this.state;
-    const { disabled, className } = this.props;
-    const containerClass = cx("dui-select", { disabled: disabled }, className);
+    const { disabled, loading, className } = this.props;
+    const containerClass = cx(
+      "dui-select",
+      { disabled: disabled || loading },
+      className
+    );
     const infoClass = cx("dui-select-info");
     const previewClass = cx("dui-select-preview", {
       "dui-select-placeholder": isUndefined(selectedItem),
@@ -62,8 +68,9 @@ export class Select extends React.Component<SelectProps, State> {
     });
     const optionsClass = cx("dui-select-options");
     const optionsListClass = cx("dui-select-options-list");
-    const caretIcon = expanded ? "fa-angle-up" : "fa-angle-down";
-
+    const caretDirectionIcon = expanded ? "fa-angle-up" : "fa-angle-down";
+    const caretIcon = loading ? "fa-spinner" : caretDirectionIcon;
+    const caretIconClass = cx({ "dui-select-loading": loading });
     return (
       <div
         className={containerClass}
@@ -73,7 +80,12 @@ export class Select extends React.Component<SelectProps, State> {
         <div className={infoClass} onClick={() => this._toggle()}>
           <div className={previewClass}>{this._getPreviewLabel()}</div>
           <span className={caretContainerClass}>
-            <FontAwesomeIcon iconStyle="solid" icon={caretIcon} />
+            <FontAwesomeIcon
+              iconStyle="solid"
+              icon={caretIcon}
+              animate={loading}
+              className={caretIconClass}
+            />
           </span>
         </div>
 
@@ -126,8 +138,8 @@ export class Select extends React.Component<SelectProps, State> {
     }
   }
   _toggle() {
-    const { disabled } = this.props;
-    if (disabled) return;
+    const { disabled, loading } = this.props;
+    if (disabled || loading) return;
 
     const { expanded } = this.state;
     this.setState({ expanded: !expanded });
@@ -139,10 +151,13 @@ export class Select extends React.Component<SelectProps, State> {
     });
   }
   _getPreviewLabel() {
-    const { label } = this.props;
+    const { label, previewRenderer } = this.props;
     const { selectedItem } = this.state;
     if (isUndefined(selectedItem)) {
       return label;
+    }
+    if (!isUndefined(previewRenderer)) {
+      return previewRenderer(selectedItem);
     }
     return selectedItem.label;
   }

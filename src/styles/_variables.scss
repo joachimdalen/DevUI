@@ -254,6 +254,7 @@ $checkbox-list-checkbox-color: lighten($color-dark, 50%) !default;
 
 /* SELECT */
 $select-color: $color-dark !default;
+$select-loading-color: $color-blue !default;
 $select-border-radius: $border-raidus !default;
 $select-font-size: $font-size-normal !default;
 $select-height: 32px !default;
