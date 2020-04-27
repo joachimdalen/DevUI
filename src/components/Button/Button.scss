@@ -152,6 +152,7 @@
       $split-button-menu-border-color;
     background-color: $select-background;
     width: 100%;
+    z-index: 1;
     &-item {
       padding: $split-button-menu-item-padding;
       background-color: $split-button-menu-item-background;
