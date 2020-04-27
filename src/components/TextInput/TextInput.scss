@@ -18,6 +18,7 @@
   }
 }
 .#{$provider-prefix}-input {
+  border: none;
   border-bottom: 1px solid transparent;
   color: $text-input-color;
   border-radius: $text-input-border-radius;
@@ -25,7 +26,6 @@
   font-size: $text-input-font-size;
   background-color: $text-input-background;
   transition: border-color 0.15s ease-in-out;
-  border: none;
   overflow: visible;
   &:focus {
     border-bottom: 2px solid $color-secondary;
