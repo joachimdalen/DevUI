@@ -421,7 +421,7 @@ $form-group-counter-error-color: $color-danger !default;
 
 $alert-border-width: 1px !default;
 $alert-border-radius: $border-raidus !default;
-$alert-padding-x: 5px !default;
+$alert-padding-x: 10px !default;
 $alert-padding-y: 5px !default;
 $alert-padding: $alert-padding-y $alert-padding-x !default;
 $alert-icon-font-size: 20px !default;
@@ -431,7 +431,6 @@ $alert-message-color: $color-dark !default;
 $alert-description-font-size: 12px !default;
 $alert-description-font-weight: initial !default;
 $alert-description-color: $color-text-gray !default;
-$alert-close-hover-color: $color-dark !default;
 $alert-info-border-color: lighten($color-blue, 10%) !default;
 $alert-info-background: lighten($color-blue, 40%) !default;
 $alert-info-color: lighten($color-blue, 10%) !default;
