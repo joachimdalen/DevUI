@@ -15,9 +15,9 @@ export class List extends React.Component<ListProps> {
     return (
       <div className={cx("dui-list-container")}>
         {title && <p className={cx("dui-list-title")}>{title}</p>}
-        <li className={cx("dui-list", { [`dui-list-bordered`]: bordered })}>
+        <ul className={cx("dui-list", { [`dui-list-bordered`]: bordered })}>
           {children}
-        </li>
+        </ul>
       </div>
     );
   }
