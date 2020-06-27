@@ -3,7 +3,7 @@ import cx from "classnames";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 
 export interface AccordionProps {
-  title: string | React.ReactElement;
+  title: string | React.ReactNode;
   expandIcon?: string | React.ReactElement;
   collapseIcon?: string | React.ReactElement;
   expanded?: boolean;

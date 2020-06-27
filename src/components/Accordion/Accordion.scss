@@ -35,14 +35,18 @@
     height: auto;
     display: none;
     overflow: hidden;
+
+    .#{$provider-prefix}-accordion {
+      margin: 10px 0;
+    }
   }
 
   &-expanded {
-    .#{$provider-prefix}-accordion-content {
+    > .#{$provider-prefix}-accordion-content {
       display: block;
     }
 
-    .#{$provider-prefix}-accordion-header-toggle .dui-icon {
+    > .#{$provider-prefix}-accordion-header-toggle .dui-icon {
       transform: rotate(-180deg);
     }
   }
