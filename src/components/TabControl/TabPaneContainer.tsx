@@ -19,6 +19,10 @@ export class TabPaneContainer extends React.Component {
       (t: TabType) => t.key.toLowerCase() === activeTab.toLowerCase()
     );
     if (!current) return "";
-    return current.render && current.render();
+
+    return (
+      current.render &&
+      React.cloneElement(current.render(), { key: current.key })
+    );
   }
 }

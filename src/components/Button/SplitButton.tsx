@@ -17,10 +17,10 @@ export const SplitButton = ({
 }: SplitButtonProps) => {
   const [expanded, setExpanded] = React.useState(false);
   const wrapperClass = cx("dui-split-button", {
-    [`dui-split-button-visible`]: expanded
+    [`dui-split-button-visible`]: expanded,
   });
   const actionClass = cx("dui-split-button-actions", [
-    `dui-split-button-actions-${size}`
+    `dui-split-button-actions-${size}`,
   ]);
 
   return (

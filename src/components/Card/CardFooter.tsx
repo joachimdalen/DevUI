@@ -2,6 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 export interface CardFooterProps {
   className?: string;
+  children?: any;
 }
 
 export class CardFooter extends React.Component<CardFooterProps> {

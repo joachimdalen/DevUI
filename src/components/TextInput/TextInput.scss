@@ -8,6 +8,9 @@
   color: $color-dark;
   &-block {
     width: 100%;
+    input {
+      width: 100%;
+    }
   }
   &.#{$provider-prefix}-input-small {
     height: $text-input-small-height;
