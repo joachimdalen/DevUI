@@ -87,12 +87,13 @@ $badge-padding-y: 2px !default;
 $badge-padding-x: 6px !default;
 $badge-padding: $badge-padding-y $badge-padding-x !default;
 $badge-font-weight: $font-weight-regular !default;
-$badge-font-size: $font-size-small !default;
+$badge-font-size: $font-size-normal !default;
 $badge-dismiss-border-radius: 2px !default;
 $badge-dismiss-padding-y: 0px !default;
 $badge-dismiss-padding-x: 4px !default;
 $badge-dismiss-padding: $badge-dismiss-padding-y $badge-dismiss-padding-x !default;
 $badge-dismiss-hover-background: lighten($color-danger, 30%) !default;
+$badge-border-width: 1px !default;
 
 /* BUTTON */
 $button-link-color: $color-dark;

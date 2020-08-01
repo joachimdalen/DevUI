@@ -26,8 +26,6 @@
 .#{$provider-prefix}-badge {
   @extend %badge-base;
   padding: $badge-padding;
-  border: 1px solid;
-  border-color: transparent;
   font-weight: $badge-font-weight;
   border-radius: $badge-border-radius;
   color: $color-dark;
