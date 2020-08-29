@@ -405,8 +405,8 @@ $modal-body-padding: $modal-body-padding-y $modal-body-padding-x !default;
 $modal-top-margin: 25px !default;
 $modal-zindex: 9999 !default;
 
-$form-group-label-font-weight: $font-weight-regular !default;
-$form-group-label-font-size: $font-size-normal !default;
+$form-group-label-font-weight: $font-weight-bold !default;
+$form-group-label-font-size: $font-size-small !default;
 $form-group-label-margin-bottom: 8px !default;
 $form-group-extra-margin-top: 4px !default;
 $form-group-extra-font-size: 10px !default;
@@ -419,6 +419,7 @@ $form-group-counter-margin-top: 4px !default;
 $form-group-counter-font-size: 10px !default;
 $form-group-counter-color: #777 !default;
 $form-group-counter-error-color: $color-danger !default;
+$form-group-label-color: #4a4a49;
 
 $alert-border-width: 1px !default;
 $alert-border-radius: $border-raidus !default;
