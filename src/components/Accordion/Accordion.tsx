@@ -9,6 +9,7 @@ export interface AccordionProps {
   expanded?: boolean;
   borderless?: boolean;
   onToggle?: (state: boolean) => void;
+  className?: string;
 }
 interface AccordionState {
   expanded: boolean;
@@ -16,7 +17,7 @@ interface AccordionState {
 
 export class Accordion extends React.Component<AccordionProps, AccordionState> {
   state = {
-    expanded: this.props.expanded || false
+    expanded: this.props.expanded || false,
   };
   componentDidUpdate(
     prevProps: AccordionProps,
@@ -25,7 +26,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
   ) {
     if (prevProps !== this.props) {
       this.setState({
-        expanded: this.props.expanded || false
+        expanded: this.props.expanded || false,
       });
     }
   }
@@ -36,7 +37,8 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
       expandIcon,
       collapseIcon,
       borderless,
-      onToggle
+      onToggle,
+      className,
     } = this.props;
     const { expanded } = this.state;
     const caretIcon = (
@@ -53,7 +55,8 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
         className={cx(
           "dui-accordion",
           { "dui-accordion-expanded": expanded },
-          { "dui-accordion-borderless": borderless }
+          { "dui-accordion-borderless": borderless },
+          className
         )}
       >
         <div
