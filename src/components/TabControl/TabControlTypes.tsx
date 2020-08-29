@@ -2,7 +2,7 @@ import * as React from "react";
 export interface TabType {
   key: string;
   label: string;
-  icon?: string;
+  icon?: React.ReactElement;
   disabled?: boolean;
   component?: React.ReactElement;
   render?: () => React.ReactElement;

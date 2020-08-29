@@ -20,6 +20,8 @@
       border-bottom: $tab-control-border-radius solid $tab-control-border-color;
       white-space: nowrap;
       transition: background-color 0.3s ease, color 0.3s ease;
+      align-items: center;
+      display: flex;
       &:not(:first-child) {
         border-left: $tab-control-border-radius solid $tab-control-border-color;
       }

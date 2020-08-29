@@ -1,6 +1,5 @@
 import * as React from "react";
 import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { TabControlConsumer, ContextType, TabType } from "./TabControlTypes";
 export const TabNavItem = ({ tab }: { tab: TabType }) => (
   <TabControlConsumer>
@@ -18,7 +17,7 @@ export const TabNavItem = ({ tab }: { tab: TabType }) => (
           }
         }}
       >
-         {tab.icon && <FontAwesomeIcon iconStyle="solid" icon={tab.icon} />}
+         {tab.icon}
         {tab.label}
       </li>
     )}
