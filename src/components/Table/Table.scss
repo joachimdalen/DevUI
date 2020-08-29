@@ -41,26 +41,6 @@
       }
     }
   }
-  &-search {
-    .#{$provider-prefix}-table-row-header .#{$provider-prefix}-table-cell {
-      vertical-align: top;
-    }
-  }
-  &-footer {
-    background-color: $table-footer-background;
-    color: $table-footer-color;
-    padding: $table-footer-padding;
-    width: 100%;
-    justify-content: center;
-    display: flex;
-    .#{$provider-prefix}-table-paginator {
-      .#{$provider-prefix}-button {
-        max-width: 30px !important;
-        border: $table-pg-button-border-width solid
-          $table-pg-button-border-color;
-      }
-    }
-  }
   &-row {
     display: table-row;
     height: $table-row-height;
