@@ -13,20 +13,17 @@ const columnHeaders: Column[] = [
     key: "id",
     label: "Invoice",
     sortable: false,
-    searchable: true,
     forceVisible: true
   },
   {
     key: "created",
     label: "Created",
-    sortable: true,
-    searchable: true
+    sortable: true
   },
   {
     key: "status",
     label: "Status",
     sortable: true,
-    searchable: true,
     renderer: (item: any) => {
       if (item.status === "Paid")
         return <span className="dui-color-success">{item.status}</span>;
@@ -39,8 +36,7 @@ const columnHeaders: Column[] = [
     key: "first_name",
     label: "First Name",
     accessor: (item: any) => item.customer.first_name,
-    sortable: true,
-    searchable: true
+    sortable: true
   },
   {
     key: "last_name",
@@ -134,8 +130,6 @@ storiesOf("Display Components|Table", module)
       bordered={boolean("bordered", false)}
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
-      paginationEnabled={boolean("Paginate", true)}
-      paginationPageSize={number("PageSize", 3)}
       multiSelect={boolean("multi-select", true)}
     />
   ));

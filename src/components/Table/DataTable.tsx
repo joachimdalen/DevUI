@@ -1,23 +1,18 @@
-import { TableProps, Table } from "./Table";
+import { Table, TableProps } from "./Table";
 import { TableCell } from "./TableCell";
-import { TableHeader } from "./TableHeader";
-import { TablePaginator } from "./TablePaginator";
 import { TableRow } from "./TableRow";
-import { Column, SearchEntry } from "./TableTypes";
+import { Column } from "./TableTypes";
 import { CheckBox } from "../CheckBox/CheckBox";
+import { Omit } from "../common";
+import { Empty } from "../Empty/Empty";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-//import { TextInput } from "../TextInput/TextInput";
 import cx from "classnames";
 import * as React from "react";
-import { Empty } from "../Empty/Empty";
-import { Omit } from "../common";
 
 interface InternalDataTableProps {
   rows: any[];
   columns: Column[];
   multiSelect?: boolean;
-  paginationEnabled?: boolean;
-  paginationPageSize?: number;
   showEmpty?: boolean;
   emptyComp?: React.ReactElement<Empty>;
   onCheck?: (checked: any) => void;
@@ -27,9 +22,6 @@ interface DataTableState {
   checked: any[];
   sortBy?: Column;
   sortDirection: string;
-  search: SearchEntry[];
-  from: number;
-  to: number;
 }
 export type DataTableProps = Omit<TableProps, "children"> &
   InternalDataTableProps;
@@ -39,9 +31,6 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
     checked: [] as any[],
     sortBy: {} as Column,
     sortDirection: "",
-    search: [] as SearchEntry[],
-    from: 1,
-    to: this.props.paginationPageSize || 15,
   };
 
   static defaultProps: Partial<DataTableProps> = {
@@ -56,13 +45,11 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
 
   render() {
     const { columns, rows, emptyComp, showEmpty, ...rest } = this.props;
-    const hasSearch = columns.find((e: Column) => e.searchable === true);
     const emptyItem = showEmpty ? emptyComp : null;
     const shouldShowEmpty = !rows || rows.length === 0;
     return (
       <div className="dui-table-wrapper">
-        {this._getTableHeader()}
-        <Table {...rest} className={cx({ "dui-table-search": hasSearch })}>
+        <Table {...rest}>
           {this._getHeaders() as any}
           {this._getRows() as any}
         </Table>
@@ -71,50 +58,6 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
     );
   }
 
-  _getTableHeader() {
-    const {
-      paginationEnabled = false,
-      paginationPageSize = 15,
-      rows,
-    } = this.props;
-    const { from, to } = this.state;
-    if (!paginationEnabled) return null;
-    return (
-      <TableHeader>
-        {paginationEnabled &&
-          ((
-            <TablePaginator
-              from={from}
-              to={to}
-              totalItems={rows.length}
-              pageLimit={paginationPageSize}
-              onPageChange={this._onPaginatorPageChange}
-            />
-          ) as any)}
-      </TableHeader>
-    );
-  }
-  _onPaginatorPageChange = (from: number, to: number) => {
-    this.setState({ from, to });
-  };
-
-  _handleSearch(key: string, value: string) {
-    const { search } = this.state;
-
-    let index = search.findIndex((e: SearchEntry) => e.key === key);
-    let data: SearchEntry = {
-      key: key,
-      value: value,
-    };
-    if (index === -1) {
-      let newItems = [...search, data];
-      this.setState({ search: newItems });
-    } else {
-      let newItems = [...search];
-      newItems[index] = data;
-      this.setState({ search: newItems });
-    }
-  }
   _sort(col: Column) {
     const { sortDirection } = this.state;
     this.setState({
@@ -170,10 +113,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
     const { checked } = this.state;
 
     let rowHeaders: TableCell[] = columns.map((col: Column) => {
-      /* let searchIndex = this.state.search.findIndex(
-          (e: SearchEntry) => e.key === col.key
-        ); */
-      if (col.sortable || col.searchable) {
+      if (col.sortable) {
         const cellClass = cx({ "dui-table-cell-sortable": col.sortable });
 
         return (
@@ -192,26 +132,6 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
                 <span>{col.label}</span>
               </div>
             )}
-            {/* {col.searchable && (
-                <div>
-                  <TextInput
-                    name="filter"
-                    size="small"
-                    prefix={
-                      <FontAwesomeIcon iconStyle="solid" icon="fa-search" />
-                    }
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                      this._handleSearch(col.key, e.target.value)
-                    }
-                    value={
-                      searchIndex === -1
-                        ? ""
-                        : search[searchIndex] && search[searchIndex]["value"]
-                    }
-                    placeholder="Search..."
-                  />
-                </div>
-              )} */}
           </TableCell>
         );
       }
@@ -243,70 +163,30 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
   }
 
   _getRows() {
-    const {
-      rowKey,
-      columns,
-      rows,
-      multiSelect,
-      paginationEnabled = false,
-    } = this.props;
-    const {
-      sortBy,
-      sortDirection,
-      search,
-      checked,
-
-      from,
-      to,
-    } = this.state;
+    const { rowKey, columns, rows, multiSelect } = this.props;
+    const { sortBy, sortDirection, checked } = this.state;
     const checkCellClass = cx("dui-table-cell-checkable");
 
     let rowItems: Column[] = rows;
-    if (search.length) {
-      search.forEach((e: SearchEntry) => {
-        rowItems = rowItems.filter((item) => {
-          const col = columns.find((i) => i.key === e.key);
-          if (!col) return false;
-          if (col.accessor) {
-            return (
-              col
-                .accessor(item)
-                .toLowerCase()
-                .indexOf(e.value.toLowerCase()) !== -1
-            );
-          } else {
-            return (
-              item[e.key].toLowerCase().indexOf(e.value.toLowerCase()) !== -1
-            );
-          }
-        });
-      });
-    }
     if (sortBy.key) {
       if (sortBy.accessor) {
-        rowItems =
-          sortDirection === "asc"
-            ? rowItems.sort((a: Column, b: Column) =>
-                sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
-              )
-            : rowItems.sort((a: Column, b: Column) =>
-                sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
-              );
+        sortDirection === "asc"
+          ? rowItems.sort((a: Column, b: Column) =>
+              sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
+            )
+          : rowItems.sort((a: Column, b: Column) =>
+              sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
+            );
       } else {
         let sortKey = sortBy.key;
-        rowItems =
-          sortDirection === "asc"
-            ? rowItems.sort((a: Column, b: Column) =>
-                a[sortKey] < b[sortKey] ? 0 : 1
-              )
-            : rowItems.sort((a: Column, b: Column) =>
-                a[sortKey] > b[sortKey] ? 0 : 1
-              );
+        sortDirection === "asc"
+          ? rowItems.sort((a: Column, b: Column) =>
+              a[sortKey] < b[sortKey] ? 0 : 1
+            )
+          : rowItems.sort((a: Column, b: Column) =>
+              a[sortKey] > b[sortKey] ? 0 : 1
+            );
       }
-    }
-
-    if (paginationEnabled) {
-      rowItems = rowItems.slice(from - 1, to);
     }
 
     let renderedRows =
@@ -328,7 +208,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
               </TableCell>
             )}
             {
-              columns.map((col: Column, index: number) => {
+              columns.map((col: Column, i: number) => {
                 const cellValue = col.renderer
                   ? col.renderer(row)
                   : col.accessor
@@ -338,9 +218,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
                   <TableCell
                     className={cx(col.className)}
                     key={
-                      rowKey
-                        ? row[rowKey] && row[rowKey]
-                        : `row-item-cell-${index}`
+                      rowKey ? row[rowKey] && row[rowKey] : `row-item-cell-${i}`
                     }
                   >
                     {cellValue}
