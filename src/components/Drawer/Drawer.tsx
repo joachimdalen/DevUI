@@ -3,7 +3,6 @@ import cx from "classnames";
 import { isNumber } from "util";
 import { Overlay } from "../Overlay/Overlay";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { Color } from "csstype";
 
 export type DrawerLocation = "left" | "right";
 export interface DrawerProps {
@@ -12,7 +11,7 @@ export interface DrawerProps {
     visible: boolean;
     location?: DrawerLocation;
     onClose?: () => void;
-    backgroundColor?: Color;
+    backgroundColor?: string;
 }
 
 export class Drawer extends React.Component<DrawerProps> {
