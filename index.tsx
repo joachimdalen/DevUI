@@ -25,14 +25,6 @@ import {
 } from "./src/components/Avatar/Avatar";
 import { Badge, BadgeProps } from "./src/components/Badge/Badge";
 import {
-  Breadcrumb,
-  BreadcrumbProps
-} from "./src/components/Breadcrumb/Breadcrumb";
-import {
-  BreadcrumbItem,
-  BreadcrumbItemProps
-} from "./src/components/Breadcrumb/BreadcrumbItem";
-import {
   Button,
   ButtonFormat,
   ButtonProps,
@@ -227,10 +219,6 @@ export {
   AvatarSize,
   Badge,
   BadgeProps,
-  Breadcrumb,
-  BreadcrumbProps,
-  BreadcrumbItem,
-  BreadcrumbItemProps,
   Button,
   ButtonFormat,
   ButtonProps,
