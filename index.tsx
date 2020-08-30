@@ -155,14 +155,6 @@ import {
 } from "./src/components/TabControl/TabControl";
 import { Table, TableProps } from "./src/components/Table/Table";
 import { TableCell, TableCellProps } from "./src/components/Table/TableCell";
-import {
-  TableHeader,
-  TableHeaderProps
-} from "./src/components/Table/TableHeader";
-import {
-  TablePaginator,
-  TablePaginatorProps
-} from "./src/components/Table/TablePaginator";
 import { TableRow, TableRowProps } from "./src/components/Table/TableRow";
 import { TabNav, TabNavProps } from "./src/components/TabControl/TabNav";
 import { TabNavItem } from "./src/components/TabControl/TabNavItem";
@@ -316,10 +308,6 @@ export {
   TableProps,
   TableCell,
   TableCellProps,
-  TableHeader,
-  TableHeaderProps,
-  TablePaginator,
-  TablePaginatorProps,
   TableRow,
   TableRowProps,
   TabNav,

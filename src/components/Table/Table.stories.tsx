@@ -122,14 +122,4 @@ storiesOf("Display Components|Table", module)
       multiSelect={boolean("multi-select", true)}
       condensed={boolean("condensed", true)}
     />
-  ))
-  .add("DataTable Pagination", () => (
-    <DataTable
-      rows={values}
-      columns={columnHeaders}
-      bordered={boolean("bordered", false)}
-      striped={boolean("striped", false)}
-      hoverable={boolean("hoverable", true)}
-      multiSelect={boolean("multi-select", true)}
-    />
   ));
