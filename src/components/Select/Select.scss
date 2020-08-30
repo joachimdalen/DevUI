@@ -60,6 +60,9 @@
       max-height: $select-options-max-height;
       overflow-y: auto;
       position: relative;
+      .#{$provider-prefix}-empty {
+        width: auto;
+      }
     }
   }
   &-option {
