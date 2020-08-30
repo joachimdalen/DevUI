@@ -51,7 +51,15 @@
     color: $form-group-notice-color;
   }
   &-error {
-    color: $color-danger;
+    .#{$provider-prefix}-form-group-extra {
+      color: $color-danger;
+    }
+    .#{$provider-prefix}-select,
+    .#{$provider-prefix}-input,
+    .#{$provider-prefix}-textarea,
+    .#{$provider-prefix}-tag-input {
+      border: $form-group-error-border;
+    }
   }
   .#{$provider-prefix}-select,
   .#{$provider-prefix}-input,
