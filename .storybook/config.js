@@ -1,7 +1,7 @@
 import * as React from "react";
 import { configure } from "@storybook/react";
 import { addDecorator } from "@storybook/react";
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs } from "@storybook/addon-knobs/react";
 import centered from "@storybook/addon-centered/react";
 
 const minWidth = (storyFn) => (
