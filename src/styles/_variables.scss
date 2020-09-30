@@ -10,7 +10,7 @@ $theme-colors: map-merge(
     "danger": $color-danger,
     "magenta": $color-magenta,
     "warning": $color-warning,
-    "blue": $color-blue
+    "blue": $color-blue,
   ),
   $theme-colors
 );
@@ -30,7 +30,7 @@ $brand-colors: map-merge(
     "reddit": #ff4500,
     "snapchat": #fffc00,
     "bitbucket": #205081,
-    "dropbox": #007ee5
+    "dropbox": #007ee5,
   ),
   $brand-colors
 );
