@@ -4,7 +4,7 @@ import { Table } from "./Table";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
 import { DataTable } from "./DataTable";
-import { boolean, number } from "@storybook/addon-knobs";
+import { boolean } from "@storybook/addon-knobs";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
 import { Column } from "./TableTypes";
 const values = require("../../../data/invoices.json");

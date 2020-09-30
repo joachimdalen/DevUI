@@ -45,6 +45,7 @@ storiesOf("Controls|Button/Default", module)
       linkButton={boolean("Link Button", true)}
       disabled={boolean("disabled", false)}
       onClick={action("button-clicked")}
+      variant="secondary"
     />
   ))
   .add("Disabled Button", () => (
