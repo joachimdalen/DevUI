@@ -1,21 +1,22 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export type SocialProviders =
-  | "bitbucket"
-  | "discord"
-  | "dropbox"
-  | "github"
-  | "instagram"
-  | "paypal"
-  | "reddit"
-  | "spotify"
-  | "steam"
-  | "snapchat"
-  | "twitch"
-  | "twitter"
-  | "youtube";
+  | 'bitbucket'
+  | 'discord'
+  | 'dropbox'
+  | 'github'
+  | 'instagram'
+  | 'paypal'
+  | 'reddit'
+  | 'spotify'
+  | 'steam'
+  | 'snapchat'
+  | 'twitch'
+  | 'twitter'
+  | 'youtube';
 
 export interface SocialButtonProps {
   provider: SocialProviders;
@@ -29,24 +30,16 @@ export interface SocialButtonProps {
 
 export class SocialButton extends React.Component<SocialButtonProps> {
   static defaultProps: Partial<SocialButtonProps> = {
-    className: "",
+    className: '',
     iconOnly: false,
     darkText: false
   };
   render() {
-    const {
-      provider,
-      className,
-      iconOnly,
-      icon,
-      text,
-      darkText,
-      onClick
-    } = this.props;
+    const { provider, className, iconOnly, icon, text, darkText, onClick } = this.props;
     const buttonClass = cx(
-      "dui-social-button",
+      'dui-social-button',
       [`dui-social-button-${provider}`],
-      { "dui-social-button-text-dark": darkText },
+      { 'dui-social-button-text-dark': darkText },
       className
     );
 

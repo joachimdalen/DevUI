@@ -1,93 +1,87 @@
-import { Accordion } from "./Accordion";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { boolean, text } from "@storybook/addon-knobs";
-import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
-import * as React from "react";
-import { AccordionGroup } from "./AccordionGroup";
+import { Accordion } from './Accordion';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { boolean, text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+import { AccordionGroup } from './AccordionGroup';
 
-storiesOf("Components|Accordion", module)
-  .add("Basic Accordion", () => (
+storiesOf('Components|Accordion', module)
+  .add('Basic Accordion', () => (
     <Accordion
-      title={text("Account", "Account")}
-      expanded={boolean("expanded", true)}
-      onToggle={action("onToggle")}
+      title={text('Account', 'Account')}
+      expanded={boolean('expanded', true)}
+      onToggle={action('onToggle')}
     >
       Hello
     </Accordion>
   ))
-  .add("Nested", () => (
+  .add('Nested', () => (
     <Accordion
       key="2"
-      title={text("Account", "Account")}
-      expanded={boolean("expanded", true)}
-      
-      onToggle={action("onToggle")}
+      title={text('Account', 'Account')}
+      expanded={boolean('expanded', true)}
+      onToggle={action('onToggle')}
     >
       Hello There
       <Accordion
         key="1"
-        title={text("Account", "Account")}
-        expanded={boolean("nestedExpanded", true)}
-      
-        onToggle={action("onToggleNested")}
+        title={text('Account', 'Account')}
+        expanded={boolean('nestedExpanded', true)}
+        onToggle={action('onToggleNested')}
       >
         Hello
       </Accordion>
     </Accordion>
   ))
-  .add("Borderless", () => (
+  .add('Borderless', () => (
     <Accordion
-      title={text("Account", "Account")}
-      expanded={boolean("expanded", true)}
-      borderless={boolean("borderless", true)}
-      onToggle={action("onToggle")}
+      title={text('Account', 'Account')}
+      expanded={boolean('expanded', true)}
+      borderless={boolean('borderless', true)}
+      onToggle={action('onToggle')}
     >
       Hello
     </Accordion>
   ))
-  .add("Custom Title", () => (
+  .add('Custom Title', () => (
     <Accordion
       title={
         <span className="dui-color-danger">
-          <FontAwesomeIcon
-            iconStyle="solid"
-            icon="fa-trash"
-            marginDirection="right"
-          />
+          <FontAwesomeIcon iconStyle="solid" icon="fa-trash" marginDirection="right" />
           Delete
         </span>
       }
-      onToggle={action("onToggle")}
+      onToggle={action('onToggle')}
     >
       Hello
     </Accordion>
   ))
-  .add("Group", () => (
-    <AccordionGroup multiExpand={boolean("Multi Expand", false)}>
+  .add('Group', () => (
+    <AccordionGroup multiExpand={boolean('Multi Expand', false)}>
       <Accordion
-        title={text("Account", "Account")}
-        expanded={boolean("expanded", true)}
-        onToggle={action("onToggle")}
+        title={text('Account', 'Account')}
+        expanded={boolean('expanded', true)}
+        onToggle={action('onToggle')}
       >
         Hello
       </Accordion>
       <Accordion
-        title={text("Account", "Account")}
-        expanded={boolean("expanded", true)}
-        onToggle={action("onToggle")}
+        title={text('Account', 'Account')}
+        expanded={boolean('expanded', true)}
+        onToggle={action('onToggle')}
       >
         Hello
       </Accordion>
     </AccordionGroup>
   ))
-  .add("Borderless Group", () => {
+  .add('Borderless Group', () => {
     return (
       <AccordionGroup
         accordionProps={{
-          expanded: boolean("expanded", true),
-          borderless: boolean("borderless", true),
-          onToggle: action("onToggle"),
+          expanded: boolean('expanded', true),
+          borderless: boolean('borderless', true),
+          onToggle: action('onToggle')
         }}
       >
         <Accordion title="This is one">Hello</Accordion>

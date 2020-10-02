@@ -1,9 +1,10 @@
-import { SelectOption } from "./SelectOption";
-import { Empty } from "../Empty/Empty";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import cx from "classnames";
-import * as React from "react";
-import { isUndefined } from "util";
+import cx from 'classnames';
+import * as React from 'react';
+import { isUndefined } from 'util';
+
+import { Empty } from '../Empty/Empty';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { SelectOption } from './SelectOption';
 
 export interface SelectProps {
   label: string;
@@ -27,26 +28,22 @@ export class Select extends React.Component<SelectProps, State> {
   _wrapperRef: any = React.createRef();
   state = {
     expanded: false,
-    selectedItem: this.props.defaultValue || undefined,
+    selectedItem: this.props.defaultValue || undefined
   };
 
   public componentDidUpdate(prevProps: SelectProps) {
     if (prevProps.defaultValue !== this.props.defaultValue) {
       this.setState({
-        selectedItem: this.props.defaultValue || undefined,
+        selectedItem: this.props.defaultValue || undefined
       });
     }
   }
 
   public componentDidMount() {
-    document.addEventListener("mousedown", (e: MouseEvent) =>
-      this._handleClickOutside(e)
-    );
+    document.addEventListener('mousedown', (e: MouseEvent) => this._handleClickOutside(e));
   }
   public componentWillUnmount() {
-    document.removeEventListener("mousedown", (e: MouseEvent) =>
-      this._handleClickOutside(e)
-    );
+    document.removeEventListener('mousedown', (e: MouseEvent) => this._handleClickOutside(e));
   }
   clearVal = () => {
     this.props.onChange({} as SelectOption);
@@ -54,29 +51,21 @@ export class Select extends React.Component<SelectProps, State> {
   public render() {
     const { expanded, selectedItem } = this.state;
     const { disabled, loading, className } = this.props;
-    const containerClass = cx(
-      "dui-select",
-      { disabled: disabled || loading },
-      className
-    );
-    const infoClass = cx("dui-select-info");
-    const previewClass = cx("dui-select-preview", {
-      "dui-select-placeholder": isUndefined(selectedItem),
+    const containerClass = cx('dui-select', { disabled: disabled || loading }, className);
+    const infoClass = cx('dui-select-info');
+    const previewClass = cx('dui-select-preview', {
+      'dui-select-placeholder': isUndefined(selectedItem)
     });
-    const caretContainerClass = cx("dui-select-caret-container", {
-      "dui-select-placeholder": isUndefined(selectedItem),
+    const caretContainerClass = cx('dui-select-caret-container', {
+      'dui-select-placeholder': isUndefined(selectedItem)
     });
-    const optionsClass = cx("dui-select-options");
-    const optionsListClass = cx("dui-select-options-list");
-    const caretDirectionIcon = expanded ? "fa-angle-up" : "fa-angle-down";
-    const caretIcon = loading ? "fa-spinner" : caretDirectionIcon;
-    const caretIconClass = cx({ "dui-select-loading": loading });
+    const optionsClass = cx('dui-select-options');
+    const optionsListClass = cx('dui-select-options-list');
+    const caretDirectionIcon = expanded ? 'fa-angle-up' : 'fa-angle-down';
+    const caretIcon = loading ? 'fa-spinner' : caretDirectionIcon;
+    const caretIconClass = cx({ 'dui-select-loading': loading });
     return (
-      <div
-        className={containerClass}
-        role="select"
-        ref={(node) => (this._wrapperRef = node)}
-      >
+      <div className={containerClass} role="select" ref={node => (this._wrapperRef = node)}>
         <div className={infoClass} onClick={() => this._toggle()}>
           <div className={previewClass}>{this._getPreviewLabel()}</div>
           <span className={caretContainerClass}>
@@ -113,7 +102,7 @@ export class Select extends React.Component<SelectProps, State> {
     return options.map((option: SelectOption) => {
       return (
         <div
-          className={cx("dui-select-option", optionClassName)}
+          className={cx('dui-select-option', optionClassName)}
           role="option"
           key={option.value}
           onClick={() => this._selectOption(option)}
@@ -129,11 +118,7 @@ export class Select extends React.Component<SelectProps, State> {
   }
   _handleClickOutside(event: MouseEvent) {
     const { keepOpenOnLostFocus } = this.props;
-    if (
-      this._wrapperRef &&
-      !this._wrapperRef.contains(event.target) &&
-      !keepOpenOnLostFocus
-    ) {
+    if (this._wrapperRef && !this._wrapperRef.contains(event.target) && !keepOpenOnLostFocus) {
       this.setState({ expanded: false });
     }
   }

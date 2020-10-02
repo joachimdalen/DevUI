@@ -1,13 +1,10 @@
-import * as React from "react";
-import { Button, ButtonProps } from "../Button/Button";
-import cx from "classnames";
-import { camelCaseToDash } from "../common";
+import cx from 'classnames';
+import * as React from 'react';
 
-export type OverflowMenuLocation =
-  | "topRight"
-  | "topLeft"
-  | "bottomRight"
-  | "bottomLeft";
+import { Button, ButtonProps } from '../Button/Button';
+import { camelCaseToDash } from '../common';
+
+export type OverflowMenuLocation = 'topRight' | 'topLeft' | 'bottomRight' | 'bottomLeft';
 export interface OverflowMenuProps {
   triggerButtonProps?: ButtonProps;
   className?: string;
@@ -16,29 +13,21 @@ export interface OverflowMenuProps {
 interface OverflowMenuState {
   visible: boolean;
 }
-export class OverflowMenu extends React.Component<
-  OverflowMenuProps,
-  OverflowMenuState
-> {
+export class OverflowMenu extends React.Component<OverflowMenuProps, OverflowMenuState> {
   state = {
     visible: false
   };
   render() {
-    const {
-      className,
-      triggerButtonProps,
-      menuLocation = "bottomRight"
-    } = this.props;
+    const { className, triggerButtonProps, menuLocation = 'bottomRight' } = this.props;
     const wrapperClass = cx(
-      "dui-overflow-menu-wrapper",
+      'dui-overflow-menu-wrapper',
       {
-        [`dui-overflow-menu-${camelCaseToDash(menuLocation)}`]:
-          menuLocation !== "bottomRight"
+        [`dui-overflow-menu-${camelCaseToDash(menuLocation)}`]: menuLocation !== 'bottomRight'
       },
       className
     );
-    const containerClass = cx("dui-overflow-menu-content");
-    const itemsClass = cx("dui-overflow-menu-items");
+    const containerClass = cx('dui-overflow-menu-content');
+    const itemsClass = cx('dui-overflow-menu-items');
     return (
       <div className={wrapperClass}>
         <Button

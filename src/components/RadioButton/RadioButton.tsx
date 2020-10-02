@@ -1,5 +1,5 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 export interface RadioButtonProps {
   className?: string;
   checked: boolean;
@@ -11,11 +11,7 @@ export interface RadioButtonProps {
 export class RadioButton extends React.Component<RadioButtonProps> {
   render() {
     const { checked, variant, label, className } = this.props;
-    const labelClass = cx(
-      "dui-radiobutton-container",
-      [`dui-radiobutton-${variant}`],
-      className
-    );
+    const labelClass = cx('dui-radiobutton-container', [`dui-radiobutton-${variant}`], className);
     return (
       <label className={labelClass}>
         {label}

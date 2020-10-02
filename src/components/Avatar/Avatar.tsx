@@ -1,9 +1,10 @@
-import * as React from "react";
-import cx from "classnames";
-import { Image } from "../Image/Image";
-import { GenericSizes } from "../common";
+import cx from 'classnames';
+import * as React from 'react';
 
-export type AvatarFormat = "square" | "rounded" | "circle";
+import { GenericSizes } from '../common';
+import { Image } from '../Image/Image';
+
+export type AvatarFormat = 'square' | 'rounded' | 'circle';
 export type AvatarSize = GenericSizes;
 export interface AvatarProps {
   src: React.ReactNode | string;
@@ -17,25 +18,17 @@ export interface AvatarProps {
 
 export class Avatar extends React.Component<AvatarProps> {
   static defaultProps: Partial<AvatarProps> = {
-    size: "medium",
-    format: "square"
+    size: 'medium',
+    format: 'square'
   };
 
   render() {
-    const {
-      src,
-      size,
-      format,
-      width,
-      height,
-      className,
-      fallbackSrc
-    } = this.props;
+    const { src, size, format, width, height, className, fallbackSrc } = this.props;
 
-    const isDefaultFormat = format === "square";
+    const isDefaultFormat = format === 'square';
     const hasCustomSize = (width || height) !== undefined;
     const baseClass = cx(
-      "dui-avatar",
+      'dui-avatar',
       { [`dui-avatar-${size}`]: !hasCustomSize },
       { [`dui-avatar-${format}`]: !isDefaultFormat },
       className
@@ -53,12 +46,7 @@ export class Avatar extends React.Component<AvatarProps> {
       );
     }
     return (
-      <Image
-        src={src as string}
-        className={baseClass}
-        alt="avatar"
-        fallbackSrc={fallbackSrc}
-      />
+      <Image src={src as string} className={baseClass} alt="avatar" fallbackSrc={fallbackSrc} />
     );
   }
 }

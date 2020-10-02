@@ -1,5 +1,5 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 
 export interface OverlayProps {
   className?: string;
@@ -9,8 +9,13 @@ export interface OverlayProps {
 export const Overlay: React.FunctionComponent<OverlayProps> = ({
   children,
   visible,
-  className, backgroundColor
+  className,
+  backgroundColor
 }) => {
-  const baseClass = cx("dui-overlay", className);
-  return visible ? <div className={baseClass} style={{ backgroundColor: backgroundColor }}>{children}</div> : null;
+  const baseClass = cx('dui-overlay', className);
+  return visible ? (
+    <div className={baseClass} style={{ backgroundColor: backgroundColor }}>
+      {children}
+    </div>
+  ) : null;
 };

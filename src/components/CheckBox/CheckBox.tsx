@@ -1,7 +1,7 @@
-import cx from "classnames";
-import * as React from "react";
+import cx from 'classnames';
+import * as React from 'react';
 
-export type CheckBoxIndicatorLocation = "left" | "right";
+export type CheckBoxIndicatorLocation = 'left' | 'right';
 export interface CheckBoxProps {
   label?: string;
   checked: boolean;
@@ -17,8 +17,8 @@ export interface CheckBoxProps {
 export class CheckBox extends React.Component<CheckBoxProps> {
   static defaultProps: Partial<CheckBoxProps> = {
     disabled: false,
-    variant: "default",
-    indicatorLocation: "left"
+    variant: 'default',
+    indicatorLocation: 'left'
   };
   _inputRef: any = React.createRef();
 
@@ -48,10 +48,10 @@ export class CheckBox extends React.Component<CheckBoxProps> {
     return (
       <label
         className={cx(
-          "dui-checkbox",
-          { ["disabled"]: disabled },
-          { [`dui-checkbox-${variant}`]: variant !== "default" },
-          { [`dui-checkbox-right`]: indicatorLocation !== "left" },
+          'dui-checkbox',
+          { ['disabled']: disabled },
+          { [`dui-checkbox-${variant}`]: variant !== 'default' },
+          { [`dui-checkbox-right`]: indicatorLocation !== 'left' },
           { [`dui-checkbox-no-label`]: !label },
           className
         )}
@@ -70,7 +70,7 @@ export class CheckBox extends React.Component<CheckBoxProps> {
       </label>
     );
   }
-  _setIndeterminate(value: Boolean) {
+  _setIndeterminate(value: boolean) {
     this._inputRef.indeterminate = value;
   }
 }

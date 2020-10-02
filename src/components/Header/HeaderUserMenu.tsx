@@ -1,30 +1,22 @@
-import { HeaderConsumer, HeaderContextType } from "./HeaderTypes";
-import { HeaderUserMenuItem } from "./HeaderUserMenuItem";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import cx from "classnames";
-import * as React from "react";
-import { Avatar, AvatarProps } from "../Avatar/Avatar";
-import { Omit } from "../common";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { Avatar, AvatarProps } from '../Avatar/Avatar';
+import { Omit } from '../common';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { HeaderConsumer, HeaderContextType } from './HeaderTypes';
+import { HeaderUserMenuItem } from './HeaderUserMenuItem';
 export interface HeaderUserMenuProps {
   username?: string;
   avatar?: string | React.ReactElement<Avatar>;
   closeIcon?: string | React.ReactElement;
   openIcon?: string | React.ReactElement;
-  children?:
-    | React.ReactElement<HeaderUserMenuItem>
-    | React.ReactElement<HeaderUserMenuItem>[];
-  avatarProps?: Omit<AvatarProps, "src">;
+  children?: React.ReactElement<HeaderUserMenuItem> | React.ReactElement<HeaderUserMenuItem>[];
+  avatarProps?: Omit<AvatarProps, 'src'>;
 }
 export class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
   render() {
-    const {
-      username,
-      avatar,
-      closeIcon,
-      openIcon,
-      children,
-      avatarProps
-    } = this.props;
+    const { username, avatar, closeIcon, openIcon, children, avatarProps } = this.props;
     const hasCustomCloseIcon = React.isValidElement(closeIcon);
     const hasCustomOpenIcon = React.isValidElement(openIcon);
     const openIconComp = hasCustomOpenIcon ? (
@@ -48,8 +40,8 @@ export class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
       <HeaderConsumer>
         {({ toggled, onUserMenuToggle }: HeaderContextType) => (
           <div
-            className={cx("dui-header-user-menu", {
-              "dui-header-user-menu-visible": toggled
+            className={cx('dui-header-user-menu', {
+              'dui-header-user-menu-visible': toggled
             })}
           >
             <div
@@ -62,8 +54,8 @@ export class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
             </div>
             {shouldRenderDropdown && (
               <div
-                className={cx("dui-header-user-menu-dropdown", {
-                  "dui-header-user-menu-dropdown-visible": toggled
+                className={cx('dui-header-user-menu-dropdown', {
+                  'dui-header-user-menu-dropdown-visible': toggled
                 })}
               >
                 <div>{children}</div>

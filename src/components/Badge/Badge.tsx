@@ -1,6 +1,7 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 export interface BadgeProps {
   label: string | React.ReactNode;
   icon?: string | React.ReactElement;
@@ -11,7 +12,7 @@ export interface BadgeProps {
 
 export class Badge extends React.PureComponent<BadgeProps> {
   static defaultProps: Partial<BadgeProps> = {
-    variant: "default",
+    variant: 'default'
   };
 
   _handleClick = () => {
@@ -22,24 +23,18 @@ export class Badge extends React.PureComponent<BadgeProps> {
   public render() {
     const { label, icon, variant, onDismiss, dismissText } = this.props;
     const badgeClass = cx(
-      "dui-badge",
-      { [`dui-badge-${variant}`]: variant !== "default" },
+      'dui-badge',
+      { [`dui-badge-${variant}`]: variant !== 'default' },
       { [`dui-badge-dismiss`]: onDismiss }
     );
-    const dismissibleClass = cx("dui-badge-dismissible");
-    const wrapperClass = cx("dui-badge-wrapper");
-    const iconClass = cx("dui-badge-icon");
+    const dismissibleClass = cx('dui-badge-dismissible');
+    const wrapperClass = cx('dui-badge-wrapper');
+    const iconClass = cx('dui-badge-icon');
     const isDismissible = onDismiss;
 
     const iconComponent = React.isValidElement(icon)
       ? React.cloneElement(icon, { className: iconClass })
-      : icon && (
-          <FontAwesomeIcon
-            iconStyle="solid"
-            icon={icon}
-            className={iconClass}
-          />
-        );
+      : icon && <FontAwesomeIcon iconStyle="solid" icon={icon} className={iconClass} />;
 
     const badgeComponent = (
       <span className={badgeClass}>

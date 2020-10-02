@@ -1,8 +1,9 @@
-import * as React from "react";
-import cx from "classnames";
-import { Accordion, AccordionProps } from "./Accordion";
-import { Omit } from "../common";
-export type ParitalAccordionProps = Omit<AccordionProps, "title">;
+import cx from 'classnames';
+import * as React from 'react';
+
+import { Omit } from '../common';
+import { Accordion, AccordionProps } from './Accordion';
+export type ParitalAccordionProps = Omit<AccordionProps, 'title'>;
 export interface AccordionGroupProps {
   multiExpand?: boolean;
   children?: React.ReactElement<Accordion> | React.ReactElement<Accordion>[];
@@ -13,21 +14,18 @@ interface AccordionState {
   expandedItem?: number;
 }
 
-export class AccordionGroup extends React.Component<
-  AccordionGroupProps,
-  AccordionState
-> {
+export class AccordionGroup extends React.Component<AccordionGroupProps, AccordionState> {
   static defaultProps: Partial<AccordionGroupProps> = {
-    multiExpand: true,
+    multiExpand: true
   };
   state = {
-    expandedItem: undefined,
+    expandedItem: undefined
   };
   public render() {
     const { children, multiExpand, accordionProps, ...rest } = this.props;
 
     return (
-      <div className={cx("dui-accordion-group")} {...rest}>
+      <div className={cx('dui-accordion-group')} {...rest}>
         {React.Children.map(children, (child: any, index: number) => {
           const partialProps: ParitalAccordionProps = {
             onToggle: (status: boolean) => {
@@ -39,12 +37,12 @@ export class AccordionGroup extends React.Component<
                 }
               }
             },
-            expanded: this.state.expandedItem === index || false,
+            expanded: this.state.expandedItem === index || false
           };
 
           return React.cloneElement(child, {
             ...accordionProps,
-            ...partialProps,
+            ...partialProps
           });
         })}
       </div>

@@ -1,9 +1,10 @@
-import * as React from "react";
-import cx from "classnames";
-import { SideBarMenu } from "./SideBarMenu";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { isString } from "util";
-import { CustomComponent } from "../common";
+import cx from 'classnames';
+import * as React from 'react';
+import { isString } from 'util';
+
+import { CustomComponent } from '../common';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { SideBarMenu } from './SideBarMenu';
 
 interface SideBarMenuItemState {
   subMenuVisible: boolean;
@@ -19,24 +20,21 @@ export interface SideBarMenuItemProps extends CustomComponent {
   className?: string;
 }
 
-export class SideBarMenuItem extends React.Component<
-  SideBarMenuItemProps,
-  SideBarMenuItemState
-> {
+export class SideBarMenuItem extends React.Component<SideBarMenuItemProps, SideBarMenuItemState> {
   state = {
-    subMenuVisible: false,
+    subMenuVisible: false
   };
   static defaultProps: Partial<SideBarMenuItemProps> = {
     isHeader: false,
     active: false,
     hasSubmenu: false,
-    className: "",
+    className: ''
   };
   componentDidUpdate(prevProps: SideBarMenuItemProps) {
     if (prevProps !== this.props) {
       if (this.props.hasSubmenu && this.props.active) {
         this.setState({
-          subMenuVisible: true,
+          subMenuVisible: true
         });
       }
     }
@@ -53,47 +51,33 @@ export class SideBarMenuItem extends React.Component<
       hasSubmenu,
       className,
       component,
-      componentProps,
+      componentProps
     } = this.props;
     const { subMenuVisible } = this.state;
     const menuClass = cx(
-      "dui-sidebar-menu-item",
-      { "dui-sidebar-menu-item-header": isHeader },
-      { "dui-sidebar-menu-item-active": active || subMenuVisible },
-      { "dui-sidebar-menu-item-has-sub": hasSubmenu },
+      'dui-sidebar-menu-item',
+      { 'dui-sidebar-menu-item-header': isHeader },
+      { 'dui-sidebar-menu-item-active': active || subMenuVisible },
+      { 'dui-sidebar-menu-item-has-sub': hasSubmenu },
       className
     );
     const subMenuClass = cx(
-      "dui-sidebar-menu-submenu",
-      { "dui-show": subMenuVisible },
-      { "dui-hide": !subMenuVisible }
+      'dui-sidebar-menu-submenu',
+      { 'dui-show': subMenuVisible },
+      { 'dui-hide': !subMenuVisible }
     );
     const iconComp = React.isValidElement(icon)
       ? icon
-      : isString(icon) && (
-          <FontAwesomeIcon
-            iconStyle="solid"
-            marginDirection="right"
-            icon={icon}
-          />
-        );
+      : isString(icon) && <FontAwesomeIcon iconStyle="solid" marginDirection="right" icon={icon} />;
     const expandComp = React.isValidElement(expandIcon) ? (
       expandIcon
     ) : (
-      <FontAwesomeIcon
-        iconStyle="solid"
-        icon="fa-arrow-circle-up"
-        marginDirection="right"
-      />
+      <FontAwesomeIcon iconStyle="solid" icon="fa-arrow-circle-up" marginDirection="right" />
     );
     const collapseComp = React.isValidElement(collapseIcon) ? (
       collapseIcon
     ) : (
-      <FontAwesomeIcon
-        iconStyle="solid"
-        icon="fa-arrow-circle-down"
-        marginDirection="right"
-      />
+      <FontAwesomeIcon iconStyle="solid" icon="fa-arrow-circle-down" marginDirection="right" />
     );
 
     if (isHeader) {

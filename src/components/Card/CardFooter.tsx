@@ -1,5 +1,5 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 export interface CardFooterProps {
   className?: string;
   children?: any;
@@ -8,6 +8,6 @@ export interface CardFooterProps {
 export class CardFooter extends React.Component<CardFooterProps> {
   public render() {
     const { children, className } = this.props;
-    return <div className={cx("dui-card-footer", className)}>{children}</div>;
+    return <div className={cx('dui-card-footer', className)}>{children}</div>;
   }
 }

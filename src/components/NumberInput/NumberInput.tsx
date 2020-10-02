@@ -1,6 +1,7 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export interface NumberInputProps {
   onChange: (value: number) => void;
@@ -22,11 +23,7 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
   state = {
     value: this.props.value || 1
   };
-  componentDidUpdate(
-    prevProps: NumberInputProps,
-    prevState: State,
-    snapshot: any
-  ) {
+  componentDidUpdate(prevProps: NumberInputProps, prevState: State, snapshot: any) {
     if (prevProps !== this.props && this.props.value) {
       this.setState({
         value: this.props.value
@@ -37,7 +34,7 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
     const { max, step, onChange } = this.props;
     const { value } = this.state;
     if (max !== undefined) {
-      var oldValue = value;
+      const oldValue = value;
       if (oldValue >= max) {
         var newVal = oldValue;
       } else {
@@ -52,7 +49,7 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
     const { min, step, onChange } = this.props;
     const { value } = this.state;
     if (min !== undefined) {
-      var oldValue = value;
+      const oldValue = value;
       if (oldValue <= min) {
         var newVal = oldValue;
       } else {
@@ -82,16 +79,10 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
   public render() {
     const { min, max } = this.props;
     const { value } = this.state;
-    const baseClass = cx("dui-number-input");
+    const baseClass = cx('dui-number-input');
     return (
       <div className={baseClass}>
-        <input
-          type="number"
-          min={min}
-          max={max}
-          value={value}
-          onChange={this._inputChange}
-        />
+        <input type="number" min={min} max={max} value={value} onChange={this._inputChange} />
         <div className="dui-number-input-buttons">
           <div
             className="dui-number-input-button dui-number-input-button-increase"

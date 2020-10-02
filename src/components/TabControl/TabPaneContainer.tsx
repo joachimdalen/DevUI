@@ -1,12 +1,13 @@
-import * as React from "react";
-import { TabControlConsumer, TabType, ContextType } from "./TabControlTypes";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { ContextType, TabControlConsumer, TabType } from './TabControlTypes';
 export class TabPaneContainer extends React.Component {
   render() {
     return (
       <TabControlConsumer>
         {({ tabs, activeTab, paneContainerClassName }: ContextType) => (
-          <div className={cx("dui-tab-control-pane", paneContainerClassName)}>
+          <div className={cx('dui-tab-control-pane', paneContainerClassName)}>
             {this.renderContent(tabs, activeTab)}
           </div>
         )}
@@ -15,14 +16,9 @@ export class TabPaneContainer extends React.Component {
   }
 
   renderContent(tabs: TabType[], activeTab: string) {
-    const current = tabs.find(
-      (t: TabType) => t.key.toLowerCase() === activeTab.toLowerCase()
-    );
-    if (!current) return "";
+    const current = tabs.find((t: TabType) => t.key.toLowerCase() === activeTab.toLowerCase());
+    if (!current) return '';
 
-    return (
-      current.render &&
-      React.cloneElement(current.render(), { key: current.key })
-    );
+    return current.render && React.cloneElement(current.render(), { key: current.key });
   }
 }

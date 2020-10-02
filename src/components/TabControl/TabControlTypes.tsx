@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 export interface TabType {
   key: string;
   label: string;
@@ -20,7 +20,7 @@ export interface ContextType {
 
 export const TabControlContext = React.createContext<ContextType>({
   tabs: [],
-  activeTab: ""
+  activeTab: ''
 });
 
 export const TabControlProvider = TabControlContext.Provider;

@@ -1,6 +1,7 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export interface TextInputProps {
   className?: string;
@@ -20,9 +21,9 @@ export interface TextInputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
   icon?: string | any;
   iconPlacement?: TextInputIconPlacement;
-  readOnly?:boolean;
+  readOnly?: boolean;
 }
-export type TextInputIconPlacement = "start" | "end";
+export type TextInputIconPlacement = 'start' | 'end';
 type AllProps = TextInputProps & React.HTMLAttributes<HTMLInputElement>;
 export class TextInput extends React.Component<AllProps> {
   public render() {
@@ -40,36 +41,30 @@ export class TextInput extends React.Component<AllProps> {
       fillWidth = false,
       onChange,
       small = false,
-      iconPlacement = "end",
+      iconPlacement = 'end',
       icon,
-      className = "",
-      wrapperClassName = "",
+      className = '',
+      wrapperClassName = '',
       ...rest
     } = this.props;
-    var inputRef: React.RefObject<HTMLInputElement> = React.createRef<
-      HTMLInputElement
-    >();
-    const autoCompleteValue = autoComplete ? "on" : "off";
-    const typeValue = password ? "password" : "text";
+    const inputRef: React.RefObject<HTMLInputElement> = React.createRef<HTMLInputElement>();
+    const autoCompleteValue = autoComplete ? 'on' : 'off';
+    const typeValue = password ? 'password' : 'text';
 
     const wrapperClass = cx(
-      "dui-input-wrapper",
-      { "dui-input-wrapper-block": fillWidth },
-      { "dui-input-small": small },
+      'dui-input-wrapper',
+      { 'dui-input-wrapper-block': fillWidth },
+      { 'dui-input-small': small },
       wrapperClassName
     );
-    const inputComponentClass = cx(
-      "dui-input",
-      { "dui-input-disabled": disabled },
-      className
-    );
+    const inputComponentClass = cx('dui-input', { 'dui-input-disabled': disabled }, className);
     const inputComponent = (
       <input
         type={typeValue}
         className={inputComponentClass}
         autoComplete={autoCompleteValue}
         autoFocus={autoFocus}
-        name={name || ""}
+        name={name || ''}
         maxLength={maxLength}
         placeholder={placeholder}
         id={id}
@@ -81,23 +76,18 @@ export class TextInput extends React.Component<AllProps> {
       />
     );
 
-    const showIcon = !(clearable && iconPlacement === "end");
+    const showIcon = !(clearable && iconPlacement === 'end');
     const clearVal = () => {
       if (inputRef.current) {
-        inputRef.current.value = "";
+        inputRef.current.value = '';
       }
     };
     return (
       <div className={wrapperClass}>
         {inputComponent}
-        {showIcon && icon && (
-          <span className={cx("dui-input-icon")}>{icon}</span>
-        )}
+        {showIcon && icon && <span className={cx('dui-input-icon')}>{icon}</span>}
         {clearable && value && (
-          <span
-            className={cx("dui-input-icon", "dui-input-clear")}
-            onClick={() => clearVal()}
-          >
+          <span className={cx('dui-input-icon', 'dui-input-clear')} onClick={() => clearVal()}>
             <FontAwesomeIcon iconStyle="solid" icon="fa-times" />
           </span>
         )}

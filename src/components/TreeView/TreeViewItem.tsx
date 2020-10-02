@@ -1,12 +1,9 @@
-import * as React from "react";
-import cx from "classnames";
-import { CheckBox } from "../CheckBox/CheckBox";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import {
-  TreeViewConsumer,
-  TreeViewContextType,
-  TreeViewNode
-} from "./TreeViewTypes";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { CheckBox } from '../CheckBox/CheckBox';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { TreeViewConsumer, TreeViewContextType, TreeViewNode } from './TreeViewTypes';
 export interface TreeViewItemProps {
   className?: string;
   node: TreeViewNode;
@@ -14,10 +11,7 @@ export interface TreeViewItemProps {
 interface TreeViewItemState {
   expanded: boolean;
 }
-export class TreeViewItem extends React.Component<
-  TreeViewItemProps,
-  TreeViewItemState
-> {
+export class TreeViewItem extends React.Component<TreeViewItemProps, TreeViewItemState> {
   static defaultProps: Partial<TreeViewItemProps> = {};
   state = {
     expanded: false
@@ -32,18 +26,10 @@ export class TreeViewItem extends React.Component<
       React.isValidElement(node.icon) ? (
         node.icon
       ) : (
-        <FontAwesomeIcon
-          marginDirection="left"
-          icon={node.icon as string}
-          iconStyle="regular"
-        />
+        <FontAwesomeIcon marginDirection="left" icon={node.icon as string} iconStyle="regular" />
       )
     ) : (
-      <FontAwesomeIcon
-        marginDirection="left"
-        icon="fa-file"
-        iconStyle="regular"
-      />
+      <FontAwesomeIcon marginDirection="left" icon="fa-file" iconStyle="regular" />
     );
 
     return (
@@ -56,18 +42,16 @@ export class TreeViewItem extends React.Component<
           onItemCheck,
           onExpanded
         }: TreeViewContextType) => {
-          const isChecked =
-            checkedItems &&
-            checkedItems.findIndex(i => i.key === node.key) !== -1;
+          const isChecked = checkedItems && checkedItems.findIndex(i => i.key === node.key) !== -1;
 
           return (
-            <div className={cx("dui-treeview-item", className)}>
+            <div className={cx('dui-treeview-item', className)}>
               <div className="dui-treeview-item-details">
                 <div className="dui-treeview-item-icons">
                   {!isLeafNode && (
                     <FontAwesomeIcon
                       marginDirection="left"
-                      icon={expanded ? "fa-minus-square" : "fa-plus-square"}
+                      icon={expanded ? 'fa-minus-square' : 'fa-plus-square'}
                       iconStyle="regular"
                       className="dui-treeview-item-expand"
                       onClick={() => {
@@ -91,24 +75,21 @@ export class TreeViewItem extends React.Component<
                   ) : (
                     <FontAwesomeIcon
                       marginDirection="left"
-                      icon={expanded ? "fa-folder-open" : "fa-folder"}
+                      icon={expanded ? 'fa-folder-open' : 'fa-folder'}
                       iconStyle="regular"
                     />
                   )}
                 </div>
                 <span
-                  className={cx("dui-treeview-item-label", {
-                    "dui-treeview-item-selected":
-                      node.key !== undefined && node.key === selected
+                  className={cx('dui-treeview-item-label', {
+                    'dui-treeview-item-selected': node.key !== undefined && node.key === selected
                   })}
                   onClick={() => onSelect && onSelect(node)}
                 >
                   {node.label}
                 </span>
               </div>
-              {!isLeafNode && expanded && (
-                <div className="dui-treeview-item-leafs">{children}</div>
-              )}
+              {!isLeafNode && expanded && <div className="dui-treeview-item-leafs">{children}</div>}
             </div>
           );
         }}

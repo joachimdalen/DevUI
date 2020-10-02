@@ -1,23 +1,11 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 
-export type FlexGap = "small" | "medium" | "large";
-export type FlexDirection = "row" | "column";
-export type FlexWrap = "wrap" | "reverse";
-export type FlexJustify =
-  | "flexStart"
-  | "flexEnd"
-  | "center"
-  | "between"
-  | "around"
-  | "evenly";
-export type FlexAlign =
-  | "flexStart"
-  | "flexEnd"
-  | "center"
-  | "between"
-  | "around"
-  | "stretch";
+export type FlexGap = 'small' | 'medium' | 'large';
+export type FlexDirection = 'row' | 'column';
+export type FlexWrap = 'wrap' | 'reverse';
+export type FlexJustify = 'flexStart' | 'flexEnd' | 'center' | 'between' | 'around' | 'evenly';
+export type FlexAlign = 'flexStart' | 'flexEnd' | 'center' | 'between' | 'around' | 'stretch';
 
 export interface FlexProps {
   gap?: FlexGap;
@@ -31,63 +19,63 @@ export interface FlexProps {
 
 const getWrapClass = (wrap?: FlexWrap): string => {
   switch (wrap) {
-    case "reverse":
-      return "dui-flex-wrap-reverse";
-    case "wrap":
-      return "dui-flex-wrap";
+    case 'reverse':
+      return 'dui-flex-wrap-reverse';
+    case 'wrap':
+      return 'dui-flex-wrap';
     default:
-      return "";
+      return '';
   }
 };
 const getJustifyClass = (justify?: FlexJustify): string => {
   switch (justify) {
-    case "flexStart":
-      return "dui-flex-justify-flex-start";
-    case "flexEnd":
-      return "dui-flex-justify-flex-end";
-    case "center":
-      return "dui-flex-justify-center";
-    case "between":
-      return "dui-flex-justify-between";
-    case "around":
-      return "dui-flex-justify-around";
-    case "evenly":
-      return "dui-flex-justify-evenly";
+    case 'flexStart':
+      return 'dui-flex-justify-flex-start';
+    case 'flexEnd':
+      return 'dui-flex-justify-flex-end';
+    case 'center':
+      return 'dui-flex-justify-center';
+    case 'between':
+      return 'dui-flex-justify-between';
+    case 'around':
+      return 'dui-flex-justify-around';
+    case 'evenly':
+      return 'dui-flex-justify-evenly';
 
     default:
-      return "";
+      return '';
   }
 };
 const getAlignClass = (align?: FlexAlign): string => {
   switch (align) {
-    case "flexStart":
-      return "dui-flex-align-flex-start";
-    case "flexEnd":
-      return "dui-flex-align-flex-end";
-    case "center":
-      return "dui-flex-align-center";
-    case "between":
-      return "dui-flex-align-between";
-    case "around":
-      return "dui-flex-align-around";
-    case "stretch":
-      return "dui-flex-align-stretch";
+    case 'flexStart':
+      return 'dui-flex-align-flex-start';
+    case 'flexEnd':
+      return 'dui-flex-align-flex-end';
+    case 'center':
+      return 'dui-flex-align-center';
+    case 'between':
+      return 'dui-flex-align-between';
+    case 'around':
+      return 'dui-flex-align-around';
+    case 'stretch':
+      return 'dui-flex-align-stretch';
     default:
-      return "";
+      return '';
   }
 };
 
 export const Flex = ({
   gap,
-  flexDirection = "row",
+  flexDirection = 'row',
   wrap,
   justify,
   align,
   className,
-  children,
+  children
 }: FlexProps) => {
   const classes = cx(
-    "dui-flex",
+    'dui-flex',
     [`dui-flex-gap-${gap}`],
     [`dui-flex-${flexDirection}`],
     getWrapClass(wrap),

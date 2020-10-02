@@ -1,7 +1,8 @@
-import * as React from "react";
-import { CustomComponent } from "../common";
+import * as React from 'react';
 
-export interface HeaderBrandProps extends CustomComponent {}
+import { CustomComponent } from '../common';
+
+export type HeaderBrandProps = CustomComponent;
 
 export class HeaderBrand extends React.Component<HeaderBrandProps> {
   render() {

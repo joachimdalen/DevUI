@@ -1,13 +1,14 @@
-import { Table, TableProps } from "./Table";
-import { TableCell } from "./TableCell";
-import { TableRow } from "./TableRow";
-import { Column } from "./TableTypes";
-import { CheckBox } from "../CheckBox/CheckBox";
-import { Omit } from "../common";
-import { Empty } from "../Empty/Empty";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import cx from "classnames";
-import * as React from "react";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { CheckBox } from '../CheckBox/CheckBox';
+import { Omit } from '../common';
+import { Empty } from '../Empty/Empty';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { Table, TableProps } from './Table';
+import { TableCell } from './TableCell';
+import { TableRow } from './TableRow';
+import { Column } from './TableTypes';
 
 interface InternalDataTableProps {
   rows: any[];
@@ -23,24 +24,20 @@ interface DataTableState {
   sortBy?: Column;
   sortDirection: string;
 }
-export type DataTableProps = Omit<TableProps, "children"> &
-  InternalDataTableProps;
+export type DataTableProps = Omit<TableProps, 'children'> & InternalDataTableProps;
 
 export class DataTable extends React.Component<DataTableProps, DataTableState> {
   state = {
     checked: [] as any[],
     sortBy: {} as Column,
-    sortDirection: "",
+    sortDirection: ''
   };
 
   static defaultProps: Partial<DataTableProps> = {
     showEmpty: false,
     emptyComp: (
-      <Empty
-        header="No data"
-        image={<FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />}
-      />
-    ),
+      <Empty header="No data" image={<FontAwesomeIcon icon="fa-inbox" iconStyle="solid" />} />
+    )
   };
 
   render() {
@@ -62,7 +59,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
     const { sortDirection } = this.state;
     this.setState({
       sortBy: col,
-      sortDirection: sortDirection === "desc" ? "asc" : "desc",
+      sortDirection: sortDirection === 'desc' ? 'asc' : 'desc'
     });
   }
   _checkedChange() {
@@ -73,7 +70,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
   _toggleItem(item: any) {
     const { onCheck } = this.props;
     const checkIndex = this.state.checked.indexOf(item);
-    var arrCpy = [...this.state.checked];
+    const arrCpy = [...this.state.checked];
     if (checkIndex !== -1) {
       arrCpy.splice(checkIndex, 1);
       this.setState({ checked: arrCpy }, () => {
@@ -103,18 +100,18 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
 
   _getSortIcon = (key: string) => {
     const { sortDirection, sortBy } = this.state;
-    if (!sortDirection || sortBy.key !== key) return "fa-sort";
-    if (sortDirection === "asc") return "fa-sort-alpha-down";
-    return "fa-sort-alpha-up";
+    if (!sortDirection || sortBy.key !== key) return 'fa-sort';
+    if (sortDirection === 'asc') return 'fa-sort-alpha-down';
+    return 'fa-sort-alpha-up';
   };
 
   _getHeaders() {
     const { columns, rows, multiSelect } = this.props;
     const { checked } = this.state;
 
-    let rowHeaders: TableCell[] = columns.map((col: Column) => {
+    const rowHeaders: TableCell[] = columns.map((col: Column) => {
       if (col.sortable) {
-        const cellClass = cx({ "dui-table-cell-sortable": col.sortable });
+        const cellClass = cx({ 'dui-table-cell-sortable': col.sortable });
 
         return (
           <TableCell key={col.key}>
@@ -139,7 +136,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
     }) as any;
 
     if (multiSelect) {
-      const checkCellClass = cx("dui-table-cell-checkable");
+      const checkCellClass = cx('dui-table-cell-checkable');
       const isChecked = checked.length === rows.length;
       const isIndeterminate = checked.length !== 0 && !isChecked;
       rowHeaders.unshift(
@@ -165,12 +162,12 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
   _getRows() {
     const { rowKey, columns, rows, multiSelect } = this.props;
     const { sortBy, sortDirection, checked } = this.state;
-    const checkCellClass = cx("dui-table-cell-checkable");
+    const checkCellClass = cx('dui-table-cell-checkable');
 
-    let rowItems: Column[] = rows;
+    const rowItems: Column[] = rows;
     if (sortBy.key) {
       if (sortBy.accessor) {
-        sortDirection === "asc"
+        sortDirection === 'asc'
           ? rowItems.sort((a: Column, b: Column) =>
               sortBy.accessor!(a) < sortBy.accessor!(b) ? 0 : 1
             )
@@ -178,18 +175,14 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
               sortBy.accessor!(a) > sortBy.accessor!(b) ? 0 : 1
             );
       } else {
-        let sortKey = sortBy.key;
-        sortDirection === "asc"
-          ? rowItems.sort((a: Column, b: Column) =>
-              a[sortKey] < b[sortKey] ? 0 : 1
-            )
-          : rowItems.sort((a: Column, b: Column) =>
-              a[sortKey] > b[sortKey] ? 0 : 1
-            );
+        const sortKey = sortBy.key;
+        sortDirection === 'asc'
+          ? rowItems.sort((a: Column, b: Column) => (a[sortKey] < b[sortKey] ? 0 : 1))
+          : rowItems.sort((a: Column, b: Column) => (a[sortKey] > b[sortKey] ? 0 : 1));
       }
     }
 
-    let renderedRows =
+    const renderedRows =
       rowItems &&
       rowItems.map((row: any, index: number) => {
         const isRowChecked = checked && checked.indexOf(row) !== -1;
@@ -217,9 +210,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
                 return (
                   <TableCell
                     className={cx(col.className)}
-                    key={
-                      rowKey ? row[rowKey] && row[rowKey] : `row-item-cell-${i}`
-                    }
+                    key={rowKey ? row[rowKey] && row[rowKey] : `row-item-cell-${i}`}
                   >
                     {cellValue}
                   </TableCell>

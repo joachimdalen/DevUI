@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 export interface ListActionItemProps {
   title: string;
   onClick: () => void;
