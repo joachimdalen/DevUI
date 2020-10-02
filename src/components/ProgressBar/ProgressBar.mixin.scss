@@ -1,6 +1,6 @@
 @mixin progress-bar-variant($parent, $background) {
   #{$parent} {
-    background-color: $background;
     color: colorFromBackground($background);
+    background-color: $background;
   }
 }

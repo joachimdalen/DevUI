@@ -2,20 +2,20 @@
   background-color: $list-background;
   border: $list-border-width solid $list-border-color;
   .#{$provider-prefix}-list-title {
+    padding: $list-title-padding;
+    font-size: $list-title-font-size;
     font-weight: $list-title-font-weight;
     color: $list-title-color;
-    padding: $list-title-padding;
     text-transform: uppercase;
-    font-size: $list-title-font-size;
     border-bottom: $list-title-border-width solid $list-title-border-color;
   }
   .#{$provider-prefix}-list {
     list-style: none;
     &-item {
-      padding: $list-item-padding;
       display: flex;
       flex-direction: row;
       align-items: center;
+      padding: $list-item-padding;
       &-icon {
         display: flex;
         align-self: center;
@@ -30,8 +30,8 @@
         }
       }
       &-content {
-        padding: $list-item-content-padding;
         width: 100%;
+        padding: $list-item-content-padding;
         .#{$provider-prefix}-list-item-title,
         &-title {
           font-size: $list-item-content-title-font-size;
@@ -50,9 +50,9 @@
       }
     }
     .#{$provider-prefix}-list-more {
-      color: $list-item-action-color;
-      font-size: $list-item-action-font-size;
       align-self: center;
+      font-size: $list-item-action-font-size;
+      color: $list-item-action-color;
       &:hover {
         color: $list-item-action-hover-color;
         cursor: pointer;

@@ -3,19 +3,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: $empty-background;
+  width: $empty-width;
   padding: $empty-padding;
   text-align: center;
-  width: $empty-width;
+  background-color: $empty-background;
 
   &-image {
     max-height: $empty-image-max-width;
   }
 
   &-header {
-    font-weight: $empty-header-font-weight;
-    font-size: $empty-header-font-size;
     margin-top: $empty-header-margin-top;
+    font-size: $empty-header-font-size;
+    font-weight: $empty-header-font-weight;
   }
 
   &-description {

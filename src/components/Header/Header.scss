@@ -1,23 +1,23 @@
 .#{$provider-prefix}-header {
-  background-color: $header-background;
-  height: $header-height;
   display: flex;
   align-items: center;
-  color: $header-color;
   width: 100%;
+  height: $header-height;
+  color: $header-color;
+  background-color: $header-background;
   box-shadow: hsla(0, 0%, 0%, 0.2) 0rem 0.0625rem 0.125rem 0rem;
   &-toggle {
-    padding: 0 10px;
-    height: 100%;
     display: flex;
     align-items: center;
+    height: 100%;
+    padding: 0 10px;
     color: $header-toggle-color;
     background-color: $header-toggle-background;
     &:hover {
-      background-color: $header-toggle-hover-background;
-      transition: background-color 0.5s ease;
       color: $header-toggle-hover-color;
       cursor: pointer;
+      background-color: $header-toggle-hover-background;
+      transition: background-color 0.5s ease;
     }
   }
   &-mobile-toggle {
@@ -25,62 +25,62 @@
   }
 
   &-brand {
-    padding: 10px 20px;
-    font-size: 20px;
-    font-family: $header-brand-font !important;
     display: flex;
     align-items: center;
+    padding: 10px 20px;
+    font-family: $header-brand-font !important;
+    font-size: 20px;
   }
   &-brand,
   &-item {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
   }
   &-items {
     display: flex;
-    align-items: center;
     flex-direction: row;
+    align-items: center;
     height: 100%;
   }
   &-item {
-    height: 100%;
     display: flex;
     align-items: center;
+    height: 100%;
     padding: 5px 20px;
     color: $header-item-color;
     background: $header-item-background;
 
     &:hover {
+      color: $header-item-hover-color;
       cursor: pointer;
       background-color: $header-item-hover-background;
-      color: $header-item-hover-color;
     }
     &-active {
-      background-color: $header-item-active-background;
       color: $header-item-active-color;
+      background-color: $header-item-active-background;
     }
   }
   &-user-menu {
-    margin-left: auto;
-    margin-right: 10px;
     position: relative;
-    height: 100%;
     display: flex;
     align-items: center;
-    background-color: $header-background;
+    height: 100%;
     min-height: $header-height;
+    margin-right: 10px;
+    margin-left: auto;
+    background-color: $header-background;
     &-visible {
-      background-color: $user-menu-visible-background;
       color: $user-menu-visible-color;
+      background-color: $user-menu-visible-background;
     }
     &-trigger {
-      padding: 0 20px;
       display: flex;
       align-items: center;
+      padding: 0 20px;
       text-transform: capitalize;
       span {
         margin-right: 5px;
@@ -103,40 +103,40 @@
       }
     }
     &:hover {
-      background-color: $user-menu-hover-background;
       color: $user-dropdown-item-hover-color;
-      transition: background-color 0.5s ease;
       cursor: pointer;
+      background-color: $user-menu-hover-background;
+      transition: background-color 0.5s ease;
     }
     &-dropdown {
-      display: none;
       position: absolute;
-      background-color: $user-dropdown-background;
+      top: $header-height + 1px;
+      z-index: 1000;
+      display: none;
       width: 100%;
       min-height: 100px;
       color: $color-light;
-      top: $header-height + 1px;
+      background-color: $user-dropdown-background;
       border-radius: 5px;
-      z-index: 1000;
       &-visible {
         display: flex;
       }
       div {
-        padding: 10px;
         width: 100%;
         height: 100%;
+        padding: 10px;
         .dui-header-user-menu-item {
-          padding: 8px 5px;
-          border-radius: 5px;
-          color: $user-dropdown-item-color;
-          text-decoration: none;
-          &:hover:not(.dui-header-user-menu-item-header) {
-            background-color: $user-dropdown-item-hover-background;
-            cursor: pointer;
-            transition: background-color 0.5s;
-          }
           display: flex;
           align-items: center;
+          padding: 8px 5px;
+          color: $user-dropdown-item-color;
+          text-decoration: none;
+          border-radius: 5px;
+          &:hover:not(.dui-header-user-menu-item-header) {
+            cursor: pointer;
+            background-color: $user-dropdown-item-hover-background;
+            transition: background-color 0.5s;
+          }
           svg {
             max-height: 16px;
             margin-right: 5px;
@@ -149,9 +149,9 @@
           &-header {
             &::before {
               width: 100%;
-              background-color: $sidebar-item-header-color;
-              content: "";
               height: 2px;
+              content: "";
+              background-color: $sidebar-item-header-color;
             }
           }
         }
@@ -164,44 +164,44 @@
   .#{$provider-prefix}-header {
     position: relative;
     &-mobile-toggle {
-      height: 100%;
-      align-items: center;
       display: flex;
+      align-items: center;
+      height: 100%;
       margin-left: auto;
       .#{$provider-prefix}-icon {
         margin: 0 10px;
       }
       &:hover {
-        background-color: $header-toggle-mobile-background;
-        transition: background-color 0.5s ease;
         color: $header-toggle-mobile-hover-color;
         cursor: pointer;
+        background-color: $header-toggle-mobile-background;
+        transition: background-color 0.5s ease;
       }
     }
     &-items,
     &-user-menu {
-      display: none;
       z-index: 9999;
+      display: none;
     }
     &-toggled {
       .#{$provider-prefix}-header {
         &-items {
           position: absolute;
-          display: flex;
           top: $header-height;
-          left: 0;
           right: 0;
-          background-color: $header-item-mobile-background;
           bottom: 0;
-          color: $header-item-mobile-color;
+          left: 0;
+          display: flex;
           flex-direction: column;
+          color: $header-item-mobile-color;
+          background-color: $header-item-mobile-background;
         }
         &-item {
           width: 100%;
           padding: $header-item-mobile-padding;
           &:hover {
-            cursor: pointer;
             color: $header-item-mobile-hover-color;
+            cursor: pointer;
             background-color: $header-item-mobile-hover-background;
           }
         }

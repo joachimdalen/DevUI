@@ -21,25 +21,25 @@
   }
   .#{$provider-prefix}-toggle-button {
     position: absolute;
-    cursor: pointer;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
+    left: 0;
+    cursor: pointer;
     background-color: $color-disabled;
     transition: 0.4s;
   }
 
   .#{$provider-prefix}-toggle-button:before {
     position: absolute;
-    content: "";
-    height: 14px;
-    width: 14px;
-    left: 4px;
     bottom: 2px;
+    left: 4px;
+    width: 14px;
+    height: 14px;
+    color: $color-success;
+    content: "";
     background-color: $color-light;
     transition: 0.4s;
-    color: $color-success;
   }
   &.#{$provider-prefix}-toggle-large {
     width: 45px;
@@ -50,10 +50,10 @@
       }
     }
     .#{$provider-prefix}-toggle-button:before {
-      height: 16px;
-      width: 16px;
-      left: 2px;
       bottom: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
     }
   }
   .#{$provider-prefix}-toggle-label {
@@ -75,39 +75,37 @@
   &.#{$provider-prefix}-toggle-labels {
     .#{$provider-prefix}-toggle-button::after {
       display: flex;
-      content: "OFF";
       align-items: center;
       justify-content: flex-end;
-      font-weight: $font-weight-bold;
       height: 100%;
+      padding-right: 2px;
+      font-size: 9px;
+      font-weight: $font-weight-bold;
+      color: black;
+      content: "OFF";
     }
     input {
       &:checked + .#{$provider-prefix}-toggle-button::after {
-        content: "ON";
         justify-content: left;
-        color: $color-light;
         padding-left: 2px;
+        color: $color-light;
+        content: "ON";
       }
     }
 
-    .#{$provider-prefix}-toggle-button::after {
-      padding-right: 2px;
-      color: black;
-      font-size: 9px;
-    }
     &.#{$provider-prefix}-toggle-large {
       input {
         &:checked + .#{$provider-prefix}-toggle-button::after {
-          content: "ON";
           justify-content: left;
-          color: colorFromBackground(black);
           padding-left: 5px;
+          color: colorFromBackground(black);
+          content: "ON";
         }
       }
       .#{$provider-prefix}-toggle-button::after {
         padding-right: 5px;
-        color: black;
         font-size: 10px;
+        color: black;
       }
     }
   }

@@ -1,26 +1,26 @@
 .#{$provider-prefix}-modal {
   &-backdrop {
-    background-color: $modal-backdrop-background;
     position: fixed;
     top: 0;
     right: 0;
-    left: 0;
     bottom: 0;
+    left: 0;
     z-index: $modal-backdrop-zindex;
     display: flex;
+    background-color: $modal-backdrop-background;
   }
   &-item {
-    width: $modal-normal-width;
-    min-height: $modal-normal-height;
-    background-color: $modal-background;
-    border-radius: $modal-border-radius;
-    border: $modal-border-width solid $modal-border-color;
     position: relative;
+    z-index: $modal-zindex;
     display: flex;
     flex-direction: column;
+    width: $modal-normal-width;
+    min-height: $modal-normal-height;
     margin: $modal-top-margin auto;
     margin-bottom: auto;
-    z-index: $modal-zindex;
+    background-color: $modal-background;
+    border: $modal-border-width solid $modal-border-color;
+    border-radius: $modal-border-radius;
     &-center {
       margin: auto;
     }
@@ -31,8 +31,8 @@
       right: 5px;
       color: $modal-icon-color;
       &:hover {
-        cursor: pointer;
         color: $modal-icon-hover-color;
+        cursor: pointer;
       }
     }
     &-small {
@@ -56,22 +56,22 @@
   }
 
   &-header {
-    border-bottom: $modal-border-width solid $modal-border-color;
-    padding: $modal-header-padding;
-    min-height: $modal-header-min-height;
     display: flex;
     align-items: center;
+    min-height: $modal-header-min-height;
+    padding: $modal-header-padding;
+    border-bottom: $modal-border-width solid $modal-border-color;
     &-title {
-      font-weight: bold;
-      font-size: $font-size-normal;
       margin-right: 5px;
+      font-size: $font-size-normal;
+      font-weight: bold;
     }
   }
   &-body {
-    border-bottom: $modal-border-width solid $modal-border-color;
     flex-grow: 1;
     padding: $modal-body-padding;
     overflow-y: auto;
+    border-bottom: $modal-border-width solid $modal-border-color;
   }
   &-footer {
     min-height: $modal-footer-min-height;

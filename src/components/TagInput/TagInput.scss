@@ -6,8 +6,8 @@
   background-color: darken($color-input, 2%);
 
   .#{$provider-prefix}-badge {
-    padding: 2px 5px;
     align-content: center;
+    padding: 2px 5px;
   }
 
   &-type {
@@ -20,14 +20,14 @@
   }
 
   &-control {
+    color: $tag-input-control-color;
+
+    background-color: $tag-input-control-background;
     border: none;
 
     &:focus {
       box-shadow: none;
     }
-
-    background-color: $tag-input-control-background;
-    color: $tag-input-control-color;
   }
 
   .#{$provider-prefix}-badge-wrapper,
@@ -36,12 +36,12 @@
   }
 
   .#{$provider-prefix}-input {
-    border: none;
     background-color: $color-input;
+    border: none;
 
     &:focus {
-      box-shadow: none;
       outline: none;
+      box-shadow: none;
     }
   }
 }

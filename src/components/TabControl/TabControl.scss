@@ -1,11 +1,11 @@
 .#{$provider-prefix}-tab-control {
+  width: 100%;
   background-color: $tab-control-background;
   border: $tab-control-border-radius solid $tab-control-border-color;
   border-radius: $tab-control-border-radius;
-  width: 100%;
   &-nav {
-    width: 100%;
     display: inline-flex;
+    width: 100%;
 
     li:first-child {
       border-top-left-radius: $tab-control-border-radius;
@@ -15,27 +15,27 @@
     }
 
     &-item {
+      display: flex;
+      align-items: center;
       width: 100%;
       padding: $tab-control-item-padding;
-      border-bottom: $tab-control-border-radius solid $tab-control-border-color;
+      font-size: $tab-control-item-font-size;
+      color: $tab-control-item-color;
       white-space: nowrap;
+      border-bottom: $tab-control-border-radius solid $tab-control-border-color;
       transition: background-color 0.3s ease, color 0.3s ease;
-      align-items: center;
-      display: flex;
       &:not(:first-child) {
         border-left: $tab-control-border-radius solid $tab-control-border-color;
       }
-      color: $tab-control-item-color;
-      font-size: $tab-control-item-font-size;
       &.active {
+        color: $tab-control-item-active-color;
         background-color: $tab-control-item-active-background;
         border-bottom: none;
-        color: $tab-control-item-active-color;
       }
       &-disabled {
+        color: $tab-control-item-disabled-color;
         cursor: not-allowed;
         background-color: $tab-control-item-disabled-background;
-        color: $tab-control-item-disabled-color;
       }
       &:hover:not(.#{$provider-prefix}-tab-control-nav-item-disabled) {
         cursor: pointer;

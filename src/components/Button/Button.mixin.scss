@@ -1,7 +1,7 @@
 @mixin button-variant($parent, $background) {
   &#{$parent} {
-    background-color: $background;
     color: colorFromBackground($background);
+    background-color: $background;
     &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
       background-color: darken($background, 10%);
     }
@@ -18,12 +18,12 @@
 
 @mixin button-outlined($parent, $color) {
   &#{$parent} {
-    background-color: $color-light;
     color: $color;
+    background-color: $color-light;
     border-color: $color;
     &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
-      background-color: $color;
       color: $color-light;
+      background-color: $color;
       border-color: $color;
     }
   }

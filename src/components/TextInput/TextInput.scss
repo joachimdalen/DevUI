@@ -2,10 +2,10 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  text-align: left;
-  background-color: $text-input-background;
   height: $text-input-height;
   color: $color-dark;
+  text-align: left;
+  background-color: $text-input-background;
   &-block {
     width: 100%;
     input {
@@ -21,29 +21,29 @@
   }
 }
 .#{$provider-prefix}-input {
+  padding: $text-input-padding;
+  overflow: visible;
+  font-size: $text-input-font-size;
+  color: $text-input-color;
+  background-color: $text-input-background;
   border: none;
   border-bottom: 1px solid transparent;
-  color: $text-input-color;
   border-radius: $text-input-border-radius;
-  padding: $text-input-padding;
-  font-size: $text-input-font-size;
-  background-color: $text-input-background;
   transition: border-color 0.15s ease-in-out;
-  overflow: visible;
   &:focus {
     border-bottom: 2px solid $color-secondary;
   }
   &-disabled {
-    background-color: $text-input-diabled-background;
     color: $text-input-diabled-color;
+    background-color: $text-input-diabled-background;
   }
   &-icon {
+    position: absolute;
+    right: 12px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    display: inline-flex;
     height: 100%;
-    right: 12px;
-    position: absolute;
     line-height: 1;
     .#{$provider-prefix}-input {
       padding-right: 28px;

@@ -1,13 +1,13 @@
 .#{$provider-prefix}-checkbox-list {
-  border: $checkbox-list-border-width solid $checkbox-list-border-color;
   background-color: $checkbox-list-background;
+  border: $checkbox-list-border-width solid $checkbox-list-border-color;
   &-header {
-    padding: $checkbox-list-header-padding;
-    border-bottom: $checkbox-list-border-width solid $checkbox-list-border-color;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    padding: $checkbox-list-header-padding;
+    border-bottom: $checkbox-list-border-width solid $checkbox-list-border-color;
     &-check-all,
     &-counter {
       font-size: $checkbox-list-header-font-size;
@@ -17,8 +17,8 @@
       margin-right: 10px;
     }
     &-counter {
-      font-size: $checkbox-list-header-counter-font-size;
       justify-self: flex-end;
+      font-size: $checkbox-list-header-counter-font-size;
     }
   }
   &-items {

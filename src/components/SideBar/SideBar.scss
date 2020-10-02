@@ -1,9 +1,9 @@
 .#{$provider-prefix}-sidebar {
   width: $sidebar-full-width;
-  background-color: $sidebar-background;
   height: 100%;
-  color: $sidebar-color;
   overflow-y: auto;
+  color: $sidebar-color;
+  background-color: $sidebar-background;
   box-shadow: hsla(0, 0%, 0%, 0.2) 0 1px 2px 0;
   a {
     color: inherit;
@@ -25,8 +25,8 @@
         cursor: pointer;
         transition: background-color 0.5s;
         &:not(.#{$provider-prefix}-sidebar-menu-item-active) {
-          background-color: $sidebar-item-hover-background;
           color: $sidebar-item-hover-color;
+          background-color: $sidebar-item-hover-background;
         }
         &::after {
           width: 100%;
@@ -34,15 +34,15 @@
       }
       &::after {
         position: absolute;
-        content: "";
         top: 0;
         left: 0;
+        z-index: -1;
         width: 0;
         height: 100%;
+        content: "";
         background-color: $sidebar-item-hover-background !important;
-        transform-origin: left;
         transition: width 0.5s ease;
-        z-index: -1;
+        transform-origin: left;
       }
     }
   }
@@ -50,28 +50,28 @@
     width: 100%;
     height: 100%;
     &-item {
+      display: flex;
+      align-items: center;
       padding: 10px 20px;
       font-size: 14px;
       font-weight: bold;
-      display: flex;
-      align-items: center;
       &:hover:not(.#{$provider-prefix}-sidebar-menu-item-header) {
         cursor: pointer;
         transition: background-color 0.5s;
         &:not(.#{$provider-prefix}-sidebar-menu-item-active) {
-          background-color: $sidebar-item-hover-background;
           color: $sidebar-item-hover-color;
+          background-color: $sidebar-item-hover-background;
         }
       }
 
       &-subparent {
-        padding: 10px 0 10px 20px;
         display: flex;
         align-items: center;
         width: 100%;
+        padding: 10px 0 10px 20px;
         .#{$provider-prefix}-sidebar-menu-item-caret {
-          margin-left: auto;
           margin-right: 10px;
+          margin-left: auto;
           font-size: 18px;
           &:hover {
             cursor: pointer;
@@ -82,26 +82,26 @@
         margin-top: auto;
       }
       &-header {
-        text-transform: uppercase;
+        margin: 5px 0;
         font-size: 12px;
         color: $sidebar-item-header-color;
-        margin: 5px 0;
+        text-transform: uppercase;
       }
       &-active {
-        border-left: 5px solid $sidebar-item-active-border-color;
-        background-color: $sidebar-item-active-background;
         padding: 10px 15px;
+        background-color: $sidebar-item-active-background;
+        border-left: 5px solid $sidebar-item-active-border-color;
       }
       &-has-sub {
+        flex-direction: column;
+        align-items: flex-start;
         padding: 0 !important;
         margin-bottom: 5px;
         border-left: 0;
         .#{$provider-prefix}-sidebar-menu-submenu {
-          background-color: $sidebar-submenu-background;
           width: 100%;
+          background-color: $sidebar-submenu-background;
         }
-        flex-direction: column;
-        align-items: flex-start;
       }
       .#{$provider-prefix}-icon {
         font-size: 16px;
@@ -141,8 +141,6 @@
       }
       .#{$provider-prefix}-sidebar-menu-item-label {
         display: block !important;
-      }
-      .#{$provider-prefix}-sidebar-menu-item-label {
         font-size: 10px;
       }
     }
@@ -159,9 +157,9 @@
         display: none;
       }
       &::after {
-        content: "";
         width: 100%;
         height: 2px;
+        content: "";
         background-color: $sidebar-item-header-color;
       }
     }
@@ -170,7 +168,7 @@
     }
   }
   &-addon {
-    background-color: $sidebar-submenu-background;
     min-height: 80px;
+    background-color: $sidebar-submenu-background;
   }
 }
