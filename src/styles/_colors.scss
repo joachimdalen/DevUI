@@ -1,23 +1,24 @@
-$color-success: #40c145;
-$color-danger: rgb(228, 30, 64);
+$color-success: #5cb85c;
+$color-danger: #ff4444;
 $color-danger-dark: darken($color-danger, 10%);
-$color-warning: #feaa00;
+$color-warning: #ffbb33;
 $color-light: #ffffff;
 
-$color-disabled: #e8e8e7;
+$color-disabled: #edebe9;
 
-$color-primary: #e84eef;
+$color-primary: $color-light;
 $color-gray: #dee5ed;
 $color-gray-light: #e3e3e3;
-$color-dark: #333333;
+$color-dark: #252423;
 $color-blue: #009cff;
 $color-blue-light: #dbe8fe;
 $color-magenta: #d90378;
-$color-secondary: #787690;
+$color-secondary: #388d9b;
 
-$color-border: #ccc;
+$color-border: #e1dfdd;
 $color-text-gray: #333;
 $color-placeholder: #9999a5;
+$color-input:#f3f2f1;
 
 $color-badge-primary: #e6e6e6;
 

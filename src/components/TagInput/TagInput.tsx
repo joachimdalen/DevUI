@@ -22,7 +22,7 @@ export interface TagInputProps {
 export class TagInput extends React.Component<TagInputProps, State> {
   state = {
     tags: this.props.initialTags || ([] as Tag[]),
-    value: ""
+    value: "",
   };
 
   render() {
@@ -41,13 +41,14 @@ export class TagInput extends React.Component<TagInputProps, State> {
         className="dui-tag-input-control"
         value={this.state.value}
         name="tags"
+        placeholder="..."
         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
           this._handleChange(event)
         }
         onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) =>
           this._handleKeyPress(event)
         }
-        size="small"
+        small
       />
     );
 
@@ -60,7 +61,7 @@ export class TagInput extends React.Component<TagInputProps, State> {
   }
 
   _handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
-    if (event.charCode !== 44) return;
+    if (event.charCode !== 44 && event.charCode !== 13) return;
     if (this.state.value !== "") {
       this._addTag();
       event.preventDefault();
@@ -90,7 +91,7 @@ export class TagInput extends React.Component<TagInputProps, State> {
     if (index === -1) {
       const tag: Tag = {
         value: val,
-        removeable: true
+        removeable: true,
       };
       tags.push(tag);
       this.setState({ tags: tags, value: "" }, () => {

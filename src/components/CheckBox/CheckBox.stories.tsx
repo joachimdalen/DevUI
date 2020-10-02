@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { CheckBox, CheckBoxIndicatorLocation } from "./CheckBox";
-import { text, boolean, select } from "@storybook/addon-knobs/react";
+import { text, boolean, select } from "@storybook/addon-knobs";
 import variants from "../../storyUtil/variants";
 
 storiesOf("Controls|CheckBox", module)

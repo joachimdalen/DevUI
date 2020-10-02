@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 import { CheckBoxList, ICheckBoxItem } from "./CheckBoxList";
-import { boolean, select } from "@storybook/addon-knobs/react";
+import { boolean, select } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import variants from "../../storyUtil/variants";
 

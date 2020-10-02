@@ -3,6 +3,7 @@
   align-items: center;
   @extend %input-base;
   padding-left: 2px;
+  background-color: darken($color-input, 2%);
 
   .#{$provider-prefix}-badge {
     padding: 2px 5px;
@@ -36,7 +37,7 @@
 
   .#{$provider-prefix}-input {
     border: none;
-    background-color: rgb(240, 236, 236);
+    background-color: $color-input;
 
     &:focus {
       box-shadow: none;

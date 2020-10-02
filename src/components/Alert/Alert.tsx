@@ -8,13 +8,12 @@ export interface AlertProps {
   variant?: AlertVariant;
   message: string;
   description?: string | React.ReactElement;
-  onClose?: () => void;
   withIcon?: boolean;
   icon?: string;
 }
 export class Alert extends React.Component<AlertProps> {
   static defaultProps: Partial<AlertProps> = {
-    variant: "info"
+    variant: "info",
   };
   _getIconFromVariant = () => {
     const { variant } = this.props;
@@ -38,9 +37,8 @@ export class Alert extends React.Component<AlertProps> {
       variant,
       message,
       description,
-      onClose,
       icon,
-      withIcon
+      withIcon,
     } = this.props;
 
     const baseComponent = (
@@ -49,16 +47,11 @@ export class Alert extends React.Component<AlertProps> {
         {description && (
           <p className={cx("dui-alert-description")}>{description}</p>
         )}
-        {onClose && (
-          <span className={cx("dui-alert-close")} onClick={onClose}>
-            <FontAwesomeIcon iconStyle="solid" icon="fa-times" />
-          </span>
-        )}
       </React.Fragment>
     );
     const baseClass = cx(
       "dui-alert",
-      { "dui-alert-wi": icon },
+      { "dui-alert-wi": withIcon },
       `dui-alert-${variant}`,
       className
     );

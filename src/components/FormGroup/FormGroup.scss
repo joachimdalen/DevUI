@@ -1,9 +1,11 @@
 .#{$provider-prefix}-form-group {
+  width: 100%;
   &-label {
     font-weight: $form-group-label-font-weight;
     font-size: $form-group-label-font-size;
     margin-bottom: $form-group-label-margin-bottom;
     display: block;
+    color: $form-group-label-color;
   }
   &-inline {
     display: flex;
@@ -49,7 +51,15 @@
     color: $form-group-notice-color;
   }
   &-error {
-    color: $color-danger;
+    .#{$provider-prefix}-form-group-extra {
+      color: $color-danger;
+    }
+    .#{$provider-prefix}-select,
+    .#{$provider-prefix}-input,
+    .#{$provider-prefix}-textarea,
+    .#{$provider-prefix}-tag-input {
+      border: $form-group-error-border;
+    }
   }
   .#{$provider-prefix}-select,
   .#{$provider-prefix}-input,

@@ -2,6 +2,7 @@ import * as React from "react";
 import { TableRow } from "./TableRow";
 import cx from "classnames";
 export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
+  rowKey?: string;
   children: React.ReactElement<TableRow> | React.ReactElement<TableRow>[];
   striped?: boolean;
   bordered?: boolean;
@@ -17,7 +18,7 @@ export class Table extends React.Component<TableProps> {
       striped = false,
       hoverable = false,
       condensed = false,
-      className = ""
+      className = "",
     } = this.props;
 
     const tableClass = cx(

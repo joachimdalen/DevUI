@@ -19,7 +19,7 @@ const nodes: TreeViewNode[] = [
   { key: 3002, label: "3002 - Phone", nodes: [{ key: 2016, label: "2016" }, { key: 2017, label: "2017" }, { key: 2018, label: "2018" }] },
   { key: 4000, label: "4000 - File", icon: "fa-file-pdf" }
 ]
-storiesOf("Components|TreeView", module)
+storiesOf("WIP|TreeView", module)
   .add("Default", () => (
     <TreeView nodes={nodes}
       onSelect={action('onSelect')}

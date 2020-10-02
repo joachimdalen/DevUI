@@ -42,6 +42,7 @@ export class OverflowMenu extends React.Component<
     return (
       <div className={wrapperClass}>
         <Button
+          iconOnly
           icon="fa-ellipsis-v"
           className="dui-overflow-menu-button"
           variant="dark"

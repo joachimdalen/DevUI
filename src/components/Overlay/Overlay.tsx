@@ -1,10 +1,10 @@
 import * as React from "react";
 import cx from "classnames";
-import { Color } from "csstype";
+
 export interface OverlayProps {
   className?: string;
   visible: boolean;
-  backgroundColor?: Color;
+  backgroundColor?: string;
 }
 export const Overlay: React.FunctionComponent<OverlayProps> = ({
   children,

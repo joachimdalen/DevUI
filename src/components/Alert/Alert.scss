@@ -5,14 +5,17 @@
   padding: $alert-padding;
   margin: 2px;
   position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
+
+  &-wi {
+    display: flex;
+    align-items: center;
+  }
   .fas {
     font-size: $alert-icon-font-size;
   }
   .#{$provider-prefix}-alert-icon-container {
     margin-right: 5px;
+    margin-left: 5px;
   }
   .#{$provider-prefix}-alert-message {
     font-weight: $alert-message-font-weight;
@@ -26,80 +29,10 @@
     font-weight: $alert-description-font-weight;
     font-size: $alert-description-font-size;
   }
-  .#{$provider-prefix}-alert-close {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    &:hover {
-      cursor: pointer;
-      color: $alert-close-hover-color;
-    }
-  }
-  &.#{$provider-prefix}-alert-wi {
-    display: inline-flex;
+   &.#{$provider-prefix}-alert-wi {
+    flex-direction: row;
     .#{$provider-prefix}-alert-wi-content {
-      margin-left: 10px;
-    }
-  }
-  &.#{$provider-prefix}-alert-info {
-    border-color: $alert-info-border-color;
-    background-color: $alert-info-background;
-    color: $alert-info-color;
-  }
-  &.#{$provider-prefix}-alert-success {
-    border-color: $alert-success-border-color;
-    background-color: $alert-success-background;
-    color: $alert-success-color;
-  }
-  &.#{$provider-prefix}-alert-warning {
-    border-color: $alert-warning-border-color;
-    background-color: $alert-warning-background;
-    color: $alert-warning-color;
-  }
-  &.#{$provider-prefix}-alert-danger {
-    border-color: $alert-danger-border-color;
-    background-color: $alert-danger-background;
-    color: $alert-danger-color;
-  }
-}
-.#{$provider-prefix}-alert {
-  border-width: $alert-border-width;
-  border-style: solid;
-  border-radius: $alert-border-radius;
-  padding: $alert-padding;
-  margin: 2px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  .fas {
-    font-size: $alert-icon-font-size;
-  }
-  .#{$provider-prefix}-alert-message {
-    font-weight: $alert-message-font-weight;
-    font-size: $alert-message-font-size;
-    margin: 0;
-    color: $alert-message-color;
-  }
-  .#{$provider-prefix}-alert-description {
-    margin-top: 5px;
-    color: $alert-description-color;
-    font-weight: $alert-description-font-weight;
-    font-size: $alert-description-font-size;
-  }
-  .#{$provider-prefix}-alert-close {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    &:hover {
-      cursor: pointer;
-      color: $alert-close-hover-color;
-    }
-  }
-  &.#{$provider-prefix}-alert-wi {
-    display: inline-flex;
-    .#{$provider-prefix}-alert-wi-content {
-      margin-left: 10px;
+      margin-left: 5px;
     }
   }
   &.#{$provider-prefix}-alert-info {

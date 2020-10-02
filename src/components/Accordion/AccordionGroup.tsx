@@ -18,10 +18,10 @@ export class AccordionGroup extends React.Component<
   AccordionState
 > {
   static defaultProps: Partial<AccordionGroupProps> = {
-    multiExpand: true
+    multiExpand: true,
   };
   state = {
-    expandedItem: undefined
+    expandedItem: undefined,
   };
   public render() {
     const { children, multiExpand, accordionProps, ...rest } = this.props;
@@ -39,11 +39,12 @@ export class AccordionGroup extends React.Component<
                 }
               }
             },
-            expanded: this.state.expandedItem === index || false
+            expanded: this.state.expandedItem === index || false,
           };
+
           return React.cloneElement(child, {
             ...accordionProps,
-            ...partialProps
+            ...partialProps,
           });
         })}
       </div>

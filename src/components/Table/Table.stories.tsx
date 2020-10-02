@@ -1,14 +1,11 @@
 import * as React from "react";
-
 import { storiesOf } from "@storybook/react";
 import { Table } from "./Table";
 import { TableRow } from "./TableRow";
 import { TableCell } from "./TableCell";
 import { DataTable } from "./DataTable";
-import { TableColumnPicker } from "./TableColumnPicker";
-import { boolean, number } from "@storybook/addon-knobs";
+import { boolean } from "@storybook/addon-knobs";
 import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { action } from "@storybook/addon-actions";
 import { Column } from "./TableTypes";
 const values = require("../../../data/invoices.json");
 const columnHeaders: Column[] = [
@@ -16,20 +13,17 @@ const columnHeaders: Column[] = [
     key: "id",
     label: "Invoice",
     sortable: false,
-    searchable: true,
     forceVisible: true
   },
   {
     key: "created",
     label: "Created",
-    sortable: true,
-    searchable: true
+    sortable: true
   },
   {
     key: "status",
     label: "Status",
     sortable: true,
-    searchable: true,
     renderer: (item: any) => {
       if (item.status === "Paid")
         return <span className="dui-color-success">{item.status}</span>;
@@ -42,8 +36,7 @@ const columnHeaders: Column[] = [
     key: "first_name",
     label: "First Name",
     accessor: (item: any) => item.customer.first_name,
-    sortable: true,
-    searchable: true
+    sortable: true
   },
   {
     key: "last_name",
@@ -127,26 +120,6 @@ storiesOf("Display Components|Table", module)
       striped={boolean("striped", false)}
       hoverable={boolean("hoverable", true)}
       multiSelect={boolean("multi-select", true)}
-      showColumnPicker={boolean("ShowColumnPicker", true)}
-    />
-  ))
-  .add("DataTable Pagination", () => (
-    <DataTable
-      rows={values}
-      columns={columnHeaders}
-      bordered={boolean("bordered", false)}
-      striped={boolean("striped", false)}
-      hoverable={boolean("hoverable", true)}
-      paginationEnabled={boolean("Paginate", true)}
-      paginationPageSize={number("PageSize", 3)}
-      multiSelect={boolean("multi-select", true)}
-    />
-  ))
-  .add("TableColumnPicker", () => (
-    <TableColumnPicker
-      columns={columnHeaders}
-      visibleColumns={columnHeaders.map(i => i.key)}
-      onColumnUpdate={action("onColumnUpdate")}
-      forcedColumns={columnHeaders.filter(i => i.forceVisible).map(i => i.key)}
+      condensed={boolean("condensed", true)}
     />
   ));

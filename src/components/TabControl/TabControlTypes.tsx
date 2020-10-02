@@ -2,11 +2,11 @@ import * as React from "react";
 export interface TabType {
   key: string;
   label: string;
-  icon?: string;
+  icon?: React.ReactElement;
   disabled?: boolean;
-  component?: React.ReactNode;
-  render?: () => React.ReactNode;
-  tabRenderer?: () => React.ReactNode;
+  component?: React.ReactElement;
+  render?: () => React.ReactElement;
+  tabRenderer?: () => React.ReactElement;
 }
 
 export interface ContextType {

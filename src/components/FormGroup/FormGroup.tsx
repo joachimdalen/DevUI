@@ -1,5 +1,5 @@
-import * as React from "react";
-import cx from "classnames";
+import * as React from 'react';
+import cx from 'classnames';
 
 export interface FormGroupProps {
   label?: string | React.ReactElement;
@@ -17,17 +17,17 @@ export interface FormGroupProps {
   error?: any;
   errorAccessor?: (error: any) => string;
 }
-export type FormGroupRequiredType = "icon" | "text";
-export type FormGroupExtraType = "success" | "danger" | "warning" | "normal";
+export type FormGroupRequiredType = 'icon' | 'text';
+export type FormGroupExtraType = 'success' | 'danger' | 'warning' | 'normal';
 export class FormGroup extends React.Component<FormGroupProps> {
   static defaultProps: Partial<FormGroupProps> = {
     inline: false,
     inlineLabel: false,
-    extraType: "normal",
-    requiredType: "icon",
-    requiredText: "Required",
+    extraType: 'normal',
+    requiredType: 'icon',
+    requiredText: 'Required',
     currentLength: undefined,
-    maxLength: undefined
+    maxLength: undefined,
   };
   render() {
     const {
@@ -45,7 +45,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
       maxLength,
       error,
       errorAccessor,
-      notice
+      notice,
     } = this.props;
     const labelComponent = React.isValidElement(label) ? (
       label
@@ -54,11 +54,11 @@ export class FormGroup extends React.Component<FormGroupProps> {
         {label}
         {required && (
           <span
-            className={cx("dui-form-group-required", {
-              "dui-form-group-required-text": requiredType === "text"
+            className={cx('dui-form-group-required', {
+              'dui-form-group-required-text': requiredType === 'text',
             })}
           >
-            {requiredType === "icon" ? "*" : requiredText}
+            {requiredType === 'icon' ? '*' : requiredText}
           </span>
         )}
       </label>
@@ -71,27 +71,25 @@ export class FormGroup extends React.Component<FormGroupProps> {
     );
 
     const errorComp = error && errorAccessor && (
-      <small className="dui-form-group-error dui-form-group-extra">
-        {errorAccessor(error)}
-      </small>
+      <small className="dui-form-group-extra">{errorAccessor(error)}</small>
     );
 
     const extraComp = extra && !error && (
       <small
-        className={cx("dui-form-group-extra", {
-          [`dui-form-group-extra-${extraType}`]: extraType !== "normal"
+        className={cx('dui-form-group-extra', {
+          [`dui-form-group-extra-${extraType}`]: extraType !== 'normal',
         })}
       >
         {extra}
       </small>
     );
     const noticeComp = notice && (
-      <div className={cx("dui-form-group-notice")}>{notice}</div>
+      <div className={cx('dui-form-group-notice')}>{notice}</div>
     );
     const lengthComp = maxLength && currentLength && (
       <div
-        className={cx("dui-form-group-counter", {
-          "dui-form-group-counter-error": currentLength > maxLength
+        className={cx('dui-form-group-counter', {
+          'dui-form-group-counter-error': currentLength > maxLength,
         })}
       >
         ({`${currentLength}/${maxLength}`})
@@ -125,9 +123,10 @@ export class FormGroup extends React.Component<FormGroupProps> {
       return (
         <div
           className={cx(
-            "dui-form-group",
-            "dui-form-group-label-inline",
-            className
+            'dui-form-group',
+            { 'dui-form-group-error': error },
+            'dui-form-group-label-inline',
+            className,
           )}
         >
            
@@ -144,7 +143,13 @@ export class FormGroup extends React.Component<FormGroupProps> {
       );
     }
     return (
-      <div className={cx("dui-form-group", className)}>
+      <div
+        className={cx(
+          'dui-form-group',
+          { 'dui-form-group-error': error },
+          className,
+        )}
+      >
         {label && labelComponent}
         {bodyComp}
         {extraItems}

@@ -2,14 +2,20 @@
   &#{$parent} {
     background-color: $background;
     color: colorFromBackground($background);
-    border-color: $background;
     &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
       background-color: darken($background, 10%);
-      border-color: darken($background, 10%);
-      transition: background-color 0.5s ease, border-color 0.5s ease;
     }
   }
 }
+@mixin button-link-variant($parent, $color) {
+  &#{$parent} {
+    color: $color;
+    &:hover:not(.disabled):not(.#{$provider-prefix}-button-loading) {
+      color: darken($color, 10%);
+    }
+  }
+}
+
 @mixin button-outlined($parent, $color) {
   &#{$parent} {
     background-color: $color-light;
@@ -19,7 +25,6 @@
       background-color: $color;
       color: $color-light;
       border-color: $color;
-      transition: background-color 0.5s ease, border-color 0.5s ease;
     }
   }
 }

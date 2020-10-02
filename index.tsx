@@ -25,14 +25,6 @@ import {
 } from "./src/components/Avatar/Avatar";
 import { Badge, BadgeProps } from "./src/components/Badge/Badge";
 import {
-  Breadcrumb,
-  BreadcrumbProps
-} from "./src/components/Breadcrumb/Breadcrumb";
-import {
-  BreadcrumbItem,
-  BreadcrumbItemProps
-} from "./src/components/Breadcrumb/BreadcrumbItem";
-import {
   Button,
   ButtonFormat,
   ButtonProps,
@@ -75,6 +67,7 @@ import {
   FormGroup,
   FormGroupProps
 } from "./src/components/FormGroup/FormGroup";
+import { Flex, FlexProps } from "./src/components/Flex/Flex";
 import { Header, HeaderProps } from "./src/components/Header/Header";
 import {
   HeaderBrand,
@@ -138,10 +131,7 @@ import {
   RadioButtonProps
 } from "./src/components/RadioButton/RadioButton";
 import { Select, SelectProps } from "./src/components/Select/Select";
-import {
-  SelectOption,
-  SelectOptionProps
-} from "./src/components/Select/SelectOption";
+import { SelectOption } from "./src/components/Select/SelectOption";
 import {
   SideBar,
   SideBarAddonLocation,
@@ -165,18 +155,6 @@ import {
 } from "./src/components/TabControl/TabControl";
 import { Table, TableProps } from "./src/components/Table/Table";
 import { TableCell, TableCellProps } from "./src/components/Table/TableCell";
-import {
-  TableColumnPicker,
-  TableColumnPickerProps
-} from "./src/components/Table/TableColumnPicker";
-import {
-  TableHeader,
-  TableHeaderProps
-} from "./src/components/Table/TableHeader";
-import {
-  TablePaginator,
-  TablePaginatorProps
-} from "./src/components/Table/TablePaginator";
 import { TableRow, TableRowProps } from "./src/components/Table/TableRow";
 import { TabNav, TabNavProps } from "./src/components/TabControl/TabNav";
 import { TabNavItem } from "./src/components/TabControl/TabNavItem";
@@ -193,7 +171,8 @@ import {
 } from "./src/components/TextArea/TextArea";
 import {
   TextInput,
-  TextInputProps
+  TextInputProps,
+  TextInputIconPlacement
 } from "./src/components/TextInput/TextInput";
 import { Toast, ToastProps } from "./src/components/Toast/Toast";
 import {
@@ -208,7 +187,6 @@ import {
 } from "./src/components/TreeView/TreeViewItem";
 import { CustomComponent, GenericSizes, Omit } from "./src/components/common";
 
-import { SelectOptionType } from "./src/components/Select/SelectTypes";
 import { TabType } from "./src/components/TabControl/TabControlTypes";
 import { Column } from "./src/components/Table/TableTypes";
 import { TreeViewNode } from "./src/components/TreeView/TreeViewTypes";
@@ -233,10 +211,6 @@ export {
   AvatarSize,
   Badge,
   BadgeProps,
-  Breadcrumb,
-  BreadcrumbProps,
-  BreadcrumbItem,
-  BreadcrumbItemProps,
   Button,
   ButtonFormat,
   ButtonProps,
@@ -267,6 +241,8 @@ export {
   EmptyProps,
   FormGroup,
   FormGroupProps,
+  Flex,
+  FlexProps,
   Header,
   HeaderProps,
   HeaderBrand,
@@ -313,7 +289,6 @@ export {
   Select,
   SelectProps,
   SelectOption,
-  SelectOptionProps,
   SideBar,
   SideBarAddonLocation,
   SideBarProps,
@@ -333,12 +308,6 @@ export {
   TableProps,
   TableCell,
   TableCellProps,
-  TableColumnPicker,
-  TableColumnPickerProps,
-  TableHeader,
-  TableHeaderProps,
-  TablePaginator,
-  TablePaginatorProps,
   TableRow,
   TableRowProps,
   TabNav,
@@ -353,6 +322,7 @@ export {
   TextAreaSizeMode,
   TextInput,
   TextInputProps,
+  TextInputIconPlacement,
   Toast,
   ToastProps,
   Toggle,
@@ -364,7 +334,6 @@ export {
   TreeViewItemProps,
   CustomComponent,
   GenericSizes,
-  SelectOptionType,
   TabType,
   Column,
   TreeViewNode,

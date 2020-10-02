@@ -133,3 +133,7 @@
   a{
     outline: none;
   }
+  // Remove dotted outline from FireFox
+  ::-moz-focus-inner {
+    border: 0;
+  }

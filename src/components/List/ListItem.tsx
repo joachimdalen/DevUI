@@ -11,7 +11,7 @@ export class ListItem extends React.Component<ListItemProps> {
   public render() {
     const { title, subtitle, rightIcon, leftIcon } = this.props;
     return (
-      <ul className={cx("dui-list-item")}>
+      <li className={cx("dui-list-item")}>
         {leftIcon && (
           <span className={cx("dui-list-item-icon")}>{leftIcon}</span>
         )}
@@ -29,7 +29,7 @@ export class ListItem extends React.Component<ListItemProps> {
             <p className={cx("dui-list-item-content-subtitle")}>{subtitle}</p>
           )}
         </div>
-      </ul>
+      </li>
     );
   }
 }

@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { Toggle, ToggleSize } from "./Toggle";
-import { text, boolean } from "@storybook/addon-knobs/react";
+import { text, boolean } from "@storybook/addon-knobs";
 import variants from "../../storyUtil/variants";
 import { action } from "@storybook/addon-actions";
 

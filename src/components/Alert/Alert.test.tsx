@@ -19,19 +19,6 @@ describe("Alert", () => {
     expect(alertMessage.props.children).toBe("Hello");
     expect(alertDescription.props.children).toBe("HelloDescription");
   });
-  it("can be closed", () => {
-    const onClose = jest.fn();
-
-    const component = renderer.create(
-      <Alert message="Hello" onClose={onClose} />
-    );
-
-    let closeButton = component.root.findByProps({
-      className: "dui-alert-close"
-    });
-    closeButton.props.onClick();
-    expect(onClose).toBeCalled();
-  });
   it("has the correct variant", () => {
     const component = renderer.create(
       <Alert message="hello" variant="success" />

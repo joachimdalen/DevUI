@@ -16,6 +16,26 @@ storiesOf("Components|Accordion", module)
       Hello
     </Accordion>
   ))
+  .add("Nested", () => (
+    <Accordion
+      key="2"
+      title={text("Account", "Account")}
+      expanded={boolean("expanded", true)}
+      
+      onToggle={action("onToggle")}
+    >
+      Hello There
+      <Accordion
+        key="1"
+        title={text("Account", "Account")}
+        expanded={boolean("nestedExpanded", true)}
+      
+        onToggle={action("onToggleNested")}
+      >
+        Hello
+      </Accordion>
+    </Accordion>
+  ))
   .add("Borderless", () => (
     <Accordion
       title={text("Account", "Account")}
@@ -67,7 +87,7 @@ storiesOf("Components|Accordion", module)
         accordionProps={{
           expanded: boolean("expanded", true),
           borderless: boolean("borderless", true),
-          onToggle: action("onToggle")
+          onToggle: action("onToggle"),
         }}
       >
         <Accordion title="This is one">Hello</Accordion>

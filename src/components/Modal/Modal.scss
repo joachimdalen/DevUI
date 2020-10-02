@@ -11,7 +11,7 @@
   }
   &-item {
     width: $modal-normal-width;
-    height: $modal-normal-height;
+    min-height: $modal-normal-height;
     background-color: $modal-background;
     border-radius: $modal-border-radius;
     border: $modal-border-width solid $modal-border-color;
@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     margin: $modal-top-margin auto;
+    margin-bottom: auto;
     z-index: $modal-zindex;
     &-center {
       margin: auto;
@@ -36,12 +37,12 @@
     }
     &-small {
       width: $modal-small-width;
-      height: $modal-small-height;
+      min-height: $modal-small-height;
     }
 
     &-large {
       width: $modal-large-width;
-      height: $modal-large-height;
+      min-height: $modal-large-height;
     }
   }
 

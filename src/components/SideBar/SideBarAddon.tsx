@@ -3,11 +3,7 @@ import cx from "classnames";
 export interface SideBarAddonProps {
   className?: string;
 }
-export class SideBarAddon extends React.Component<SideBarAddonProps> {
-  static defaultProps: Partial<SideBarAddonProps> = {};
-  render() {
-    const { className } = this.props;
-    const addonClass = cx("dui-sidebar-addon", className);
-    return <div className={addonClass}>{this.props.children}</div>;
-  }
-}
+export const SideBarAddon: React.FunctionComponent<SideBarAddonProps> = ({
+  children,
+  className,
+}) => <div className={cx("dui-sidebar-addon", className)}>{children}</div>;

@@ -10,7 +10,7 @@ export interface SideBarProps {
   compact?: boolean;
   showCompactLabels?: boolean;
   animate?: boolean;
-  addon?: React.ReactElement<SideBarAddon>;
+  addon?: React.ReactElement<typeof SideBarAddon>;
   addonLocation?: SideBarAddonLocation;
 }
 

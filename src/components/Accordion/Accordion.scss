@@ -27,7 +27,6 @@
 
     &:hover {
       cursor: pointer;
-      background-color: $accordion-header-hover-background;
     }
   }
 
@@ -36,18 +35,18 @@
     height: auto;
     display: none;
     overflow: hidden;
+
+    .#{$provider-prefix}-accordion {
+      margin: 10px 0;
+    }
   }
 
   &-expanded {
-    .#{$provider-prefix}-accordion-content {
+    > .#{$provider-prefix}-accordion-content {
       display: block;
     }
 
-    .#{$provider-prefix}-accordion-header {
-      background-color: $accordion-header-active-background;
-    }
-
-    .#{$provider-prefix}-accordion-header-toggle .dui-icon {
+    > .#{$provider-prefix}-accordion-header-toggle .dui-icon {
       transform: rotate(-180deg);
     }
   }
@@ -56,7 +55,7 @@
 .#{$provider-prefix}-accordion-group {
   width: 100%;
 
-  >.#{$provider-prefix}-accordion~.#{$provider-prefix}-accordion {
+  > .#{$provider-prefix}-accordion ~ .#{$provider-prefix}-accordion {
     border-top: none;
   }
 }
