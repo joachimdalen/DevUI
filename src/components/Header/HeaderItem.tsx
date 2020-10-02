@@ -9,7 +9,7 @@ export interface HeaderItemProps extends CustomComponent {
 }
 
 export class HeaderItem extends React.Component<HeaderItemProps> {
-  render() {
+  render(): React.ReactElement {
     const { children, onClick, component, componentProps, active } = this.props;
     const baseClass = cx('dui-header-item', {
       'dui-header-item-active': active

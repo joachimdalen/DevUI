@@ -9,7 +9,7 @@ export class CardBody extends React.Component<CardBodyProps> {
   static defaultProps: Partial<CardBodyProps> = {
     noPadding: false
   };
-  public render() {
+  public render(): React.ReactElement {
     const { children, className, noPadding } = this.props;
     const baseClass = cx('dui-card-body', { 'dui-card-body-np': noPadding }, className);
     return <div className={baseClass}>{children}</div>;

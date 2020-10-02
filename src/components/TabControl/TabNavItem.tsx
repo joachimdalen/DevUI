@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { ContextType, TabControlConsumer, TabType } from './TabControlTypes';
-export const TabNavItem = ({ tab }: { tab: TabType }) => (
+export const TabNavItem = ({ tab }: { tab: TabType }): React.ReactElement => (
   <TabControlConsumer>
     {({ setActive, activeTab, navItemClassName }: ContextType) => (
       <li
@@ -13,12 +13,12 @@ export const TabNavItem = ({ tab }: { tab: TabType }) => (
           navItemClassName
         )}
         onClick={() => {
-          if (!tab.disabled) {
-            setActive && setActive(tab.key);
+          if (!tab.disabled && setActive) {
+            setActive(tab.key);
           }
         }}
       >
-         {tab.icon}
+        {tab.icon}
         {tab.label}
       </li>
     )}

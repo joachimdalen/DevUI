@@ -23,7 +23,7 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
   state = {
     value: this.props.value || 1
   };
-  componentDidUpdate(prevProps: NumberInputProps, prevState: State, snapshot: any) {
+  componentDidUpdate(prevProps: NumberInputProps): void {
     if (prevProps !== this.props && this.props.value) {
       this.setState({
         value: this.props.value
@@ -33,15 +33,16 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
   _increase = () => {
     const { max, step, onChange } = this.props;
     const { value } = this.state;
+    let newVal = value;
     if (max !== undefined) {
       const oldValue = value;
       if (oldValue >= max) {
-        var newVal = oldValue;
+        newVal = oldValue;
       } else {
-        var newVal = oldValue + (step || 1);
+        newVal = oldValue + (step || 1);
       }
       this.setState({ value: newVal }, () => {
-        onChange && onChange(this.state.value);
+        if (onChange) onChange(this.state.value);
       });
     }
   };
@@ -65,18 +66,18 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
         }
       }
       this.setState({ value: newVal }, () => {
-        onChange && onChange(this.state.value);
+        if (onChange) onChange(this.state.value);
       });
     }
   };
-  _inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  _inputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     console.log(event.target.value);
     const { onChange } = this.props;
     this.setState({ value: parseInt(event.target.value) }, () => {
-      onChange && onChange(this.state.value);
+      if (onChange) onChange(this.state.value);
     });
   };
-  public render() {
+  public render(): React.ReactElement {
     const { min, max } = this.props;
     const { value } = this.state;
     const baseClass = cx('dui-number-input');

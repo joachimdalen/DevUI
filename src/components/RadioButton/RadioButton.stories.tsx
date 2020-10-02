@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, text } from '@storybook/addon-knobs';
-import { RadioButton } from './RadioButton';
 import { action } from '@storybook/addon-actions';
+import { boolean, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
 import variants from '../../storyUtil/variants';
+import { RadioButton } from './RadioButton';
 
 storiesOf('Controls|RadioButton', module)
   .add('Default', () => (

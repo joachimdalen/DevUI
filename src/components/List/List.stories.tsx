@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { List } from './List';
-import { ListItem } from './ListItem';
-import { ListActionItem } from './ListActionItem';
-import { text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { boolean, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { List } from './List';
+import { ListActionItem } from './ListActionItem';
+import { ListItem } from './ListItem';
 
 storiesOf('Display Components|List', module)
   .add('Basic List', () => (

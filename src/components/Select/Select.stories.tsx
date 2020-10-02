@@ -1,14 +1,15 @@
-import * as React from 'react';
+import { action } from '@storybook/addon-actions';
+import { boolean } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { Empty } from '../Empty/Empty';
+import { Flex } from '../Flex/Flex';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Select } from './Select';
 import { SelectOption } from './SelectOption';
-import { boolean } from '@storybook/addon-knobs';
-import { Empty } from '../Empty/Empty';
-import { action } from '@storybook/addon-actions';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { Flex } from '../Flex/Flex';
 function getOptions(): SelectOption[] {
-  let customers = require('../../../data/invoices.json').map((i: any) => i.customer);
+  const customers = require('../../../data/invoices.json').map((i: any) => i.customer);
 
   return customers.map((c: any) => {
     return {

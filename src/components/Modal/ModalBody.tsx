@@ -8,7 +8,7 @@ export class ModalBody extends React.Component<ModalBodyProps> {
     className: ''
   };
 
-  render() {
+  render(): React.ReactElement {
     const { className, children } = this.props;
     return <div className={cx('dui-modal-body', className)}>{children}</div>;
   }

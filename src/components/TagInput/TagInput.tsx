@@ -26,10 +26,11 @@ export class TagInput extends React.Component<TagInputProps, State> {
     value: ''
   };
 
-  render() {
+  render(): React.ReactElement {
     const badges = this.state.tags.map((t: Tag) => {
       return (
         <Badge
+          key={t.value}
           label={t.value}
           onDismiss={t.removeable ? () => this._removeTag(t) : undefined}
           {...this.props.badgeProps}
@@ -57,8 +58,8 @@ export class TagInput extends React.Component<TagInputProps, State> {
     );
   }
 
-  _handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
-    if (event.charCode !== 44 && event.charCode !== 13) return;
+  _handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>): boolean {
+    if (event.key.charCodeAt(0) !== 44 && event.key.charCodeAt(0) !== 13) return false;
     if (this.state.value !== '') {
       this._addTag();
       event.preventDefault();
@@ -66,10 +67,10 @@ export class TagInput extends React.Component<TagInputProps, State> {
     }
     return true;
   }
-  _handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  _handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState({ value: e.target.value });
   }
-  _removeTag(tag: Tag) {
+  _removeTag(tag: Tag): void {
     const { tags } = this.state;
     const index = tags.indexOf(tag);
     const arrCpy = [...this.state.tags];
@@ -80,7 +81,7 @@ export class TagInput extends React.Component<TagInputProps, State> {
       });
     }
   }
-  _addTag() {
+  _addTag(): void {
     const tags = this.state.tags;
     const val = this.state.value || '';
     const index = this.state.tags.findIndex((t: Tag) => t.value === val);
@@ -98,9 +99,9 @@ export class TagInput extends React.Component<TagInputProps, State> {
       this.setState({ value: '' });
     }
   }
-  _triggerChange() {
+  _triggerChange(): void {
     const { tags } = this.state;
     const { onChange } = this.props;
-    onChange && onChange(tags);
+    if (onChange) onChange(tags);
   }
 }

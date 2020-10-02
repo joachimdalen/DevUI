@@ -1,9 +1,10 @@
-import { Accordion } from './Accordion';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { boolean, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { boolean, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { Accordion } from './Accordion';
 import { AccordionGroup } from './AccordionGroup';
 
 storiesOf('Components|Accordion', module)

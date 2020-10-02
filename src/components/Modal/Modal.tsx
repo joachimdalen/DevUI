@@ -27,20 +27,20 @@ export class Modal extends React.Component<ModalProps> {
     className: '',
     backdropClassName: ''
   };
-  componentDidMount() {
+  componentDidMount(): void {
     const { onBackdropClick } = this.props;
     if (onBackdropClick) {
       document.addEventListener('mousedown', this._onBackdropClick);
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     const { onBackdropClick } = this.props;
     if (onBackdropClick) {
       document.removeEventListener('mousedown', this._onBackdropClick);
     }
   }
-  render() {
+  render(): React.ReactElement | null {
     const { size, visible, className, backdropClassName, location } = this.props;
     if (!visible) return null;
     const backdropClass = cx('dui-modal', 'dui-modal-backdrop', backdropClassName);
@@ -62,22 +62,22 @@ export class Modal extends React.Component<ModalProps> {
     );
   }
 
-  _onBackdropClick = (event: any) => {
+  _onBackdropClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | MouseEvent): void => {
     const { onBackdropClick, closeOnBackdropClick } = this.props;
     if (
       this.wrapperRef &&
       this.wrapperRef.current &&
-      !this.wrapperRef.current.contains(event.target)
+      !this.wrapperRef.current.contains(event.target as any)
     ) {
-      onBackdropClick && onBackdropClick();
+      if (onBackdropClick) onBackdropClick();
       if (closeOnBackdropClick) {
         this._closeModal();
       }
     }
   };
 
-  _closeModal = () => {
+  _closeModal = (): void => {
     const { onClose } = this.props;
-    onClose && onClose();
+    if (onClose) onClose();
   };
 }

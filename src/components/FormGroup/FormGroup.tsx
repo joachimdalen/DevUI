@@ -29,7 +29,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
     currentLength: undefined,
     maxLength: undefined
   };
-  render() {
+  render(): React.ReactElement {
     const {
       label,
       extra,
@@ -123,7 +123,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
             className
           )}
         >
-           {label && <div className="dui-form-group-label-container">{labelComponent}</div>}
+          {label && <div className="dui-form-group-label-container">{labelComponent}</div>}
           <div className="dui-form-group-content">
             {bodyComp}
             {extraItems}

@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import { SideBarAddon } from './SideBarAddon';
 import { SideBarMenu } from './SideBarMenu';
-interface IState {}
 
 export type SideBarAddonLocation = 'top' | 'bottom';
 export interface SideBarProps {
@@ -15,12 +14,12 @@ export interface SideBarProps {
   addonLocation?: SideBarAddonLocation;
 }
 
-export class SideBar extends React.Component<SideBarProps, IState> {
+export class SideBar extends React.Component<SideBarProps> {
   static defaultProps: Partial<SideBarProps> = {
     compact: false,
     animate: false
   };
-  render() {
+  render(): React.ReactElement {
     const { className, compact, animate, showCompactLabels, addon, addonLocation } = this.props;
     const sidebarClass = cx(
       'dui-sidebar',

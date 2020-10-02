@@ -27,6 +27,6 @@
     "build",
     "scripts",
     "src/storyUtil/*",
-    "src/components/**/*.stories.tsx"
+    // "src/components/**/*.stories.tsx"
   ]
 }

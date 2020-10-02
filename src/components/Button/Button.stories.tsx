@@ -1,13 +1,14 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Button, ButtonFormat } from './Button';
-import { text, boolean, select } from '@storybook/addon-knobs';
-import variants from '../../storyUtil/variants';
 import { action } from '@storybook/addon-actions';
+import { boolean, select, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import variants from '../../storyUtil/variants';
+import { Flex } from '../Flex/Flex';
+import { Button, ButtonFormat } from './Button';
 import { ButtonGroup } from './ButtonGroup';
 import { SplitButton } from './SplitButton';
 import { SplitButtonAction } from './SplitButtonAction';
-import { Flex } from '../Flex/Flex';
 
 storiesOf('Controls|Button/Default', module)
   .add('Basic Button', () => (

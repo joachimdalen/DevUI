@@ -9,7 +9,7 @@ export interface RadioButtonProps {
 }
 
 export class RadioButton extends React.Component<RadioButtonProps> {
-  render() {
+  render(): React.ReactElement {
     const { checked, variant, label, className } = this.props;
     const labelClass = cx('dui-radiobutton-container', [`dui-radiobutton-${variant}`], className);
     return (
@@ -25,7 +25,7 @@ export class RadioButton extends React.Component<RadioButtonProps> {
       </label>
     );
   }
-  _onChange() {
+  _onChange(): void {
     const { onCheckChange } = this.props;
     onCheckChange();
   }

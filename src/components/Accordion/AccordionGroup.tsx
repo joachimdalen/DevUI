@@ -21,7 +21,7 @@ export class AccordionGroup extends React.Component<AccordionGroupProps, Accordi
   state = {
     expandedItem: undefined
   };
-  public render() {
+  public render(): React.ReactElement {
     const { children, multiExpand, accordionProps, ...rest } = this.props;
 
     return (

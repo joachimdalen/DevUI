@@ -1,8 +1,9 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { SocialButton } from './SocialButton';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { SocialButton } from './SocialButton';
 storiesOf('Controls|SocialButton/Providers', module)
   .add('Twitch', () => (
     <SocialButton onClick={action('onClick')} provider="twitch" text="Sign in with Twitch" />

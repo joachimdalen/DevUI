@@ -1,14 +1,14 @@
+import { action } from '@storybook/addon-actions';
+import { boolean, select } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
-import { SideBar, SideBarAddonLocation } from './SideBar';
-import { SideBarMenuItem } from './SideBarMenuItem';
-import { boolean, select } from '@storybook/addon-knobs';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { SideBarAddon } from './SideBarAddon';
 import { Avatar } from '../Avatar/Avatar';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Select } from '../Select/Select';
-import { action } from '@storybook/addon-actions';
+import { SideBar, SideBarAddonLocation } from './SideBar';
+import { SideBarAddon } from './SideBarAddon';
+import { SideBarMenuItem } from './SideBarMenuItem';
 
 storiesOf('Layout|SideBar', module)
   .add('SideBar', () => {

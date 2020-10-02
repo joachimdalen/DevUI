@@ -12,7 +12,7 @@ export class HeaderUserMenuItem extends React.Component<HeaderUserMenuItemProps>
   static defaultProps: Partial<HeaderUserMenuItemProps> = {
     isHeader: false
   };
-  render() {
+  render(): React.ReactElement {
     const { children, className, isHeader, onClick, component, componentProps } = this.props;
     const baseClass = cx(
       'dui-header-user-menu-item',

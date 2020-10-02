@@ -5,7 +5,7 @@ export interface CardHeaderProps {
 }
 
 export class CardHeader extends React.Component<CardHeaderProps> {
-  public render() {
+  public render(): React.ReactElement {
     const { title, children } = this.props;
     return (
       <div className={cx('dui-card-header')}>

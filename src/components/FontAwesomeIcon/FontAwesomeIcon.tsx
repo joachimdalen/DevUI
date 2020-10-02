@@ -50,7 +50,7 @@ export const FontAwesomeIcon = ({
   fixedWidth,
   iconStyle,
   onClick
-}: FontAwesomeIconProps) => {
+}: FontAwesomeIconProps): React.ReactElement => {
   const animationClass = animationType === 'spin' ? 'fa-spin' : 'fa-pulse';
   const marginClass = marginDirection === 'left' ? 'dui-icon-ml' : 'dui-icon-mr';
   const sizeClass = _sizeClassFromSize(size);

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { ContextType, TabControlConsumer, TabType } from './TabControlTypes';
 export class TabPaneContainer extends React.Component {
-  render() {
+  render(): React.ReactElement {
     return (
       <TabControlConsumer>
         {({ tabs, activeTab, paneContainerClassName }: ContextType) => (
@@ -15,7 +15,7 @@ export class TabPaneContainer extends React.Component {
     );
   }
 
-  renderContent(tabs: TabType[], activeTab: string) {
+  renderContent(tabs: TabType[], activeTab: string): React.ReactNode {
     const current = tabs.find((t: TabType) => t.key.toLowerCase() === activeTab.toLowerCase());
     if (!current) return '';
 

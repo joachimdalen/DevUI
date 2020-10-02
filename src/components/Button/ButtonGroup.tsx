@@ -11,7 +11,7 @@ class ButtonGroup extends React.Component<ButtonGroupProps> {
   static defaultProps: Partial<ButtonGroupProps> = {
     vertical: false
   };
-  public render() {
+  public render(): React.ReactElement {
     const { children, vertical } = this.props;
     const groupClass = cx('dui-button-group', {
       'dui-button-group-vertical': vertical

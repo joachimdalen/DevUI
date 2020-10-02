@@ -17,7 +17,7 @@ export class ProgressBar extends React.Component<ProgressBarProps> {
     striped: false,
     animated: false
   };
-  public render() {
+  public render(): React.ReactElement {
     const { className, variant, completed, title, striped, animated } = this.props;
 
     const innerClass = cx(

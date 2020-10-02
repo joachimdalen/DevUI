@@ -9,7 +9,7 @@ export interface TableRowProps extends React.HTMLAttributes<HTMLTableRowElement>
   isHeader?: boolean;
 }
 export class TableRow extends React.Component<TableRowProps> {
-  public render() {
+  public render(): React.ReactElement {
     const { children, bordered = false, checked = false, isHeader = false } = this.props;
     const rowClass = cx(
       'dui-table-row',

@@ -20,7 +20,7 @@ export class TabControl extends React.Component<TabControlProps, State> {
   state = {
     activeNav: this.props.defaultActive || (this.props.tabs && this.props.tabs[0].key)
   };
-  render() {
+  render(): React.ReactElement {
     const { tabs, className, navClassName, navItemClassName, paneContainerClassName } = this.props;
     const { activeNav } = this.state;
     const baseClass = cx('dui-tab-control', className);

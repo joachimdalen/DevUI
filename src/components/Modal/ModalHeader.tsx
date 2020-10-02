@@ -9,7 +9,7 @@ export class ModalHeader extends React.Component<ModalHeaderProps> {
     className: ''
   };
 
-  render() {
+  render(): React.ReactElement {
     const { title, children, className } = this.props;
     return (
       <div className={cx('dui-modal-header', className)}>

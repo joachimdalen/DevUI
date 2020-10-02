@@ -1,9 +1,10 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { CheckBoxList, ICheckBoxItem } from './CheckBoxList';
-import { boolean, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { boolean, select } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
 import variants from '../../storyUtil/variants';
+import { CheckBoxList, ICheckBoxItem } from './CheckBoxList';
 
 const items: ICheckBoxItem[] = [
   { label: 'One', key: '0' },

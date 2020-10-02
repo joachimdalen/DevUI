@@ -22,7 +22,7 @@ export class Avatar extends React.Component<AvatarProps> {
     format: 'square'
   };
 
-  render() {
+  render(): React.ReactElement {
     const { src, size, format, width, height, className, fallbackSrc } = this.props;
 
     const isDefaultFormat = format === 'square';

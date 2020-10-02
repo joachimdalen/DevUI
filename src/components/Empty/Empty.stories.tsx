@@ -1,8 +1,9 @@
-import { Empty } from './Empty';
-import { Button } from '../Button/Button';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+
+import { Button } from '../Button/Button';
+import { Empty } from './Empty';
 
 storiesOf('Display Components|Empty', module)
   .add('Default', () => (

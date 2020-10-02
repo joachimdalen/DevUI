@@ -30,7 +30,7 @@ export class SideBarMenuItem extends React.Component<SideBarMenuItemProps, SideB
     hasSubmenu: false,
     className: ''
   };
-  componentDidUpdate(prevProps: SideBarMenuItemProps) {
+  componentDidUpdate(prevProps: SideBarMenuItemProps): void {
     if (prevProps !== this.props) {
       if (this.props.hasSubmenu && this.props.active) {
         this.setState({
@@ -39,7 +39,7 @@ export class SideBarMenuItem extends React.Component<SideBarMenuItemProps, SideB
       }
     }
   }
-  render() {
+  render(): React.ReactElement {
     const {
       children,
       isHeader,

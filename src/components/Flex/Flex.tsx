@@ -73,7 +73,7 @@ export const Flex = ({
   align,
   className,
   children
-}: FlexProps) => {
+}: FlexProps): React.ReactElement => {
   const classes = cx(
     'dui-flex',
     [`dui-flex-gap-${gap}`],

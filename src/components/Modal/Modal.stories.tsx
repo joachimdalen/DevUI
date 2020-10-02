@@ -1,13 +1,13 @@
+import { action } from '@storybook/addon-actions';
+import { boolean, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
+import { Button } from '../Button/Button';
 import { Modal, ModalSize } from './Modal';
-import { text, boolean } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
-import { ModalHeader } from './ModalHeader';
 import { ModalBody } from './ModalBody';
 import { ModalFooter } from './ModalFooter';
-import { Button } from '../Button/Button';
+import { ModalHeader } from './ModalHeader';
 
 storiesOf('Layout|Modal', module).add('Default', () => (
   <Modal

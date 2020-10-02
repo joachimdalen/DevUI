@@ -1,8 +1,8 @@
+import { select } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
 import { Alert, AlertVariant } from './Alert';
-import { select } from '@storybook/addon-knobs';
 const typeOptions = {
   info: 'info',
   warning: 'warning',

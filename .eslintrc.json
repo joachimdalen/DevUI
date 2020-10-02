@@ -31,7 +31,8 @@
     "@typescript-eslint/camelcase": "off",
     "simple-import-sort/sort": "warn",
     "no-console": "off",
-    "sort-keys": "off"
+    "sort-keys": "off",
+    "react/display-name": "off"
   },
   "env": {
     "browser": true,

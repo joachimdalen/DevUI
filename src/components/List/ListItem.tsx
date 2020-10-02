@@ -8,7 +8,7 @@ export interface ListItemProps {
 }
 
 export class ListItem extends React.Component<ListItemProps> {
-  public render() {
+  public render(): React.ReactElement {
     const { title, subtitle, rightIcon, leftIcon } = this.props;
     return (
       <li className={cx('dui-list-item')}>

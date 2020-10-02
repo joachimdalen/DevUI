@@ -8,7 +8,11 @@ export interface TextAreaProps {
 }
 type AllProps = TextAreaProps & React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export const TextArea = ({ sizeMode = 'both', disabled, ...rest }: AllProps) => {
+export const TextArea = ({
+  sizeMode = 'both',
+  disabled,
+  ...rest
+}: AllProps): React.ReactElement => {
   const baseClass = cx(
     'dui-input',
     { 'dui-input-disabled': disabled },

@@ -1,11 +1,11 @@
-import * as React from 'react';
-
-import { storiesOf } from '@storybook/react';
-import { TextInput } from './TextInput';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
 import { Flex } from '../Flex/Flex';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { TextInput } from './TextInput';
 storiesOf('Controls|TextInput', module)
   .add('Basic Input', () => (
     <TextInput

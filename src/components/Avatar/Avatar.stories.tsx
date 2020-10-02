@@ -1,6 +1,6 @@
+import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
 import { Avatar } from './Avatar';
 storiesOf('Display Components|Avatar', module)
   .add('Avatar', () => <Avatar src={'//placehold.it/400x400'} />)

@@ -1,10 +1,10 @@
+import { action } from '@storybook/addon-actions';
+import { boolean, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
-import { Toggle, ToggleSize } from './Toggle';
-import { text, boolean } from '@storybook/addon-knobs';
 import variants from '../../storyUtil/variants';
-import { action } from '@storybook/addon-actions';
+import { Toggle, ToggleSize } from './Toggle';
 
 storiesOf('Controls|Toggle', module)
   .add('Basic Toggle', () => (

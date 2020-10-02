@@ -23,7 +23,7 @@ export class Header extends React.Component<HeaderProps, State> {
     userMenuVisible: false,
     mobileExpanded: false
   };
-  render() {
+  render(): React.ReactElement {
     const { onToggleClick, brand, children, userMenu, toggleIcon, responsive } = this.props;
     const { userMenuVisible, mobileExpanded } = this.state;
     const contextValue: HeaderContextType = {

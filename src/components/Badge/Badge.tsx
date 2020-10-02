@@ -15,12 +15,12 @@ export class Badge extends React.PureComponent<BadgeProps> {
     variant: 'default'
   };
 
-  _handleClick = () => {
+  _handleClick = (): void => {
     const { onDismiss } = this.props;
-    onDismiss && onDismiss();
+    if (onDismiss) onDismiss();
   };
 
-  public render() {
+  public render(): React.ReactElement {
     const { label, icon, variant, onDismiss, dismissText } = this.props;
     const badgeClass = cx(
       'dui-badge',

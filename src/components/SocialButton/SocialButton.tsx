@@ -34,7 +34,7 @@ export class SocialButton extends React.Component<SocialButtonProps> {
     iconOnly: false,
     darkText: false
   };
-  render() {
+  render(): React.ReactElement {
     const { provider, className, iconOnly, icon, text, darkText, onClick } = this.props;
     const buttonClass = cx(
       'dui-social-button',

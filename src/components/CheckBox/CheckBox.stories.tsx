@@ -1,9 +1,9 @@
+import { boolean, select, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
-import { CheckBox, CheckBoxIndicatorLocation } from './CheckBox';
-import { text, boolean, select } from '@storybook/addon-knobs';
 import variants from '../../storyUtil/variants';
+import { CheckBox, CheckBoxIndicatorLocation } from './CheckBox';
 
 storiesOf('Controls|CheckBox', module)
   .add('Basic CheckBox', () => (

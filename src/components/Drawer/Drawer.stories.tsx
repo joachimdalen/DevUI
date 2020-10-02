@@ -1,8 +1,9 @@
-import { Drawer } from './Drawer';
-import { number, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { boolean, number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import { action } from '@storybook/addon-actions';
+
+import { Drawer } from './Drawer';
 
 storiesOf('Layout|Drawer', module).add('Default', () => (
   <Drawer

@@ -15,7 +15,7 @@ export const SplitButton = ({
   mainButton,
   splitButton,
   ...rest
-}: SplitButtonProps) => {
+}: SplitButtonProps): React.ReactElement => {
   const [expanded, setExpanded] = React.useState(false);
   const wrapperClass = cx('dui-split-button', {
     [`dui-split-button-visible`]: expanded

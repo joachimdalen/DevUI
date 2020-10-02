@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Badge } from './Badge';
-import { text } from '@storybook/addon-knobs';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { action } from '@storybook/addon-actions';
+import { text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
 import variants from '../../storyUtil/variants';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { Badge } from './Badge';
 storiesOf('Display Components|Badge', module)
   .add('Default Badge', () => <Badge label={text('label', 'Active')} />)
   .add('Dismissible', () => (
@@ -31,7 +32,7 @@ storiesOf('Display Components|Badge', module)
     <div style={{ display: 'flex', flexDirection: 'column' }}>
       <div>
         {variants.map(variant => {
-          return <Badge label={variant} variant={variant} />;
+          return <Badge key={variant} label={variant} variant={variant} />;
         })}
       </div>
     </div>

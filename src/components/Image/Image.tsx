@@ -15,10 +15,10 @@ export class Image extends React.Component<ImageProps, ImageState> {
     failed: false
   };
 
-  _failbackCall = () => {
+  _failbackCall = (): void => {
     this.setState({ failed: true });
   };
-  render() {
+  render(): React.ReactElement {
     const { src, alt, fallbackSrc, className, ...rest } = this.props;
     if (this.state.failed && fallbackSrc)
       return <img src={fallbackSrc} alt={alt} className={cx('dui-image', className)} {...rest} />;

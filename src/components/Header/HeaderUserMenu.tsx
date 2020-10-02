@@ -15,7 +15,7 @@ export interface HeaderUserMenuProps {
   avatarProps?: Omit<AvatarProps, 'src'>;
 }
 export class HeaderUserMenu extends React.Component<HeaderUserMenuProps> {
-  render() {
+  render(): React.ReactElement {
     const { username, avatar, closeIcon, openIcon, children, avatarProps } = this.props;
     const hasCustomCloseIcon = React.isValidElement(closeIcon);
     const hasCustomOpenIcon = React.isValidElement(openIcon);

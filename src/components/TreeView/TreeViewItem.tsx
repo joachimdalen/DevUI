@@ -17,7 +17,7 @@ export class TreeViewItem extends React.Component<TreeViewItemProps, TreeViewIte
     expanded: false
   };
 
-  render() {
+  render(): React.ReactElement {
     const { node, className, children } = this.props;
     const { expanded } = this.state;
     const isLeafNode = React.Children.count(children) == 0;
@@ -26,7 +26,7 @@ export class TreeViewItem extends React.Component<TreeViewItemProps, TreeViewIte
       React.isValidElement(node.icon) ? (
         node.icon
       ) : (
-        <FontAwesomeIcon marginDirection="left" icon={node.icon as string} iconStyle="regular" />
+        <FontAwesomeIcon marginDirection="left" icon={node.icon} iconStyle="regular" />
       )
     ) : (
       <FontAwesomeIcon marginDirection="left" icon="fa-file" iconStyle="regular" />
@@ -55,8 +55,8 @@ export class TreeViewItem extends React.Component<TreeViewItemProps, TreeViewIte
                       iconStyle="regular"
                       className="dui-treeview-item-expand"
                       onClick={() => {
-                        if (!this.state.expanded) {
-                          onExpanded && onExpanded(node);
+                        if (!this.state.expanded && onExpanded) {
+                          onExpanded(node);
                         }
                         this.setState({
                           expanded: this.state.expanded ? false : true

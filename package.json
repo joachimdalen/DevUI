@@ -18,7 +18,8 @@
     "lint:ts": "eslint src/**/*.tsx",
     "lint:styles:fix": "npx stylelint 'src/**/**.scss' --fix",
     "lint:ts:fix": "eslint src/**/*.tsx --fix",
-    "lint": "npm run lint:styles && npm run lint:ts"
+    "lint": "npm run lint:styles && npm run lint:ts",
+    "autoformat":"./node_modules/.bin/prettier --write 'src/**/**.scss' 'src/**/*.tsx'"
   },
   "keywords": [
     "react",

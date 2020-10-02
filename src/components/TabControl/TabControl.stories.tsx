@@ -1,8 +1,9 @@
-import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { TabControl } from './TabControl';
 import { TabType } from './TabControlTypes';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 const tabControlTabs: TabType[] = [
   {
     label: 'Hello',

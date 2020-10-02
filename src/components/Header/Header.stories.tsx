@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Header } from './Header';
 import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { HeaderItem } from './HeaderItem';
+import { Header } from './Header';
 import { HeaderBrand } from './HeaderBrand';
+import { HeaderItem } from './HeaderItem';
 import { HeaderUserMenu } from './HeaderUserMenu';
 import { HeaderUserMenuItem } from './HeaderUserMenuItem';
 storiesOf('Layout|Header', module)

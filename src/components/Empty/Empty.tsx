@@ -10,7 +10,7 @@ export interface EmptyProps {
 }
 
 export class Empty extends React.Component<EmptyProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
       image,
       description,

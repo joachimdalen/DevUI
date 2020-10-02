@@ -16,7 +16,7 @@ export class Alert extends React.Component<AlertProps> {
   static defaultProps: Partial<AlertProps> = {
     variant: 'info'
   };
-  _getIconFromVariant = () => {
+  _getIconFromVariant = (): string => {
     const { variant } = this.props;
 
     switch (variant) {

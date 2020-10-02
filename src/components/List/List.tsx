@@ -10,7 +10,7 @@ export class List extends React.Component<ListProps> {
   static defaultProps: Partial<ListProps> = {
     bordered: false
   };
-  public render() {
+  public render(): React.ReactElement {
     const { children, title, bordered } = this.props;
     return (
       <div className={cx('dui-list-container')}>

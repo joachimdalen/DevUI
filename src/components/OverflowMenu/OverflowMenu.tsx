@@ -17,7 +17,7 @@ export class OverflowMenu extends React.Component<OverflowMenuProps, OverflowMen
   state = {
     visible: false
   };
-  render() {
+  render(): React.ReactElement {
     const { className, triggerButtonProps, menuLocation = 'bottomRight' } = this.props;
     const wrapperClass = cx(
       'dui-overflow-menu-wrapper',
@@ -47,7 +47,7 @@ export class OverflowMenu extends React.Component<OverflowMenuProps, OverflowMen
       </div>
     );
   }
-  _toggleMenu = () => {
+  _toggleMenu = (): void => {
     this.setState({ visible: !this.state.visible });
   };
 }

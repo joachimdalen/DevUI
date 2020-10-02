@@ -8,7 +8,7 @@ export class ModalFooter extends React.Component<ModalFooterProps> {
     className: ''
   };
 
-  render() {
+  render(): React.ReactElement {
     const { className, children } = this.props;
     return <div className={cx('dui-modal-footer', className)}>{children}</div>;
   }

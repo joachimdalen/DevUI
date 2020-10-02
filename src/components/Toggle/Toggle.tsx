@@ -15,7 +15,7 @@ export interface ToggleProps {
 }
 
 export class Toggle extends React.Component<ToggleProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
       className = '',
       toggled = false,

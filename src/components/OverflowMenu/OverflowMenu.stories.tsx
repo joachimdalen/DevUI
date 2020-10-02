@@ -1,10 +1,11 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { OverflowMenu, OverflowMenuLocation } from './OverflowMenu';
-import { OverflowMenuItem } from './OverflowMenuItem';
-import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { action } from '@storybook/addon-actions';
 import { select } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { OverflowMenu, OverflowMenuLocation } from './OverflowMenu';
+import { OverflowMenuItem } from './OverflowMenuItem';
 
 storiesOf('Controls|OverflowMenu', module)
   .add('Default', () => (

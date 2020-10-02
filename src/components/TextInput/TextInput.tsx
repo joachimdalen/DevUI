@@ -26,7 +26,7 @@ export interface TextInputProps {
 export type TextInputIconPlacement = 'start' | 'end';
 type AllProps = TextInputProps & React.HTMLAttributes<HTMLInputElement>;
 export class TextInput extends React.Component<AllProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
       autoComplete = true,
       autoFocus = false,

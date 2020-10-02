@@ -10,7 +10,12 @@ export interface SplitButtonActionProps {
   className?: string;
 }
 
-const SplitButtonAction = ({ label, icon, onClick, className }: SplitButtonActionProps) => (
+const SplitButtonAction = ({
+  label,
+  icon,
+  onClick,
+  className
+}: SplitButtonActionProps): React.ReactElement => (
   <div className={cx('dui-split-button-actions-item', className)} onClick={onClick}>
     {icon && <FontAwesomeIcon icon={icon} iconStyle="solid" />}
     {label}

@@ -35,7 +35,7 @@ export class Button extends React.Component<ButtonProps> {
     fixedIconSize: false,
     iconOnly: false
   };
-  public render() {
+  public render(): React.ReactElement {
     const {
       label,
       format,

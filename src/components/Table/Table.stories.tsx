@@ -1,11 +1,12 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Table } from './Table';
-import { TableRow } from './TableRow';
-import { TableCell } from './TableCell';
-import { DataTable } from './DataTable';
 import { boolean } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { DataTable } from './DataTable';
+import { Table } from './Table';
+import { TableCell } from './TableCell';
+import { TableRow } from './TableRow';
 import { Column } from './TableTypes';
 const values = require('../../../data/invoices.json');
 const columnHeaders: Column[] = [

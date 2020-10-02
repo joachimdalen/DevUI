@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
+import * as React from 'react';
 
 import { Image } from './Image';
-import { text } from '@storybook/addon-knobs';
 storiesOf('Display Components|Image', module)
   .add('Default', () => (
     <Image

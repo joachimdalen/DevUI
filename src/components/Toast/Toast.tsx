@@ -15,7 +15,7 @@ export interface ToastProps {
 }
 
 export class Toast extends React.Component<ToastProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
       className = '',
       icon,

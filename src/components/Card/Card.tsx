@@ -12,9 +12,9 @@ export interface CardProps {
 }
 
 export class Card extends React.Component<CardProps> {
-  public render() {
+  public render(): React.ReactElement {
     const { children, image, imagePlacement, width, className } = this.props;
-    const cardWidth = isNumber(width) ? `${width}px` : width;
+    const cardWidth = width === 'number' ? `${width}px` : width;
     const baseClass = cx(
       'dui-card',
       { [`dui-card-image-${imagePlacement}`]: image !== undefined },

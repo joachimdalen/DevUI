@@ -22,18 +22,18 @@ export class CheckBox extends React.Component<CheckBoxProps> {
   };
   _inputRef: any = React.createRef();
 
-  componentDidMount() {
+  componentDidMount(): void {
     const { checked, indeterminate } = this.props;
     this._setIndeterminate(indeterminate === true && checked === false);
   }
-  componentDidUpdate(prevProps: CheckBoxProps) {
+  componentDidUpdate(prevProps: CheckBoxProps): void {
     const { checked, indeterminate = false } = this.props;
     if (prevProps.indeterminate != this.props.indeterminate) {
       this._setIndeterminate(indeterminate && checked === false);
     }
   }
 
-  public render() {
+  public render(): React.ReactElement {
     const {
       label,
       checked,
@@ -70,7 +70,7 @@ export class CheckBox extends React.Component<CheckBoxProps> {
       </label>
     );
   }
-  _setIndeterminate(value: boolean) {
+  _setIndeterminate(value: boolean): void {
     this._inputRef.indeterminate = value;
   }
 }

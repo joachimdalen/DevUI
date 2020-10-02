@@ -20,14 +20,14 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
   state = {
     expanded: this.props.expanded || false
   };
-  componentDidUpdate(prevProps: AccordionProps) {
+  componentDidUpdate(prevProps: AccordionProps): void {
     if (prevProps !== this.props) {
       this.setState({
         expanded: this.props.expanded || false
       });
     }
   }
-  public render() {
+  public render(): React.ReactElement {
     const {
       children,
       title,
@@ -54,7 +54,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
           className="dui-accordion-header"
           onClick={() =>
             this.setState({ expanded: !expanded }, () => {
-              onToggle && onToggle(this.state.expanded);
+              if (onToggle) onToggle(this.state.expanded);
             })
           }
         >

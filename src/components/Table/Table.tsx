@@ -12,7 +12,7 @@ export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   className?: string;
 }
 export class Table extends React.Component<TableProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
       children,
       bordered = false,

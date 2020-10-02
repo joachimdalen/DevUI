@@ -1,14 +1,15 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { FormGroup, FormGroupRequiredType, FormGroupExtraType } from './FormGroup';
-import { TextInput } from '../TextInput/TextInput';
-import { Select } from '../Select/Select';
 import { action } from '@storybook/addon-actions';
-import { Button } from '../Button/Button';
 import { boolean, select, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
-import { TextArea } from '../TextArea/TextArea';
+import { Select } from '../Select/Select';
 import { TagInput } from '../TagInput/TagInput';
+import { TextArea } from '../TextArea/TextArea';
+import { TextInput } from '../TextInput/TextInput';
+import { FormGroup, FormGroupExtraType, FormGroupRequiredType } from './FormGroup';
 
 storiesOf('Components|FormGroup', module)
   .add('Default', () => (

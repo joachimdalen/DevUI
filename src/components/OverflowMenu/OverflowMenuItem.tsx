@@ -10,7 +10,7 @@ export const OverflowMenuItem = ({
   children,
   onClick,
   ...rest
-}: OverflowMenuItemProps) => (
+}: OverflowMenuItemProps): React.ReactElement => (
   <div className={cx('dui-overflow-menu-item', className)} onClick={onClick} {...rest}>
     {children}
   </div>

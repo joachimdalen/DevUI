@@ -4,7 +4,7 @@ export interface CardImageProps {
 }
 
 export class CardImage extends React.Component<CardImageProps> {
-  public render() {
+  public render(): React.ReactElement {
     const { image } = this.props;
     const style: React.CSSProperties = {
       backgroundImage: 'url(' + image + ')'
