@@ -3,14 +3,14 @@ $theme-colors: () !default;
 
 $theme-colors: map-merge(
   (
-    "primary": $color-primary,
-    "secondary": $color-secondary,
-    "dark": $color-dark,
-    "success": $color-success,
-    "danger": $color-danger,
-    "magenta": $color-magenta,
-    "warning": $color-warning,
-    "blue": $color-blue,
+    'primary': $color-primary,
+    'secondary': $color-secondary,
+    'dark': $color-dark,
+    'success': $color-success,
+    'danger': $color-danger,
+    'magenta': $color-magenta,
+    'warning': $color-warning,
+    'blue': $color-blue
   ),
   $theme-colors
 );
@@ -18,26 +18,26 @@ $brand-colors: () !default;
 
 $brand-colors: map-merge(
   (
-    "discord": #7289da,
-    "youtube": #ff0000,
-    "twitter": #1da1f2,
-    "twitch": #6441a5,
-    "github": #333,
-    "instagram": #e1306c,
-    "steam": #000000,
-    "paypal": #003087,
-    "spotify": #1db954,
-    "reddit": #ff4500,
-    "snapchat": #fffc00,
-    "bitbucket": #205081,
-    "dropbox": #007ee5,
+    'discord': #7289da,
+    'youtube': #ff0000,
+    'twitter': #1da1f2,
+    'twitch': #6441a5,
+    'github': #333,
+    'instagram': #e1306c,
+    'steam': #000000,
+    'paypal': #003087,
+    'spotify': #1db954,
+    'reddit': #ff4500,
+    'snapchat': #fffc00,
+    'bitbucket': #205081,
+    'dropbox': #007ee5
   ),
   $brand-colors
 );
 
-$font-family: "Nunito", sans-serif !default;
-$shadow-focus: inset 0 0 2px rgba($color-dark, 0.14),
-  inset 0 0 0 1px $color-blue, 0 0 0 3px rgba($color-blue, 0.14) !default;
+$font-family: 'Nunito', sans-serif !default;
+$shadow-focus: inset 0 0 2px rgba($color-dark, 0.14), inset 0 0 0 1px $color-blue,
+  0 0 0 3px rgba($color-blue, 0.14) !default;
 // FONT
 $font-weight-light: 300 !default;
 $font-weight-regular: 400 !default;
@@ -136,8 +136,7 @@ $split-button-menu-border-width: 1px !default;
 $split-button-menu-border-color: $color-border !default;
 $split-button-menu-item-padding-x: 10px !default;
 $split-button-menu-item-padding-y: 5px !default;
-$split-button-menu-item-padding: $split-button-menu-item-padding-y
-  $split-button-menu-item-padding-x !default;
+$split-button-menu-item-padding: $split-button-menu-item-padding-y $split-button-menu-item-padding-x !default;
 $split-button-menu-item-color: $color-dark !default;
 $split-button-menu-item-background: $color-light !default;
 $split-button-menu-item-hover-background: $color-disabled !default;
@@ -184,7 +183,6 @@ $table-hover-background: $color-disabled !default;
 $table-hover-color: inherit !default;
 $table-font-size: $font-size-normal !default;
 
-
 $table-row-height: 50px !default;
 $table-row-checked-background: darken($color-blue-light, 10%) !default;
 $table-row-checked-color: inherit !default;
@@ -200,8 +198,7 @@ $table-cell-padding: $table-cell-padding-y $table-cell-padding-x !default;
 $table-condensed-row-height: 30px !default;
 $table-condensed-cell-padding-x: 5px !default;
 $table-condensed-cell-padding-y: 5px !default;
-$table-condensed-cell-padding: $table-condensed-cell-padding-y
-  $table-condensed-cell-padding-x !default;
+$table-condensed-cell-padding: $table-condensed-cell-padding-y $table-condensed-cell-padding-x !default;
 
 /* CHECKBOX */
 $checkbox-padding-left: 25px !default;
@@ -228,19 +225,16 @@ $checkbox-list-border-color: $color-gray !default;
 $checkbox-list-background: $color-light !default;
 $checkbox-list-header-padding-x: 5px !default;
 $checkbox-list-header-padding-y: 5px !default;
-$checkbox-list-header-padding: $checkbox-list-header-padding-y
-  $checkbox-list-header-padding-x !default;
+$checkbox-list-header-padding: $checkbox-list-header-padding-y $checkbox-list-header-padding-x !default;
 $checkbox-list-header-font-size: $font-size-small !default;
 $checkbox-list-header-counter-font-size: 10px !default;
 
 $checkbox-list-items-padding-x: 5px !default;
 $checkbox-list-items-padding-y: 5px !default;
-$checkbox-list-items-padding: $checkbox-list-items-padding-y
-  $checkbox-list-items-padding-x !default;
+$checkbox-list-items-padding: $checkbox-list-items-padding-y $checkbox-list-items-padding-x !default;
 $checkbox-list-item-padding-x: 0 !default;
 $checkbox-list-item-padding-y: 1px !default;
-$checkbox-list-item-padding: $checkbox-list-item-padding-y
-  $checkbox-list-item-padding-x !default;
+$checkbox-list-item-padding: $checkbox-list-item-padding-y $checkbox-list-item-padding-x !default;
 $checkbox-list-checkbox-color: lighten($color-dark, 50%) !default;
 
 /* SELECT */
@@ -305,8 +299,7 @@ $list-item-icon-max-height: 40px !default;
 
 $list-item-content-padding-x: 5px !default;
 $list-item-content-padding-y: 10px !default;
-$list-item-content-padding: $list-item-content-padding-y
-  $list-item-content-padding-x !default;
+$list-item-content-padding: $list-item-content-padding-y $list-item-content-padding-x !default;
 
 $list-item-content-title-font-size: $font-size-small !default;
 $list-item-content-subtitle-font-size: 10px !default;
@@ -343,8 +336,7 @@ $tab-control-border-color: $color-border !default;
 $tab-control-border-radius: $border-raidus !default;
 $tab-control-item-padding-x: 20px !default;
 $tab-control-item-padding-y: 11px !default;
-$tab-control-item-padding: $tab-control-item-padding-y
-  $tab-control-item-padding-x !default;
+$tab-control-item-padding: $tab-control-item-padding-y $tab-control-item-padding-x !default;
 $tab-control-item-color: #9c9c9c !default;
 $tab-control-item-font-size: $font-size-small !default;
 $tab-control-item-active-background: $color-light !default;
@@ -353,8 +345,7 @@ $tab-control-item-disabled-background: #fafafa !default;
 $tab-control-item-disabled-color: #9c9c9c !default;
 $tab-control-pane-padding-x: 20px !default;
 $tab-control-pane-padding-y: 20px !default;
-$tab-control-pane-padding: $tab-control-pane-padding-y
-  $tab-control-pane-padding-x !default;
+$tab-control-pane-padding: $tab-control-pane-padding-y $tab-control-pane-padding-x !default;
 
 /* TAG INPUT */
 $tag-input-control-background: $text-input-background !default;
@@ -459,8 +450,7 @@ $header-item-mobile-hover-background: $color-dark !default;
 $header-item-mobile-hover-color: $color-light !default;
 $header-item-mobile-padding-x: 15px !default;
 $header-item-mobile-padding-y: 10px !default;
-$header-item-mobile-padding: $header-item-mobile-padding-y
-  $header-item-mobile-padding-x !default;
+$header-item-mobile-padding: $header-item-mobile-padding-y $header-item-mobile-padding-x !default;
 $user-menu-visible-color: $color-light !default;
 $user-menu-visible-background: $color-dark !default;
 $user-avatar-border-color: none !default;
@@ -476,14 +466,12 @@ $accordion-border-color: $color-border !default;
 $accordion-background: $color-light !default;
 $accordion-header-padding-x: 10px !default;
 $accordion-header-padding-y: 10px !default;
-$accordion-header-padding: $accordion-header-padding-y
-  $accordion-header-padding-x !default;
+$accordion-header-padding: $accordion-header-padding-y $accordion-header-padding-x !default;
 $accordion-header-font-size: $font-size-small !default;
 $accordion-header-font-weight: $font-weight-bold !default;
 $accordion-content-padding-x: 10px !default;
 $accordion-content-padding-y: 5px !default;
-$accordion-content-padding: $accordion-content-padding-y
-  $accordion-content-padding-x !default;
+$accordion-content-padding: $accordion-content-padding-y $accordion-content-padding-x !default;
 
 /* Overflow Menu */
 $overflow-menu-border-width: 1px !default;
@@ -493,8 +481,7 @@ $overflow-menu-padding-y: 5px !default;
 $overflow-menu-padding: $overflow-menu-padding-y $overflow-menu-padding-x !default;
 $overflow-menu-item-padding-x: 10px !default;
 $overflow-menu-item-padding-y: 5px !default;
-$overflow-menu-item-padding: $overflow-menu-item-padding-y
-  $overflow-menu-item-padding-x !default;
+$overflow-menu-item-padding: $overflow-menu-item-padding-y $overflow-menu-item-padding-x !default;
 $overflow-menu-item-border-radius: 5px !default;
 $overflow-menu-item-background: $color-light !default;
 $overflow-menu-item-color: $color-dark !default;

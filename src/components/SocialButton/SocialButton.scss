@@ -1,4 +1,4 @@
-@import "./SocialButton.mixin";
+@import './SocialButton.mixin';
 .#{$provider-prefix}-social-button {
   display: inline-flex;
   align-items: center;
@@ -27,6 +27,6 @@
     font-weight: $font-weight-bold;
   }
   @each $brand, $value in $brand-colors {
-    @include social-button-variant("-#{$brand}", $value);
+    @include social-button-variant('-#{$brand}', $value);
   }
 }

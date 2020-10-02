@@ -1,4 +1,4 @@
-@import "./CheckBox.mixin.scss";
+@import './CheckBox.mixin.scss';
 .#{$provider-prefix}-checkbox {
   position: relative;
   display: block;
@@ -15,7 +15,7 @@
     cursor: pointer;
     opacity: 0;
   }
-  &-no-label{
+  &-no-label {
     padding-left: $checkbox-no-label-padding-left;
   }
   .#{$provider-prefix}-checkmark {
@@ -43,7 +43,7 @@
     right: 2px;
     bottom: 6px;
     left: 2px;
-    content: " ";
+    content: ' ';
     background: $checkbox-checked-checkmark-background;
     transition: all 0.1s;
   }
@@ -61,13 +61,13 @@
     display: none;
     width: 3px;
     height: 8px;
-    content: "";
+    content: '';
     border: solid $checkbox-mark-color;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
   @each $color, $value in $theme-colors {
-    @include checkbox-variant("-#{$color}", $value);
+    @include checkbox-variant('-#{$color}', $value);
   }
   &.disabled {
     color: $checkbox-disabled-color;

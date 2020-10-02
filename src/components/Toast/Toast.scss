@@ -1,4 +1,4 @@
-@import "./Toast.mixin.scss";
+@import './Toast.mixin.scss';
 .dui-toast {
   display: flex;
   justify-content: space-between;
@@ -53,5 +53,5 @@
   }
 }
 @each $color, $value in $theme-colors {
-  @include toast-variant(".dui-toast-#{$color}", $value);
+  @include toast-variant('.dui-toast-#{$color}', $value);
 }

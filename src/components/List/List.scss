@@ -45,8 +45,7 @@
     }
     &-bordered {
       .#{$provider-prefix}-list-item {
-        border-bottom: $list-item-bordered-border-width solid
-          $list-item-bordered-border-color;
+        border-bottom: $list-item-bordered-border-width solid $list-item-bordered-border-color;
       }
     }
     .#{$provider-prefix}-list-more {

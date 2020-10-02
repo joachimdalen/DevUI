@@ -1,4 +1,4 @@
-@import "./Badge.mixin.scss";
+@import './Badge.mixin.scss';
 
 .#{$provider-prefix}-badge-wrapper {
   @extend %badge-base;
@@ -32,7 +32,7 @@
   color: $color-dark;
   border-radius: $badge-border-radius;
   @each $color, $value in $theme-colors {
-    @include badge-variant("-#{$color}", $value);
+    @include badge-variant('-#{$color}', $value);
   }
   &-icon {
     align-self: center;

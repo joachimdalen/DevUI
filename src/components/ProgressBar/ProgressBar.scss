@@ -1,4 +1,4 @@
-@import "./ProgressBar.mixin";
+@import './ProgressBar.mixin';
 .dui-progress-bar-container {
   display: flex;
   min-width: 100px;
@@ -23,7 +23,7 @@
     }
   }
   @each $color, $value in $theme-colors {
-    @include progress-bar-variant(".dui-progress-#{$color}", $value);
+    @include progress-bar-variant('.dui-progress-#{$color}', $value);
   }
   @keyframes progress-bar-striped-animation {
     from {

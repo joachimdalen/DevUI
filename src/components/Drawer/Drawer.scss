@@ -1,46 +1,46 @@
 .#{$provider-prefix}-drawer-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .#{$provider-prefix}-drawer {
+  position: absolute;
+  top: $drawer-top-spacing;
+  bottom: $drawer-bottom-spacing;
+  padding: $drawer-padding;
+  background-color: $color-light;
+  border: $drawer-border;
+  box-shadow: $box-shadow;
+  animation: slide 1s forwards;
+  animation-delay: 1s;
+
+  .close-icon {
     position: absolute;
-    top: $drawer-top-spacing;
-    bottom: $drawer-bottom-spacing;
-    padding: $drawer-padding;
-    background-color: $color-light;
-    border: $drawer-border;
-    box-shadow: $box-shadow;
-    animation: slide 1s forwards;
-    animation-delay: 1s;
-
-    .close-icon {
-        position: absolute;
-        top: $drawer-close-icon-top;
-        right: $drawer-close-icon-right;
-        color: #ccc;
-        &:hover{
-            color: $color-dark;
-            cursor: pointer;
-        }
+    top: $drawer-close-icon-top;
+    right: $drawer-close-icon-right;
+    color: #ccc;
+    &:hover {
+      color: $color-dark;
+      cursor: pointer;
     }
+  }
 
-    &-left {
-        left: $drawer-left-spacing;
-    }
+  &-left {
+    left: $drawer-left-spacing;
+  }
 
-    &-right {
-        right: $drawer-right-spacing;
-    }
+  &-right {
+    right: $drawer-right-spacing;
+  }
 }
 
 @keyframes slide {
-    0% {
-        width: 0;
-    }
+  0% {
+    width: 0;
+  }
 
-    100% {
-        width: 100%;
-    }
+  100% {
+    width: 100%;
+  }
 }

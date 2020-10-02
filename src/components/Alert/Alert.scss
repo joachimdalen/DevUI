@@ -29,7 +29,7 @@
     font-weight: $alert-description-font-weight;
     color: $alert-description-color;
   }
-   &.#{$provider-prefix}-alert-wi {
+  &.#{$provider-prefix}-alert-wi {
     flex-direction: row;
     .#{$provider-prefix}-alert-wi-content {
       margin-left: 5px;

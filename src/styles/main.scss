@@ -1,28 +1,28 @@
-@import "./reset";
+@import './reset';
 * {
   box-sizing: border-box;
 }
-$provider-prefix: "dui";
+$provider-prefix: 'dui';
 //@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700,900");
-@import url("https://fonts.googleapis.com/css?family=Nunito:300,400,700,900");
-@import "./colors";
-@import "./variables";
-@import "./functions";
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700,900');
+@import './colors';
+@import './variables';
+@import './functions';
 
-@import "./templates";
-@import "./animations";
+@import './templates';
+@import './animations';
 .#{$provider-prefix}-show {
   animation: slide-down 0.3s ease-in;
 }
 .#{$provider-prefix}-hide {
   display: none;
 }
-[class*="#{$provider-prefix}"]{
+[class*='#{$provider-prefix}'] {
   font-family: $font-family;
 }
 
 @each $color, $value in $theme-colors {
-  @include text-color(".#{$provider-prefix}-color-#{$color}", $value);
+  @include text-color('.#{$provider-prefix}-color-#{$color}', $value);
 }
 
-@import "./components";
+@import './components';

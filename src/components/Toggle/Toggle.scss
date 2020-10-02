@@ -1,4 +1,4 @@
-@import "./Toggle.mixin.scss";
+@import './Toggle.mixin.scss';
 .#{$provider-prefix}-toggle {
   position: relative;
   display: inline-block;
@@ -37,7 +37,7 @@
     width: 14px;
     height: 14px;
     color: $color-success;
-    content: "";
+    content: '';
     background-color: $color-light;
     transition: 0.4s;
   }
@@ -69,7 +69,7 @@
     }
   }
   @each $color, $value in $theme-colors {
-    @include toggle-variant(".#{$provider-prefix}-toggle-#{$color}", $value);
+    @include toggle-variant('.#{$provider-prefix}-toggle-#{$color}', $value);
   }
 
   &.#{$provider-prefix}-toggle-labels {
@@ -82,14 +82,14 @@
       font-size: 9px;
       font-weight: $font-weight-bold;
       color: black;
-      content: "OFF";
+      content: 'OFF';
     }
     input {
       &:checked + .#{$provider-prefix}-toggle-button::after {
         justify-content: left;
         padding-left: 2px;
         color: $color-light;
-        content: "ON";
+        content: 'ON';
       }
     }
 
@@ -99,7 +99,7 @@
           justify-content: left;
           padding-left: 5px;
           color: colorFromBackground(black);
-          content: "ON";
+          content: 'ON';
         }
       }
       .#{$provider-prefix}-toggle-button::after {
