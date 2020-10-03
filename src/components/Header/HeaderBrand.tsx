@@ -5,7 +5,7 @@ import { CustomComponent } from '../common';
 export type HeaderBrandProps = CustomComponent;
 
 export class HeaderBrand extends React.Component<HeaderBrandProps> {
-  render():React.ReactElement {
+  render(): React.ReactElement {
     const { children, component, componentProps } = this.props;
     if (component) {
       const Component = component;

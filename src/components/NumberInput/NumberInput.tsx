@@ -30,7 +30,7 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
       });
     }
   }
-  _increase = () => {
+  _increase = (): void => {
     const { max, step, onChange } = this.props;
     const { value } = this.state;
     let newVal = value;
@@ -46,23 +46,24 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
       });
     }
   };
-  _decrease = () => {
+  _decrease = (): void => {
     const { min, step, onChange } = this.props;
     const { value } = this.state;
+    let newVal;
     if (min !== undefined) {
       const oldValue = value;
       if (oldValue <= min) {
-        var newVal = oldValue;
+        newVal = oldValue;
       } else {
         if (step) {
           console.log(oldValue - step);
           if (oldValue - step <= min) {
-            var newVal = min;
+            newVal = min;
           } else {
-            var newVal = oldValue - step;
+            newVal = oldValue - step;
           }
         } else {
-          var newVal = oldValue - 1;
+          newVal = oldValue - 1;
         }
       }
       this.setState({ value: newVal }, () => {

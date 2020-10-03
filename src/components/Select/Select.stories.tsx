@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Select } from './Select';
 import { SelectOption } from './SelectOption';
 function getOptions(): SelectOption[] {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const customers = require('../../../data/invoices.json').map((i: any) => i.customer);
 
   return customers.map((c: any) => {
@@ -48,7 +49,7 @@ storiesOf('Controls|Select', module)
     <Select
       label="Select City"
       options={[{ label: 'Hi', value: 'Hi' }]}
-      renderer={option => <p>Let's render: {option.value}</p>}
+      renderer={option => <p>I am rendering: {option.value}</p>}
       onChange={action('select-changed')}
     />
   ))
@@ -62,7 +63,7 @@ storiesOf('Controls|Select', module)
           meta: { firstName: 'Devexer' }
         }
       ]}
-      renderer={option => <p>Let's render: {option.meta && option.meta.firstName}</p>}
+      renderer={option => <p>I am rendering: {option.meta && option.meta.firstName}</p>}
       onChange={action('select-changed')}
     />
   ))

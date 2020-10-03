@@ -8,7 +8,7 @@ import { Table } from './Table';
 import { TableCell } from './TableCell';
 import { TableRow } from './TableRow';
 import { Column } from './TableTypes';
-const values = require('../../../data/invoices.json');
+
 const columnHeaders: Column[] = [
   {
     key: 'id',
@@ -110,7 +110,7 @@ storiesOf('Display Components|Table', module)
   ))
   .add('DataTable', () => (
     <DataTable
-      rows={values}
+      rows={require('../../../data/invoices.json')}
       columns={columnHeaders}
       bordered={boolean('bordered', false)}
       striped={boolean('striped', false)}
