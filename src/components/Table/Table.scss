@@ -1,16 +1,16 @@
 .#{$provider-prefix}-table-wrapper {
   .#{$provider-prefix}-empty {
-    background-color: $table-background;
     padding-bottom: 10px;
+    background-color: $table-background;
   }
 }
 .#{$provider-prefix}-table {
   display: table;
-  background-color: $table-background;
-  color: $table-color;
   width: 100%;
-  border-collapse: collapse;
   font-size: $table-font-size;
+  color: $table-color;
+  border-collapse: collapse;
+  background-color: $table-background;
   &-condensed {
     .#{$provider-prefix}-table-cell {
       padding: $table-condensed-cell-padding;
@@ -27,16 +27,16 @@
   }
   &-striped {
     .#{$provider-prefix}-table-row:nth-child(2n) {
-      background-color: $table-striped-background;
       color: $table-striped-color;
+      background-color: $table-striped-background;
     }
   }
   &-hoverable {
     .#{$provider-prefix}-table-row:not(.dui-table-row-header) {
       &:hover {
-        background-color: $table-hover-background;
         color: $table-hover-color;
         cursor: pointer;
+        background-color: $table-hover-background;
         @extend %background-ease;
       }
     }
@@ -50,46 +50,46 @@
       }
     }
     &-checked {
-      background-color: #f5fbff !important ;
       color: $table-row-checked-color;
+      background-color: #f5fbff !important ;
       @extend %background-ease;
     }
     &-header {
-      text-align: left;
-      line-height: 1.5;
       height: $table-row-header-height;
       font-size: $table-row-header-font-size;
       font-weight: $table-row-header-font-weight;
+      line-height: 1.5;
       color: $table-row-header-color;
+      text-align: left;
       .dui-icon {
-        margin-left: 5px;
         margin-right: 5px;
+        margin-left: 5px;
       }
     }
   }
   &-cell {
     display: table-cell;
-    vertical-align: middle;
     padding: $table-cell-padding;
+    vertical-align: middle;
     > div {
       display: flex;
       align-items: center;
     }
 
     &-checkable {
-      width: 30px;
       align-items: center;
+      width: 30px;
       .#{$provider-prefix}-checkbox {
-        padding-left: 0;
         display: inline;
+        padding-left: 0;
         & > span {
           color: transparent;
         }
         .#{$provider-prefix}-checkmark {
           top: unset;
           background-color: $color-light;
-          @extend %background-ease;
           border: 1px solid $table-border-color;
+          @extend %background-ease;
         }
       }
     }

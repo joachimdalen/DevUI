@@ -1,10 +1,10 @@
 .#{$provider-prefix}-alert {
-  border-width: $alert-border-width;
-  border-style: solid;
-  border-radius: $alert-border-radius;
+  position: relative;
   padding: $alert-padding;
   margin: 2px;
-  position: relative;
+  border-style: solid;
+  border-width: $alert-border-width;
+  border-radius: $alert-border-radius;
 
   &-wi {
     display: flex;
@@ -18,41 +18,41 @@
     margin-left: 5px;
   }
   .#{$provider-prefix}-alert-message {
-    font-weight: $alert-message-font-weight;
-    font-size: $alert-message-font-size;
     margin: 0;
+    font-size: $alert-message-font-size;
+    font-weight: $alert-message-font-weight;
     color: $alert-message-color;
   }
   .#{$provider-prefix}-alert-description {
     margin-top: 5px;
-    color: $alert-description-color;
-    font-weight: $alert-description-font-weight;
     font-size: $alert-description-font-size;
+    font-weight: $alert-description-font-weight;
+    color: $alert-description-color;
   }
-   &.#{$provider-prefix}-alert-wi {
+  &.#{$provider-prefix}-alert-wi {
     flex-direction: row;
     .#{$provider-prefix}-alert-wi-content {
       margin-left: 5px;
     }
   }
   &.#{$provider-prefix}-alert-info {
-    border-color: $alert-info-border-color;
-    background-color: $alert-info-background;
     color: $alert-info-color;
+    background-color: $alert-info-background;
+    border-color: $alert-info-border-color;
   }
   &.#{$provider-prefix}-alert-success {
-    border-color: $alert-success-border-color;
-    background-color: $alert-success-background;
     color: $alert-success-color;
+    background-color: $alert-success-background;
+    border-color: $alert-success-border-color;
   }
   &.#{$provider-prefix}-alert-warning {
-    border-color: $alert-warning-border-color;
-    background-color: $alert-warning-background;
     color: $alert-warning-color;
+    background-color: $alert-warning-background;
+    border-color: $alert-warning-border-color;
   }
   &.#{$provider-prefix}-alert-danger {
-    border-color: $alert-danger-border-color;
-    background-color: $alert-danger-background;
     color: $alert-danger-color;
+    background-color: $alert-danger-background;
+    border-color: $alert-danger-border-color;
   }
 }

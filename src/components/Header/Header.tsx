@@ -1,10 +1,11 @@
-import { HeaderBrand } from "./HeaderBrand";
-import { HeaderItem } from "./HeaderItem";
-import { HeaderContextType, HeaderProvider } from "./HeaderTypes";
-import { HeaderUserMenu } from "./HeaderUserMenu";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import cx from "classnames";
-import * as React from "react";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { HeaderBrand } from './HeaderBrand';
+import { HeaderItem } from './HeaderItem';
+import { HeaderContextType, HeaderProvider } from './HeaderTypes';
+import { HeaderUserMenu } from './HeaderUserMenu';
 export interface HeaderProps {
   onToggleClick?: () => void;
   responsive?: boolean;
@@ -22,15 +23,8 @@ export class Header extends React.Component<HeaderProps, State> {
     userMenuVisible: false,
     mobileExpanded: false
   };
-  render() {
-    const {
-      onToggleClick,
-      brand,
-      children,
-      userMenu,
-      toggleIcon,
-      responsive
-    } = this.props;
+  render(): React.ReactElement {
+    const { onToggleClick, brand, children, userMenu, toggleIcon, responsive } = this.props;
     const { userMenuVisible, mobileExpanded } = this.state;
     const contextValue: HeaderContextType = {
       toggled: this.state.userMenuVisible,
@@ -41,18 +35,14 @@ export class Header extends React.Component<HeaderProps, State> {
     const isCustomToggle = React.isValidElement(toggleIcon);
     return (
       <header
-        className={cx("dui-header", {
-          "dui-header-toggled": responsive && mobileExpanded
+        className={cx('dui-header', {
+          'dui-header-toggled': responsive && mobileExpanded
         })}
       >
         <HeaderProvider value={contextValue}>
           {onToggleClick && (
             <div className="dui-header-toggle" onClick={onToggleClick}>
-              {isCustomToggle ? (
-                toggleIcon
-              ) : (
-                <FontAwesomeIcon iconStyle="solid" icon="fa-bars" />
-              )}
+              {isCustomToggle ? toggleIcon : <FontAwesomeIcon iconStyle="solid" icon="fa-bars" />}
             </div>
           )}
           {brand && brand}
@@ -62,12 +52,10 @@ export class Header extends React.Component<HeaderProps, State> {
         </HeaderProvider>
         <div
           className="dui-header-mobile-toggle"
-          onClick={() =>
-            this.setState({ mobileExpanded: !this.state.mobileExpanded })
-          }
+          onClick={() => this.setState({ mobileExpanded: !this.state.mobileExpanded })}
         >
           <FontAwesomeIcon
-            icon={mobileExpanded ? "fa-times" : "fa-bars"}
+            icon={mobileExpanded ? 'fa-times' : 'fa-bars'}
             iconStyle="solid"
             size="large"
             fixedWidth

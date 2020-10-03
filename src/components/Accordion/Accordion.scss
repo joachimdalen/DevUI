@@ -4,16 +4,16 @@
   outline: none;
 
   &-header {
-    padding: $accordion-header-padding;
     display: flex;
     flex-direction: row;
-    font-size: $accordion-header-font-size;
     align-items: center;
+    padding: $accordion-header-padding;
+    font-size: $accordion-header-font-size;
     transition: background-color ease 200ms;
 
     &-content {
-      font-weight: $accordion-header-font-weight;
       flex-grow: 1;
+      font-weight: $accordion-header-font-weight;
     }
 
     &-toggle {
@@ -31,9 +31,9 @@
   }
 
   &-content {
-    padding: $accordion-content-padding;
-    height: auto;
     display: none;
+    height: auto;
+    padding: $accordion-content-padding;
     overflow: hidden;
 
     .#{$provider-prefix}-accordion {

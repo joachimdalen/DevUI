@@ -1,37 +1,31 @@
-import * as React from "react";
-import cx from "classnames";
-import { Button, ButtonProps } from "./Button";
+import cx from 'classnames';
+import * as React from 'react';
 
-export interface SplitButtonProps extends Omit<ButtonProps, "variant"> {
+import { Button, ButtonProps } from './Button';
+
+export interface SplitButtonProps extends Omit<ButtonProps, 'variant'> {
   children: any;
-  mainButton?: Omit<ButtonProps, "size" | "label">;
-  splitButton?: Omit<ButtonProps, "size" | "label" | "icon" | "iconOnly">;
+  mainButton?: Omit<ButtonProps, 'size' | 'label'>;
+  splitButton?: Omit<ButtonProps, 'size' | 'label' | 'icon' | 'iconOnly'>;
 }
 
 export const SplitButton = ({
   children,
-  size = "medium",
+  size = 'medium',
   mainButton,
   splitButton,
   ...rest
-}: SplitButtonProps) => {
+}: SplitButtonProps): React.ReactElement => {
   const [expanded, setExpanded] = React.useState(false);
-  const wrapperClass = cx("dui-split-button", {
-    [`dui-split-button-visible`]: expanded,
+  const wrapperClass = cx('dui-split-button', {
+    [`dui-split-button-visible`]: expanded
   });
-  const actionClass = cx("dui-split-button-actions", [
-    `dui-split-button-actions-${size}`,
-  ]);
+  const actionClass = cx('dui-split-button-actions', [`dui-split-button-actions-${size}`]);
 
   return (
     <div className={wrapperClass}>
       <div className="dui-split-button-items">
-        <Button
-          {...mainButton}
-          {...rest}
-          size={size}
-          className="dui-split-button-main"
-        />
+        <Button {...mainButton} {...rest} size={size} className="dui-split-button-main" />
         <div className={actionClass}>{children}</div>
       </div>
       <Button

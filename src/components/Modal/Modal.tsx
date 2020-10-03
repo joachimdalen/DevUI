@@ -1,10 +1,11 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { GenericSizes } from "../common";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { GenericSizes } from '../common';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export type ModalSize = GenericSizes;
-export type ModalLocation = "top" | "center";
+export type ModalLocation = 'top' | 'center';
 
 export interface ModalProps {
   onBackdropClick?: () => void;
@@ -21,42 +22,32 @@ export class Modal extends React.Component<ModalProps> {
   static defaultProps: Partial<ModalProps> = {
     closeOnBackdropClick: false,
     visible: false,
-    size: "medium",
-    location: "top",
-    className: "",
-    backdropClassName: ""
+    size: 'medium',
+    location: 'top',
+    className: '',
+    backdropClassName: ''
   };
-  componentDidMount() {
+  componentDidMount(): void {
     const { onBackdropClick } = this.props;
     if (onBackdropClick) {
-      document.addEventListener("mousedown", this._onBackdropClick);
+      document.addEventListener('mousedown', this._onBackdropClick);
     }
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     const { onBackdropClick } = this.props;
     if (onBackdropClick) {
-      document.removeEventListener("mousedown", this._onBackdropClick);
+      document.removeEventListener('mousedown', this._onBackdropClick);
     }
   }
-  render() {
-    const {
-      size,
-      visible,
-      className,
-      backdropClassName,
-      location
-    } = this.props;
+  render(): React.ReactElement | null {
+    const { size, visible, className, backdropClassName, location } = this.props;
     if (!visible) return null;
-    const backdropClass = cx(
-      "dui-modal",
-      "dui-modal-backdrop",
-      backdropClassName
-    );
+    const backdropClass = cx('dui-modal', 'dui-modal-backdrop', backdropClassName);
     const itemClass = cx(
-      "dui-modal-item",
-      { [`dui-modal-item-${size}`]: size !== "medium" },
-      { [`dui-modal-item-${location}`]: location !== "top" },
+      'dui-modal-item',
+      { [`dui-modal-item-${size}`]: size !== 'medium' },
+      { [`dui-modal-item-${location}`]: location !== 'top' },
       className
     );
     return (
@@ -71,22 +62,22 @@ export class Modal extends React.Component<ModalProps> {
     );
   }
 
-  _onBackdropClick = (event: any) => {
+  _onBackdropClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent> | MouseEvent): void => {
     const { onBackdropClick, closeOnBackdropClick } = this.props;
     if (
       this.wrapperRef &&
       this.wrapperRef.current &&
-      !this.wrapperRef.current.contains(event.target)
+      !this.wrapperRef.current.contains(event.target as any)
     ) {
-      onBackdropClick && onBackdropClick();
+      if (onBackdropClick) onBackdropClick();
       if (closeOnBackdropClick) {
         this._closeModal();
       }
     }
   };
 
-  _closeModal = () => {
+  _closeModal = (): void => {
     const { onClose } = this.props;
-    onClose && onClose();
+    if (onClose) onClose();
   };
 }

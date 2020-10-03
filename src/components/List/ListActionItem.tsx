@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 export interface ListActionItemProps {
   title: string;
   onClick: () => void;
@@ -6,7 +6,7 @@ export interface ListActionItemProps {
 }
 
 export class ListActionItem extends React.Component<ListActionItemProps> {
-  public render() {
+  public render(): React.ReactElement {
     const { title, onClick } = this.props;
     return (
       <li className="dui-list-item dui-list-center">

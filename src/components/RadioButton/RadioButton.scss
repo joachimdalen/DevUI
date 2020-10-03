@@ -1,56 +1,52 @@
-@import "./RadioButton.mixin.scss";
+@import './RadioButton.mixin.scss';
 .#{$provider-prefix}-radiobutton-container {
-  display: block;
   position: relative;
+  display: block;
   padding-left: $radiobutton-padding-left;
-  cursor: pointer;
-  font-size: $radiobutton-font-size;
-  user-select: none;
-  line-height: 1;
   margin: $radiobutton-margin;
+  font-size: $radiobutton-font-size;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
   input {
     position: absolute;
-    opacity: 0;
     cursor: pointer;
+    opacity: 0;
   }
   .#{$provider-prefix}-radiobutton-selected {
     position: absolute;
     top: 0;
     left: 0;
-    height: $radiobutton-selected-height;
-    width: $radiobutton-selected-width;
     box-sizing: border-box;
-    border-radius: $radiobutton-selected-border-radius;
+    width: $radiobutton-selected-width;
+    height: $radiobutton-selected-height;
     background-color: $radiobutton-selected-background;
+    border-radius: $radiobutton-selected-border-radius;
   }
   &:hover {
     .#{$provider-prefix}-radiobutton-selected {
       background-color: $radiobutton-selected-hover-background;
     }
   }
+  .#{$provider-prefix}-radiobutton-selected:after {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    display: none;
+    width: 7px;
+    height: 7px;
+    content: '';
+    background: $radiobutton-mark-color;
+    border-radius: 50%;
+  }
   input:checked ~ .#{$provider-prefix}-radiobutton-selected {
     background-color: $color-disabled;
-  }
-  .#{$provider-prefix}-radiobutton-selected:after {
-    content: "";
-    position: absolute;
-    display: none;
   }
   input:checked ~ .#{$provider-prefix}-radiobutton-selected:after {
     display: block;
   }
-  .#{$provider-prefix}-radiobutton-selected:after {
-    left: 4px;
-    top: 4px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: $radiobutton-mark-color;
-  }
+
   @each $color, $value in $theme-colors {
-    @include radiobutton-variant(
-      ".#{$provider-prefix}-radiobutton-#{$color}",
-      $value
-    );
+    @include radiobutton-variant('.#{$provider-prefix}-radiobutton-#{$color}', $value);
   }
 }

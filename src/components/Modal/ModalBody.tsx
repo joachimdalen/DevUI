@@ -1,15 +1,15 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 export interface ModalBodyProps {
   className?: string;
 }
 export class ModalBody extends React.Component<ModalBodyProps> {
   static defaultProps: Partial<ModalBodyProps> = {
-    className: ""
+    className: ''
   };
 
-  render() {
+  render(): React.ReactElement {
     const { className, children } = this.props;
-    return <div className={cx("dui-modal-body", className)}>{children}</div>;
+    return <div className={cx('dui-modal-body', className)}>{children}</div>;
   }
 }

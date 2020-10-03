@@ -1,8 +1,9 @@
-import * as React from "react";
-import cx from "classnames";
-import { Badge, BadgeProps } from "../Badge/Badge";
-import { TextInput } from "../TextInput/TextInput";
-import { Omit } from "../common";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { Badge, BadgeProps } from '../Badge/Badge';
+import { Omit } from '../common';
+import { TextInput } from '../TextInput/TextInput';
 
 export interface Tag {
   value: string;
@@ -16,19 +17,20 @@ interface State {
 export interface TagInputProps {
   initialTags?: Tag[];
   onChange?: (tags: Tag[]) => void;
-  badgeProps?: Omit<BadgeProps, "label" | "onDismiss">;
+  badgeProps?: Omit<BadgeProps, 'label' | 'onDismiss'>;
 }
 
 export class TagInput extends React.Component<TagInputProps, State> {
   state = {
     tags: this.props.initialTags || ([] as Tag[]),
-    value: "",
+    value: ''
   };
 
-  render() {
+  render(): React.ReactElement {
     const badges = this.state.tags.map((t: Tag) => {
       return (
         <Badge
+          key={t.value}
           label={t.value}
           onDismiss={t.removeable ? () => this._removeTag(t) : undefined}
           {...this.props.badgeProps}
@@ -42,40 +44,36 @@ export class TagInput extends React.Component<TagInputProps, State> {
         value={this.state.value}
         name="tags"
         placeholder="..."
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-          this._handleChange(event)
-        }
-        onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) =>
-          this._handleKeyPress(event)
-        }
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => this._handleChange(event)}
+        onKeyPress={(event: React.KeyboardEvent<HTMLInputElement>) => this._handleKeyPress(event)}
         small
       />
     );
 
     return (
-      <div className={cx("dui-tag-input")}>
+      <div className={cx('dui-tag-input')}>
         <div className="dui-tag-input-tags">{badges}</div>
         <div className="dui-tag-input-type">{input}</div>
       </div>
     );
   }
 
-  _handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
-    if (event.charCode !== 44 && event.charCode !== 13) return;
-    if (this.state.value !== "") {
+  _handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>): boolean {
+    if (event.key.charCodeAt(0) !== 44 && event.key.charCodeAt(0) !== 13) return false;
+    if (this.state.value !== '') {
       this._addTag();
       event.preventDefault();
       return false;
     }
     return true;
   }
-  _handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  _handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     this.setState({ value: e.target.value });
   }
-  _removeTag(tag: Tag) {
+  _removeTag(tag: Tag): void {
     const { tags } = this.state;
     const index = tags.indexOf(tag);
-    var arrCpy = [...this.state.tags];
+    const arrCpy = [...this.state.tags];
     if (index !== -1) {
       arrCpy.splice(index, 1);
       this.setState({ tags: arrCpy }, () => {
@@ -83,27 +81,27 @@ export class TagInput extends React.Component<TagInputProps, State> {
       });
     }
   }
-  _addTag() {
-    let tags = this.state.tags;
-    const val = this.state.value || "";
+  _addTag(): void {
+    const tags = this.state.tags;
+    const val = this.state.value || '';
     const index = this.state.tags.findIndex((t: Tag) => t.value === val);
 
     if (index === -1) {
       const tag: Tag = {
         value: val,
-        removeable: true,
+        removeable: true
       };
       tags.push(tag);
-      this.setState({ tags: tags, value: "" }, () => {
+      this.setState({ tags: tags, value: '' }, () => {
         this._triggerChange();
       });
     } else {
-      this.setState({ value: "" });
+      this.setState({ value: '' });
     }
   }
-  _triggerChange() {
+  _triggerChange(): void {
     const { tags } = this.state;
     const { onChange } = this.props;
-    onChange && onChange(tags);
+    if (onChange) onChange(tags);
   }
 }

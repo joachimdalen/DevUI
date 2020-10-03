@@ -1,9 +1,10 @@
-import { SelectOption } from "./SelectOption";
-import { Empty } from "../Empty/Empty";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import cx from "classnames";
-import * as React from "react";
-import { isUndefined } from "util";
+import cx from 'classnames';
+import * as React from 'react';
+import { isUndefined } from 'util';
+
+import { Empty } from '../Empty/Empty';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { SelectOption } from './SelectOption';
 
 export interface SelectProps {
   label: string;
@@ -27,56 +28,44 @@ export class Select extends React.Component<SelectProps, State> {
   _wrapperRef: any = React.createRef();
   state = {
     expanded: false,
-    selectedItem: this.props.defaultValue || undefined,
+    selectedItem: this.props.defaultValue || undefined
   };
 
-  public componentDidUpdate(prevProps: SelectProps) {
+  public componentDidUpdate(prevProps: SelectProps): void {
     if (prevProps.defaultValue !== this.props.defaultValue) {
       this.setState({
-        selectedItem: this.props.defaultValue || undefined,
+        selectedItem: this.props.defaultValue || undefined
       });
     }
   }
 
-  public componentDidMount() {
-    document.addEventListener("mousedown", (e: MouseEvent) =>
-      this._handleClickOutside(e)
-    );
+  public componentDidMount(): void {
+    document.addEventListener('mousedown', (e: MouseEvent) => this._handleClickOutside(e));
   }
-  public componentWillUnmount() {
-    document.removeEventListener("mousedown", (e: MouseEvent) =>
-      this._handleClickOutside(e)
-    );
+  public componentWillUnmount(): void {
+    document.removeEventListener('mousedown', (e: MouseEvent) => this._handleClickOutside(e));
   }
-  clearVal = () => {
+  clearVal = (): void => {
     this.props.onChange({} as SelectOption);
   };
-  public render() {
+  public render(): React.ReactElement {
     const { expanded, selectedItem } = this.state;
     const { disabled, loading, className } = this.props;
-    const containerClass = cx(
-      "dui-select",
-      { disabled: disabled || loading },
-      className
-    );
-    const infoClass = cx("dui-select-info");
-    const previewClass = cx("dui-select-preview", {
-      "dui-select-placeholder": isUndefined(selectedItem),
+    const containerClass = cx('dui-select', { disabled: disabled || loading }, className);
+    const infoClass = cx('dui-select-info');
+    const previewClass = cx('dui-select-preview', {
+      'dui-select-placeholder': isUndefined(selectedItem)
     });
-    const caretContainerClass = cx("dui-select-caret-container", {
-      "dui-select-placeholder": isUndefined(selectedItem),
+    const caretContainerClass = cx('dui-select-caret-container', {
+      'dui-select-placeholder': isUndefined(selectedItem)
     });
-    const optionsClass = cx("dui-select-options");
-    const optionsListClass = cx("dui-select-options-list");
-    const caretDirectionIcon = expanded ? "fa-angle-up" : "fa-angle-down";
-    const caretIcon = loading ? "fa-spinner" : caretDirectionIcon;
-    const caretIconClass = cx({ "dui-select-loading": loading });
+    const optionsClass = cx('dui-select-options');
+    const optionsListClass = cx('dui-select-options-list');
+    const caretDirectionIcon = expanded ? 'fa-angle-up' : 'fa-angle-down';
+    const caretIcon = loading ? 'fa-spinner' : caretDirectionIcon;
+    const caretIconClass = cx({ 'dui-select-loading': loading });
     return (
-      <div
-        className={containerClass}
-        role="select"
-        ref={(node) => (this._wrapperRef = node)}
-      >
+      <div className={containerClass} role="select" ref={node => (this._wrapperRef = node)}>
         <div className={infoClass} onClick={() => this._toggle()}>
           <div className={previewClass}>{this._getPreviewLabel()}</div>
           <span className={caretContainerClass}>
@@ -98,7 +87,7 @@ export class Select extends React.Component<SelectProps, State> {
     );
   }
 
-  _renderOptions() {
+  _renderOptions(): React.ReactNode {
     const { options, emptyPlaceholder, renderer, optionClassName } = this.props;
     if (!options || (!options.length && emptyPlaceholder)) {
       return (
@@ -113,7 +102,7 @@ export class Select extends React.Component<SelectProps, State> {
     return options.map((option: SelectOption) => {
       return (
         <div
-          className={cx("dui-select-option", optionClassName)}
+          className={cx('dui-select-option', optionClassName)}
           role="option"
           key={option.value}
           onClick={() => this._selectOption(option)}
@@ -123,40 +112,36 @@ export class Select extends React.Component<SelectProps, State> {
       );
     });
   }
-  _renderChildOptions() {
+  _renderChildOptions(): React.ReactNode {
     const { children } = this.props;
     return children;
   }
-  _handleClickOutside(event: MouseEvent) {
+  _handleClickOutside(event: MouseEvent): void {
     const { keepOpenOnLostFocus } = this.props;
-    if (
-      this._wrapperRef &&
-      !this._wrapperRef.contains(event.target) &&
-      !keepOpenOnLostFocus
-    ) {
+    if (this._wrapperRef && !this._wrapperRef.contains(event.target) && !keepOpenOnLostFocus) {
       this.setState({ expanded: false });
     }
   }
-  _toggle() {
+  _toggle(): void {
     const { disabled, loading } = this.props;
     if (disabled || loading) return;
 
     const { expanded } = this.state;
     this.setState({ expanded: !expanded });
   }
-  _selectOption(option: SelectOption) {
+  _selectOption(option: SelectOption): void {
     const { onChange } = this.props;
     this.setState({ expanded: false, selectedItem: option }, () => {
-      onChange && onChange(option);
+      if (onChange) onChange(option);
     });
   }
-  _getPreviewLabel() {
+  _getPreviewLabel(): React.ReactElement<SelectOption> | string {
     const { label, previewRenderer } = this.props;
     const { selectedItem } = this.state;
-    if (isUndefined(selectedItem)) {
+    if (selectedItem === undefined) {
       return label;
     }
-    if (!isUndefined(previewRenderer)) {
+    if (previewRenderer !== undefined) {
       return previewRenderer(selectedItem);
     }
     return selectedItem.label;

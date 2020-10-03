@@ -1,25 +1,25 @@
 .#{$provider-prefix}-select {
-  color: $select-color;
-  border-radius: $select-border-radius;
+  position: relative;
   width: 100%;
-  font-size: $select-font-size;
+  min-width: $select-min-width;
   height: $select-height;
+  font-size: $select-font-size;
+  line-height: 1.5;
+  color: $select-color;
   background-color: $select-background;
   background-clip: padding-box;
+  border-radius: $select-border-radius;
   transition: all 0.3s;
-  line-height: 1.5;
-  min-width: $select-min-width;
-  position: relative;
   &-preview {
-    white-space: nowrap;
     align-self: center;
+    white-space: nowrap;
   }
   &-placeholder {
     color: $select-placeholder-color;
   }
   &.disabled {
-    background-color: $select-disabled-background;
     color: $select-disabled-color;
+    background-color: $select-disabled-background;
   }
   &:hover:not(.disabled) {
     cursor: pointer;
@@ -28,15 +28,15 @@
     position: relative;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    height: 100%;
     padding: $select-info-padding;
     padding-right: 20px;
-    height: 100%;
-    width: 100%;
   }
   &-caret-container {
     position: absolute;
-    right: 10px;
     top: 0;
+    right: 10px;
     bottom: 0;
     display: inline-flex;
     align-items: center;
@@ -45,21 +45,21 @@
     color: $select-loading-color;
   }
   &-options {
-    background-color: $color-light;
-    width: 100%;
-    z-index: 1;
     position: absolute;
     top: $input-height-normal;
-    border-bottom-left-radius: $select-border-radius;
+    z-index: 1;
+    width: 100%;
+    background-color: $color-light;
     border-bottom-right-radius: $select-border-radius;
+    border-bottom-left-radius: $select-border-radius;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0.8rem 1rem -0.2rem;
     &.visible {
       display: block;
     }
     &-list {
+      position: relative;
       max-height: $select-options-max-height;
       overflow-y: auto;
-      position: relative;
       .#{$provider-prefix}-empty {
         width: auto;
       }
@@ -69,9 +69,9 @@
     padding: $select-option-padding;
     white-space: nowrap;
     &:hover {
-      background-color: $select-option-hover-background;
       color: $select-option-hover-color;
       cursor: pointer;
+      background-color: $select-option-hover-background;
       @extend %background-ease;
     }
   }

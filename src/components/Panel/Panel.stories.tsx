@@ -1,5 +1,6 @@
-import * as React from "react";
-import { storiesOf } from "@storybook/react";
-import { Panel } from "./Panel";
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
 
-storiesOf("WIP|Panel", module).add("Default", () => <Panel>Hello</Panel>);
+import { Panel } from './Panel';
+
+storiesOf('WIP|Panel', module).add('Default', () => <Panel>Hello</Panel>);

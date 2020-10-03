@@ -1,15 +1,15 @@
 .#{$provider-prefix}-avatar {
   &-medium {
-    height: $avatar-normal-size;
     width: $avatar-normal-size;
+    height: $avatar-normal-size;
   }
   &-small {
     width: $avatar-small-size;
     height: $avatar-small-size;
   }
   &-large {
-    height: $avatar-large-size;
     width: $avatar-large-size;
+    height: $avatar-large-size;
   }
   &-rounded {
     border-radius: $avatar-rounded-radius;

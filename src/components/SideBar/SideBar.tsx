@@ -1,10 +1,10 @@
-import * as React from "react";
-import cx from "classnames";
-import { SideBarMenu } from "./SideBarMenu";
-import { SideBarAddon } from "./SideBarAddon";
-interface IState {}
+import cx from 'classnames';
+import * as React from 'react';
 
-export type SideBarAddonLocation = "top" | "bottom";
+import { SideBarAddon } from './SideBarAddon';
+import { SideBarMenu } from './SideBarMenu';
+
+export type SideBarAddonLocation = 'top' | 'bottom';
 export interface SideBarProps {
   className?: string;
   compact?: boolean;
@@ -14,33 +14,26 @@ export interface SideBarProps {
   addonLocation?: SideBarAddonLocation;
 }
 
-export class SideBar extends React.Component<SideBarProps, IState> {
+export class SideBar extends React.Component<SideBarProps> {
   static defaultProps: Partial<SideBarProps> = {
     compact: false,
     animate: false
   };
-  render() {
-    const {
-      className,
-      compact,
-      animate,
-      showCompactLabels,
-      addon,
-      addonLocation
-    } = this.props;
+  render(): React.ReactElement {
+    const { className, compact, animate, showCompactLabels, addon, addonLocation } = this.props;
     const sidebarClass = cx(
-      "dui-sidebar",
+      'dui-sidebar',
       className,
-      { "dui-sidebar-compact": compact },
-      { "dui-sidebar-animate": animate && !compact },
-      { "dui-sidebar-compact-labels": compact && showCompactLabels }
+      { 'dui-sidebar-compact': compact },
+      { 'dui-sidebar-animate': animate && !compact },
+      { 'dui-sidebar-compact-labels': compact && showCompactLabels }
     );
     const shouldShowAddon = compact === false && React.isValidElement(addon);
     return (
       <div className={sidebarClass}>
-        {shouldShowAddon && addonLocation === "top" && addon}
+        {shouldShowAddon && addonLocation === 'top' && addon}
         <SideBarMenu>{this.props.children}</SideBarMenu>
-        {shouldShowAddon && addonLocation === "bottom" && addon}
+        {shouldShowAddon && addonLocation === 'bottom' && addon}
       </div>
     );
   }

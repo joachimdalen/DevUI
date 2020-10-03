@@ -1,6 +1,7 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export interface AccordionProps {
   title: string | React.ReactNode;
@@ -17,20 +18,16 @@ interface AccordionState {
 
 export class Accordion extends React.Component<AccordionProps, AccordionState> {
   state = {
-    expanded: this.props.expanded || false,
+    expanded: this.props.expanded || false
   };
-  componentDidUpdate(
-    prevProps: AccordionProps,
-    prevState: AccordionState,
-    snapshot: any
-  ) {
+  componentDidUpdate(prevProps: AccordionProps): void {
     if (prevProps !== this.props) {
       this.setState({
-        expanded: this.props.expanded || false,
+        expanded: this.props.expanded || false
       });
     }
   }
-  public render() {
+  public render(): React.ReactElement {
     const {
       children,
       title,
@@ -38,24 +35,18 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
       collapseIcon,
       borderless,
       onToggle,
-      className,
+      className
     } = this.props;
     const { expanded } = this.state;
-    const caretIcon = (
-      <FontAwesomeIcon iconStyle="solid" icon={"fa-caret-down"} />
-    );
-    const expandComp = React.isValidElement(expandIcon)
-      ? expandIcon
-      : caretIcon;
-    const collapseComp = React.isValidElement(collapseIcon)
-      ? collapseIcon
-      : caretIcon;
+    const caretIcon = <FontAwesomeIcon iconStyle="solid" icon={'fa-caret-down'} />;
+    const expandComp = React.isValidElement(expandIcon) ? expandIcon : caretIcon;
+    const collapseComp = React.isValidElement(collapseIcon) ? collapseIcon : caretIcon;
     return (
       <div
         className={cx(
-          "dui-accordion",
-          { "dui-accordion-expanded": expanded },
-          { "dui-accordion-borderless": borderless },
+          'dui-accordion',
+          { 'dui-accordion-expanded': expanded },
+          { 'dui-accordion-borderless': borderless },
           className
         )}
       >
@@ -63,7 +54,7 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
           className="dui-accordion-header"
           onClick={() =>
             this.setState({ expanded: !expanded }, () => {
-              onToggle && onToggle(this.state.expanded);
+              if (onToggle) onToggle(this.state.expanded);
             })
           }
         >
@@ -74,9 +65,9 @@ export class Accordion extends React.Component<AccordionProps, AccordionState> {
         </div>
         <div
           className={cx(
-            { "dui-show": expanded },
-            { "dui-hide": !expanded },
-            "dui-accordion-content"
+            { 'dui-show': expanded },
+            { 'dui-hide': !expanded },
+            'dui-accordion-content'
           )}
         >
           {children}

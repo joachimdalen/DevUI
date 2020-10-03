@@ -1,22 +1,22 @@
-@import "./Badge.mixin.scss";
+@import './Badge.mixin.scss';
 
 .#{$provider-prefix}-badge-wrapper {
   @extend %badge-base;
   .#{$provider-prefix}-badge-dismissible {
-    align-items: center;
-    border-radius: $badge-dismiss-border-radius;
     display: flex;
+    align-items: center;
     padding: $badge-dismiss-padding;
     font-size: $badge-font-size;
+    border-radius: $badge-dismiss-border-radius;
     &:hover {
+      cursor: pointer;
       background-color: $badge-dismiss-hover-background;
       @extend %background-ease;
-      cursor: pointer;
     }
   }
   .#{$provider-prefix}-badge {
-    overflow: hidden;
     margin: 0;
+    overflow: hidden;
     border: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -26,13 +26,13 @@
 .#{$provider-prefix}-badge {
   @extend %badge-base;
   padding: $badge-padding;
-  font-weight: $badge-font-weight;
-  border-radius: $badge-border-radius;
-  color: $color-dark;
   font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
   line-height: 18px;
+  color: $color-dark;
+  border-radius: $badge-border-radius;
   @each $color, $value in $theme-colors {
-    @include badge-variant("-#{$color}", $value);
+    @include badge-variant('-#{$color}', $value);
   }
   &-icon {
     align-self: center;

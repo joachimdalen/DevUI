@@ -4,30 +4,30 @@
   .#{$provider-prefix}-overflow-menu {
     &-content {
       position: absolute;
-      white-space: nowrap;
       padding: $overflow-menu-padding;
-      border: $overflow-menu-border-width solid $overflow-menu-border-color;
-      background-color: $select-background;
       margin-left: 2px;
+      white-space: nowrap;
+      background-color: $select-background;
+      border: $overflow-menu-border-width solid $overflow-menu-border-color;
     }
 
     &-items {
-      width: 100%;
-      z-index: 1;
       position: relative;
+      z-index: 1;
+      width: 100%;
       border-radius: 5px;
     }
 
     &-item {
       padding: $overflow-menu-item-padding;
-      border-radius: $overflow-menu-item-border-radius;
-      background-color: $overflow-menu-item-background;
       color: $overflow-menu-item-color;
+      background-color: $overflow-menu-item-background;
+      border-radius: $overflow-menu-item-border-radius;
 
       &:hover {
-        background-color: $overflow-menu-item-hover-background;
         color: $overflow-menu-item-hover-color;
         cursor: pointer;
+        background-color: $overflow-menu-item-hover-background;
       }
     }
   }
@@ -40,14 +40,14 @@
   }
   &-top-left {
     .#{$provider-prefix}-overflow-menu-content {
-      bottom: $overflow-menu-skip;
       right: 3px;
+      bottom: $overflow-menu-skip;
     }
   }
   &-top-right {
     .#{$provider-prefix}-overflow-menu-content {
-      left: 0;
       bottom: $overflow-menu-skip;
+      left: 0;
     }
   }
 }

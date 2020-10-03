@@ -1,9 +1,9 @@
-import { CheckBox, CheckBoxIndicatorLocation } from "../CheckBox/CheckBox";
-import { Empty } from "../Empty/Empty";
-import cx from "classnames";
-import * as React from "react";
-import { isString } from "util";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { CheckBox, CheckBoxIndicatorLocation } from '../CheckBox/CheckBox';
+import { Empty } from '../Empty/Empty';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export interface CheckBoxListProps {
   items: ICheckBoxItem[];
@@ -31,24 +31,17 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     checked: []
   };
 
-  componentDidMount() {
+  componentDidMount(): void {
     this._setDefaultItems();
   }
 
-  public render() {
-    const {
-      items,
-      showCheckAll,
-      showCheckCount,
-      indicatorLocation,
-      checkboxVariant
-    } = this.props;
+  public render(): React.ReactElement {
+    const { items, showCheckAll, showCheckCount, indicatorLocation, checkboxVariant } = this.props;
     const { checked } = this.state;
-    const isIndeterminate =
-      checked.length !== 0 && !(items.length === checked.length);
+    const isIndeterminate = checked.length !== 0 && items.length !== checked.length;
     const isAllChecked = items.length !== 0 && items.length === checked.length;
     return (
-      <div className={cx("dui-checkbox-list")}>
+      <div className={cx('dui-checkbox-list')}>
         {(showCheckCount || showCheckAll) && (
           <div className="dui-checkbox-list-header">
             {showCheckAll && (
@@ -73,8 +66,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
           <ul className="dui-checkbox-list-items">
             {items &&
               items.map((item: ICheckBoxItem) => {
-                const isChecked =
-                  checked.findIndex(i => i.key === item.key) !== -1;
+                const isChecked = checked.findIndex(i => i.key === item.key) !== -1;
                 return (
                   <li className="dui-checkbox-list-item" key={item.label}>
                     <CheckBox
@@ -91,12 +83,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
           </ul>
         ) : (
           <Empty
-            image={
-              <FontAwesomeIcon
-                icon="fa-minus"
-                iconStyle="solid"
-              ></FontAwesomeIcon>
-            }
+            image={<FontAwesomeIcon icon="fa-minus" iconStyle="solid"></FontAwesomeIcon>}
             header="No items"
           />
         )}
@@ -107,19 +94,17 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
   private _toggleItem(item: ICheckBoxItem) {
     const { onCheckChange } = this.props;
     const { checked } = this.state;
-    const checkIndex = checked.findIndex(
-      (i: ICheckBoxItem) => i.key === item.key
-    );
-    var arrCpy = [...this.state.checked];
+    const checkIndex = checked.findIndex((i: ICheckBoxItem) => i.key === item.key);
+    const arrCpy = [...this.state.checked];
     if (checkIndex !== -1) {
       arrCpy.splice(checkIndex, 1);
       this.setState({ checked: arrCpy }, () => {
-        onCheckChange && onCheckChange(this.state.checked);
+        if (onCheckChange) onCheckChange(this.state.checked);
       });
     } else {
       const newItems = [...this.state.checked, item];
       this.setState({ checked: newItems }, () => {
-        onCheckChange && onCheckChange(newItems);
+        if (onCheckChange) onCheckChange(newItems);
       });
     }
   }
@@ -129,11 +114,11 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     const { checked } = this.state;
     if (items.length !== checked.length) {
       this.setState({ checked: items }, () => {
-        onCheckChange && onCheckChange(this.state.checked);
+        if (onCheckChange) onCheckChange(this.state.checked);
       });
     } else {
       this.setState({ checked: [] }, () => {
-        onCheckChange && onCheckChange(this.state.checked);
+        if (onCheckChange) onCheckChange(this.state.checked);
       });
     }
   }
@@ -146,7 +131,7 @@ export class CheckBoxList extends React.Component<CheckBoxListProps, State> {
     const checkedItems: ICheckBoxItem[] = [];
     for (let i = 0; i < defaultChecked.length; i++) {
       const rawItem = defaultChecked[i];
-      if (isString(rawItem)) {
+      if (rawItem === 'string') {
         const item = this._findItem(rawItem);
         if (item) {
           checkedItems.push(item);

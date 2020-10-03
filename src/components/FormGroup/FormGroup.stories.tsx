@@ -1,18 +1,15 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import {
-  FormGroup,
-  FormGroupRequiredType,
-  FormGroupExtraType,
-} from './FormGroup';
-import { TextInput } from '../TextInput/TextInput';
-import { Select } from '../Select/Select';
 import { action } from '@storybook/addon-actions';
-import { Button } from '../Button/Button';
 import { boolean, select, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
-import { TextArea } from '../TextArea/TextArea';
+import { Select } from '../Select/Select';
 import { TagInput } from '../TagInput/TagInput';
+import { TextArea } from '../TextArea/TextArea';
+import { TextInput } from '../TextInput/TextInput';
+import { FormGroup, FormGroupExtraType, FormGroupRequiredType } from './FormGroup';
 
 storiesOf('Components|FormGroup', module)
   .add('Default', () => (
@@ -24,13 +21,7 @@ storiesOf('Components|FormGroup', module)
     <FormGroup
       label="Username"
       required={boolean('required', true)}
-      requiredType={
-        select(
-          'Required Type',
-          ['icon', 'text'],
-          'icon',
-        ) as FormGroupRequiredType
-      }
+      requiredType={select('Required Type', ['icon', 'text'], 'icon') as FormGroupRequiredType}
     >
       <TextInput value="devexer" onChange={action('onChange')} fillWidth />
     </FormGroup>
@@ -42,12 +33,7 @@ storiesOf('Components|FormGroup', module)
       extra={text('Extra', 'This is the username you used when signing up')}
     >
       <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-      <Button
-        iconOnly
-        icon="fas fa-save"
-        variant="success"
-        onClick={action('onClick')}
-      />
+      <Button iconOnly icon="fas fa-save" variant="success" onClick={action('onClick')} />
     </FormGroup>
   ))
   .add('Inline label', () => (
@@ -57,12 +43,7 @@ storiesOf('Components|FormGroup', module)
       inlineLabel={boolean('Inline Label', true)}
     >
       <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-      <Button
-        icon="fas fa-save"
-        variant="success"
-        iconOnly
-        onClick={action('onClick')}
-      />
+      <Button icon="fas fa-save" variant="success" iconOnly onClick={action('onClick')} />
     </FormGroup>
   ))
   .add('Extra', () => (
@@ -73,7 +54,7 @@ storiesOf('Components|FormGroup', module)
         select(
           'ExtraType',
           ['success', 'normal', 'danger', 'warning'],
-          'normal',
+          'normal'
         ) as FormGroupExtraType
       }
     >
@@ -88,7 +69,7 @@ storiesOf('Components|FormGroup', module)
         select(
           'ExtraType',
           ['success', 'normal', 'danger', 'warning'],
-          'normal',
+          'normal'
         ) as FormGroupExtraType
       }
       maxLength={100}
@@ -103,14 +84,14 @@ storiesOf('Components|FormGroup', module)
         <FormGroup
           label="Username"
           error={{ code: 400, message: 'Username is already taken' }}
-          errorAccessor={(error) => error.message}
+          errorAccessor={error => error.message}
         >
           <TextInput value="devexer" onChange={action('onChange')} fillWidth />
         </FormGroup>
         <FormGroup
           label="Age"
           error={{ message: 'Please select your age' }}
-          errorAccessor={(error) => error.message}
+          errorAccessor={error => error.message}
         >
           <Select onChange={action('selectChange')} label="Age" />
         </FormGroup>
@@ -118,14 +99,14 @@ storiesOf('Components|FormGroup', module)
       <FormGroup
         label="Message"
         error={{ message: 'Please write your message' }}
-        errorAccessor={(error) => error.message}
+        errorAccessor={error => error.message}
       >
         <TextArea onChange={action('textArea')} />
       </FormGroup>
       <FormGroup
         label="Tags"
         error={{ message: 'Please select the relevant tags' }}
-        errorAccessor={(error) => error.message}
+        errorAccessor={error => error.message}
       >
         <TagInput onChange={action('textArea')} />
       </FormGroup>
@@ -134,7 +115,7 @@ storiesOf('Components|FormGroup', module)
   .add('With Notice', () => (
     <FormGroup
       label="Username"
-      errorAccessor={(error) => error.message}
+      errorAccessor={error => error.message}
       notice="This username is what you will be recognized as by other users throughout the app"
     >
       <TextInput value="devexer" onChange={action('onChange')} fillWidth />

@@ -12,10 +12,8 @@
 
     &-details {
       display: inline-flex;
-      min-height: 20px;
       align-items: center;
-
-      span {}
+      min-height: 20px;
     }
 
     &-icons {
@@ -30,14 +28,14 @@
     }
 
     &-label {
-      padding: 5px 2px;
       box-sizing: border-box;
+      padding: 5px 2px;
       border: 1px solid transparent;
 
       &:hover {
+        cursor: pointer;
         background-color: rgba(red, 0.1);
         border: 1px dotted rgba(red, 0.2);
-        cursor: pointer;
       }
     }
 

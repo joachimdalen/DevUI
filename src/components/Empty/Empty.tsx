@@ -1,5 +1,5 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 export interface EmptyProps {
   header: string;
   description?: string | React.ReactNode;
@@ -10,7 +10,7 @@ export interface EmptyProps {
 }
 
 export class Empty extends React.Component<EmptyProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
       image,
       description,
@@ -21,7 +21,7 @@ export class Empty extends React.Component<EmptyProps> {
     } = this.props;
 
     return (
-      <div className={cx("dui-empty")}>
+      <div className={cx('dui-empty')}>
         <div className="dui-empty-image">
           {React.isValidElement(image) ? (
             image

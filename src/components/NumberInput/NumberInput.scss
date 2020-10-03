@@ -2,46 +2,46 @@
   position: relative;
   height: $text-input-height;
   input {
-    font-size: $text-input-font-size;
+    display: block;
+    float: left;
     min-width: 60px;
+    padding: $text-input-padding;
+    padding-left: 20px;
+    margin: 0;
+    font-size: $text-input-font-size;
     //height: 42px;
     line-height: 1.65;
-    float: left;
-    display: block;
-    padding: $text-input-padding;
-    margin: 0;
-    padding-left: 20px;
     border: 1px solid $color-border;
     -moz-appearance: textfield;
     &:focus {
       outline: none;
     }
   }
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
   &-buttons {
-    float: left;
     position: relative;
+    float: left;
     height: $text-input-height;
   }
   &-button {
     position: relative;
-    cursor: pointer;
-    border-left: 1px solid $color-border;
     width: 20px;
-    text-align: center;
-    color: #333;
     font-size: 10px;
     line-height: 1.9;
-    transform: translateX(-100%);
+    color: #333;
+    text-align: center;
+    cursor: pointer;
     user-select: none;
+    border-left: 1px solid $color-border;
+    transform: translateX(-100%);
     &-increase {
       position: absolute;
-      height: 50%;
       top: 0;
+      height: 50%;
       border-bottom: 1px solid $color-border;
     }
     &-decrease {

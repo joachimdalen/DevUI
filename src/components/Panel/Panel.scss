@@ -3,13 +3,12 @@
   border: 1px solid $color-border;
 
   &-header {
-    width: 100%;
-    border-bottom: 1px solid $color-border;
-    padding: 5px 10px;
-
     display: flex;
     flex-direction: row;
     align-items: center;
+    width: 100%;
+    padding: 5px 10px;
+    border-bottom: 1px solid $color-border;
     .dui-panel-title {
       font-weight: bold;
     }

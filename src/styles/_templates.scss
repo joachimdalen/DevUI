@@ -2,27 +2,27 @@
   transition: background-color 0.3s ease;
 }
 %badge-base {
-  background-color: $badge-default-background;
-  border-radius: $badge-border-radius;
   display: inline-flex;
-  margin: $badge-margin;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   min-width: 20px;
   max-width: 100%;
   min-height: 20px;
+  margin: $badge-margin;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-color: $badge-default-background;
+  border-radius: $badge-border-radius;
 }
 %input-base {
-  color: $color-text-gray;
-  border-radius: $border-raidus;
   display: block;
-  padding: $input-padding-normal;
-  font-size: $input-font-size-normal;
   height: $input-height-normal;
+  padding: $input-padding-normal;
+  margin: 1px;
+  font-size: $input-font-size-normal;
+  line-height: 1.5;
+  color: $color-text-gray;
   background-color: $color-light;
   background-clip: padding-box;
   border: 1px solid $color-border;
+  border-radius: $border-raidus;
   transition: border-color 0.15s ease-in-out;
-  margin: 1px;
-  line-height: 1.5;
 }

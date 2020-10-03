@@ -1,9 +1,10 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { CustomComponent, GenericSizes } from "../common";
+import cx from 'classnames';
+import * as React from 'react';
 
-export type ButtonFormat = "default" | "block";
+import { CustomComponent, GenericSizes } from '../common';
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+
+export type ButtonFormat = 'default' | 'block';
 export type ButtonSize = GenericSizes;
 export interface ButtonProps extends CustomComponent {
   label?: string;
@@ -25,16 +26,16 @@ export interface ButtonProps extends CustomComponent {
 
 export class Button extends React.Component<ButtonProps> {
   static defaultProps: Partial<ButtonProps> = {
-    format: "default",
+    format: 'default',
     disabled: false,
-    variant: "primary",
-    size: "medium",
+    variant: 'primary',
+    size: 'medium',
     outlined: false,
     loading: false,
     fixedIconSize: false,
-    iconOnly: false,
+    iconOnly: false
   };
-  public render() {
+  public render(): React.ReactElement {
     const {
       label,
       format,
@@ -55,21 +56,13 @@ export class Button extends React.Component<ButtonProps> {
       ...rest
     } = this.props;
 
-    const buttonText = loading ? loadingText || "Loading" : label;
-    const isDefaultFormat = format === "default";
-    const loadingIconClass = loadingIcon ? loadingIcon : "fa-spinner";
-    const baseButtonClass = "dui-button";
-    const hasButtonText = !(
-      label === undefined ||
-      label === null ||
-      label === ""
-    );
-    const isDefaultSize = size === "medium";
-    const buttonSizeClass = isDefaultSize
-      ? ""
-      : size === "small"
-      ? "small"
-      : "large";
+    const buttonText = loading ? loadingText || 'Loading' : label;
+    const isDefaultFormat = format === 'default';
+    const loadingIconClass = loadingIcon ? loadingIcon : 'fa-spinner';
+    const baseButtonClass = 'dui-button';
+    const hasButtonText = !(label === undefined || label === null || label === '');
+    const isDefaultSize = size === 'medium';
+    const buttonSizeClass = isDefaultSize ? '' : size === 'small' ? 'small' : 'large';
     const buttonClass = cx(
       baseButtonClass,
       { disabled: disabled && !loading },
@@ -100,9 +93,7 @@ export class Button extends React.Component<ButtonProps> {
       <FontAwesomeIcon
         iconStyle="solid"
         icon={icon as string}
-        marginDirection={
-          hasButtonText && !iconOnly && !linkButton ? "right" : undefined
-        }
+        marginDirection={hasButtonText && !iconOnly && !linkButton ? 'right' : undefined}
         fixedWidth={iconOnly || fixedIconSize}
       />
     );
@@ -116,12 +107,7 @@ export class Button extends React.Component<ButtonProps> {
     if (component) {
       const Component = component;
       return (
-        <Component
-          className={buttonClass}
-          disabled={disabled}
-          {...componentProps}
-          {...rest}
-        >
+        <Component className={buttonClass} disabled={disabled} {...componentProps} {...rest}>
           {content}
         </Component>
       );

@@ -1,5 +1,5 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 export interface OverflowMenuItemProps {
   className?: string;
   onClick?: () => void;
@@ -10,12 +10,8 @@ export const OverflowMenuItem = ({
   children,
   onClick,
   ...rest
-}: OverflowMenuItemProps) => (
-  <div
-    className={cx("dui-overflow-menu-item", className)}
-    onClick={onClick}
-    {...rest}
-  >
+}: OverflowMenuItemProps): React.ReactElement => (
+  <div className={cx('dui-overflow-menu-item', className)} onClick={onClick} {...rest}>
     {children}
   </div>
 );

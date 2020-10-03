@@ -1,6 +1,7 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export interface ToastProps {
   className?: string;
@@ -14,11 +15,11 @@ export interface ToastProps {
 }
 
 export class Toast extends React.Component<ToastProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
-      className = "",
+      className = '',
       icon,
-      variant = "default",
+      variant = 'default',
       title,
       subtitle,
       time,
@@ -26,8 +27,8 @@ export class Toast extends React.Component<ToastProps> {
       onDismiss
     } = this.props;
     const containerClass = cx(
-      "dui-toast",
-      { "dui-toast-icon": icon },
+      'dui-toast',
+      { 'dui-toast-icon': icon },
       [`dui-toast-${variant}`],
       className
     );
@@ -40,16 +41,8 @@ export class Toast extends React.Component<ToastProps> {
           {time && <div className="dui-toast-time">{time}</div>}
         </div>
         {dismissible && onDismiss && (
-          <button
-            type="button"
-            className="dui-toast-close-button"
-            onClick={() => onDismiss()}
-          >
-            <FontAwesomeIcon
-              iconStyle="solid"
-              icon="fa-times"
-              className="dui-toast-close-icon"
-            />
+          <button type="button" className="dui-toast-close-button" onClick={() => onDismiss()}>
+            <FontAwesomeIcon iconStyle="solid" icon="fa-times" className="dui-toast-close-icon" />
           </button>
         )}
       </div>

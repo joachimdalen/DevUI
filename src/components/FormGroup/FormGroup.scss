@@ -1,10 +1,10 @@
 .#{$provider-prefix}-form-group {
   width: 100%;
   &-label {
-    font-weight: $form-group-label-font-weight;
-    font-size: $form-group-label-font-size;
-    margin-bottom: $form-group-label-margin-bottom;
     display: block;
+    margin-bottom: $form-group-label-margin-bottom;
+    font-size: $form-group-label-font-size;
+    font-weight: $form-group-label-font-weight;
     color: $form-group-label-color;
   }
   &-inline {
@@ -13,9 +13,9 @@
     align-items: center;
   }
   &-extra {
+    margin-top: $form-group-extra-margin-top;
     font-size: $form-group-extra-font-size;
     color: $form-group-extra-color;
-    margin-top: $form-group-extra-margin-top;
     &-success {
       color: $color-success;
     }
@@ -27,10 +27,10 @@
     }
   }
   &-counter {
-    font-size: $form-group-counter-font-size;
-    color: $form-group-counter-color;
     margin-top: $form-group-counter-margin-top;
     margin-left: 5px;
+    font-size: $form-group-counter-font-size;
+    color: $form-group-counter-color;
     &-error {
       color: $form-group-counter-error-color;
     }
@@ -44,11 +44,11 @@
     align-items: center;
   }
   &-notice {
-    margin: 5px 0;
     padding: 5px;
+    margin: 5px 0;
     font-size: $form-group-notice-font-size;
-    background-color: $form-group-notice-background;
     color: $form-group-notice-color;
+    background-color: $form-group-notice-background;
   }
   &-error {
     .#{$provider-prefix}-form-group-extra {
@@ -65,12 +65,12 @@
   .#{$provider-prefix}-input,
   .#{$provider-prefix}-textarea,
   .#{$provider-prefix}-tag-input {
-    margin: 0;
     width: 100%;
+    margin: 0;
   }
   &-required {
-    color: $color-danger;
     margin-left: 5px;
+    color: $color-danger;
     &-text {
       font-size: $form-group-required-font-size;
     }

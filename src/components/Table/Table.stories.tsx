@@ -1,51 +1,51 @@
-import * as React from "react";
-import { storiesOf } from "@storybook/react";
-import { Table } from "./Table";
-import { TableRow } from "./TableRow";
-import { TableCell } from "./TableCell";
-import { DataTable } from "./DataTable";
-import { boolean } from "@storybook/addon-knobs";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
-import { Column } from "./TableTypes";
-const values = require("../../../data/invoices.json");
+import { boolean } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { DataTable } from './DataTable';
+import { Table } from './Table';
+import { TableCell } from './TableCell';
+import { TableRow } from './TableRow';
+import { Column } from './TableTypes';
+
 const columnHeaders: Column[] = [
   {
-    key: "id",
-    label: "Invoice",
+    key: 'id',
+    label: 'Invoice',
     sortable: false,
     forceVisible: true
   },
   {
-    key: "created",
-    label: "Created",
+    key: 'created',
+    label: 'Created',
     sortable: true
   },
   {
-    key: "status",
-    label: "Status",
+    key: 'status',
+    label: 'Status',
     sortable: true,
     renderer: (item: any) => {
-      if (item.status === "Paid")
-        return <span className="dui-color-success">{item.status}</span>;
-      else if (item.status === "Pending")
+      if (item.status === 'Paid') return <span className="dui-color-success">{item.status}</span>;
+      else if (item.status === 'Pending')
         return <span className="dui-color-warning">{item.status}</span>;
       else return <span className="dui-color-danger">{item.status}</span>;
     }
   },
   {
-    key: "first_name",
-    label: "First Name",
+    key: 'first_name',
+    label: 'First Name',
     accessor: (item: any) => item.customer.first_name,
     sortable: true
   },
   {
-    key: "last_name",
-    label: "Last Name",
+    key: 'last_name',
+    label: 'Last Name',
     accessor: (item: any) => item.customer.last_name
   },
   {
-    key: "company",
-    label: "Company",
+    key: 'company',
+    label: 'Company',
     accessor: (item: any) => item.customer.company,
     renderer: (item: any) =>
       item.customer.company ? (
@@ -53,32 +53,28 @@ const columnHeaders: Column[] = [
           {item.customer.company.name} ({item.customer.company.id})
         </span>
       ) : (
-        "-"
+        '-'
       )
   },
-  { key: "service", label: "Service" },
+  { key: 'service', label: 'Service' },
   {
-    key: "amount",
-    label: "Amount",
+    key: 'amount',
+    label: 'Amount',
     sortable: true,
     renderer: (item: any) => (
       <span>
-        <FontAwesomeIcon
-          iconStyle="solid"
-          icon="fa-dollar-sign"
-          className="dui-color-success"
-        />{" "}
-        {item.amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")}
+        <FontAwesomeIcon iconStyle="solid" icon="fa-dollar-sign" className="dui-color-success" />{' '}
+        {item.amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
       </span>
     )
   }
 ];
-storiesOf("Display Components|Table", module)
-  .add("With Children", () => (
+storiesOf('Display Components|Table', module)
+  .add('With Children', () => (
     <Table
-      bordered={boolean("bordered", false)}
-      striped={boolean("striped", false)}
-      hoverable={boolean("hoverable", true)}
+      bordered={boolean('bordered', false)}
+      striped={boolean('striped', false)}
+      hoverable={boolean('hoverable', true)}
     >
       <TableRow bordered={true} isHeader={true}>
         <TableCell>Hi</TableCell>
@@ -112,14 +108,14 @@ storiesOf("Display Components|Table", module)
       </TableRow>
     </Table>
   ))
-  .add("DataTable", () => (
+  .add('DataTable', () => (
     <DataTable
-      rows={values}
+      rows={require('../../../data/invoices.json')}
       columns={columnHeaders}
-      bordered={boolean("bordered", false)}
-      striped={boolean("striped", false)}
-      hoverable={boolean("hoverable", true)}
-      multiSelect={boolean("multi-select", true)}
-      condensed={boolean("condensed", true)}
+      bordered={boolean('bordered', false)}
+      striped={boolean('striped', false)}
+      hoverable={boolean('hoverable', true)}
+      multiSelect={boolean('multi-select', true)}
+      condensed={boolean('condensed', true)}
     />
   ));

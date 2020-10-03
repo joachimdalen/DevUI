@@ -1,7 +1,7 @@
-import * as React from "react";
-import cx from "classnames";
+import cx from 'classnames';
+import * as React from 'react';
 
-export type ToggleSize = "normal" | "large";
+export type ToggleSize = 'normal' | 'large';
 export interface ToggleProps {
   className?: string;
   toggled?: boolean;
@@ -15,13 +15,13 @@ export interface ToggleProps {
 }
 
 export class Toggle extends React.Component<ToggleProps> {
-  public render() {
+  public render(): React.ReactElement {
     const {
-      className = "",
+      className = '',
       toggled = false,
       rounded = false,
-      variant = "default",
-      size = "normal",
+      variant = 'default',
+      size = 'normal',
       showLabels = false,
       disabled = false,
       onToggle,
@@ -31,10 +31,10 @@ export class Toggle extends React.Component<ToggleProps> {
     return (
       <label
         className={cx(
-          "dui-toggle",
+          'dui-toggle',
           { [`dui-toggle-rounded`]: rounded },
-          { [`dui-toggle-${variant}`]: variant !== "default" },
-          { [`dui-toggle-${size}`]: size !== "normal" },
+          { [`dui-toggle-${variant}`]: variant !== 'default' },
+          { [`dui-toggle-${size}`]: size !== 'normal' },
           { [`dui-toggle-labels`]: showLabels },
           { [`dui-toggle-disabled`]: disabled },
           className
@@ -42,13 +42,13 @@ export class Toggle extends React.Component<ToggleProps> {
       >
         <input
           type="checkbox"
-          className={cx("dui-toggle")}
+          className={cx('dui-toggle')}
           checked={toggled}
           onChange={() => onToggle()}
           name={name}
           disabled={disabled}
         />
-        <span className={cx("dui-toggle-button")} />
+        <span className={cx('dui-toggle-button')} />
       </label>
     );
   }

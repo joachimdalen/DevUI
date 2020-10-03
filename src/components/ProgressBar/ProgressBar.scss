@@ -1,12 +1,12 @@
-@import "./ProgressBar.mixin";
+@import './ProgressBar.mixin';
 .dui-progress-bar-container {
   display: flex;
-  font-size: 12.8px;
-  overflow: hidden;
-  border-radius: 4px;
-  background-color: $color-disabled;
-  height: 16px;
   min-width: 100px;
+  height: 16px;
+  overflow: hidden;
+  font-size: 12.8px;
+  background-color: $color-disabled;
+  border-radius: 4px;
 
   .dui-progress-bar-inner {
     display: flex;
@@ -23,7 +23,7 @@
     }
   }
   @each $color, $value in $theme-colors {
-    @include progress-bar-variant(".dui-progress-#{$color}", $value);
+    @include progress-bar-variant('.dui-progress-#{$color}', $value);
   }
   @keyframes progress-bar-striped-animation {
     from {

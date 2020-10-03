@@ -1,6 +1,7 @@
-import * as React from "react";
-import cx from "classnames";
-import { FontAwesomeIcon } from "../FontAwesomeIcon/FontAwesomeIcon";
+import cx from 'classnames';
+import * as React from 'react';
+
+import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export interface NumberInputProps {
   onChange: (value: number) => void;
@@ -22,76 +23,68 @@ export class NumberInput extends React.Component<NumberInputProps, State> {
   state = {
     value: this.props.value || 1
   };
-  componentDidUpdate(
-    prevProps: NumberInputProps,
-    prevState: State,
-    snapshot: any
-  ) {
+  componentDidUpdate(prevProps: NumberInputProps): void {
     if (prevProps !== this.props && this.props.value) {
       this.setState({
         value: this.props.value
       });
     }
   }
-  _increase = () => {
+  _increase = (): void => {
     const { max, step, onChange } = this.props;
     const { value } = this.state;
+    let newVal = value;
     if (max !== undefined) {
-      var oldValue = value;
+      const oldValue = value;
       if (oldValue >= max) {
-        var newVal = oldValue;
+        newVal = oldValue;
       } else {
-        var newVal = oldValue + (step || 1);
+        newVal = oldValue + (step || 1);
       }
       this.setState({ value: newVal }, () => {
-        onChange && onChange(this.state.value);
+        if (onChange) onChange(this.state.value);
       });
     }
   };
-  _decrease = () => {
+  _decrease = (): void => {
     const { min, step, onChange } = this.props;
     const { value } = this.state;
+    let newVal;
     if (min !== undefined) {
-      var oldValue = value;
+      const oldValue = value;
       if (oldValue <= min) {
-        var newVal = oldValue;
+        newVal = oldValue;
       } else {
         if (step) {
           console.log(oldValue - step);
           if (oldValue - step <= min) {
-            var newVal = min;
+            newVal = min;
           } else {
-            var newVal = oldValue - step;
+            newVal = oldValue - step;
           }
         } else {
-          var newVal = oldValue - 1;
+          newVal = oldValue - 1;
         }
       }
       this.setState({ value: newVal }, () => {
-        onChange && onChange(this.state.value);
+        if (onChange) onChange(this.state.value);
       });
     }
   };
-  _inputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  _inputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     console.log(event.target.value);
     const { onChange } = this.props;
     this.setState({ value: parseInt(event.target.value) }, () => {
-      onChange && onChange(this.state.value);
+      if (onChange) onChange(this.state.value);
     });
   };
-  public render() {
+  public render(): React.ReactElement {
     const { min, max } = this.props;
     const { value } = this.state;
-    const baseClass = cx("dui-number-input");
+    const baseClass = cx('dui-number-input');
     return (
       <div className={baseClass}>
-        <input
-          type="number"
-          min={min}
-          max={max}
-          value={value}
-          onChange={this._inputChange}
-        />
+        <input type="number" min={min} max={max} value={value} onChange={this._inputChange} />
         <div className="dui-number-input-buttons">
           <div
             className="dui-number-input-button dui-number-input-button-increase"

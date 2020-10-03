@@ -1,16 +1,16 @@
 .#{$provider-prefix}-card {
-  background-color: $card-background;
-  border-radius: $card-border-radius;
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  min-width: 0;
-  word-wrap: break-word;
   width: 100%;
-  border: $card-border-width solid  $card-border-color;
-  box-shadow: $box-shadow;
+  min-width: 0;
   font-size: $card-font-size;
   color: $card-color;
+  word-wrap: break-word;
+  background-color: $card-background;
+  border: $card-border-width solid  $card-border-color;
+  border-radius: $card-border-radius;
+  box-shadow: $box-shadow;
   &-body {
     &:not(.#{$provider-prefix}-card-body-np) {
       padding: $card-body-padding;
@@ -19,11 +19,11 @@
     font-weight: $card-body-font-weight;
   }
   &-image-header {
-    height: $card-image-height;
     width: 100%;
-    background-size: cover;
-    background-position-y: center;
+    height: $card-image-height;
     background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
     border-radius: $card-border-radius;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -31,24 +31,24 @@
   &-header {
     display: flex;
     align-items: center;
+    height: $card-header-height;
+    padding: $card-title-padding;
+    border-bottom: 1px solid $color-gray;
     &-title {
       font-size: $card-title-font-size;
       font-weight: $card-title-font-weight;
       color: $card-title-color;
     }
-    height: $card-header-height;
-    padding: $card-title-padding;
-    border-bottom: 1px solid $color-gray;
   }
   &-footer {
-    padding: $card-footer-padding;
-    border-top: 1px solid $color-disabled;
-    color: $card-footer-color;
     height: $card-footer-height;
+    padding: $card-footer-padding;
+    color: $card-footer-color;
+    border-top: 1px solid $color-disabled;
   }
   &-inner {
-    flex-direction: column;
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
   }
