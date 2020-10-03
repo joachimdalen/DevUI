@@ -24,10 +24,7 @@
   "include": ["src/**/*"],
   "exclude": [
     "node_modules",
-    "data",
     "build",
     "scripts",
-    "src/storyUtil/*",
-    "src/components/**/*.stories.tsx"
   ]
 }
