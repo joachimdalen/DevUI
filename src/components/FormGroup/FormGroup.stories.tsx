@@ -11,7 +11,7 @@ import { TextArea } from '../TextArea/TextArea';
 import { TextInput } from '../TextInput/TextInput';
 import { FormGroup, FormGroupExtraType, FormGroupRequiredType } from './FormGroup';
 
-storiesOf('Components|FormGroup', module)
+storiesOf('Components/FormGroup', module)
   .add('Default', () => (
     <FormGroup label="Username">
       <TextInput value="devexer" onChange={action('onChange')} fillWidth />

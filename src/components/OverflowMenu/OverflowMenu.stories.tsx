@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { OverflowMenu, OverflowMenuLocation } from './OverflowMenu';
 import { OverflowMenuItem } from './OverflowMenuItem';
 
-storiesOf('Controls|OverflowMenu', module)
+storiesOf('Controls/OverflowMenu', module)
   .add('Default', () => (
     <OverflowMenu>
       <OverflowMenuItem onClick={action('editItemClicked')}>

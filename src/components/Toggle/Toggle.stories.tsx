@@ -6,7 +6,7 @@ import * as React from 'react';
 import variants from '../../storyUtil/variants';
 import { Toggle, ToggleSize } from './Toggle';
 
-storiesOf('Controls|Toggle', module)
+storiesOf('Controls/Toggle', module)
   .add('Basic Toggle', () => (
     <Toggle toggled={boolean('Toggled', true)} onToggle={action('toggled')} />
   ))

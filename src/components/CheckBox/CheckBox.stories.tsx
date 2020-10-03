@@ -5,7 +5,7 @@ import * as React from 'react';
 import variants from '../../storyUtil/variants';
 import { CheckBox, CheckBoxIndicatorLocation } from './CheckBox';
 
-storiesOf('Controls|CheckBox', module)
+storiesOf('Controls/CheckBox', module)
   .add('Basic CheckBox', () => (
     <CheckBox
       label={text('label', 'Delete')}

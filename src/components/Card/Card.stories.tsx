@@ -8,7 +8,7 @@ import { CardBody } from './CardBody';
 import { CardFooter } from './CardFooter';
 import { CardHeader } from './CardHeader';
 
-storiesOf('Layout|Card', module)
+storiesOf('Layout/Card', module)
   .add('Basic Card', () => (
     <Card width={number('card width', 200)}>
       <CardBody>

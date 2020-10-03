@@ -27,7 +27,7 @@ const nodes: TreeViewNode[] = [
   },
   { key: 4000, label: '4000 - File', icon: 'fa-file-pdf' }
 ];
-storiesOf('WIP|TreeView', module).add('Default', () => (
+storiesOf('WIP/TreeView', module).add('Default', () => (
   <TreeView
     nodes={nodes}
     onSelect={action('onSelect')}

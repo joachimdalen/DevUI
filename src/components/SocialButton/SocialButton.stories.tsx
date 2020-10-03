@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { SocialButton } from './SocialButton';
-storiesOf('Controls|SocialButton/Providers', module)
+storiesOf('Controls/SocialButton/Providers', module)
   .add('Twitch', () => (
     <SocialButton onClick={action('onClick')} provider="twitch" text="Sign in with Twitch" />
   ))
@@ -46,7 +46,7 @@ storiesOf('Controls|SocialButton/Providers', module)
   .add('Dropbox', () => (
     <SocialButton onClick={action('onClick')} provider="dropbox" text="Sign in with Dropbox" />
   ));
-storiesOf('Controls|SocialButton', module)
+storiesOf('Controls/SocialButton', module)
   .add('Border style - Light', () => (
     <SocialButton onClick={action('onClick')} provider="spotify" text="Sign in with Spotify" />
   ))

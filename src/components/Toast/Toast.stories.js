@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { Toast } from "./Toast";
 import { text, boolean } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
-storiesOf("Display Components|Toast", module)
+storiesOf('Display Components/Toast', module)
   .add("Toast", () => (
     <Toast
       title={text("Title", "Changes applied")}

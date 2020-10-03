@@ -10,7 +10,7 @@ import { SideBar, SideBarAddonLocation } from './SideBar';
 import { SideBarAddon } from './SideBarAddon';
 import { SideBarMenuItem } from './SideBarMenuItem';
 
-storiesOf('Layout|SideBar', module)
+storiesOf('Layout/SideBar', module)
   .add('SideBar', () => {
     const mainGroup = 'Sidebar';
 

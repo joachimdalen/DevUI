@@ -5,7 +5,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Overlay } from './Overlay';
 
-storiesOf('Layout|Overlay', module)
+storiesOf('Layout/Overlay', module)
   .add('Default', () => <Overlay visible={boolean('Visible', true)}>h</Overlay>)
   .add('Loader', () => (
     <Overlay visible={boolean('Visible', true)}>

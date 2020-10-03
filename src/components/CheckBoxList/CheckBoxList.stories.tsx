@@ -13,7 +13,7 @@ const items: ICheckBoxItem[] = [
   { label: 'Four', key: '3' },
   { label: 'Five', key: '4' }
 ];
-storiesOf('Controls|CheckBoxList', module)
+storiesOf('Controls/CheckBoxList', module)
   .add('Basic CheckBox', () => (
     <CheckBoxList
       items={items}

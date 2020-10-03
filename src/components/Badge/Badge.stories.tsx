@@ -6,7 +6,7 @@ import * as React from 'react';
 import variants from '../../storyUtil/variants';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Badge } from './Badge';
-storiesOf('Display Components|Badge', module)
+storiesOf('Display Components/Badge', module)
   .add('Default Badge', () => <Badge label={text('label', 'Active')} />)
   .add('Dismissible', () => (
     <Badge label={text('label', 'Active')} onDismiss={action('badge-dismissed')} />

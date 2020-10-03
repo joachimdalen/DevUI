@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 import { Image } from './Image';
-storiesOf('Display Components|Image', module)
+storiesOf('Display Components/Image', module)
   .add('Default', () => (
     <Image
       src={text('src', 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png')}

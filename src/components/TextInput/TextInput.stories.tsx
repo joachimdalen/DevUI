@@ -6,7 +6,7 @@ import * as React from 'react';
 import { Flex } from '../Flex/Flex';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { TextInput } from './TextInput';
-storiesOf('Controls|TextInput', module)
+storiesOf('Controls/TextInput', module)
   .add('Basic Input', () => (
     <TextInput
       onChange={action('input-changed')}

@@ -7,7 +7,7 @@ import { List } from './List';
 import { ListActionItem } from './ListActionItem';
 import { ListItem } from './ListItem';
 
-storiesOf('Display Components|List', module)
+storiesOf('Display Components/List', module)
   .add('Basic List', () => (
     <List title={text('List title', 'List title', 'List')}>
       <ListItem title={text('Item title', 'This is a long item title', 'List Items')} />

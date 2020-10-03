@@ -5,7 +5,7 @@ import * as React from 'react';
 
 //import { text, boolean } from "@storybook/addon-knobs";
 import { NumberInput } from './NumberInput';
-storiesOf('Controls|NumberInput', module).add('Basic Input', () => (
+storiesOf('Controls/NumberInput', module).add('Basic Input', () => (
   <NumberInput
     onChange={action('input-changed')}
     max={number('Max', Number.MAX_SAFE_INTEGER)}

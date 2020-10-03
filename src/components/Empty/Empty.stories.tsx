@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Button } from '../Button/Button';
 import { Empty } from './Empty';
 
-storiesOf('Display Components|Empty', module)
+storiesOf('Display Components/Empty', module)
   .add('Default', () => (
     <Empty
       header="This is the header"

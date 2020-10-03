@@ -20,7 +20,7 @@ function getOptions(): SelectOption[] {
   });
 }
 
-storiesOf('Controls|Select', module)
+storiesOf('Controls/Select', module)
   .add('With Data', () => (
     <Select
       label="Select Customer"

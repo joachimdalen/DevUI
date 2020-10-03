@@ -6,7 +6,7 @@ import * as React from 'react';
 import variants from '../../storyUtil/variants';
 import { RadioButton } from './RadioButton';
 
-storiesOf('Controls|RadioButton', module)
+storiesOf('Controls/RadioButton', module)
   .add('Default', () => (
     <RadioButton
       label={text('label', 'Check me')}

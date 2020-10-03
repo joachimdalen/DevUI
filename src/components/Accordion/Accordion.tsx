@@ -4,6 +4,9 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export interface AccordionProps {
+  /**
+   * Title for the accordion
+   */
   title: string | React.ReactNode;
   expandIcon?: string | React.ReactElement;
   collapseIcon?: string | React.ReactElement;
