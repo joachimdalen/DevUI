@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import * as React from 'react';
-import { isNumber } from 'util';
 
 import { CardImage } from './CardImage';
 export type CardImagePlacement = 'top' | 'left' | 'right';

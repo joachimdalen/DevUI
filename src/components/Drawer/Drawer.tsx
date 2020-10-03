@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import * as React from 'react';
-import { isNumber } from 'util';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Overlay } from '../Overlay/Overlay';

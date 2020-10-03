@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import * as React from 'react';
-import { isString } from 'util';
 
 import { CheckBox, CheckBoxIndicatorLocation } from '../CheckBox/CheckBox';
 import { Empty } from '../Empty/Empty';
