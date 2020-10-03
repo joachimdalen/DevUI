@@ -5,8 +5,19 @@ import { Omit } from '../common';
 import { Accordion, AccordionProps } from './Accordion';
 export type ParitalAccordionProps = Omit<AccordionProps, 'title'>;
 export interface AccordionGroupProps {
+  /**
+   * Determines if multiple child accordions can be expanded at the same time
+   */
   multiExpand?: boolean;
+
+  /**
+   * Set of Accordions
+   */
   children?: React.ReactElement<Accordion> | React.ReactElement<Accordion>[];
+
+  /**
+   * Accordion props to pass down to children
+   */
   accordionProps?: ParitalAccordionProps;
 }
 

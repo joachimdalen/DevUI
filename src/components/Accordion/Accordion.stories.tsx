@@ -1,10 +1,8 @@
-import { action } from '@storybook/addon-actions';
 import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Accordion, AccordionProps } from './Accordion';
-import { AccordionGroup, AccordionGroupProps } from './AccordionGroup';
 
 export default {
   title: 'Components/Accordion/Accordion',

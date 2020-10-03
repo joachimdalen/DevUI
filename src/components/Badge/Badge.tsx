@@ -7,7 +7,7 @@ export interface BadgeProps {
   icon?: string | React.ReactElement;
   variant?: string;
   dismissText?: string | React.ReactNode;
-  onDismiss?: () => any;
+  onDismiss?: () => void;
 }
 
 export class Badge extends React.PureComponent<BadgeProps> {

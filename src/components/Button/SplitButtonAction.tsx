@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 export interface SplitButtonActionProps {
   label: string;
   icon?: string;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
 }
 

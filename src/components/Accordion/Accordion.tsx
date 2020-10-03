@@ -8,11 +8,35 @@ export interface AccordionProps {
    * Title for the accordion
    */
   title: string | React.ReactNode;
+
+  /**
+   * Expand icon shown when accordion is collapsed
+   */
   expandIcon?: string | React.ReactElement;
+
+  /**
+   * Collapse icon shown when accordion is expanded
+   */
   collapseIcon?: string | React.ReactElement;
+
+  /**
+   * If the accordion is expanded
+   */
   expanded?: boolean;
+
+  /**
+   * Do not display borders
+   */
   borderless?: boolean;
+
+  /**
+   * Fired when expand status changes
+   */
   onToggle?: (state: boolean) => void;
+
+  /**
+   * Extra class name to apply at root
+   */
   className?: string;
 }
 interface AccordionState {
