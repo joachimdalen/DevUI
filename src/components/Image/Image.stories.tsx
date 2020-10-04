@@ -1,19 +1,23 @@
-import { text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
-import { Image } from './Image';
-storiesOf('Display Components/Image', module)
-  .add('Default', () => (
-    <Image
-      src={text('src', 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png')}
-      alt="image"
-    />
-  ))
-  .add('Fallback', () => (
-    <Image
-      src={text('src', 'http://localhost/img')}
-      fallbackSrc={text('fallbackSrc', 'https://placehold.it/200x200')}
-      alt="image"
-    />
-  ));
+import { Image, ImageProps } from './Image';
+
+export default {
+  title: 'Display Components/Image',
+  component: Image,
+  args: {
+    src: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+    alt: 'Image'
+  }
+} as Meta;
+
+const BaseTemplate: Story<ImageProps> = args => <Image {...args} />;
+
+export const Default: Story<ImageProps> = BaseTemplate.bind({});
+
+export const Fallback: Story<ImageProps> = BaseTemplate.bind({});
+Fallback.args = {
+  src: 'http://localhost/img',
+  fallbackSrc: 'https://placehold.it/200x200'
+};

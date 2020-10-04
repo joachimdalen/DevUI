@@ -66,7 +66,6 @@ import {
   OverflowMenuItemProps
 } from './src/components/OverflowMenu/OverflowMenuItem';
 import { Overlay, OverlayProps } from './src/components/Overlay/Overlay';
-import { Panel } from './src/components/Panel/Panel';
 import { ProgressBar, ProgressBarProps } from './src/components/ProgressBar/ProgressBar';
 import { RadioButton, RadioButtonProps } from './src/components/RadioButton/RadioButton';
 import { Select, SelectProps } from './src/components/Select/Select';
@@ -91,13 +90,9 @@ import {
 } from './src/components/TextInput/TextInput';
 import { Toast, ToastProps } from './src/components/Toast/Toast';
 import { Toggle, ToggleProps, ToggleSize } from './src/components/Toggle/Toggle';
-import { TreeView, TreeViewProps } from './src/components/TreeView/TreeView';
-import { TreeViewItem, TreeViewItemProps } from './src/components/TreeView/TreeViewItem';
 import { CustomComponent, GenericSizes, Omit } from './src/components/common';
-
 import { TabType } from './src/components/TabControl/TabControlTypes';
 import { Column } from './src/components/Table/TableTypes';
-import { TreeViewNode } from './src/components/TreeView/TreeViewTypes';
 
 export {
   FontAwesomeIconProps,
@@ -188,7 +183,6 @@ export {
   OverflowMenuItemProps,
   Overlay,
   OverlayProps,
-  Panel,
   ProgressBar,
   ProgressBarProps,
   RadioButton,
@@ -234,14 +228,9 @@ export {
   Toggle,
   ToggleProps,
   ToggleSize,
-  TreeView,
-  TreeViewProps,
-  TreeViewItem,
-  TreeViewItemProps,
   CustomComponent,
   GenericSizes,
   TabType,
   Column,
-  TreeViewNode,
   Omit
 };

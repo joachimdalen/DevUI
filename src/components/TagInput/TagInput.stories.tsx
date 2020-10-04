@@ -1,17 +1,25 @@
-import { action } from '@storybook/addon-actions';
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
-import { TagInput } from './TagInput';
-storiesOf('Controls/TagInput', module)
-  .add('Default', () => <TagInput onChange={action('onChange')} />)
-  .add('Fixed tags', () => (
-    <TagInput initialTags={[{ value: 'Hello', removeable: false }]} onChange={action('onChange')} />
-  ))
-  .add('Custom badge props', () => (
-    <TagInput
-      initialTags={[{ value: 'Hello', removeable: false }]}
-      onChange={action('onChange')}
-      badgeProps={{ variant: 'blue' }}
-    />
-  ));
+import { TagInput, TagInputProps } from './TagInput';
+
+export default {
+  title: 'Controls/TagInput',
+  component: TagInput,
+  argTypes: { onChange: { action: 'onChange' } }
+} as Meta;
+
+const BaseTemplate: Story<TagInputProps> = args => <TagInput {...args} />;
+
+export const Default: Story<TagInputProps> = BaseTemplate.bind({});
+
+export const FixedTags: Story<TagInputProps> = BaseTemplate.bind({});
+FixedTags.args = {
+  initialTags: [{ value: 'Hello', removeable: false }]
+};
+
+export const CustomBadgeProps: Story<TagInputProps> = BaseTemplate.bind({});
+CustomBadgeProps.args = {
+  initialTags: [{ value: 'Hello', removeable: false }],
+  badgeProps: { variant: 'blue' }
+};

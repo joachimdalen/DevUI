@@ -1,6 +1,4 @@
-import { action } from '@storybook/addon-actions';
-import { boolean, select, text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import { Button } from '../Button/Button';
@@ -9,115 +7,109 @@ import { Select } from '../Select/Select';
 import { TagInput } from '../TagInput/TagInput';
 import { TextArea } from '../TextArea/TextArea';
 import { TextInput } from '../TextInput/TextInput';
-import { FormGroup, FormGroupExtraType, FormGroupRequiredType } from './FormGroup';
+import { FormGroup, FormGroupProps } from './FormGroup';
 
-storiesOf('Components/FormGroup', module)
-  .add('Default', () => (
-    <FormGroup label="Username">
-      <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-    </FormGroup>
-  ))
-  .add('Required', () => (
-    <FormGroup
-      label="Username"
-      required={boolean('required', true)}
-      requiredType={select('Required Type', ['icon', 'text'], 'icon') as FormGroupRequiredType}
-    >
-      <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-    </FormGroup>
-  ))
-  .add('Inline Controls', () => (
-    <FormGroup
-      label="Username"
-      inline
-      extra={text('Extra', 'This is the username you used when signing up')}
-    >
-      <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-      <Button iconOnly icon="fas fa-save" variant="success" onClick={action('onClick')} />
-    </FormGroup>
-  ))
-  .add('Inline label', () => (
-    <FormGroup
-      label="Username"
-      inline={boolean('Inline', true)}
-      inlineLabel={boolean('Inline Label', true)}
-    >
-      <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-      <Button icon="fas fa-save" variant="success" iconOnly onClick={action('onClick')} />
-    </FormGroup>
-  ))
-  .add('Extra', () => (
-    <FormGroup
-      label="Username"
-      extra={text('Extra', 'This is the username you used when signing up')}
-      extraType={
-        select(
-          'ExtraType',
-          ['success', 'normal', 'danger', 'warning'],
-          'normal'
-        ) as FormGroupExtraType
-      }
-    >
-      <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-    </FormGroup>
-  ))
-  .add('With counter', () => (
-    <FormGroup
-      label="Username"
-      extra={text('Extra', 'This is the username you used when signing up')}
-      extraType={
-        select(
-          'ExtraType',
-          ['success', 'normal', 'danger', 'warning'],
-          'normal'
-        ) as FormGroupExtraType
-      }
-      maxLength={100}
-      currentLength={300}
-    >
-      <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-    </FormGroup>
-  ))
-  .add('With Error', () => (
-    <Flex flexDirection="column" gap="medium">
-      <Flex gap="medium">
-        <FormGroup
-          label="Username"
-          error={{ code: 400, message: 'Username is already taken' }}
-          errorAccessor={error => error.message}
-        >
-          <TextInput value="devexer" onChange={action('onChange')} fillWidth />
-        </FormGroup>
-        <FormGroup
-          label="Age"
-          error={{ message: 'Please select your age' }}
-          errorAccessor={error => error.message}
-        >
-          <Select onChange={action('selectChange')} label="Age" />
-        </FormGroup>
-      </Flex>
+export default {
+  title: 'Components/FormGroup',
+  component: FormGroup,
+  args: {
+    label: 'Username'
+  }
+} as Meta;
+
+export const Default: Story<FormGroupProps> = args => (
+  <FormGroup {...args}>
+    <TextInput value="johndoe" fillWidth />
+  </FormGroup>
+);
+export const Required: Story<FormGroupProps> = args => (
+  <FormGroup {...args}>
+    <TextInput value="johndoe" fillWidth />
+  </FormGroup>
+);
+Required.args = {
+  required: true,
+  requiredType: 'icon'
+};
+
+export const InlineControls: Story<FormGroupProps> = args => (
+  <FormGroup {...args}>
+    <TextInput value="johndoe" fillWidth />
+    <Button iconOnly icon="fas fa-save" variant="success" />
+  </FormGroup>
+);
+InlineControls.args = {
+  extra: 'This is the username you used when signing up'
+};
+
+export const InlineLabel: Story<FormGroupProps> = args => (
+  <FormGroup {...args}>
+    <TextInput value="johndoe" fillWidth />
+    <Button icon="fas fa-save" variant="success" iconOnly />
+  </FormGroup>
+);
+InlineControls.args = {
+  inline: true,
+  inlineLabel: true
+};
+
+export const Extra: Story<FormGroupProps> = args => (
+  <FormGroup {...args}>
+    <TextInput value="johndoe" fillWidth />
+  </FormGroup>
+);
+export const WithCounter: Story<FormGroupProps> = args => (
+  <FormGroup {...args}>
+    <TextInput value="johndoe" fillWidth />
+  </FormGroup>
+);
+
+WithCounter.args = {
+  maxLength: 300,
+  currentLength: 300,
+  extra: 'This is the username you used when signing up'
+};
+
+export const WithError: Story<FormGroupProps> = args => (
+  <Flex flexDirection="column" gap="medium">
+    <Flex gap="medium">
       <FormGroup
-        label="Message"
-        error={{ message: 'Please write your message' }}
+        label="Username"
+        error={{ code: 400, message: 'Username is already taken' }}
         errorAccessor={error => error.message}
       >
-        <TextArea onChange={action('textArea')} />
+        <TextInput value="johndoe" fillWidth />
       </FormGroup>
       <FormGroup
-        label="Tags"
-        error={{ message: 'Please select the relevant tags' }}
+        label="Age"
+        error={{ message: 'Please select your age' }}
         errorAccessor={error => error.message}
       >
-        <TagInput onChange={action('textArea')} />
+        <Select onChange={() => console.log('')} label="Age" />
       </FormGroup>
     </Flex>
-  ))
-  .add('With Notice', () => (
     <FormGroup
-      label="Username"
+      label="Message"
+      error={{ message: 'Please write your message' }}
       errorAccessor={error => error.message}
-      notice="This username is what you will be recognized as by other users throughout the app"
     >
-      <TextInput value="devexer" onChange={action('onChange')} fillWidth />
+      <TextArea onChange={() => console.log('')} />
     </FormGroup>
-  ));
+    <FormGroup
+      label="Tags"
+      error={{ message: 'Please select the relevant tags' }}
+      errorAccessor={error => error.message}
+    >
+      <TagInput />
+    </FormGroup>
+  </Flex>
+);
+export const WithNotice: Story<FormGroupProps> = args => (
+  <FormGroup {...args}>
+    <TextInput value="johndoe" fillWidth />
+  </FormGroup>
+);
+
+WithNotice.args = {
+  notice: 'This username is what you will be recognized as by other users throughout the app'
+};

@@ -1,31 +1,43 @@
-import { action } from '@storybook/addon-actions';
-import { boolean, text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import variants from '../../storyUtil/variants';
-import { RadioButton } from './RadioButton';
+import { RadioButton, RadioButtonProps } from './RadioButton';
 
-storiesOf('Controls/RadioButton', module)
-  .add('Default', () => (
-    <RadioButton
-      label={text('label', 'Check me')}
-      checked={boolean('Checked', false)}
-      onCheckChange={action('onCheckChange')}
-    />
-  ))
-  .add('Colors', () => (
-    <div style={{ backgroundColor: 'white', display: 'inline-flex' }}>
-      {variants.map((variant: string) => {
-        return (
-          <RadioButton
-            key={variant}
-            label={variant}
-            checked={true}
-            onCheckChange={action('onCheckChange')}
-            variant={variant}
-          />
-        );
-      })}
-    </div>
-  ));
+export default {
+  title: 'Controls/RadioButton',
+  component: RadioButton,
+  args: {
+    label: 'Check me'
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: variants,
+        default: variants[0]
+      }
+    },
+    onCheckChange: { action: 'onCheckChange' }
+  }
+} as Meta;
+
+const BaseTemplate: Story<RadioButtonProps> = args => <RadioButton {...args} />;
+
+export const Default: Story<RadioButtonProps> = BaseTemplate.bind({});
+
+export const Variants: Story<RadioButtonProps> = args => (
+  <div style={{ backgroundColor: 'white', display: 'inline-flex' }}>
+    {variants.map((variant: string) => {
+      return (
+        <RadioButton
+          key={variant}
+          label={variant}
+          checked={true}
+          onCheckChange={console.log}
+          variant={variant}
+        />
+      );
+    })}
+  </div>
+);

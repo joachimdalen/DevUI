@@ -40,7 +40,6 @@ CustomTitle.args = {
   )
 };
 
-
 // storiesOf('Components/Accordion', module)
 //   .add('Basic Accordion', () => (
 //     <Accordion

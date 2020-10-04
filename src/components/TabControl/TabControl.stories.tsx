@@ -1,9 +1,10 @@
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { TabControl } from './TabControl';
+import { TabControl, TabControlProps } from './TabControl';
 import { TabType } from './TabControlTypes';
+
 const tabControlTabs: TabType[] = [
   {
     label: 'Hello',
@@ -31,8 +32,15 @@ const tabControlTabs: TabType[] = [
     }
   }
 ];
-storiesOf('Components/TabControl', module).add('TabControl', () => (
-  <div style={{ minWidth: '400px' }}>
-    <TabControl tabs={tabControlTabs} />
-  </div>
-));
+
+export default {
+  title: 'Components/TabControl',
+  component: TabControl,
+  args: {
+    tabs: tabControlTabs
+  }
+} as Meta;
+
+const BaseTemplate: Story<TabControlProps> = args => <TabControl {...args} />;
+
+export const Default: Story<TabControlProps> = BaseTemplate.bind({});
