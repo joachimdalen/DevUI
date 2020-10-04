@@ -83,7 +83,7 @@
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

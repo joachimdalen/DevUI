@@ -24,98 +24,180 @@ export interface ButtonProps extends CustomComponent {
   fixedIconSize?: boolean;
 }
 
-export class Button extends React.Component<ButtonProps> {
-  static defaultProps: Partial<ButtonProps> = {
-    format: 'default',
-    disabled: false,
-    variant: 'primary',
-    size: 'medium',
-    outlined: false,
-    loading: false,
-    fixedIconSize: false,
-    iconOnly: false
-  };
-  public render(): React.ReactElement {
-    const {
-      label,
-      format,
-      disabled,
-      variant,
-      size,
-      linkButton,
-      outlined,
-      loading,
-      loadingIcon,
-      loadingText,
-      icon,
-      className,
-      component,
-      componentProps,
-      fixedIconSize,
-      iconOnly,
-      ...rest
-    } = this.props;
+export const Button = ({
+  format = 'default',
+  disabled = false,
+  variant = 'primary',
+  size = 'medium',
+  outlined = false,
+  loading = false,
+  fixedIconSize = false,
+  iconOnly = false,
+  label,
+  linkButton,
+  loadingIcon,
+  loadingText,
+  icon,
+  className,
+  component,
+  componentProps,
+  ...rest
+}: ButtonProps): React.ReactElement => {
+  const buttonText = loading ? loadingText || 'Loading' : label;
+  const isDefaultFormat = format === 'default';
+  const loadingIconClass = loadingIcon ? loadingIcon : 'fa-spinner';
+  const baseButtonClass = 'dui-button';
+  const hasButtonText = !(label === undefined || label === null || label === '');
+  const isDefaultSize = size === 'medium';
+  const buttonSizeClass = isDefaultSize ? '' : size === 'small' ? 'small' : 'large';
+  const buttonClass = cx(
+    baseButtonClass,
+    { disabled: disabled && !loading },
+    { [`${baseButtonClass}-${variant}`]: !outlined && !linkButton },
+    { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
+    { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
+    { [`${baseButtonClass}-loading`]: loading },
+    { [`${baseButtonClass}-icon-only`]: iconOnly },
+    { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
+    { [`${baseButtonClass}-link`]: linkButton },
+    { [`${baseButtonClass}-link-${variant}`]: linkButton },
+    className
+  );
 
-    const buttonText = loading ? loadingText || 'Loading' : label;
-    const isDefaultFormat = format === 'default';
-    const loadingIconClass = loadingIcon ? loadingIcon : 'fa-spinner';
-    const baseButtonClass = 'dui-button';
-    const hasButtonText = !(label === undefined || label === null || label === '');
-    const isDefaultSize = size === 'medium';
-    const buttonSizeClass = isDefaultSize ? '' : size === 'small' ? 'small' : 'large';
-    const buttonClass = cx(
-      baseButtonClass,
-      { disabled: disabled && !loading },
-      { [`${baseButtonClass}-${variant}`]: !outlined && !linkButton },
-      { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
-      { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
-      { [`${baseButtonClass}-loading`]: loading },
-      { [`${baseButtonClass}-icon-only`]: iconOnly },
-      { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
-      { [`${baseButtonClass}-link`]: linkButton },
-      { [`${baseButtonClass}-link-${variant}`]: linkButton },
-      className
-    );
-
-    const loadingIconComp = (
-      <FontAwesomeIcon
-        iconStyle="solid"
-        animate={true}
-        animationType="spin"
-        marginDirection="right"
-        icon={loadingIconClass}
-        fixedWidth={iconOnly || fixedIconSize}
-      />
-    );
-    const iconComp = React.isValidElement(icon) ? (
-      icon
-    ) : (
-      <FontAwesomeIcon
-        iconStyle="solid"
-        icon={icon as string}
-        marginDirection={hasButtonText && !iconOnly && !linkButton ? 'right' : undefined}
-        fixedWidth={iconOnly || fixedIconSize}
-      />
-    );
-    const content = (
-      <React.Fragment>
-        {loading && loadingIconComp}
-        {!loading && icon && iconComp}
-        {hasButtonText && !iconOnly && buttonText}
-      </React.Fragment>
-    );
-    if (component) {
-      const Component = component;
-      return (
-        <Component className={buttonClass} disabled={disabled} {...componentProps} {...rest}>
-          {content}
-        </Component>
-      );
-    }
+  const loadingIconComp = (
+    <FontAwesomeIcon
+      iconStyle="solid"
+      animate={true}
+      animationType="spin"
+      marginDirection="right"
+      icon={loadingIconClass}
+      fixedWidth={iconOnly || fixedIconSize}
+    />
+  );
+  const iconComp = React.isValidElement(icon) ? (
+    icon
+  ) : (
+    <FontAwesomeIcon
+      iconStyle="solid"
+      icon={icon as string}
+      marginDirection={hasButtonText && !iconOnly && !linkButton ? 'right' : undefined}
+      fixedWidth={iconOnly || fixedIconSize}
+    />
+  );
+  const content = (
+    <React.Fragment>
+      {loading && loadingIconComp}
+      {!loading && icon && iconComp}
+      {hasButtonText && !iconOnly && buttonText}
+    </React.Fragment>
+  );
+  if (component) {
+    const Component = component;
     return (
-      <button className={buttonClass} disabled={disabled} {...rest}>
-        <span>{content}</span>
-      </button>
+      <Component className={buttonClass} disabled={disabled} {...componentProps} {...rest}>
+        {content}
+      </Component>
     );
   }
-}
+  return (
+    <button className={buttonClass} disabled={disabled} {...rest}>
+      <span>{content}</span>
+    </button>
+  );
+};
+
+// export class Button extends React.Component<ButtonProps> {
+//   static defaultProps: Partial<ButtonProps> = {
+//     format: 'default',
+//     disabled: false,
+//     variant: 'primary',
+//     size: 'medium',
+//     outlined: false,
+//     loading: false,
+//     fixedIconSize: false,
+//     iconOnly: false
+//   };
+//   public render(): React.ReactElement {
+//     const {
+//       label,
+//       format,
+//       disabled,
+//       variant,
+//       size,
+//       linkButton,
+//       outlined,
+//       loading,
+//       loadingIcon,
+//       loadingText,
+//       icon,
+//       className,
+//       component,
+//       componentProps,
+//       fixedIconSize,
+//       iconOnly,
+//       ...rest
+//     } = this.props;
+
+//     const buttonText = loading ? loadingText || 'Loading' : label;
+//     const isDefaultFormat = format === 'default';
+//     const loadingIconClass = loadingIcon ? loadingIcon : 'fa-spinner';
+//     const baseButtonClass = 'dui-button';
+//     const hasButtonText = !(label === undefined || label === null || label === '');
+//     const isDefaultSize = size === 'medium';
+//     const buttonSizeClass = isDefaultSize ? '' : size === 'small' ? 'small' : 'large';
+//     const buttonClass = cx(
+//       baseButtonClass,
+//       { disabled: disabled && !loading },
+//       { [`${baseButtonClass}-${variant}`]: !outlined && !linkButton },
+//       { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
+//       { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
+//       { [`${baseButtonClass}-loading`]: loading },
+//       { [`${baseButtonClass}-icon-only`]: iconOnly },
+//       { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
+//       { [`${baseButtonClass}-link`]: linkButton },
+//       { [`${baseButtonClass}-link-${variant}`]: linkButton },
+//       className
+//     );
+
+//     const loadingIconComp = (
+//       <FontAwesomeIcon
+//         iconStyle="solid"
+//         animate={true}
+//         animationType="spin"
+//         marginDirection="right"
+//         icon={loadingIconClass}
+//         fixedWidth={iconOnly || fixedIconSize}
+//       />
+//     );
+//     const iconComp = React.isValidElement(icon) ? (
+//       icon
+//     ) : (
+//       <FontAwesomeIcon
+//         iconStyle="solid"
+//         icon={icon as string}
+//         marginDirection={hasButtonText && !iconOnly && !linkButton ? 'right' : undefined}
+//         fixedWidth={iconOnly || fixedIconSize}
+//       />
+//     );
+//     const content = (
+//       <React.Fragment>
+//         {loading && loadingIconComp}
+//         {!loading && icon && iconComp}
+//         {hasButtonText && !iconOnly && buttonText}
+//       </React.Fragment>
+//     );
+//     if (component) {
+//       const Component = component;
+//       return (
+//         <Component className={buttonClass} disabled={disabled} {...componentProps} {...rest}>
+//           {content}
+//         </Component>
+//       );
+//     }
+//     return (
+//       <button className={buttonClass} disabled={disabled} {...rest}>
+//         <span>{content}</span>
+//       </button>
+//     );
+//   }
+// }
