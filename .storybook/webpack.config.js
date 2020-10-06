@@ -1,14 +1,10 @@
-const path = require("path");
+const path = require('path');
 module.exports = ({ config, mode }) => {
-  config.module.rules.push({
-    test: /\.(ts|tsx)$/,
-    loader: require.resolve("awesome-typescript-loader")
-  });
   config.module.rules.push({
     test: /\.scss$/,
     loaders: ['style-loader', 'css-loader', 'sass-loader'],
-    include: path.resolve(__dirname, '../'),
+    include: path.resolve(__dirname, '../')
   });
-  config.resolve.extensions.push(".ts", ".tsx", ".css", ".scss");
+  config.resolve.extensions.push('.ts', '.tsx', '.css', '.scss');
   return config;
 };

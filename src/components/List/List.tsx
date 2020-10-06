@@ -4,6 +4,7 @@ import * as React from 'react';
 export interface ListProps {
   title?: string;
   bordered?: boolean;
+  children?: React.ReactNode;
 }
 
 export class List extends React.Component<ListProps> {

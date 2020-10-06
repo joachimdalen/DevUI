@@ -1,58 +1,48 @@
-import { boolean, select, text } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import variants from '../../storyUtil/variants';
-import { CheckBox, CheckBoxIndicatorLocation } from './CheckBox';
+import { CheckBox, CheckBoxProps } from './CheckBox';
 
-storiesOf('Controls|CheckBox', module)
-  .add('Basic CheckBox', () => (
-    <CheckBox
-      label={text('label', 'Delete')}
-      disabled={boolean('disabled', false)}
-      variant={text('variant', 'default')}
-      checked={boolean('Checked', false)}
-      onCheckChange={() => alert('hello there')}
-    />
-  ))
-  .add('Indeterminate CheckBox', () => (
-    <CheckBox
-      label={text('label', 'Delete')}
-      disabled={boolean('disabled', false)}
-      variant={text('variant', 'default')}
-      checked={boolean('Checked', false)}
-      onCheckChange={() => alert('hello there')}
-      indeterminate={boolean('Indeterminate', true)}
-    />
-  ))
-  .add('Right Indicator', () => (
-    <CheckBox
-      label={text('label', 'Delete')}
-      disabled={boolean('disabled', false)}
-      variant={text('variant', 'default')}
-      checked={boolean('Checked', false)}
-      onCheckChange={() => alert('hello there')}
-      indeterminate={boolean('Indeterminate', true)}
-      indicatorLocation={
-        select('IndicatorLocation', ['left', 'right'], 'right') as CheckBoxIndicatorLocation
+export default {
+  title: 'Controls/CheckBox',
+  component: CheckBox,
+  args: {
+    label: 'Click Me',
+    indicatorLocation: 'left',
+    name: 'cb-test'
+  },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: variants,
+        default: variants[0]
       }
-    />
-  ))
-  .add('Variants', () => (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      <div>
-        {variants.map((variant: string) => {
-          return (
-            <CheckBox
-              key={`normal-${variant}`}
-              label={variant}
-              disabled={boolean('disabled', false)}
-              variant={variant}
-              checked={boolean('Checked', true)}
-              onCheckChange={() => alert('hello there')}
-            />
-          );
-        })}
-      </div>
+    },
+    onCheckChange: { action: 'clicked' }
+  }
+} as Meta;
+
+const BaseTemplate: Story<CheckBoxProps> = args => <CheckBox {...args} />;
+export const Default: Story<CheckBoxProps> = BaseTemplate.bind({});
+
+export const Indeterminate: Story<CheckBoxProps> = BaseTemplate.bind({});
+Indeterminate.args = {
+  indeterminate: true
+};
+
+export const RightIndicator: Story<CheckBoxProps> = BaseTemplate.bind({});
+RightIndicator.args = {
+  indicatorLocation: 'right'
+};
+
+export const Variants: Story<CheckBoxProps> = () => (
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div>
+      {variants.map((variant: string) => {
+        return <CheckBox key={`normal-${variant}`} label={variant} variant={variant} />;
+      })}
     </div>
-  ));
+  </div>
+);

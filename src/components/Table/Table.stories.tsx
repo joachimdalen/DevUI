@@ -1,14 +1,9 @@
-import { boolean } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { DataTable } from './DataTable';
-import { Table } from './Table';
-import { TableCell } from './TableCell';
-import { TableRow } from './TableRow';
+import { DataTable, DataTableProps } from './DataTable';
 import { Column } from './TableTypes';
-
 const columnHeaders: Column[] = [
   {
     key: 'id',
@@ -69,53 +64,15 @@ const columnHeaders: Column[] = [
     )
   }
 ];
-storiesOf('Display Components|Table', module)
-  .add('With Children', () => (
-    <Table
-      bordered={boolean('bordered', false)}
-      striped={boolean('striped', false)}
-      hoverable={boolean('hoverable', true)}
-    >
-      <TableRow bordered={true} isHeader={true}>
-        <TableCell>Hi</TableCell>
-        <TableCell>Hi</TableCell>
-        <TableCell>Hi</TableCell>
-        <TableCell>Hi</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello Hello Hello </TableCell>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell>HelloHelloHelloHello</TableCell>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-        <TableCell>Hello</TableCell>
-      </TableRow>
-    </Table>
-  ))
-  .add('DataTable', () => (
-    <DataTable
-      rows={require('../../../data/invoices.json')}
-      columns={columnHeaders}
-      bordered={boolean('bordered', false)}
-      striped={boolean('striped', false)}
-      hoverable={boolean('hoverable', true)}
-      multiSelect={boolean('multi-select', true)}
-      condensed={boolean('condensed', true)}
-    />
-  ));
+export default {
+  title: 'Display Components/Table',
+  component: DataTable,
+  args: {
+    columns: columnHeaders,
+    rows: require('../../../data/invoices.json')
+  }
+} as Meta;
+
+const BaseTemplate: Story<DataTableProps> = args => <DataTable {...args} />;
+
+export const Default: Story<DataTableProps> = BaseTemplate.bind({});

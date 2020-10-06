@@ -1,35 +1,49 @@
-import { storiesOf } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
-import { Avatar } from './Avatar';
-storiesOf('Display Components|Avatar', module)
-  .add('Avatar', () => <Avatar src={'//placehold.it/400x400'} />)
-  .add('Formats', () => (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'auto auto auto',
-        gridColumnGap: '10px'
-      }}
-    >
-      <Avatar src={'//placehold.it/400x400'} />
-      <Avatar src={'//placehold.it/400x400'} format="rounded" />
-      <Avatar src={'//placehold.it/400x400'} format="circle" />
-    </div>
-  ))
-  .add('Sizes', () => (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'auto auto auto',
-        gridColumnGap: '10px'
-      }}
-    >
-      <Avatar src={'//placehold.it/400x400'} size="small" />
-      <Avatar src={'//placehold.it/400x400'} />
-      <Avatar src={'//placehold.it/400x400'} size="large" />
-    </div>
-  ))
-  .add('Custom Size', () => (
-    <Avatar src={'//placehold.it/400x400'} width={150} height={150} size="large" />
-  ));
+import { Avatar, AvatarProps } from './Avatar';
+
+export default {
+  title: 'Display Components/Avatar',
+  component: Avatar,
+  args: {
+    src: '//placehold.it/400x400'
+  }
+} as Meta;
+
+const BaseTemplate: Story<AvatarProps> = args => <Avatar {...args} />;
+
+export const Default: Story<AvatarProps> = BaseTemplate.bind({});
+
+export const Formats: Story<AvatarProps> = args => (
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'auto auto auto',
+      gridColumnGap: '10px'
+    }}
+  >
+    <Avatar {...args} />
+    <Avatar {...args} format="rounded" />
+    <Avatar {...args} format="circle" />
+  </div>
+);
+export const Sizes: Story<AvatarProps> = args => (
+  <div
+    style={{
+      display: 'grid',
+      gridTemplateColumns: 'auto auto auto',
+      gridColumnGap: '10px'
+    }}
+  >
+    <Avatar {...args} size="small" />
+    <Avatar {...args} />
+    <Avatar {...args} size="large" />
+  </div>
+);
+
+export const CustomSizes: Story<AvatarProps> = BaseTemplate.bind({});
+CustomSizes.args = {
+  width: 150,
+  height: 150
+};
