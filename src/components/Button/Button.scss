@@ -153,15 +153,12 @@
     background-color: $select-background;
     border: $split-button-menu-border-width solid $split-button-menu-border-color;
     &-item {
-      padding: $split-button-menu-item-padding;
-      color: $split-button-menu-item-color;
-      background-color: $split-button-menu-item-background;
-
-      &:hover {
-        color: $split-button-menu-item-hover-color;
-        cursor: pointer;
-        background-color: $split-button-menu-item-hover-background;
-      }
+      display: block;
+      justify-content: start;
+      width: 100%;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
     }
     &-small {
       top: $button-small-height;

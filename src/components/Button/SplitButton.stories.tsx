@@ -2,8 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import variants from '../../storyUtil/variants';
-import { SplitButton } from './SplitButton';
-import { SplitButtonAction, SplitButtonActionProps } from './SplitButtonAction';
+import { SplitButton, SplitButtonProps } from './SplitButton';
 
 export default {
   title: 'Controls/Button/SplitButton',
@@ -20,10 +19,14 @@ export default {
   }
 } as Meta;
 
-export const Default: Story<SplitButtonActionProps> = args => (
-  <SplitButton label="Save & Close" icon="fa-save" {...args}>
-    <SplitButtonAction label="Hello" />
-    <SplitButtonAction label="Hello1" />
-    <SplitButtonAction label="Hello2" />
-  </SplitButton>
+export const Default: Story<SplitButtonProps> = args => (
+  <SplitButton label="Save & Close" icon="fa-save" {...args} />
 );
+Default.args = {
+  actions: [
+    { label: 'Option 1', variant: 'blue' },
+    { label: 'Option 2', variant: 'danger', iconOnly: true, icon: 'fas fa-cog' },
+    { label: 'Option 3', variant: 'success', disabled: true },
+    { label: 'Option 4', variant: 'magenta', icon: 'fas fa-cog' }
+  ]
+};
