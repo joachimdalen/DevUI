@@ -18,10 +18,6 @@ import { Avatar, AvatarFormat, AvatarProps, AvatarSize } from './src/components/
 import { Badge, BadgeProps } from './src/components/Badge/Badge';
 import { Button, ButtonFormat, ButtonProps, ButtonSize } from './src/components/Button/Button';
 import { SplitButton, SplitButtonProps } from './src/components/Button/SplitButton';
-import {
-  SplitButtonAction,
-  SplitButtonActionProps
-} from './src/components/Button/SplitButtonAction';
 import { ButtonGroup, ButtonGroupProps } from './src/components/Button/ButtonGroup';
 import { Card, CardImagePlacement, CardProps } from './src/components/Card/Card';
 import { CardBody, CardBodyProps } from './src/components/Card/CardBody';

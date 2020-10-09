@@ -4,16 +4,16 @@ import * as React from 'react';
 import { Button, ButtonProps } from './Button';
 
 export interface SplitButtonProps extends Omit<ButtonProps, 'variant'> {
-  children: any;
   mainButton?: Omit<ButtonProps, 'size' | 'label'>;
   splitButton?: Omit<ButtonProps, 'size' | 'label' | 'icon' | 'iconOnly'>;
+  actions: ButtonProps[];
 }
 
 export const SplitButton = ({
-  children,
   size = 'medium',
   mainButton,
   splitButton,
+  actions,
   ...rest
 }: SplitButtonProps): React.ReactElement => {
   const [expanded, setExpanded] = React.useState(false);
@@ -26,7 +26,17 @@ export const SplitButton = ({
     <div className={wrapperClass}>
       <div className="dui-split-button-items">
         <Button {...mainButton} {...rest} size={size} className="dui-split-button-main" />
-        <div className={actionClass}>{children}</div>
+        <div className={actionClass}>
+          {actions.map(({ className, ...actionRest }, index) => {
+            return (
+              <Button
+                className={cx('dui-split-button-actions-item', className)}
+                key={`${actionRest.label}-${index}`}
+                {...actionRest}
+              />
+            );
+          })}
+        </div>
       </div>
       <Button
         {...splitButton}
