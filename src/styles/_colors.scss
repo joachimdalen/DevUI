@@ -1,28 +1,28 @@
-$color-success: #5cb85c;
+$color-success: #5cb85c !default;
 $color-danger: #ff4444;
-$color-danger-dark: darken($color-danger, 10%);
-$color-warning: #ffbb33;
-$color-light: #ffffff;
+$color-danger-dark: darken($color-danger, 10%) !default;
+$color-warning: #ffbb33 !default;
+$color-light: #ffffff !default;
 
-$color-disabled: #edebe9;
+$color-disabled: #edebe9 !default;
 
-$color-primary: $color-light;
-$color-gray: #dee5ed;
-$color-gray-light: #e3e3e3;
-$color-dark: #252423;
-$color-blue: #009cff;
-$color-blue-light: #dbe8fe;
-$color-magenta: #d90378;
-$color-secondary: #388d9b;
+$color-primary: $color-light !default;
+$color-gray: #dee5ed !default;
+$color-gray-light: #e3e3e3 !default;
+$color-dark: #252423 !default;
+$color-blue: #009cff !default;
+$color-blue-light: #dbe8fe !default;
+$color-magenta: #d90378 !default;
+$color-secondary: #388d9b !default;
 
-$color-border: #e1dfdd;
-$color-text-gray: #333;
-$color-placeholder: #9999a5;
-$color-input: #f3f2f1;
+$color-border: #e1dfdd !default;
+$color-text-gray: #333 !default;
+$color-placeholder: #9999a5 !default;
+$color-input: #f3f2f1 !default;
 
-$color-badge-primary: #e6e6e6;
+$color-badge-primary: #e6e6e6 !default;
 
-$color-text-secondary: #797878;
+$color-text-secondary: #797878 !default;
 
 @mixin text-color($parent, $color) {
   &#{$parent} {
