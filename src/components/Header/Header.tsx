@@ -50,17 +50,19 @@ export class Header extends React.Component<HeaderProps, State> {
 
           {userMenu && userMenu}
         </HeaderProvider>
-        <div
-          className="dui-header-mobile-toggle"
-          onClick={() => this.setState({ mobileExpanded: !this.state.mobileExpanded })}
-        >
-          <FontAwesomeIcon
-            icon={mobileExpanded ? 'fa-times' : 'fa-bars'}
-            iconStyle="solid"
-            size="large"
-            fixedWidth
-          />
-        </div>
+        {responsive && (
+          <div
+            className="dui-header-mobile-toggle"
+            onClick={() => this.setState({ mobileExpanded: !this.state.mobileExpanded })}
+          >
+            <FontAwesomeIcon
+              icon={mobileExpanded ? 'fa-times' : 'fa-bars'}
+              iconStyle="solid"
+              size="large"
+              fixedWidth
+            />
+          </div>
+        )}
       </header>
     );
   }

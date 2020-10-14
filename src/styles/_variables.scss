@@ -96,7 +96,7 @@ $badge-dismiss-hover-background: lighten($color-danger, 30%) !default;
 $badge-border-width: 1px !default;
 
 /* BUTTON */
-$button-link-color: $color-dark;
+$button-link-color: $color-dark !default;
 $button-link-hover-color: $color-secondary;
 $button-outlined-background: $color-light !default;
 $button-border-radius: $border-raidus !default;
@@ -119,8 +119,8 @@ $button-small-padding-y: 0px !default;
 $button-small-padding-x: 10px !default;
 $button-small-padding: $button-small-padding-y $button-small-padding-x !default;
 $button-small-height: 24px !default;
-$button-small-min-width: 78px;
-$button-small-max-width: 300px;
+$button-small-min-width: 78px !default;
+$button-small-max-width: 300px !default;
 
 $button-default-hover-background: #c8c6c4 !default;
 $button-default-hover-border-color: darken($color-primary, 10%) !default;
@@ -247,6 +247,7 @@ $select-info-padding-x: 11px !default;
 $select-info-padding-y: 4px !default;
 $select-info-padding: $select-info-padding-y $select-info-padding-x !default;
 $select-options-max-height: 150px !default;
+$select-options-background: $color-light !default;
 $select-option-padding-x: 13px !default;
 $select-option-padding-y: 5px !default;
 $select-option-padding: $select-option-padding-y $select-option-padding-x !default;
@@ -393,7 +394,7 @@ $form-group-counter-margin-top: 4px !default;
 $form-group-counter-font-size: 10px !default;
 $form-group-counter-color: #777 !default;
 $form-group-counter-error-color: $color-danger !default;
-$form-group-label-color: #4a4a49;
+$form-group-label-color: #4a4a49 !default;
 $form-group-error-border: 1px solid $color-danger !default;
 
 $alert-border-width: 1px !default;
@@ -507,3 +508,4 @@ $drawer-close-icon-color: $color-border !default;
 $drawer-close-icon-hover-color: $color-dark !default;
 $drawer-close-icon-top: 10px !default;
 $drawer-close-icon-right: 10px !default;
+$drawer-background: $color-light !default;
