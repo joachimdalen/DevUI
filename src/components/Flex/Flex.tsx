@@ -76,7 +76,7 @@ export const Flex = ({
 }: FlexProps): React.ReactElement => {
   const classes = cx(
     'dui-flex',
-    [`dui-flex-gap-${gap}`],
+    { [`dui-flex-gap-${gap}`]: gap !== undefined },
     [`dui-flex-${flexDirection}`],
     getWrapClass(wrap),
     getJustifyClass(justify),
