@@ -20,9 +20,9 @@ export class Drawer extends React.Component<DrawerProps> {
     visible: false
   };
   public render(): React.ReactElement {
-    const { width, visible, onClose, location, backgroundColor } = this.props;
+    const { width, visible, onClose, location, backgroundColor, className } = this.props;
     const contentWidth = width === 'number' ? `${width}px` : width;
-    const baseClass = cx('dui-drawer', [`dui-drawer-${location}`]);
+    const baseClass = cx('dui-drawer', [`dui-drawer-${location}`], className);
     return (
       <Overlay visible={visible} backgroundColor={backgroundColor}>
         <div className="dui-drawer-container">
