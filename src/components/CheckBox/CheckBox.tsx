@@ -61,7 +61,9 @@ export class CheckBox extends React.Component<CheckBoxProps> {
           className="dui-checkbox-input"
           type="checkbox"
           checked={checked}
-          onChange={() => onCheckChange(!checked)}
+          onChange={() => {
+            if (onCheckChange) onCheckChange(!checked);
+          }}
           disabled={disabled}
           ref={node => (this._inputRef = node)}
           name={name}
