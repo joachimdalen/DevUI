@@ -86,4 +86,7 @@
       align-items: stretch;
     }
   }
+  &-grow {
+    flex-grow: 1;
+  }
 }
