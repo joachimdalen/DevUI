@@ -97,4 +97,34 @@
       cursor: pointer;
     }
   }
+  &-small {
+    font-size: $table-font-size;
+    color: $table-color;
+    border-collapse: collapse;
+    background-color: $table-background;
+    .#{$provider-prefix}-table-section {
+      border: $table-border-width solid $table-border-color;
+      > .dui-flex {
+        padding: 5px;
+      }
+    }
+    &-cell {
+      width: 100%;
+      padding: $table-cell-padding;
+      font-size: $table-row-header-font-size;
+      line-height: 1.5;
+    }
+    &-header {
+      font-size: $table-row-header-font-size;
+      font-weight: $table-row-header-font-weight;
+      line-height: 1.5;
+      color: $table-row-header-color;
+    }
+    &-striped {
+      .dui-table-section > .#{$provider-prefix}-flex:nth-child(2n) {
+        color: $table-striped-color;
+        background-color: $table-striped-background;
+      }
+    }
+  }
 }

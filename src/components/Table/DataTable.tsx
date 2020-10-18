@@ -2,36 +2,34 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { CheckBox } from '../CheckBox/CheckBox';
-import { Omit } from '../common';
 import { Empty } from '../Empty/Empty';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { Table, TableProps } from './Table';
+import { SmallTable } from './SmallTable';
+import { Table } from './Table';
 import { TableCell } from './TableCell';
 import { TableRow } from './TableRow';
-import { Column } from './TableTypes';
-
-interface InternalDataTableProps {
-  rows: any[];
-  columns: Column[];
-  multiSelect?: boolean;
-  showEmpty?: boolean;
-  emptyComp?: React.ReactElement<Empty>;
-  onCheck?: (checked: any) => void;
-}
+import { Column, DataTableProps } from './TableTypes';
 
 interface DataTableState {
   checked: any[];
   sortBy?: Column;
   sortDirection: string;
+  isSmall: boolean;
 }
-export type DataTableProps = Omit<TableProps, 'children'> & InternalDataTableProps;
 
 export class DataTable extends React.Component<DataTableProps, DataTableState> {
+  _mediaMatch: MediaQueryList;
+
   state = {
     checked: [] as any[],
     sortBy: {} as Column,
-    sortDirection: ''
+    sortDirection: '',
+    isSmall: false
   };
+
+  constructor(props: DataTableProps) {
+    super(props);
+  }
 
   static defaultProps: Partial<DataTableProps> = {
     showEmpty: false,
@@ -40,10 +38,54 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
     )
   };
 
+  componentDidMount(): void {
+    const { responsive } = this.props;
+    if (responsive) {
+      this._setSmallTableHandler();
+    }
+  }
+
+  componentDidUpdate(prevProps: DataTableProps, prevState: DataTableState): void {
+    if (prevProps.responsive && !this.props.responsive) {
+      console.log('Removed event listener');
+      this._mediaMatch?.removeEventListener('change', e => this._setSmallTable(e));
+    }
+
+    if (!prevProps.responsive && this.props.responsive && this._mediaMatch === undefined) {
+      this._setSmallTableHandler();
+    }
+  }
+
+  _setSmallTableHandler(): void {
+    const { responsive, smallBreakPoint } = this.props;
+    if (responsive) {
+      const matchOn = smallBreakPoint || 'max-width: 400px';
+      this._mediaMatch = window.matchMedia(`(${matchOn})`);
+      this._mediaMatch.addEventListener('change', e => this._setSmallTable(e));
+      console.log('Added event listener');
+    }
+  }
+  _setSmallTable(event: MediaQueryListEvent): void {
+    if (event.matches && !this.state.isSmall) {
+      console.log('Toggled On');
+      this.setState({ isSmall: true });
+    }
+
+    if (!event.matches && this.state.isSmall) {
+      console.log('Toggled Off');
+      this.setState({ isSmall: false });
+    }
+  }
+
   render(): React.ReactElement {
     const { columns, rows, emptyComp, showEmpty, ...rest } = this.props;
     const emptyItem = showEmpty ? emptyComp : null;
     const shouldShowEmpty = !rows || rows.length === 0;
+
+    if (this.state.isSmall) {
+      return <SmallTable {...this.props} />;
+    }
+
     return (
       <div className="dui-table-wrapper">
         <Table {...rest}>
@@ -115,20 +157,14 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
 
         return (
           <TableCell key={col.key}>
-            {col.sortable ? (
-              <div onClick={() => this._sort(col)} className={cellClass}>
-                <span>{col.label}</span>
-                <FontAwesomeIcon
-                  marginDirection="left"
-                  iconStyle="solid"
-                  icon={this._getSortIcon(col.key)}
-                />
-              </div>
-            ) : (
-              <div>
-                <span>{col.label}</span>
-              </div>
-            )}
+            <div onClick={() => this._sort(col)} className={cellClass}>
+              <span>{col.label}</span>
+              <FontAwesomeIcon
+                marginDirection="left"
+                iconStyle="solid"
+                icon={this._getSortIcon(col.key)}
+              />
+            </div>
           </TableCell>
         );
       }
@@ -205,7 +241,7 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
             {
               columns.map((col: Column, i: number) => {
                 const cellValue = col.renderer
-                  ? col.renderer(row)
+                  ? col.renderer(row, i, index, false)
                   : col.accessor
                   ? col.accessor(row)
                   : row[col.key];

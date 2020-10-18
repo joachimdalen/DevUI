@@ -31,7 +31,7 @@ import {
 } from './src/components/CheckBox/CheckBox';
 import { CheckBoxList, CheckBoxListProps } from './src/components/CheckBoxList/CheckBoxList';
 import { Drawer, DrawerProps } from './src/components/Drawer/Drawer';
-import { DataTable, DataTableProps } from './src/components/Table/DataTable';
+import { DataTable } from './src/components/Table/DataTable';
 import { Empty, EmptyProps } from './src/components/Empty/Empty';
 import { FormGroup, FormGroupProps } from './src/components/FormGroup/FormGroup';
 import { Flex, FlexProps } from './src/components/Flex/Flex';
@@ -88,7 +88,7 @@ import { Toast, ToastProps } from './src/components/Toast/Toast';
 import { Toggle, ToggleProps, ToggleSize } from './src/components/Toggle/Toggle';
 import { CustomComponent, GenericSizes, Omit } from './src/components/common';
 import { TabType } from './src/components/TabControl/TabControlTypes';
-import { Column } from './src/components/Table/TableTypes';
+import { Column, DataTableProps } from './src/components/Table/TableTypes';
 
 export {
   FontAwesomeIconProps,
