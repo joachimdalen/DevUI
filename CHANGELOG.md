@@ -12,6 +12,9 @@
 **Flex:**
 - Added `grow` prop to `Flex`
 
+**Overlay**
+- Added `onBackgroundClick`
+
 ### 📝 Changed
 
 **DataTable:**
