@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Button } from '../Button/Button';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
-import { DataTable } from './DataTable';
+import { SmallTable } from './SmallTable';
 import { Column, DataTableProps } from './TableTypes';
 const columnHeaders: Column[] = [
   {
@@ -15,7 +15,8 @@ const columnHeaders: Column[] = [
   {
     key: 'created',
     label: 'Created',
-    sortable: true
+    sortable: true,
+    omitFromSmall: true
   },
   {
     key: 'status',
@@ -57,33 +58,34 @@ const columnHeaders: Column[] = [
     key: 'amount',
     label: 'Amount',
     sortable: true,
-    renderer: (item: any) => (
-      <span>
-        <FontAwesomeIcon iconStyle="solid" icon="fa-dollar-sign" className="dui-color-success" />{' '}
-        {item.amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
-      </span>
-    )
+    renderer: (item: any, c, r, isSmall: boolean) =>
+      isSmall ? (
+        item.amount
+      ) : (
+        <span>
+          <FontAwesomeIcon iconStyle="solid" icon="fa-dollar-sign" className="dui-color-success" />{' '}
+          {item.amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
+        </span>
+      )
   },
   {
     key: 'actions',
     label: '',
     spanSmall: true,
     renderer: (item: any, c, r, isSmall: boolean) => {
-      return <Button format="block" label="Delete" variant="danger" linkButton={isSmall}></Button>;
+      return <Button format="block" label="Click"></Button>;
     }
   }
 ];
 export default {
-  title: 'Display Components/Table/Table',
-  component: DataTable,
+  title: 'Display Components/Table/Small Table',
+  component: SmallTable,
   args: {
     columns: columnHeaders,
-    rows: require('../../../data/invoices.json'),
-    responsive: true,
-    smallBreak: 'max-width: 400px'
+    rows: require('../../../data/invoices.json')
   }
 } as Meta;
 
-const BaseTemplate: Story<DataTableProps> = args => <DataTable {...args} />;
+const BaseTemplate: Story<DataTableProps> = args => <SmallTable {...args} />;
 
 export const Default: Story<DataTableProps> = BaseTemplate.bind({});

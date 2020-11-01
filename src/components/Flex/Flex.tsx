@@ -12,6 +12,7 @@ export interface FlexProps {
   wrap?: FlexWrap;
   justify?: FlexJustify;
   align?: FlexAlign;
+  grow?: boolean;
   flexDirection?: FlexDirection;
   children: any;
   className?: string;
@@ -68,6 +69,7 @@ const getAlignClass = (align?: FlexAlign): string => {
 export const Flex = ({
   gap,
   flexDirection = 'row',
+  grow = false,
   wrap,
   justify,
   align,
@@ -77,6 +79,7 @@ export const Flex = ({
   const classes = cx(
     'dui-flex',
     { [`dui-flex-gap-${gap}`]: gap !== undefined },
+    { [`dui-flex-grow`]: grow },
     [`dui-flex-${flexDirection}`],
     getWrapClass(wrap),
     getJustifyClass(justify),
