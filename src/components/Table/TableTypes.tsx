@@ -30,5 +30,5 @@ interface InternalDataTableProps {
   emptyComp?: React.ReactElement<Empty>;
   onCheck?: (checked: any) => void;
   responsive?: boolean;
-  smallBreakPoint?: string;
+  smallBreakPoint?: number;
 }

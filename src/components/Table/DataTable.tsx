@@ -18,8 +18,6 @@ interface DataTableState {
 }
 
 export class DataTable extends React.Component<DataTableProps, DataTableState> {
-  _mediaMatch: MediaQueryList;
-
   state = {
     checked: [] as any[],
     sortBy: {} as Column,
@@ -38,42 +36,36 @@ export class DataTable extends React.Component<DataTableProps, DataTableState> {
     )
   };
 
+  updateScreenSize = (): void => {
+    const { isSmall } = this.state;
+    const { smallBreakPoint } = this.props;
+    if (window.innerWidth <= (smallBreakPoint || 400) && !isSmall) {
+      this.setState({ isSmall: true });
+    }
+    if (
+      window.innerWidth >= (smallBreakPoint === undefined ? 400 : smallBreakPoint + 1) &&
+      isSmall
+    ) {
+      this.setState({ isSmall: false });
+    }
+  };
   componentDidMount(): void {
     const { responsive } = this.props;
     if (responsive) {
-      this._setSmallTableHandler();
+      window.addEventListener('resize', this.updateScreenSize);
     }
+  }
+  componentWillUnmount(): void {
+    window.removeEventListener('resize', this.updateScreenSize);
   }
 
   componentDidUpdate(prevProps: DataTableProps, prevState: DataTableState): void {
     if (prevProps.responsive && !this.props.responsive) {
-      console.log('Removed event listener');
-      this._mediaMatch?.removeEventListener('change', e => this._setSmallTable(e));
-    }
-
-    if (!prevProps.responsive && this.props.responsive && this._mediaMatch === undefined) {
-      this._setSmallTableHandler();
-    }
-  }
-
-  _setSmallTableHandler(): void {
-    const { responsive, smallBreakPoint } = this.props;
-    if (responsive) {
-      const matchOn = smallBreakPoint || 'max-width: 400px';
-      this._mediaMatch = window.matchMedia(`(${matchOn})`);
-      this._mediaMatch.addEventListener('change', e => this._setSmallTable(e));
-      console.log('Added event listener');
-    }
-  }
-  _setSmallTable(event: MediaQueryListEvent): void {
-    if (event.matches && !this.state.isSmall) {
-      console.log('Toggled On');
-      this.setState({ isSmall: true });
-    }
-
-    if (!event.matches && this.state.isSmall) {
-      console.log('Toggled Off');
       this.setState({ isSmall: false });
+      window.removeEventListener('resize', this.updateScreenSize);
+    }
+    if (!prevProps.responsive && this.props.responsive) {
+      window.addEventListener('resize', this.updateScreenSize);
     }
   }
 

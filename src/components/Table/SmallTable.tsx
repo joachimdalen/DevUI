@@ -50,7 +50,6 @@ export class SmallTable extends React.Component<DataTableProps> {
       <Flex
         className={cx('dui-table-small', { 'dui-table-small-striped': striped })}
         flexDirection="column"
-        gap="small"
       >
         {rows.map((row, index) => {
           return (
