@@ -154,9 +154,10 @@
     border: $split-button-menu-border-width solid $split-button-menu-border-color;
     &-item {
       display: block;
-      justify-content: start;
       width: 100%;
+      padding: $split-button-menu-item-padding;
       margin: 0;
+      text-align: left;
       border: 0;
       border-radius: 0;
     }
