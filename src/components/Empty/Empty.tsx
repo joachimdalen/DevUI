@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 export interface EmptyProps {
-  className: string;
+  className?: string;
   header: string;
   description?: string | React.ReactNode;
   image: string | React.ReactElement;
