@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: $empty-width;
+  max-width: $empty-width;
   padding: $empty-padding;
   text-align: center;
   background-color: $empty-background;
