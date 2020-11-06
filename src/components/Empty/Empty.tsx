@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 export interface EmptyProps {
+  className?: string;
   header: string;
   description?: string | React.ReactNode;
   image: string | React.ReactElement;
@@ -9,34 +10,31 @@ export interface EmptyProps {
   tertiaryAction?: React.ReactElement;
 }
 
-export class Empty extends React.Component<EmptyProps> {
-  public render(): React.ReactElement {
-    const {
-      image,
-      description,
-      header,
-      primaryAction,
-      secondaryAction,
-      tertiaryAction
-    } = this.props;
-
-    return (
-      <div className={cx('dui-empty')}>
-        <div className="dui-empty-image">
-          {React.isValidElement(image) ? (
-            image
-          ) : (
-            <img className="dui-empty-image" src={image as string}></img>
-          )}
-        </div>
-        <h3 className="dui-empty-header">{header}</h3>
-        <p className="dui-empty-description">{description}</p>
-        <div className="dui-empty-main-actions">
-          {primaryAction && primaryAction}
-          {secondaryAction && secondaryAction}
-        </div>
-        {tertiaryAction && tertiaryAction}
+export const Empty = ({
+  image,
+  description,
+  header,
+  primaryAction,
+  secondaryAction,
+  tertiaryAction,
+  className = ''
+}: EmptyProps): React.ReactElement => {
+  return (
+    <div className={cx('dui-empty', className)}>
+      <div className="dui-empty-image">
+        {React.isValidElement(image) ? (
+          image
+        ) : (
+          <img className="dui-empty-image" src={image as string}></img>
+        )}
       </div>
-    );
-  }
-}
+      <h3 className="dui-empty-header">{header}</h3>
+      <p className="dui-empty-description">{description}</p>
+      <div className="dui-empty-main-actions">
+        {primaryAction && primaryAction}
+        {secondaryAction && secondaryAction}
+      </div>
+      {tertiaryAction && tertiaryAction}
+    </div>
+  );
+};
