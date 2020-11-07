@@ -1,5 +1,4 @@
 import { Omit } from '../common';
-import { Empty } from '../Empty/Empty';
 import { TableProps } from './Table';
 import { TableRow } from './TableRow';
 
@@ -27,7 +26,7 @@ interface InternalDataTableProps {
   columns: Column[];
   multiSelect?: boolean;
   showEmpty?: boolean;
-  emptyComp?: React.ReactElement<Empty>;
+  emptyComp?: React.ReactElement;
   onCheck?: (checked: any) => void;
   responsive?: boolean;
   smallBreakPoint?: number;
