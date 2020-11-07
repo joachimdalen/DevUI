@@ -12,7 +12,7 @@ export interface SelectProps {
   defaultValue?: SelectOption;
   disabled?: boolean;
   keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
-  emptyPlaceholder?: React.ReactElement<Empty>;
+  emptyPlaceholder?: React.ReactElement;
   className?: string;
   optionClassName?: string;
   loading?: boolean;
