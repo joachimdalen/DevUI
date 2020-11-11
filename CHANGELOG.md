@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.0.0-rc1
+
+### ➕ Added
+
+**DatePicker:**
+
+- Added DatePicker component
+
+**TimePicker:**
+
+- Added TimePicker component
+
+### 📝 Changed
+
+**Select:**
+
+- Changed default value to accept `string | number` instead of `SelectOption`
+- Changed `SelectOption.value` to accept `string | number` instead of `string`
+
+**Core:**
+
+- Upgraded to React 17
+- Upgrade dependencies
+
 ## 1.3.1
 
 #### 🐞 Fixed

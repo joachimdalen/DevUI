@@ -510,3 +510,22 @@ $drawer-close-icon-hover-color: $color-dark !default;
 $drawer-close-icon-top: 10px !default;
 $drawer-close-icon-right: 10px !default;
 $drawer-background: $color-light !default;
+
+$datepicker-border-width: 2px !default;
+$datepicker-border-color: $color-border !default;
+$datepicker-header-border-width: 2px !default;
+$datepicker-header-border-color: $color-border !default;
+$datepicker-header-padding: 0 8px !default;
+$datepicer-navigation-color: $color-dark !default;
+$datepicer-navigation-hover-color: $color-light !default;
+$datepicer-navigation-hover-background: lighten($color-secondary, 30%) !default;
+$datepicer-weekdays-color: $color-text-gray !default;
+
+$datepicker-selected-color: $color-light !default;
+$datepicker-selected-background: $color-secondary !default;
+
+$datepicker-day-hover-color: $color-light !default;
+$datepicker-day-hover-background: lighten($color-secondary, 30%) !default;
+
+$timepicker-border-width: 2px !default;
+$timepicker-border-color: $color-border !default;

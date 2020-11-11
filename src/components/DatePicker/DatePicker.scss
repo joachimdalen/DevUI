@@ -1,0 +1,61 @@
+.#{$provider-prefix}-datepicker {
+  border: $datepicker-border-width solid $datepicker-border-color;
+  &-header {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: $datepicker-header-padding;
+    margin-bottom: 8px;
+    border-bottom: $datepicker-header-border-width solid $datepicker-header-border-color;
+
+    > .dui-icon {
+      padding: 5px;
+      color: $datepicer-navigation-color;
+      &:hover {
+        color: $datepicer-navigation-hover-color;
+        cursor: pointer;
+        background-color: $datepicer-navigation-hover-background;
+      }
+    }
+  }
+  &-selectors {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-right: auto;
+    font-size: $font-size-large;
+    > :first-child {
+      margin-right: 4px;
+    }
+    .dui-select {
+      min-width: 100px;
+    }
+  }
+
+  &-month {
+    width: 100%;
+    text-align: center;
+    thead {
+      color: $datepicer-weekdays-color;
+    }
+    td {
+      padding: 8px;
+    }
+  }
+  .active {
+    color: $datepicker-selected-color;
+    background-color: $datepicker-selected-background;
+  }
+  &-day:hover:not(.disabled):not(.active) {
+    color: $datepicker-day-hover-color;
+    cursor: pointer;
+    background-color: $datepicker-day-hover-background;
+  }
+}
+.time-picker {
+  border-top: $timepicker-border-width solid $timepicker-border-color;
+  .dui-select {
+    min-width: 40px;
+    margin: 2px 4px;
+  }
+}

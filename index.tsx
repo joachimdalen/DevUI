@@ -29,6 +29,8 @@ import {
   CheckBoxIndicatorLocation,
   CheckBoxProps
 } from './src/components/CheckBox/CheckBox';
+import { DatePicker, DatePickerProps } from './src/components/DatePicker/DatePicker';
+import { TimePicker, TimePickerProps } from './src/components/DatePicker/TimePicker';
 import { CheckBoxList, CheckBoxListProps } from './src/components/CheckBoxList/CheckBoxList';
 import { Drawer, DrawerProps } from './src/components/Drawer/Drawer';
 import { DataTable } from './src/components/Table/DataTable';
@@ -132,6 +134,10 @@ export {
   CheckBoxProps,
   CheckBoxList,
   CheckBoxListProps,
+  DatePicker,
+  DatePickerProps,
+  TimePicker,
+  TimePickerProps,
   DataTable,
   DataTableProps,
   Drawer,

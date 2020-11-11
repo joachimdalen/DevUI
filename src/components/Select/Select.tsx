@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import * as React from 'react';
-import { isUndefined } from 'util';
 
 import { Empty } from '../Empty/Empty';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
@@ -9,7 +8,7 @@ import { SelectOption } from './SelectOption';
 export interface SelectProps {
   label: string;
   options?: SelectOption[];
-  defaultValue?: SelectOption;
+  defaultValue?: string | number;
   disabled?: boolean;
   keepOpenOnLostFocus?: boolean; // Keep open when focus is lost
   emptyPlaceholder?: React.ReactElement;
@@ -22,19 +21,19 @@ export interface SelectProps {
 }
 interface State {
   expanded: boolean;
-  selectedItem?: SelectOption;
+  selectedItem?: string | number;
 }
 export class Select extends React.Component<SelectProps, State> {
   _wrapperRef: any = React.createRef();
   state = {
     expanded: false,
-    selectedItem: this.props.defaultValue || undefined
+    selectedItem: this.props.defaultValue === undefined ? undefined : this.props.defaultValue
   };
 
   public componentDidUpdate(prevProps: SelectProps): void {
     if (prevProps.defaultValue !== this.props.defaultValue) {
       this.setState({
-        selectedItem: this.props.defaultValue || undefined
+        selectedItem: this.props.defaultValue === undefined ? undefined : this.props.defaultValue
       });
     }
   }
@@ -54,10 +53,10 @@ export class Select extends React.Component<SelectProps, State> {
     const containerClass = cx('dui-select', { disabled: disabled || loading }, className);
     const infoClass = cx('dui-select-info');
     const previewClass = cx('dui-select-preview', {
-      'dui-select-placeholder': isUndefined(selectedItem)
+      'dui-select-placeholder': selectedItem === undefined
     });
     const caretContainerClass = cx('dui-select-caret-container', {
-      'dui-select-placeholder': isUndefined(selectedItem)
+      'dui-select-placeholder': selectedItem === undefined
     });
     const optionsClass = cx('dui-select-options');
     const optionsListClass = cx('dui-select-options-list');
@@ -131,19 +130,21 @@ export class Select extends React.Component<SelectProps, State> {
   }
   _selectOption(option: SelectOption): void {
     const { onChange } = this.props;
-    this.setState({ expanded: false, selectedItem: option }, () => {
+    this.setState({ expanded: false, selectedItem: option.value }, () => {
       if (onChange) onChange(option);
     });
   }
   _getPreviewLabel(): React.ReactElement<SelectOption> | string {
-    const { label, previewRenderer } = this.props;
+    const { label, previewRenderer, options } = this.props;
     const { selectedItem } = this.state;
-    if (selectedItem === undefined) {
+    const selectedItemValue = options?.find(x => x.value === selectedItem);
+    if (selectedItemValue === undefined) {
       return label;
     }
     if (previewRenderer !== undefined) {
-      return previewRenderer(selectedItem);
+      return previewRenderer(selectedItemValue);
     }
-    return selectedItem.label;
+
+    return selectedItemValue.label;
   }
 }
