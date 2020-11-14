@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 
 import { Flex } from '../Flex/Flex';
@@ -40,13 +40,13 @@ export const TimePicker = ({
   }, []);
 
   const changed = (type: 'hour' | 'minute' | 'second', value: number) => {
-    if (type === 'hour') {
+    if (type === 'hour' && onChange) {
       onChange(currentDate.hour(value).toDate());
     }
-    if (type === 'minute') {
+    if (type === 'minute' && onChange) {
       onChange(currentDate.minute(value).toDate());
     }
-    if (type === 'second') {
+    if (type === 'second' && onChange) {
       onChange(currentDate.second(value).toDate());
     }
   };
@@ -59,8 +59,7 @@ export const TimePicker = ({
     if (type === 'PM') {
       hour = hour + 12;
     }
-
-    onChange(currentDate.hour(hour).toDate());
+    if (onChange) onChange(currentDate.hour(hour).toDate());
   };
 
   return (

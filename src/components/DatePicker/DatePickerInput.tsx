@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import dayjs from 'dayjs';
+import * as dayjs from 'dayjs';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';

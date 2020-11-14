@@ -7,7 +7,8 @@ export default {
   title: 'Display Components/DateTime/DatePicker',
   component: DatePicker,
   args: {
-    date: new Date()
+    date: new Date(),
+    onChange: i => console.log(i)
   }
 } as Meta;
 
