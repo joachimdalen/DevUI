@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-rc4
+
+### 📝 Changed
+
+**DatePicker:**
+
+- Fix issue with `Dayjs` extensions
+
 ## 2.0.0-rc3
 
 ### ➕ Added
