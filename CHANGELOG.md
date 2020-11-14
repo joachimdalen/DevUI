@@ -2,7 +2,7 @@
 
 ## 2.0.0-rc5
 
-### 📝 Changed
+### 🐞 Fixed
 
 **DatePicker:**
 
@@ -14,7 +14,7 @@
 
 ## 2.0.0-rc4
 
-### 📝 Changed
+### 🐞 Fixed
 
 **DatePicker:**
 
