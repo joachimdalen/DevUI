@@ -1,6 +1,5 @@
 import cx from 'classnames';
-import dayjs from 'dayjs';
-import { Dayjs } from 'dayjs';
+import * as dayjs from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
 import localeData from 'dayjs/plugin/localeData';
 import React, { useMemo, useState } from 'react';
@@ -14,7 +13,7 @@ dayjs.extend(localeData);
 
 export interface DatePickerProps {
   className?: string;
-  date?: Date | string | Dayjs;
+  date?: Date | string | dayjs.Dayjs;
   use24Hour?: boolean;
   showTimePicker?: boolean;
   onChange: (date: Date) => void;
