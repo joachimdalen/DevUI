@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as dayjs from 'dayjs';
-import isoWeek from 'dayjs/plugin/isoWeek';
-import localeData from 'dayjs/plugin/localeData';
+import * as isoWeek from 'dayjs/plugin/isoWeek';
+import * as localeData from 'dayjs/plugin/localeData';
 import React, { useMemo, useState } from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
@@ -93,10 +93,7 @@ export const DatePicker = ({
 
   const monthOptions = useMemo(
     () =>
-      dayjs()
-        .localeData()
-        .months()
-        .map((item, index) => {
+      ["January"]        .map((item, index) => {
           return {
             label: item,
             value: index
