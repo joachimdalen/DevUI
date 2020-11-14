@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import { SelectOption } from 'components/Select/SelectOption';
 import dayjs from 'dayjs';
 import { Dayjs } from 'dayjs';
 import isoWeek from 'dayjs/plugin/isoWeek';
@@ -8,6 +7,7 @@ import React, { useMemo, useState } from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Select } from '../Select/Select';
+import { SelectOption } from '../Select/SelectOption';
 import { TimePicker } from './TimePicker';
 dayjs.extend(isoWeek);
 dayjs.extend(localeData);
