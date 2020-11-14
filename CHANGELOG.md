@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0-rc5
+
+### 📝 Changed
+
+**DatePicker:**
+
+- Updated react import
+
+**TimePicker:**
+
+- Updated react import
+
 ## 2.0.0-rc4
 
 ### 📝 Changed

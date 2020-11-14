@@ -1,5 +1,5 @@
 import * as dayjs from 'dayjs';
-import React, { useMemo } from 'react';
+import * as React from 'react';
 
 import { Flex } from '../Flex/Flex';
 import { Select } from '../Select/Select';
@@ -16,7 +16,7 @@ export const TimePicker = ({
   onChange
 }: TimePickerProps): React.ReactElement => {
   const currentDate = dayjs(date);
-  const hours = useMemo(() => {
+  const hours = React.useMemo(() => {
     const values: SelectOption[] = [];
     const top = use24Hour ? 24 : 12;
 
@@ -28,7 +28,7 @@ export const TimePicker = ({
     }
     return values;
   }, [use24Hour]);
-  const minutesAndSeconds = useMemo(() => {
+  const minutesAndSeconds = React.useMemo(() => {
     const values: SelectOption[] = [];
     for (let i = 0; i <= 59; i++) {
       values.push({
