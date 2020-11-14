@@ -14,6 +14,8 @@ dayjs.extend(localeData);
 export interface DatePickerProps {
   className?: string;
   date?: Date | string | dayjs.Dayjs;
+  startDate?: Date | string | dayjs.Dayjs;
+  endDate?: Date | string | dayjs.Dayjs;
   use24Hour?: boolean;
   showTimePicker?: boolean;
   onChange: (date: Date) => void;
@@ -21,6 +23,8 @@ export interface DatePickerProps {
 
 export const DatePicker = ({
   date = new Date(),
+  startDate,
+  endDate,
   showTimePicker = true,
   use24Hour,
   className,
@@ -74,8 +78,8 @@ export const DatePicker = ({
   };
 
   const yearOptions = useMemo(() => {
-    const lowEnd = dayjs().year();
-    const highEnd = lowEnd + 1;
+    const lowEnd = dayjs(startDate || dayjs().add(-25, 'year')).year();
+    const highEnd = dayjs(endDate || dayjs().add(25, 'year')).year();
     const list: SelectOption[] = [];
 
     for (let i = lowEnd; i <= highEnd; i++) {
