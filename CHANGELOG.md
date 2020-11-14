@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0-rc2
+
+#### 🐞 Fixed
+
+**DatePicker:**
+
+- Fixed broken imports
+
+**TimePicker:**
+
+- Fixed broken imports
+
 ## 2.0.0-rc1
 
 ### ➕ Added

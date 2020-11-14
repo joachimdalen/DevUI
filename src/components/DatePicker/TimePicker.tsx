@@ -1,9 +1,9 @@
-import { SelectOption } from 'components/Select/SelectOption';
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 
 import { Flex } from '../Flex/Flex';
 import { Select } from '../Select/Select';
+import { SelectOption } from '../Select/SelectOption';
 
 export interface TimePickerProps {
   date?: Date | string | dayjs.Dayjs;
