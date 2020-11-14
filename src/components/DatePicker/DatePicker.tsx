@@ -2,7 +2,7 @@ import cx from 'classnames';
 import * as dayjs from 'dayjs';
 import * as isoWeek from 'dayjs/plugin/isoWeek';
 import * as localeData from 'dayjs/plugin/localeData';
-import React, { useMemo, useState } from 'react';
+import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Select } from '../Select/Select';
@@ -30,7 +30,7 @@ export const DatePicker = ({
   className,
   onChange
 }: DatePickerProps): React.ReactElement => {
-  const [currentDate, setCurrentDate] = useState(dayjs(date));
+  const [currentDate, setCurrentDate] = React.useState(dayjs(date));
 
   const getMonthMatrix = () => {
     const monthStartAtDay = currentDate.date(0).day();
@@ -77,7 +77,7 @@ export const DatePicker = ({
     setCurrentDate(prev => prev.year(year));
   };
 
-  const yearOptions = useMemo(() => {
+  const yearOptions = React.useMemo(() => {
     const lowEnd = dayjs(startDate || dayjs().add(-25, 'year')).year();
     const highEnd = dayjs(endDate || dayjs().add(25, 'year')).year();
     const list: SelectOption[] = [];
@@ -91,9 +91,12 @@ export const DatePicker = ({
     return list;
   }, []);
 
-  const monthOptions = useMemo(
+  const monthOptions = React.useMemo(
     () =>
-      ["January"]        .map((item, index) => {
+      dayjs()
+        .localeData()
+        .months()
+        .map((item, index) => {
           return {
             label: item,
             value: index
