@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.0.0-rc3
+
+### ➕ Added
+
+**DatePicker:**
+
+- Added `startDate` and `endDate` to control ranges for dropdowns
+
+### 📝 Changed
+
+**DatePicker:**
+
+- Minor refactors
+
+**DatePicker:**
+
+- Minor refactors
+
+**TimePicker:**
+
+- Minor refactors
+
 ## 2.0.0-rc2
 
 #### 🐞 Fixed
