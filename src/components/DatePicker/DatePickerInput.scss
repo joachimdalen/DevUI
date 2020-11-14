@@ -1,0 +1,64 @@
+.#{$provider-prefix}-datepicker-input {
+  position: relative;
+  width: 100%;
+  min-width: $datepicker-input-min-width;
+  max-width: $datepicker-input-max-width;
+  height: $datepicker-input-height;
+  font-size: $datepicker-input-font-size;
+  line-height: 1.5;
+  color: $datepicker-input-color;
+  background-color: $datepicker-input-background;
+  background-clip: padding-box;
+  border-radius: $datepicker-input-border-radius;
+  transition: all 0.3s;
+  &-preview {
+    align-self: center;
+    white-space: nowrap;
+  }
+  &-placeholder {
+    color: $datepicker-input-placeholder-color;
+  }
+  &.disabled {
+    color: $datepicker-input-disabled-color;
+    background-color: $datepicker-input-disabled-background;
+  }
+  &:hover:not(.disabled) {
+    cursor: pointer;
+  }
+  &-info {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: $datepicker-input-info-padding;
+    padding-right: 20px;
+  }
+  &-caret-container {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+  &-loading {
+    color: $datepicker-input-loading-color;
+  }
+  &-options {
+    position: absolute;
+    top: $input-height-normal;
+    z-index: 1;
+    width: 100%;
+    background-color: $datepicker-input-options-background;
+    border-bottom-right-radius: $datepicker-input-border-radius;
+    border-bottom-left-radius: $datepicker-input-border-radius;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0.8rem 1rem -0.2rem;
+    &.visible {
+      display: block;
+    }
+    &-list {
+      position: relative;
+    }
+  }
+}

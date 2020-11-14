@@ -510,3 +510,40 @@ $drawer-close-icon-hover-color: $color-dark !default;
 $drawer-close-icon-top: 10px !default;
 $drawer-close-icon-right: 10px !default;
 $drawer-background: $color-light !default;
+
+$datepicker-border-width: 2px !default;
+$datepicker-border-color: $color-border !default;
+$datepicker-header-border-width: 2px !default;
+$datepicker-header-border-color: $color-border !default;
+$datepicker-header-padding: 0 8px !default;
+$datepicer-navigation-color: $color-dark !default;
+$datepicer-navigation-hover-color: $color-light !default;
+$datepicer-navigation-hover-background: lighten($color-secondary, 30%) !default;
+$datepicer-weekdays-color: $color-text-gray !default;
+
+$datepicker-selected-color: $color-light !default;
+$datepicker-selected-background: $color-secondary !default;
+
+$datepicker-day-hover-color: $color-light !default;
+$datepicker-day-hover-background: lighten($color-secondary, 30%) !default;
+
+$timepicker-border-width: 2px !default;
+$timepicker-border-color: $color-border !default;
+
+/* DatepickerInput */
+$datepicker-input-color: $color-dark !default;
+$datepicker-input-loading-color: $color-blue !default;
+$datepicker-input-border-radius: $border-raidus !default;
+$datepicker-input-font-size: $font-size-normal !default;
+$datepicker-input-height: 32px !default;
+$datepicker-input-background: $color-input !default;
+$datepicker-input-placeholder-color: $color-dark !default;
+$datepicker-input-border-width: 1px !default;
+$datepicker-input-border-color: $color-border !default;
+$datepicker-input-min-width: 200px !default;
+$datepicker-input-max-width: 300px !default;
+$datepicker-input-disabled-background: $color-disabled !default;
+$datepicker-input-disabled-color: lighten($color-text-gray, 40%) !default;
+$datepicker-input-info-padding: 4px 8px !default;
+$datepicker-input-options-max-height: 150px !default;
+$datepicker-input-options-background: $color-light !default;
