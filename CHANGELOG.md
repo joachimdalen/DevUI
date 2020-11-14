@@ -8,6 +8,10 @@
 
 - Added DatePicker component
 
+**DatePickerInput:**
+
+- Added DatePickerInput component
+
 **TimePicker:**
 
 - Added TimePicker component

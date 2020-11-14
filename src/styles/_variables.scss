@@ -529,3 +529,21 @@ $datepicker-day-hover-background: lighten($color-secondary, 30%) !default;
 
 $timepicker-border-width: 2px !default;
 $timepicker-border-color: $color-border !default;
+
+/* DatepickerInput */
+$datepicker-input-color: $color-dark !default;
+$datepicker-input-loading-color: $color-blue !default;
+$datepicker-input-border-radius: $border-raidus !default;
+$datepicker-input-font-size: $font-size-normal !default;
+$datepicker-input-height: 32px !default;
+$datepicker-input-background: $color-input !default;
+$datepicker-input-placeholder-color: $color-dark !default;
+$datepicker-input-border-width: 1px !default;
+$datepicker-input-border-color: $color-border !default;
+$datepicker-input-min-width: 200px !default;
+$datepicker-input-max-width: 300px !default;
+$datepicker-input-disabled-background: $color-disabled !default;
+$datepicker-input-disabled-color: lighten($color-text-gray, 40%) !default;
+$datepicker-input-info-padding: 4px 8px !default;
+$datepicker-input-options-max-height: 150px !default;
+$datepicker-input-options-background: $color-light !default;
