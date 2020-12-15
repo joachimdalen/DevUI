@@ -270,8 +270,9 @@ $text-input-margin: $text-input-margin-y $text-input-margin-x !default;
 $text-input-small-height: $input-height-small !default;
 $text-input-small-padding: 3px 7px 3px 7px !default;
 $text-input-small-font-size: $font-size-small !default;
-$text-input-diabled-background: $color-disabled !default;
-$text-input-diabled-color: inherit !default;
+$text-input-disabled-background: $color-disabled !default;
+$text-input-disabled-color: inherit !default;
+$text-input-icon-color: $color-dark !default;
 
 $list-background: $color-light !default;
 $list-border-color: $color-light !default;

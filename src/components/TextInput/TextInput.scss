@@ -34,9 +34,10 @@
     border-bottom: 2px solid $color-secondary;
   }
   &-disabled {
-    color: $text-input-diabled-color;
-    background-color: $text-input-diabled-background;
+    color: $text-input-disabled-color;
+    background-color: $text-input-disabled-background;
   }
+
   &-icon {
     position: absolute;
     right: 12px;
@@ -46,7 +47,20 @@
     height: 100%;
     line-height: 1;
     .#{$provider-prefix}-input {
-      padding-right: 28px;
+      padding-right: 32px;
+    }
+    .#{$provider-prefix}-icon {
+      color: $text-input-icon-color;
+    }
+  }
+  &-icon-start {
+    .#{$provider-prefix}-input {
+      padding-right: 14px;
+      padding-left: 32px;
+    }
+    .#{$provider-prefix}-input-icon:not(.#{$provider-prefix}-input-clear) {
+      right: unset;
+      left: 12px;
     }
   }
   &-clear {

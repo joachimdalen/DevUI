@@ -2,6 +2,12 @@
 
 ## 2.0.0-rc6
 
+### ➕ Added
+
+**TextInput:**
+
+Added `$text-input-icon-color` to adjust color of text input icons
+
 ### 📝 Changed
 
 **Modal:**
@@ -11,6 +17,14 @@ Added `$modal-header-color` to adjust color of modal header
 **DatePickerInput:**
 
 - Updated styling
+
+### 🐞 Fixed
+
+**TextInput:**
+
+- [#40 iconPlacement is not respected in TextInput](https://github.com/joachimdalen/DevUI/issues/40)
+- Fixed typo `$text-input-diabled-color` --> `$text-input-disabled-color`
+- Fixed typo `$text-input-diabled-backgroun` --> `$text-input-disabled-background`
 
 ## 2.0.0-rc5
 
