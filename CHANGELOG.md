@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0-rc6
+
+### 📝 Changed
+
+**Modal:**
+
+Added `$modal-header-color` to adjust color of modal header
+
+**DatePickerInput:**
+
+- Updated styling
+
 ## 2.0.0-rc5
 
 ### 🐞 Fixed
