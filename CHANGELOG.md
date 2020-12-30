@@ -4,15 +4,23 @@
 
 ### ➕ Added
 
-**TextInput:**
+**Badge:**
 
-Added `$text-input-icon-color` to adjust color of text input icons
+- Added `wrapperClassName` and `className` props.
 
-### 📝 Changed
+**Button:**
+
+- Added `iconPlacement` to button to ajust icon location. Options are `start` and `end`.
 
 **Modal:**
 
-Added `$modal-header-color` to adjust color of modal header
+- Added `$modal-header-color` to adjust color of modal header
+
+**TextInput:**
+
+- Added `$text-input-icon-color` to adjust color of text input icons
+
+### 📝 Changed
 
 **DatePickerInput:**
 
