@@ -12,6 +12,10 @@
 
 - Added `iconPlacement` to button to ajust icon location. Options are `start` and `end`.
 
+**DatePickerInput:**
+
+- Added `closeOnChange` to close calendar when value is selected. Defaults to `true`
+
 **Modal:**
 
 - Added `$modal-header-color` to adjust color of modal header

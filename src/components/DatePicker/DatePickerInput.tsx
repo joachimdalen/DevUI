@@ -11,6 +11,7 @@ export interface DatePickerInputProps extends Omit<DatePickerProps, 'classname'>
   format?: string;
   datePickerClassName?: string;
   loading?: boolean;
+  closeOnChange?: boolean;
 }
 
 export const DatePickerInput = ({
@@ -20,6 +21,8 @@ export const DatePickerInput = ({
   format = 'ddd, MMM D, YYYY h:mm A',
   datePickerClassName,
   date,
+  closeOnChange = true,
+  onChange,
   ...restProps
 }: DatePickerInputProps): React.ReactElement => {
   const [expanded, setExpanded] = React.useState(false);
@@ -32,6 +35,17 @@ export const DatePickerInput = ({
   const optionsListClass = cx('dui-datepicker-input-options-list');
   const caretIcon = loading ? 'fa-spinner' : 'fa-calendar-alt';
   const caretIconClass = cx({ 'dui-datepicker-input-loading': loading });
+
+  const handleChange = (date: Date) => {
+    if (onChange) {
+      onChange(date);
+    }
+
+    if (closeOnChange) {
+      setExpanded(false);
+    }
+  };
+
   return (
     <div className={containerClass} role="select">
       <div className={infoClass} onClick={() => setExpanded(prev => !prev)}>
@@ -49,7 +63,12 @@ export const DatePickerInput = ({
       {expanded && (
         <div className={optionsClass}>
           <div className={optionsListClass}>
-            <DatePicker date={date} className={datePickerClassName} {...restProps} />
+            <DatePicker
+              date={date}
+              className={datePickerClassName}
+              onChange={handleChange}
+              {...restProps}
+            />
           </div>
         </div>
       )}
