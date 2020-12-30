@@ -7,12 +7,16 @@ export interface BadgeProps {
   icon?: string | React.ReactElement;
   variant?: string;
   dismissText?: string | React.ReactNode;
+  className?: string;
+  wrapperClassName?: string;
   onDismiss?: () => void;
 }
 
 export class Badge extends React.PureComponent<BadgeProps> {
   static defaultProps: Partial<BadgeProps> = {
-    variant: 'default'
+    variant: 'default',
+    className: '',
+    wrapperClassName: ''
   };
 
   _handleClick = (): void => {
@@ -21,14 +25,23 @@ export class Badge extends React.PureComponent<BadgeProps> {
   };
 
   public render(): React.ReactElement {
-    const { label, icon, variant, onDismiss, dismissText } = this.props;
+    const {
+      label,
+      icon,
+      variant,
+      onDismiss,
+      dismissText,
+      className,
+      wrapperClassName
+    } = this.props;
     const badgeClass = cx(
       'dui-badge',
       { [`dui-badge-${variant}`]: variant !== 'default' },
-      { [`dui-badge-dismiss`]: onDismiss }
+      { [`dui-badge-dismiss`]: onDismiss },
+      className
     );
     const dismissibleClass = cx('dui-badge-dismissible');
-    const wrapperClass = cx('dui-badge-wrapper');
+    const wrapperClass = cx('dui-badge-wrapper', wrapperClassName);
     const iconClass = cx('dui-badge-icon');
     const isDismissible = onDismiss;
 
