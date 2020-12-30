@@ -8,48 +8,47 @@ export interface ToggleProps {
   showLabels?: boolean;
   rounded?: boolean;
   disabled?: boolean;
-  onToggle: () => any;
+  onToggle: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   size?: ToggleSize;
   variant?: string;
   name?: string;
 }
 
-export class Toggle extends React.Component<ToggleProps> {
-  public render(): React.ReactElement {
-    const {
-      className = '',
-      toggled = false,
-      rounded = false,
-      variant = 'default',
-      size = 'normal',
-      showLabels = false,
-      disabled = false,
-      onToggle,
-      name
-    } = this.props;
-
-    return (
-      <label
-        className={cx(
-          'dui-toggle',
-          { [`dui-toggle-rounded`]: rounded },
-          { [`dui-toggle-${variant}`]: variant !== 'default' },
-          { [`dui-toggle-${size}`]: size !== 'normal' },
-          { [`dui-toggle-labels`]: showLabels },
-          { [`dui-toggle-disabled`]: disabled },
-          className
-        )}
-      >
-        <input
-          type="checkbox"
-          className={cx('dui-toggle')}
-          checked={toggled}
-          onChange={() => onToggle()}
-          name={name}
-          disabled={disabled}
-        />
-        <span className={cx('dui-toggle-button')} />
-      </label>
-    );
-  }
-}
+export const Toggle = ({
+  className = '',
+  toggled = false,
+  rounded = false,
+  variant = 'default',
+  size = 'normal',
+  showLabels = false,
+  disabled = false,
+  onToggle,
+  onBlur,
+  name
+}: ToggleProps): React.ReactElement => (
+  <label
+    className={cx(
+      'dui-toggle',
+      { [`dui-toggle-rounded`]: rounded },
+      { [`dui-toggle-${variant}`]: variant !== 'default' },
+      { [`dui-toggle-${size}`]: size !== 'normal' },
+      { [`dui-toggle-labels`]: showLabels },
+      { [`dui-toggle-disabled`]: disabled },
+      className
+    )}
+  >
+    <input
+      type="checkbox"
+      className={cx('dui-toggle')}
+      checked={toggled}
+      onChange={e => onToggle(e)}
+      onBlur={e => {
+        if (onBlur) onBlur(e);
+      }}
+      name={name}
+      disabled={disabled}
+    />
+    <span className={cx('dui-toggle-button')} />
+  </label>
+);

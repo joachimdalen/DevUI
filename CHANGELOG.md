@@ -20,6 +20,11 @@
 
 - Added `$text-input-icon-color` to adjust color of text input icons
 
+**Toggle:**
+
+- Added event props to `onToggle`
+- Added `onBlur`
+
 ### 📝 Changed
 
 **DatePickerInput:**
