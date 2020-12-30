@@ -74,21 +74,21 @@ export const TimePicker = ({
             : currentDate.hour()
         }
         label="Year"
-        onChange={i => changed('hour', i.value as number)}
+        onChange={(i: SelectOption) => changed('hour', i.value as number)}
       />
       :
       <Select
         options={minutesAndSeconds}
         defaultValue={currentDate.minute()}
         label="Year"
-        onChange={i => changed('minute', i.value as number)}
+        onChange={(i: SelectOption) => changed('minute', i.value as number)}
       />
       :
       <Select
         options={minutesAndSeconds}
         defaultValue={currentDate.second()}
         label="Year"
-        onChange={i => changed('second', i.value as number)}
+        onChange={(i: SelectOption) => changed('second', i.value as number)}
       />
       {!use24Hour && (
         <Select
