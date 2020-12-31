@@ -1,6 +1,6 @@
 {
   "name": "@joachimdalen/devui",
-  "version": "2.0.0-rc5",
+  "version": "2.0.0-rc6",
   "description": "",
   "main": "build/main.js",
   "types": "build/index.d.ts",
@@ -80,7 +80,7 @@
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0",
-    "ts-jest": "^24.3.0",
+    "ts-jest": "^26.4.4",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",
     "webpack": "^4.44.2",

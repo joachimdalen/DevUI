@@ -6,12 +6,14 @@ import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export type ButtonFormat = 'default' | 'block';
 export type ButtonSize = GenericSizes;
+export type ButtonIconPlacement = 'start' | 'end';
 export interface ButtonProps extends CustomComponent {
   label?: string;
   onClick?: () => void;
   disabled?: boolean;
   variant?: string;
   format?: ButtonFormat;
+  iconPlacement?: ButtonIconPlacement;
   size?: ButtonSize;
   outlined?: boolean;
   linkButton?: boolean;
@@ -29,6 +31,7 @@ export const Button = ({
   disabled = false,
   variant = 'primary',
   size = 'medium',
+  iconPlacement = 'start',
   outlined = false,
   loading = false,
   fixedIconSize = false,
@@ -69,7 +72,7 @@ export const Button = ({
       iconStyle="solid"
       animate={true}
       animationType="spin"
-      marginDirection="right"
+      marginDirection={iconPlacement === 'start' ? 'right' : 'left'}
       icon={loadingIconClass}
       fixedWidth={iconOnly || fixedIconSize}
     />
@@ -80,17 +83,30 @@ export const Button = ({
     <FontAwesomeIcon
       iconStyle="solid"
       icon={icon as string}
-      marginDirection={hasButtonText && !iconOnly && !linkButton ? 'right' : undefined}
+      marginDirection={
+        hasButtonText && !iconOnly && !linkButton
+          ? iconPlacement === 'start'
+            ? 'right'
+            : 'left'
+          : undefined
+      }
       fixedWidth={iconOnly || fixedIconSize}
     />
   );
-  const content = (
-    <React.Fragment>
-      {loading && loadingIconComp}
-      {!loading && icon && iconComp}
-      {hasButtonText && !iconOnly && buttonText}
-    </React.Fragment>
-  );
+  const content =
+    iconPlacement === 'start' ? (
+      <React.Fragment>
+        {loading && loadingIconComp}
+        {!loading && icon && iconComp}
+        {hasButtonText && !iconOnly && buttonText}
+      </React.Fragment>
+    ) : (
+      <React.Fragment>
+        {hasButtonText && !iconOnly && buttonText}
+        {loading && loadingIconComp}
+        {!loading && icon && iconComp}
+      </React.Fragment>
+    );
   if (component) {
     const Component = component;
     return (
@@ -105,99 +121,3 @@ export const Button = ({
     </button>
   );
 };
-
-// export class Button extends React.Component<ButtonProps> {
-//   static defaultProps: Partial<ButtonProps> = {
-//     format: 'default',
-//     disabled: false,
-//     variant: 'primary',
-//     size: 'medium',
-//     outlined: false,
-//     loading: false,
-//     fixedIconSize: false,
-//     iconOnly: false
-//   };
-//   public render(): React.ReactElement {
-//     const {
-//       label,
-//       format,
-//       disabled,
-//       variant,
-//       size,
-//       linkButton,
-//       outlined,
-//       loading,
-//       loadingIcon,
-//       loadingText,
-//       icon,
-//       className,
-//       component,
-//       componentProps,
-//       fixedIconSize,
-//       iconOnly,
-//       ...rest
-//     } = this.props;
-
-//     const buttonText = loading ? loadingText || 'Loading' : label;
-//     const isDefaultFormat = format === 'default';
-//     const loadingIconClass = loadingIcon ? loadingIcon : 'fa-spinner';
-//     const baseButtonClass = 'dui-button';
-//     const hasButtonText = !(label === undefined || label === null || label === '');
-//     const isDefaultSize = size === 'medium';
-//     const buttonSizeClass = isDefaultSize ? '' : size === 'small' ? 'small' : 'large';
-//     const buttonClass = cx(
-//       baseButtonClass,
-//       { disabled: disabled && !loading },
-//       { [`${baseButtonClass}-${variant}`]: !outlined && !linkButton },
-//       { [`${baseButtonClass}-${format}`]: !isDefaultFormat },
-//       { [`${baseButtonClass}-outlined-${variant}`]: outlined && !linkButton },
-//       { [`${baseButtonClass}-loading`]: loading },
-//       { [`${baseButtonClass}-icon-only`]: iconOnly },
-//       { [`${baseButtonClass}-${buttonSizeClass}`]: !isDefaultSize },
-//       { [`${baseButtonClass}-link`]: linkButton },
-//       { [`${baseButtonClass}-link-${variant}`]: linkButton },
-//       className
-//     );
-
-//     const loadingIconComp = (
-//       <FontAwesomeIcon
-//         iconStyle="solid"
-//         animate={true}
-//         animationType="spin"
-//         marginDirection="right"
-//         icon={loadingIconClass}
-//         fixedWidth={iconOnly || fixedIconSize}
-//       />
-//     );
-//     const iconComp = React.isValidElement(icon) ? (
-//       icon
-//     ) : (
-//       <FontAwesomeIcon
-//         iconStyle="solid"
-//         icon={icon as string}
-//         marginDirection={hasButtonText && !iconOnly && !linkButton ? 'right' : undefined}
-//         fixedWidth={iconOnly || fixedIconSize}
-//       />
-//     );
-//     const content = (
-//       <React.Fragment>
-//         {loading && loadingIconComp}
-//         {!loading && icon && iconComp}
-//         {hasButtonText && !iconOnly && buttonText}
-//       </React.Fragment>
-//     );
-//     if (component) {
-//       const Component = component;
-//       return (
-//         <Component className={buttonClass} disabled={disabled} {...componentProps} {...rest}>
-//           {content}
-//         </Component>
-//       );
-//     }
-//     return (
-//       <button className={buttonClass} disabled={disabled} {...rest}>
-//         <span>{content}</span>
-//       </button>
-//     );
-//   }
-// }

@@ -60,6 +60,7 @@
     align-items: center;
     min-height: $modal-header-min-height;
     padding: $modal-header-padding;
+    color: $modal-header-color;
     border-bottom: $modal-border-width solid $modal-border-color;
     &-title {
       margin-right: 5px;

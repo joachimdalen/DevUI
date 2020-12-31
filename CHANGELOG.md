@@ -1,5 +1,52 @@
 # Changelog
 
+## 2.0.0-rc6
+
+### ➕ Added
+
+**Badge:**
+
+- Added `wrapperClassName` and `className` props.
+
+**Button:**
+
+- Added `iconPlacement` to button to ajust icon location. Options are `start` and `end`.
+
+**DatePickerInput:**
+
+- Added `closeOnChange` to close calendar when value is selected. Defaults to `true`
+
+**Modal:**
+
+- Added `$modal-header-color` to adjust color of modal header
+
+**TextInput:**
+
+- Added `$text-input-icon-color` to adjust color of text input icons
+
+**Toggle:**
+
+- Added event props to `onToggle`
+- Added `onBlur`
+
+### 📝 Changed
+
+**DatePickerInput:**
+
+- Updated styling
+
+### 🐞 Fixed
+
+**DatePickerInput:**
+
+- Fixed loading icon now showing when loading
+
+**TextInput:**
+
+- [#40 iconPlacement is not respected in TextInput](https://github.com/joachimdalen/DevUI/issues/40)
+- Fixed typo `$text-input-diabled-color` --> `$text-input-disabled-color`
+- Fixed typo `$text-input-diabled-background` --> `$text-input-disabled-background`
+
 ## 2.0.0-rc5
 
 ### 🐞 Fixed

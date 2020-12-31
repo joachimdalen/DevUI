@@ -55,6 +55,7 @@ export class TextInput extends React.Component<AllProps> {
       'dui-input-wrapper',
       { 'dui-input-wrapper-block': fillWidth },
       { 'dui-input-small': small },
+      { 'dui-input-icon-start': iconPlacement === 'start' },
       wrapperClassName
     );
     const inputComponentClass = cx('dui-input', { 'dui-input-disabled': disabled }, className);
