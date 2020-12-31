@@ -45,7 +45,7 @@
 
 - [#40 iconPlacement is not respected in TextInput](https://github.com/joachimdalen/DevUI/issues/40)
 - Fixed typo `$text-input-diabled-color` --> `$text-input-disabled-color`
-- Fixed typo `$text-input-diabled-backgroun` --> `$text-input-disabled-background`
+- Fixed typo `$text-input-diabled-background` --> `$text-input-disabled-background`
 
 ## 2.0.0-rc5
 
