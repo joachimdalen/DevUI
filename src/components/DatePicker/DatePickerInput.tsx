@@ -52,7 +52,7 @@ export const DatePickerInput = ({
         <div className={previewClass}>{dayjs(date).format(format)}</div>
         <span className={caretContainerClass}>
           <FontAwesomeIcon
-            iconStyle="regular"
+            iconStyle={loading ? 'solid' : 'regular'}
             icon={caretIcon}
             animate={loading}
             className={caretIconClass}

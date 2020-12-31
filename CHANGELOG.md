@@ -37,6 +37,10 @@
 
 ### 🐞 Fixed
 
+**DatePickerInput:**
+
+- Fixed loading icon now showing when loading
+
 **TextInput:**
 
 - [#40 iconPlacement is not respected in TextInput](https://github.com/joachimdalen/DevUI/issues/40)
