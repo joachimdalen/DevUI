@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006 -c .storybook",
     "build-components": "webpack -p --progress --colors --display-error-details",
     "build-css": "node-sass src/styles/main.scss build/main.css",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook",
     "build": "npm run build-components && npm run build-css",
     "test": "./node_modules/.bin/jest",
     "lint:styles": "npx stylelint 'src/**/**.scss'",
