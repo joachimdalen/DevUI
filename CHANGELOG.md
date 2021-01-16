@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-rc7
+
+### 📝 Changed
+
+**ProgressBar:**
+
+- Move `className` to container
+
 ## 2.0.0-rc6
 
 ### ➕ Added

@@ -24,11 +24,10 @@ export class ProgressBar extends React.Component<ProgressBarProps> {
       'dui-progress-bar-inner',
       [`dui-progress-${variant}`],
       { 'dui-progress-striped': striped },
-      { 'dui-progress-animated': animated },
-      className
+      { 'dui-progress-animated': animated }
     );
     return (
-      <div className={cx('dui-progress-bar-container')}>
+      <div className={cx('dui-progress-bar-container', className)}>
         <div className={innerClass} style={{ width: `${completed}%` }}>
           <span>{title}</span>
         </div>
