@@ -16,11 +16,13 @@ export interface ModalProps {
   location?: ModalLocation;
   className?: string;
   backdropClassName?: string;
+  showCloseButton?: boolean;
 }
 export class Modal extends React.Component<ModalProps> {
   wrapperRef = React.createRef<HTMLDivElement>();
   static defaultProps: Partial<ModalProps> = {
     closeOnBackdropClick: false,
+    showCloseButton: true,
     visible: false,
     size: 'medium',
     location: 'top',
@@ -41,7 +43,7 @@ export class Modal extends React.Component<ModalProps> {
     }
   }
   render(): React.ReactElement | null {
-    const { size, visible, className, backdropClassName, location } = this.props;
+    const { size, visible, className, backdropClassName, location, showCloseButton } = this.props;
     if (!visible) return null;
     const backdropClass = cx('dui-modal', 'dui-modal-backdrop', backdropClassName);
     const itemClass = cx(
@@ -53,9 +55,11 @@ export class Modal extends React.Component<ModalProps> {
     return (
       <div className={backdropClass} onClick={this._onBackdropClick}>
         <div className={itemClass} ref={this.wrapperRef}>
-          <span onClick={this._closeModal} className="dui-modal-icon">
-            <FontAwesomeIcon icon="fa-times" iconStyle="solid" />
-          </span>
+          {showCloseButton && (
+            <span onClick={this._closeModal} className="dui-modal-icon">
+              <FontAwesomeIcon icon="fa-times" iconStyle="solid" />
+            </span>
+          )}
           {this.props.children}
         </div>
       </div>

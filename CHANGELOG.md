@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.0.0-rc7
+
+### ➕ Added
+
+**Button:**
+
+- Added common button props
+
+**Modal:**
+
+- Added `showCloseButton` to toggle visibility of close button
+
+**DatePickerInput:**
+
+- Added support for inital date to be undefined
+
+### 📝 Changed
+
+**ProgressBar:**
+
+- Move `className` to container
+
 ## 2.0.0-rc6
 
 ### ➕ Added
