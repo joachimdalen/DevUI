@@ -12,6 +12,7 @@ export interface DatePickerInputProps extends Omit<DatePickerProps, 'classname'>
   datePickerClassName?: string;
   loading?: boolean;
   closeOnChange?: boolean;
+  placeholder?: string;
 }
 
 export const DatePickerInput = ({
@@ -23,11 +24,14 @@ export const DatePickerInput = ({
   date,
   closeOnChange = true,
   onChange,
+  placeholder = 'Select a date',
   ...restProps
 }: DatePickerInputProps): React.ReactElement => {
   const [expanded, setExpanded] = React.useState(false);
 
-  const containerClass = cx('dui-datepicker-input', { disabled: disabled || loading }, className);
+  const hasDateSelected = date !== undefined;
+  const isDisabled = disabled || loading;
+  const containerClass = cx('dui-datepicker-input', { disabled: isDisabled }, className);
   const infoClass = cx('dui-datepicker-input-info');
   const previewClass = cx('dui-datepicker-input-preview');
   const caretContainerClass = cx('dui-datepicker-input-caret-container');
@@ -37,6 +41,8 @@ export const DatePickerInput = ({
   const caretIconClass = cx({ 'dui-datepicker-input-loading': loading });
 
   const handleChange = (date: Date) => {
+    if (isDisabled) return;
+
     if (onChange) {
       onChange(date);
     }
@@ -48,8 +54,10 @@ export const DatePickerInput = ({
 
   return (
     <div className={containerClass} role="select">
-      <div className={infoClass} onClick={() => setExpanded(prev => !prev)}>
-        <div className={previewClass}>{dayjs(date).format(format)}</div>
+      <div className={infoClass} onClick={() => !isDisabled && setExpanded(prev => !prev)}>
+        <div className={previewClass}>
+          {hasDateSelected ? dayjs(date).format(format) : placeholder}
+        </div>
         <span className={caretContainerClass}>
           <FontAwesomeIcon
             iconStyle={loading ? 'solid' : 'regular'}

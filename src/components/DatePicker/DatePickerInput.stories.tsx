@@ -7,7 +7,7 @@ export default {
   title: 'Display Components/DateTime/DatePickerInput',
   component: DatePickerInput,
   args: {
-    date: new Date(),
+    placeholder: 'Select a date',
     onChange: i => console.log(i)
   }
 } as Meta;

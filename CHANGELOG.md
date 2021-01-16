@@ -12,6 +12,10 @@
 
 - Added `showCloseButton` to toggle visibility of close button
 
+**DatePickerInput:**
+
+- Added support for inital date to be undefined
+
 ### 📝 Changed
 
 **ProgressBar:**
