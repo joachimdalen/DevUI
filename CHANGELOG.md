@@ -2,6 +2,12 @@
 
 ## 2.0.0-rc7
 
+### ➕ Added
+
+**Button:**
+
+- Added common button props
+
 ### 📝 Changed
 
 **ProgressBar:**

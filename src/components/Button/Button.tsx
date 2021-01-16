@@ -1,15 +1,19 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import { CustomComponent, GenericSizes } from '../common';
+import { GenericSizes, Omit } from '../common';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
 export type ButtonFormat = 'default' | 'block';
 export type ButtonSize = GenericSizes;
 export type ButtonIconPlacement = 'start' | 'end';
-export interface ButtonProps extends CustomComponent {
+
+type OmittedButtonProps = Omit<
+  React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
+  'disabled'
+>;
+export interface ButtonProps extends OmittedButtonProps {
   label?: string;
-  onClick?: () => void;
   disabled?: boolean;
   variant?: string;
   format?: ButtonFormat;
@@ -22,8 +26,9 @@ export interface ButtonProps extends CustomComponent {
   loadingText?: string;
   icon?: string | React.ReactElement;
   iconOnly?: boolean;
-  className?: string;
   fixedIconSize?: boolean;
+  component?: React.ComponentType<any> | React.ElementType<any>;
+  componentProps?: any;
 }
 
 export const Button = ({
