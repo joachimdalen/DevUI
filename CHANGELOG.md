@@ -8,6 +8,10 @@
 
 - Added common button props
 
+**Modal:**
+
+- Added `showCloseButton` to toggle visibility of close button
+
 ### 📝 Changed
 
 **ProgressBar:**
