@@ -74,4 +74,9 @@
       @extend %background-ease;
     }
   }
+  &-search-container {
+    padding: $select-search-padding;
+    background-color: $select-search-background;
+    border-bottom: $select-search-border;
+  }
 }
