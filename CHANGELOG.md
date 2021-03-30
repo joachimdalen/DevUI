@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0-rc8
+
+**Core:**
+
+- Upgrade dependencies
+
+### ➕ Added
+
+**Select:**
+
+- Added option to enable search
+
 ## 2.0.0-rc7
 
 ### ➕ Added

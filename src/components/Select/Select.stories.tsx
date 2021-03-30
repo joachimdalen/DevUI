@@ -134,3 +134,67 @@ Loading.args = {
   label: 'Select Item',
   loading: true
 };
+export const WithSearch: Story<SelectProps> = BaseTemplate.bind({});
+WithSearch.args = {
+  showSearch: true,
+  options: [
+    {
+      label: 'Norway',
+      value: 'norway',
+      meta: {
+        icon: 'fa-users',
+        description: 'This offers the item description'
+      }
+    },
+    {
+      label: 'Sweden',
+      value: 'sweden',
+      meta: {
+        icon: 'fa-users',
+        description: 'This offers the item description'
+      }
+    },
+    {
+      label: 'Denmark',
+      value: 10,
+      meta: {
+        icon: 'fa-users',
+        description: 'This offers the item description'
+      }
+    },
+    {
+      label: 'Germany',
+      value: 'germany',
+      meta: {
+        icon: 'fa-users',
+        description: 'This offers the item description'
+      }
+    }
+  ],
+  label: 'Select Item',
+  renderer: option => (
+    <Flex gap="small" align="center">
+      <FontAwesomeIcon
+        icon={option.meta.icon}
+        iconStyle="solid"
+        marginDirection="right"
+        size="normal"
+      />
+      <Flex flexDirection="column">
+        <label>{option.label}</label>
+        <small>{option.meta.description}</small>
+      </Flex>
+    </Flex>
+  ),
+  previewRenderer: option => (
+    <Flex gap="small" align="center">
+      <FontAwesomeIcon
+        icon={option.meta.icon}
+        iconStyle="solid"
+        marginDirection="right"
+        size="normal"
+      />
+      <label>{option.label}</label>
+    </Flex>
+  )
+};

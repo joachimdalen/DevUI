@@ -255,6 +255,10 @@ $select-option-padding: $select-option-padding-y $select-option-padding-x !defau
 $select-option-hover-background: $color-input !default;
 $select-option-hover-color: $color-dark !default;
 
+$select-search-padding: 4px 8px !default;
+$select-search-border: 1px solid $color-border !default;
+$select-search-background: #e1e1e1 !default;
+
 /* TEXT INPUT */
 $text-input-color: $color-dark !default;
 $text-input-border-radius: $border-raidus !default;

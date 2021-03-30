@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import { Empty } from '../Empty/Empty';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+import { TextInput } from '../TextInput/TextInput';
 import { SelectOption } from './SelectOption';
 
 export interface SelectProps {
@@ -18,16 +19,25 @@ export interface SelectProps {
   renderer?: (option: SelectOption) => React.ReactElement<SelectOption>;
   previewRenderer?: (option: SelectOption) => React.ReactElement<SelectOption>;
   onChange: (value: SelectOption) => void;
+  showSearch?: boolean;
+  searchMatcher?: (option: SelectOption, searchValue: string) => boolean;
+
+  searchInputPlaceholder?: string;
+  searchContainerClassName?: string;
+  searchInputClassName?: string;
 }
 interface State {
   expanded: boolean;
   selectedItem?: string | number;
+  searchValue?: string;
 }
+
 export class Select extends React.Component<SelectProps, State> {
   _wrapperRef: any = React.createRef();
   state = {
     expanded: false,
-    selectedItem: this.props.defaultValue === undefined ? undefined : this.props.defaultValue
+    selectedItem: this.props.defaultValue === undefined ? undefined : this.props.defaultValue,
+    searchValue: ''
   };
 
   public componentDidUpdate(prevProps: SelectProps): void {
@@ -49,7 +59,7 @@ export class Select extends React.Component<SelectProps, State> {
   };
   public render(): React.ReactElement {
     const { expanded, selectedItem } = this.state;
-    const { disabled, loading, className } = this.props;
+    const { disabled, loading, className, showSearch } = this.props;
     const containerClass = cx('dui-select', { disabled: disabled || loading }, className);
     const infoClass = cx('dui-select-info');
     const previewClass = cx('dui-select-preview', {
@@ -79,6 +89,7 @@ export class Select extends React.Component<SelectProps, State> {
 
         {expanded && (
           <div className={optionsClass}>
+            {showSearch && this._renderSearch()}
             <div className={optionsListClass}>{this._renderOptions()}</div>
           </div>
         )}
@@ -86,8 +97,33 @@ export class Select extends React.Component<SelectProps, State> {
     );
   }
 
+  _renderSearch(): React.ReactNode {
+    const { searchValue } = this.state;
+    const {
+      searchInputPlaceholder,
+      disabled,
+      searchContainerClassName,
+      searchInputClassName
+    } = this.props;
+
+    return (
+      <div className={cx('dui-select-search-container', searchContainerClassName)}>
+        <TextInput
+          disabled={disabled}
+          value={searchValue}
+          fillWidth
+          className={searchInputClassName}
+          placeholder={searchInputPlaceholder || 'Search...'}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            this.setState({ ...this.state, searchValue: e.target.value })
+          }
+        />
+      </div>
+    );
+  }
+
   _renderOptions(): React.ReactNode {
-    const { options, emptyPlaceholder, renderer, optionClassName } = this.props;
+    const { options, emptyPlaceholder, renderer, optionClassName, showSearch } = this.props;
     if (!options || (!options.length && emptyPlaceholder)) {
       return (
         emptyPlaceholder || (
@@ -98,7 +134,14 @@ export class Select extends React.Component<SelectProps, State> {
         )
       );
     }
-    return options.map((option: SelectOption) => {
+
+    let optionsToRender = options;
+
+    if (showSearch) {
+      optionsToRender = this._getFilteredSearchOptions(optionsToRender);
+    }
+
+    return optionsToRender.map((option: SelectOption) => {
       return (
         <div
           className={cx('dui-select-option', optionClassName)}
@@ -111,6 +154,24 @@ export class Select extends React.Component<SelectProps, State> {
       );
     });
   }
+
+  _getFilteredSearchOptions(options: SelectOption[]): SelectOption[] {
+    const { searchMatcher } = this.props;
+    const { searchValue } = this.state;
+    if (searchMatcher === undefined) {
+      options = options.filter(o => {
+        if (typeof o.value === 'number') {
+          return o.value === parseInt(searchValue);
+        } else {
+          return o.value.indexOf(searchValue) >= 0;
+        }
+      });
+    } else {
+      options = options.filter(option => searchMatcher(option, searchValue));
+    }
+    return options;
+  }
+
   _renderChildOptions(): React.ReactNode {
     const { children } = this.props;
     return children;
