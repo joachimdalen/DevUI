@@ -2,14 +2,19 @@ import cx from 'classnames';
 import * as dayjs from 'dayjs';
 import * as isoWeek from 'dayjs/plugin/isoWeek';
 import * as localeData from 'dayjs/plugin/localeData';
+import * as timezone from 'dayjs/plugin/timezone';
+import * as utc from 'dayjs/plugin/utc';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Select } from '../Select/Select';
 import { SelectOption } from '../Select/SelectOption';
 import { TimePicker } from './TimePicker';
+
 dayjs.extend(isoWeek);
 dayjs.extend(localeData);
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export interface DatePickerProps {
   className?: string;
@@ -18,20 +23,25 @@ export interface DatePickerProps {
   endDate?: Date | string | dayjs.Dayjs;
   use24Hour?: boolean;
   showTimePicker?: boolean;
+  showSeconds?: boolean;
+  timezone?: string;
   onChange: (date: Date) => void;
 }
 
 export const DatePicker = ({
-  date = new Date(),
+  date,
   startDate,
   endDate,
   showTimePicker = true,
+  showSeconds = true,
   use24Hour,
   className,
+  timezone,
   onChange
 }: DatePickerProps): React.ReactElement => {
-  const [currentDate, setCurrentDate] = React.useState(dayjs(date));
-
+  const inputDate = dayjs(date) || new Date();
+  const currentTz = timezone || dayjs.tz.guess();
+  const [currentDate, setCurrentDate] = React.useState(dayjs.tz(inputDate, currentTz));
   const getMonthMatrix = () => {
     const monthStartAtDay = currentDate.date(0).day();
     const daysInMonth = currentDate.daysInMonth();
@@ -61,7 +71,7 @@ export const DatePicker = ({
 
   const selectDate = (dayOfMonth: number) => {
     setCurrentDate(prev => prev.date(dayOfMonth));
-    if (onChange) onChange(currentDate.date(dayOfMonth).toDate());
+    if (onChange) onChange(currentDate.tz(timezone).date(dayOfMonth).toDate());
   };
   const goNextMonth = () => {
     setCurrentDate(prev => prev.add(1, 'month'));
@@ -163,7 +173,7 @@ export const DatePicker = ({
                         className={cx('dui-datepicker-day', {
                           active:
                             selectedDayOfMonth === day &&
-                            dayjs(date).month() === currentDate.month()
+                            dayjs(inputDate).month() === currentDate.month()
                         })}
                         onClick={() => selectDate(parseInt(day.toString()))}
                       >
@@ -179,6 +189,8 @@ export const DatePicker = ({
       </table>
       {showTimePicker && (
         <TimePicker
+          timezone={timezone}
+          showSeconds={showSeconds}
           use24Hour={use24Hour}
           date={currentDate}
           onChange={(newDate: Date) => {
