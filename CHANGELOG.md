@@ -1,5 +1,24 @@
 # Changelog
 
+## 2.0.0-rc9
+
+**TimePicker:**
+
+- Added timezone support
+- Added prop to hide seconds
+
+**DatePicker:**
+
+- Added timezone support
+
+**DatePickerInput:**
+
+- Added timezone support
+
+**Core:**
+
+- Upgrade dependencies
+
 ## 2.0.0-rc8
 
 **Core:**
