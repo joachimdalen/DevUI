@@ -6,8 +6,8 @@ install:
   - npm install
 script:
   - npm test
-before_script:
-  - npm run build-storybook
+# before_script:
+#   - npm run build-storybook
 before_deploy:
   - npm run build
 deploy:

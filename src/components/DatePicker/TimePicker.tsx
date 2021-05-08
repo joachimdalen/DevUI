@@ -1,21 +1,33 @@
 import * as dayjs from 'dayjs';
+import * as timezone from 'dayjs/plugin/timezone';
+import * as utc from 'dayjs/plugin/utc';
 import * as React from 'react';
 
 import { Flex } from '../Flex/Flex';
 import { Select } from '../Select/Select';
 import { SelectOption } from '../Select/SelectOption';
 
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
 export interface TimePickerProps {
   date?: Date | string | dayjs.Dayjs;
+  timezone?: string;
+  showSeconds?: boolean;
   use24Hour?: boolean;
   onChange: (date: Date) => void;
 }
 export const TimePicker = ({
-  date = new Date(),
+  date,
+  showSeconds = true,
   use24Hour,
-  onChange
+  onChange,
+  timezone
 }: TimePickerProps): React.ReactElement => {
-  const currentDate = dayjs(date);
+  const inputDate = dayjs(date) || new Date();
+  const currentTz = timezone || dayjs.tz.guess();
+  const currentDate = dayjs.tz(inputDate, currentTz);
+
   const hours = React.useMemo(() => {
     const values: SelectOption[] = [];
     const top = use24Hour ? 24 : 12;
@@ -41,12 +53,22 @@ export const TimePicker = ({
 
   const changed = (type: 'hour' | 'minute' | 'second', value: number) => {
     if (type === 'hour' && onChange) {
-      onChange(currentDate.hour(value).toDate());
+      onChange(
+        currentDate
+          .hour(value)
+          .second(showSeconds ? value : 0)
+          .toDate()
+      );
     }
     if (type === 'minute' && onChange) {
-      onChange(currentDate.minute(value).toDate());
+      onChange(
+        currentDate
+          .minute(value)
+          .second(showSeconds ? value : 0)
+          .toDate()
+      );
     }
-    if (type === 'second' && onChange) {
+    if (type === 'second' && onChange && showSeconds) {
       onChange(currentDate.second(value).toDate());
     }
   };
@@ -59,7 +81,14 @@ export const TimePicker = ({
     if (type === 'PM') {
       hour = hour + 12;
     }
-    if (onChange) onChange(currentDate.hour(hour).toDate());
+    if (onChange)
+      onChange(
+        currentDate
+          .hour(hour)
+          .minute(currentDate.minute())
+          .second(showSeconds ? currentDate.second() : 0)
+          .toDate()
+      );
   };
 
   return (
@@ -73,23 +102,27 @@ export const TimePicker = ({
             ? currentDate.hour() - 12
             : currentDate.hour()
         }
-        label="Year"
+        label="Hour"
         onChange={(i: SelectOption) => changed('hour', i.value as number)}
       />
       :
       <Select
         options={minutesAndSeconds}
         defaultValue={currentDate.minute()}
-        label="Year"
+        label="Minute"
         onChange={(i: SelectOption) => changed('minute', i.value as number)}
       />
-      :
-      <Select
-        options={minutesAndSeconds}
-        defaultValue={currentDate.second()}
-        label="Year"
-        onChange={(i: SelectOption) => changed('second', i.value as number)}
-      />
+      {showSeconds && (
+        <>
+          :
+          <Select
+            options={minutesAndSeconds}
+            defaultValue={currentDate.second()}
+            label="Second"
+            onChange={(i: SelectOption) => changed('second', i.value as number)}
+          />
+        </>
+      )}
       {!use24Hour && (
         <Select
           options={[
@@ -97,7 +130,7 @@ export const TimePicker = ({
             { label: 'PM', value: 'PM' }
           ]}
           defaultValue={currentDate.format('A')}
-          label="Year"
+          label="D"
           onChange={i => changedA(i.value as string)}
         />
       )}

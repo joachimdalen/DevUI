@@ -14,3 +14,9 @@ export default {
 
 const BaseTemplate: Story<DatePickerInputProps> = args => <DatePickerInput {...args} />;
 export const Default: Story<DatePickerInputProps> = BaseTemplate.bind({});
+
+export const Timezone: Story<DatePickerInputProps> = BaseTemplate.bind({});
+Timezone.args = {
+  timezone: 'America/Detroit',
+  date: '2021-05-13 04:00:00.922'
+};
