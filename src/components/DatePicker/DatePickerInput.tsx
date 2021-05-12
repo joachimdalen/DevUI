@@ -1,14 +1,9 @@
 import cx from 'classnames';
 import * as dayjs from 'dayjs';
-import * as timezone from 'dayjs/plugin/timezone';
-import * as utc from 'dayjs/plugin/utc';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { DatePicker, DatePickerProps } from './DatePicker';
-
-dayjs.extend(utc);
-dayjs.extend(timezone);
 
 export interface DatePickerInputProps extends Omit<DatePickerProps, 'classname'> {
   disabled?: boolean;
@@ -30,11 +25,9 @@ export const DatePickerInput = ({
   closeOnChange = true,
   onChange,
   placeholder = 'Select a date',
-  timezone,
   ...restProps
 }: DatePickerInputProps): React.ReactElement => {
   const [expanded, setExpanded] = React.useState(false);
-  const currentTz = timezone || dayjs.tz.guess();
   const hasDateSelected = date !== undefined;
   const isDisabled = disabled || loading;
   const containerClass = cx('dui-datepicker-input', { disabled: isDisabled }, className);
@@ -62,7 +55,7 @@ export const DatePickerInput = ({
     <div className={containerClass} role="select">
       <div className={infoClass} onClick={() => !isDisabled && setExpanded(prev => !prev)}>
         <div className={previewClass}>
-          {hasDateSelected ? dayjs(date).tz(currentTz).format(format) : placeholder}
+          {hasDateSelected ? dayjs(date).format(format) : placeholder}
         </div>
         <span className={caretContainerClass}>
           <FontAwesomeIcon
@@ -78,7 +71,6 @@ export const DatePickerInput = ({
         <div className={optionsClass}>
           <div className={optionsListClass}>
             <DatePicker
-              timezone={currentTz}
               date={date}
               className={datePickerClassName}
               onChange={handleChange}

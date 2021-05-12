@@ -4,6 +4,21 @@
 
 **TimePicker:**
 
+- Revert: Added timezone support
+
+**DatePicker:**
+
+- Revert: Added timezone support
+
+**DatePickerInput:**
+
+- Revert: Added timezone support
+
+
+## 2.0.0-rc9
+
+**TimePicker:**
+
 - Added timezone support
 - Added prop to hide seconds
 

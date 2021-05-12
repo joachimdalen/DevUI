@@ -7,7 +7,6 @@ export default {
   title: 'Display Components/DateTime/TimePicker',
   component: TimePicker,
   args: {
-    date: new Date(),
     onChange: i => console.log(i)
   }
 } as Meta;
