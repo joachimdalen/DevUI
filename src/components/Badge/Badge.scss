@@ -25,6 +25,7 @@
 
 .#{$provider-prefix}-badge {
   @extend %badge-base;
+  align-items: center;
   padding: $badge-padding;
   font-size: $badge-font-size;
   font-weight: $badge-font-weight;
@@ -42,7 +43,7 @@
     font-size: $badge-font-size;
   }
   &-uppercase {
-    text-transform: uppercase;
     font-weight: $font-weight-bold;
+    text-transform: uppercase;
   }
 }
