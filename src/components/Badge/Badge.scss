@@ -32,11 +32,17 @@
   color: $color-dark;
   border-radius: $badge-border-radius;
   @each $color, $value in $theme-colors {
-    @include badge-variant('-#{$color}', $value);
+    @include badge-light-variant('-light-#{$color}', $value);
+    @include badge-solid-variant('-solid-#{$color}', $value);
+    @include badge-outline-variant('-outline-#{$color}', $value);
   }
   &-icon {
     align-self: center;
     margin-right: 5px;
     font-size: $badge-font-size;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+    font-weight: $font-weight-bold;
   }
 }

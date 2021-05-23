@@ -2,6 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import variants from '../../storyUtil/variants';
+import { Flex } from '../Flex/Flex';
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 import { Badge, BadgeProps } from './Badge';
 
@@ -45,11 +46,48 @@ CustomIconComponent.args = {
 };
 
 export const Variants: Story<BadgeProps> = () => (
-  <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <div>
+  <Flex flexDirection="column" gap="small">
+    <Flex align="center">
+      <h3>Light</h3>
       {variants.map(variant => {
-        return <Badge key={variant} label={variant} variant={variant} />;
+        return (
+          <Badge
+            labelStyle="uppercase"
+            key={`light-${variant}`}
+            style="light"
+            label={variant}
+            variant={variant}
+          />
+        );
       })}
-    </div>
-  </div>
+    </Flex>
+    <Flex align="center">
+      <h3>Solid</h3>
+      {variants.map(variant => {
+        return (
+          <Badge
+            labelStyle="uppercase"
+            key={`solid-${variant}`}
+            style="solid"
+            label={variant}
+            variant={variant}
+          />
+        );
+      })}
+    </Flex>
+    <Flex align="center">
+      <h3>Outline</h3>
+      {variants.map(variant => {
+        return (
+          <Badge
+            labelStyle="uppercase"
+            key={`outline-${variant}`}
+            style="outline"
+            label={variant}
+            variant={variant}
+          />
+        );
+      })}
+    </Flex>
+  </Flex>
 );
