@@ -1,5 +1,31 @@
 # Changelog
 
+## 2.0.0-rc10
+
+### ➕ Added
+
+**Badge:**
+
+- Added more badge styles
+
+### 📝 Changed
+
+**TimePicker:**
+
+- Revert: Added timezone support
+
+**DatePicker:**
+
+- Revert: Added timezone support
+
+**DatePickerInput:**
+
+- Revert: Added timezone support
+
+**FormGroup:**
+
+- Removed `notice`
+
 ## 2.0.0-rc9
 
 **TimePicker:**

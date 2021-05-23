@@ -2,6 +2,9 @@ import cx from 'classnames';
 import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
+
+export type BadgeStyle = 'solid' | 'light' | 'outline';
+export type BadgeLabelStyle = 'uppercase';
 export interface BadgeProps {
   label: string | React.ReactNode;
   icon?: string | React.ReactElement;
@@ -9,12 +12,16 @@ export interface BadgeProps {
   dismissText?: string | React.ReactNode;
   className?: string;
   wrapperClassName?: string;
+  style?: BadgeStyle;
+  labelStyle?: BadgeLabelStyle;
   onDismiss?: () => void;
 }
 
 export class Badge extends React.PureComponent<BadgeProps> {
   static defaultProps: Partial<BadgeProps> = {
     variant: 'default',
+    style: 'light',
+    labelStyle: undefined,
     className: '',
     wrapperClassName: ''
   };
@@ -32,12 +39,15 @@ export class Badge extends React.PureComponent<BadgeProps> {
       onDismiss,
       dismissText,
       className,
+      style,
+      labelStyle,
       wrapperClassName
     } = this.props;
     const badgeClass = cx(
       'dui-badge',
-      { [`dui-badge-${variant}`]: variant !== 'default' },
+      { [`dui-badge-${style}-${variant}`]: variant !== 'default' },
       { [`dui-badge-dismiss`]: onDismiss },
+      { [`dui-badge-uppercase`]: labelStyle === 'uppercase' },
       className
     );
     const dismissibleClass = cx('dui-badge-dismissible');

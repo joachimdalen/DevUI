@@ -1,18 +1,12 @@
 import * as dayjs from 'dayjs';
-import * as timezone from 'dayjs/plugin/timezone';
-import * as utc from 'dayjs/plugin/utc';
 import * as React from 'react';
 
 import { Flex } from '../Flex/Flex';
 import { Select } from '../Select/Select';
 import { SelectOption } from '../Select/SelectOption';
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
-
 export interface TimePickerProps {
   date?: Date | string | dayjs.Dayjs;
-  timezone?: string;
   showSeconds?: boolean;
   use24Hour?: boolean;
   onChange: (date: Date) => void;
@@ -21,12 +15,9 @@ export const TimePicker = ({
   date,
   showSeconds = true,
   use24Hour,
-  onChange,
-  timezone
+  onChange
 }: TimePickerProps): React.ReactElement => {
-  const inputDate = dayjs(date) || new Date();
-  const currentTz = timezone || dayjs.tz.guess();
-  const currentDate = dayjs.tz(inputDate, currentTz);
+  const currentDate = dayjs(date);
 
   const hours = React.useMemo(() => {
     const values: SelectOption[] = [];
@@ -60,6 +51,7 @@ export const TimePicker = ({
           .toDate()
       );
     }
+
     if (type === 'minute' && onChange) {
       onChange(
         currentDate
@@ -73,35 +65,25 @@ export const TimePicker = ({
     }
   };
   const changedA = (type: string) => {
-    const currentHour = currentDate.hour();
-    let hour = currentHour;
-    if (hour === 12) {
-      hour = 0;
+    let stringDate = currentDate.format('YYYY-MM-DD h:m:s A Z');
+    if (type === 'AM') {
+      stringDate = stringDate.replace('PM', 'AM');
+    } else {
+      stringDate = stringDate.replace('AM', 'PM');
     }
-    if (type === 'PM') {
-      hour = hour + 12;
-    }
-    if (onChange)
-      onChange(
-        currentDate
-          .hour(hour)
-          .minute(currentDate.minute())
-          .second(showSeconds ? currentDate.second() : 0)
-          .toDate()
-      );
+    if (onChange) onChange(dayjs(stringDate).toDate());
+  };
+
+  const getSelectedHour = () => {
+    const hr = currentDate.format('h');
+    return parseInt(hr);
   };
 
   return (
     <Flex className="time-picker" justify="center" align="center">
       <Select
         options={hours}
-        defaultValue={
-          use24Hour
-            ? currentDate.hour()
-            : currentDate.format('A') === 'PM'
-            ? currentDate.hour() - 12
-            : currentDate.hour()
-        }
+        defaultValue={use24Hour ? currentDate.hour() : getSelectedHour()}
         label="Hour"
         onChange={(i: SelectOption) => changed('hour', i.value as number)}
       />

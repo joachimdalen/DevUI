@@ -2,6 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import * as React from 'react';
 
 import { Button } from '../Button/Button';
+import { DatePickerInput } from '../DatePicker/DatePickerInput';
 import { Flex } from '../Flex/Flex';
 import { Select } from '../Select/Select';
 import { TagInput } from '../TagInput/TagInput';
@@ -102,14 +103,12 @@ export const WithError: Story<FormGroupProps> = args => (
     >
       <TagInput />
     </FormGroup>
+    <FormGroup
+      label="Date"
+      error={{ message: 'Date is a required field' }}
+      errorAccessor={error => error.message}
+    >
+      <DatePickerInput onChange={() => console.log()} />
+    </FormGroup>
   </Flex>
 );
-export const WithNotice: Story<FormGroupProps> = args => (
-  <FormGroup {...args}>
-    <TextInput value="johndoe" fillWidth />
-  </FormGroup>
-);
-
-WithNotice.args = {
-  notice: 'This username is what you will be recognized as by other users throughout the app'
-};

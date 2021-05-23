@@ -1,7 +1,20 @@
-@mixin badge-variant($parent, $color) {
+@mixin badge-light-variant($parent, $color) {
   &#{$parent} {
     color: $color;
     background-color: rgba($color, 0.25);
+  }
+}
+@mixin badge-solid-variant($parent, $color) {
+  &#{$parent} {
+    color: colorFromBackground($color);
+    background-color: $color;
+    border: $badge-border-width solid $color;
+  }
+}
+@mixin badge-outline-variant($parent, $color) {
+  &#{$parent} {
+    color: $color;
+    background-color: transparent;
     border: $badge-border-width solid $color;
   }
 }
