@@ -65,13 +65,16 @@ export const TimePicker = ({
     }
   };
   const changedA = (type: string) => {
-    let stringDate = currentDate.format('YYYY-MM-DD h:m:s A Z');
-    if (type === 'AM') {
-      stringDate = stringDate.replace('PM', 'AM');
-    } else {
-      stringDate = stringDate.replace('AM', 'PM');
+    let hour = currentDate.hour();
+
+    if (type === 'AM' && hour === 12) {
+      hour = 0;
+    } else if (type === 'AM') {
+      hour = hour - 12;
+    } else if (type === 'PM') {
+      hour = (hour % 12) + 12;
     }
-    if (onChange) onChange(dayjs(stringDate).toDate());
+    if (onChange) onChange(currentDate.hour(hour).toDate());
   };
 
   const getSelectedHour = () => {
