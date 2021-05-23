@@ -43,22 +43,24 @@
     flex-direction: row;
     align-items: center;
   }
-  &-notice {
-    padding: 5px;
-    margin: 5px 0;
-    font-size: $form-group-notice-font-size;
-    color: $form-group-notice-color;
-    background-color: $form-group-notice-background;
-  }
   &-error {
     .#{$provider-prefix}-form-group-extra {
       color: $color-danger;
     }
+    .#{$provider-prefix}-datepicker-input {
+      border: $form-group-error-border;
+    }
+
     .#{$provider-prefix}-select,
     .#{$provider-prefix}-input,
     .#{$provider-prefix}-textarea,
     .#{$provider-prefix}-tag-input {
       border: $form-group-error-border;
+    }
+    .dui-datepicker {
+      .#{$provider-prefix}-select {
+        border-color: transparent;
+      }
     }
   }
   .#{$provider-prefix}-select,

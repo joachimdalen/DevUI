@@ -10,7 +10,6 @@ export interface FormGroupProps {
   requiredText?: string;
   extra?: string;
   extraType?: FormGroupExtraType;
-  notice?: string;
   className?: string;
   maxLength?: number;
   currentLength?: number;
@@ -44,8 +43,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
       currentLength,
       maxLength,
       error,
-      errorAccessor,
-      notice
+      errorAccessor
     } = this.props;
     const labelComponent = React.isValidElement(label) ? (
       label
@@ -79,7 +77,7 @@ export class FormGroup extends React.Component<FormGroupProps> {
         {extra}
       </small>
     );
-    const noticeComp = notice && <div className={cx('dui-form-group-notice')}>{notice}</div>;
+
     const lengthComp = maxLength && currentLength && (
       <div
         className={cx('dui-form-group-counter', {
@@ -98,7 +96,6 @@ export class FormGroup extends React.Component<FormGroupProps> {
           <div>
             {extraComp}
             {errorComp}
-            {noticeComp}
           </div>
           {lengthComp}
         </div>
@@ -108,7 +105,6 @@ export class FormGroup extends React.Component<FormGroupProps> {
         <div>
           {extraComp}
           {errorComp}
-          {noticeComp}
         </div>
       );
     }
