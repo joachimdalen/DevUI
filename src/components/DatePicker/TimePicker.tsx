@@ -67,6 +67,11 @@ export const TimePicker = ({
   const changedA = (type: string) => {
     let hour = currentDate.hour();
 
+    if (type === currentDate.format('A')) {
+      if (onChange) onChange(currentDate.toDate());
+      return;
+    }
+
     if (type === 'AM' && hour === 12) {
       hour = 0;
     } else if (type === 'AM') {
