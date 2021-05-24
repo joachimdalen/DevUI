@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.0.0-rc11
+
+### ➕ Added
+
+**Alert:**
+
+- Added `note` style
+
+### 🐞 Fixed
+
+**Badge:**
+
+- Fixed text alignment
+
+**TimePicker:**
+
+- Fixed error when changing period
+
 ## 2.0.0-rc10
 
 ### ➕ Added
