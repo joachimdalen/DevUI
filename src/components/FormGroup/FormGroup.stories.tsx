@@ -54,11 +54,6 @@ InlineControls.args = {
   inlineLabel: true
 };
 
-export const Extra: Story<FormGroupProps> = args => (
-  <FormGroup {...args}>
-    <TextInput value="johndoe" fillWidth />
-  </FormGroup>
-);
 export const WithCounter: Story<FormGroupProps> = args => (
   <FormGroup {...args}>
     <TextInput value="johndoe" fillWidth />
