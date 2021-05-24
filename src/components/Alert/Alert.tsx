@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { FontAwesomeIcon } from '../FontAwesomeIcon/FontAwesomeIcon';
 
-export type AlertVariant = 'info' | 'success' | 'warning' | 'danger';
+export type AlertVariant = 'info' | 'success' | 'warning' | 'danger' | 'note';
 export interface AlertProps {
   className?: string;
   variant?: AlertVariant;
@@ -28,6 +28,8 @@ export class Alert extends React.Component<AlertProps> {
         return 'fa-exclamation-circle';
       case 'danger':
         return 'fa-times-circle';
+      case 'note':
+        return 'fa-clipboard';
       default:
         return '';
     }
