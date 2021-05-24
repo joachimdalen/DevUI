@@ -1,6 +1,6 @@
 {
   "name": "@joachimdalen/devui",
-  "version": "2.0.0-rc10",
+  "version": "2.0.0-rc11",
   "description": "",
   "main": "build/main.js",
   "types": "build/index.d.ts",

@@ -425,6 +425,9 @@ $alert-warning-color: lighten($color-warning, 10%) !default;
 $alert-danger-border-color: lighten($color-danger, 10%) !default;
 $alert-danger-background: lighten($color-danger, 30%) !default;
 $alert-danger-color: lighten($color-danger, 10%) !default;
+$alert-note-border-color: lighten($color-purple, 10%) !default;
+$alert-note-background: lighten($color-purple, 30%) !default;
+$alert-note-color: lighten($color-purple, 10%) !default;
 
 $header-height: 44px !default;
 $header-background: $color-dark !default;

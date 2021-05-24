@@ -6,9 +6,12 @@ import { DatePickerInput, DatePickerInputProps } from './DatePickerInput';
 export default {
   title: 'Display Components/DateTime/DatePickerInput',
   component: DatePickerInput,
+  argTypes: {
+    date: { control: { type: 'date' } },
+    onChange: { action: 'changed' }
+  },
   args: {
-    placeholder: 'Select a date',
-    onChange: i => console.log(i)
+    placeholder: 'Select a date'
   }
 } as Meta;
 

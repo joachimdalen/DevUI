@@ -55,4 +55,9 @@
     background-color: $alert-danger-background;
     border-color: $alert-danger-border-color;
   }
+  &.#{$provider-prefix}-alert-note {
+    color: $alert-note-color;
+    background-color: $alert-note-background;
+    border-color: $alert-note-border-color;
+  }
 }
