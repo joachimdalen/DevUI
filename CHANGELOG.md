@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-rc12
+
+### ➕ Added
+
+**TextInput:**
+
+- Added `type` prop
+
 ## 2.0.0-rc11
 
 ### ➕ Added
