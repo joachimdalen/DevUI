@@ -22,6 +22,6 @@ steps:
   displayName: 'Publish to NPM'
   inputs:
     command: 'publish'
-    workingDir: 'package.json'
+    workingDir: '$(Build.SourcesDirectory)'
     publishEndpoint: 'NPMJS'
 
