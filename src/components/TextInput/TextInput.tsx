@@ -22,6 +22,7 @@ export interface TextInputProps {
   icon?: string | any;
   iconPlacement?: TextInputIconPlacement;
   readOnly?: boolean;
+  type?: string;
 }
 export type TextInputIconPlacement = 'start' | 'end';
 type AllProps = TextInputProps & React.HTMLAttributes<HTMLInputElement>;
@@ -45,11 +46,11 @@ export class TextInput extends React.Component<AllProps> {
       icon,
       className = '',
       wrapperClassName = '',
+      type,
       ...rest
     } = this.props;
     const inputRef: React.RefObject<HTMLInputElement> = React.createRef<HTMLInputElement>();
     const autoCompleteValue = autoComplete ? 'on' : 'off';
-    const typeValue = password ? 'password' : 'text';
 
     const wrapperClass = cx(
       'dui-input-wrapper',
@@ -61,7 +62,7 @@ export class TextInput extends React.Component<AllProps> {
     const inputComponentClass = cx('dui-input', { 'dui-input-disabled': disabled }, className);
     const inputComponent = (
       <input
-        type={typeValue}
+        type={password ? 'password' : type || 'text'}
         className={inputComponentClass}
         autoComplete={autoCompleteValue}
         autoFocus={autoFocus}
